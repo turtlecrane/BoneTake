@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 플레이어의 속성정보를 관리하는 스크립트
@@ -18,6 +19,8 @@ public class CharacterController2D : MonoBehaviour
     public Vector3 velocity = Vector3.zero;
     public float limitFallSpeed = 25f;  //낙하 속도 제한
     public bool canDoubleJump = true;   //플레이어가 더블점프를 할수있는지
+    public float prevVelocityX = 0f;
+    public LayerMask groundLayer;       //바닥을 나타내는 레이어
     
     [Header("이동 관련")]
     public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
@@ -26,10 +29,24 @@ public class CharacterController2D : MonoBehaviour
     public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     public bool canMove = true;         //플레이어가 움직일수 있는지
 
+    [Header("Events")]
+    public Animator animator;
+    public UnityEvent OnFallEvent;
+    public UnityEvent OnLandEvent;
+
+    [System.Serializable]
+    public class BoolEvent : UnityEvent<bool> { }
 
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        //animator = GetComponent<Animator>(); //TODO 애니메이터 연결해야함
+
+        if (OnFallEvent == null)
+            OnFallEvent = new UnityEvent();
+
+        if (OnLandEvent == null)
+            OnLandEvent = new UnityEvent();
     }
 
     private void FixedUpdate()
@@ -37,15 +54,24 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         
-        //접지중임을 판단하는 로직
-        
-        
-        if (!m_Grounded)//플레이어가 접지중이 아니라면
+        //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(1f, 0.5f), 0f, groundLayer);
+        for (int i = 0; i < colliders.Length; i++)
         {
-            //떨어지는 처리
+            if (colliders[i].gameObject != gameObject)
+                m_Grounded = true;
+            if (!wasGrounded )
+            {
+                OnLandEvent.Invoke();
+                /*if (!m_IsWall && !isDashing) 
+                    particleJumpDown.Play();*/ //착지 파티클 재생
+                canDoubleJump = true;
+                /*if (m_Rigidbody2D.velocity.y < 0f)
+                    limitVelOnWallJump = false;*/ // TODO 벽타기 관련
+            }
         }
     }
-    
+
     /// <summary>
     /// 플레이어 움직임을 관리하는 로직
     /// </summary>
@@ -61,7 +87,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 StartCoroutine(DashCooldown());
             }
-            
+            //대쉬
             if (isDashing)
             {
                 m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
@@ -107,7 +133,7 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     IEnumerator DashCooldown()
     {
-        /*animator.SetBool("IsDashing", true);*/
+        animator.SetBool("IsDashing", true);
         isDashing = true;
         canDash = false;
         yield return new WaitForSeconds(0.1f);
@@ -126,5 +152,11 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(1f, 0.5f));
     }
 }
