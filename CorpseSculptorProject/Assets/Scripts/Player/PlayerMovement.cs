@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-    //public Animator animator;
+    public Animator animator;
 
     public float runSpeed = 40f;
 
@@ -14,24 +14,15 @@ public class PlayerMovement : MonoBehaviour
     bool dash = false;
     
     void Update () {
-
+        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        
+        //이동 속도에 따른 뛰는(Player_Running)애니메이션 조절
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); 
 
-        //animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //이동 속도에 따른 애니메이션 속도 조절
-
-        /*if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
         {
             jump = true;
-        }*/
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            jump = true;
-            Debug.Log($"{GetType().Name} >> Space 키가 눌렸습니다. \n-----------------------");
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            jump = true;
-            Debug.Log($"{GetType().Name} >> W 키가 눌렸습니다. \n-----------------------");
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
