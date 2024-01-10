@@ -19,7 +19,6 @@ public class CharacterController2D : MonoBehaviour
     public Vector3 velocity = Vector3.zero;
     public float limitFallSpeed = 25f;  //낙하 속도 제한
     public bool canDoubleJump = true;   //플레이어가 더블점프를 할수있는지
-    public float prevVelocityX = 0f;
     public LayerMask groundLayer;       //바닥을 나타내는 레이어
     
     [Header("이동 관련")]
@@ -28,6 +27,17 @@ public class CharacterController2D : MonoBehaviour
     public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     public bool canMove = true;         //플레이어가 움직일수 있는지
+
+    [Header("벽타기 관련")] 
+    public LayerMask wallLayer;
+    /*
+    public bool m_IsWall = false; //플레이어 앞에 벽이 있는 경우
+    public bool isWallSliding = false; //플레이어가 벽에서 미끄러지는 경우
+    public bool oldWallSlidding = false; //플레이어가 이전 프레임에서 벽에서 미끄러지는 경우
+    public float prevVelocityX = 0f;
+    public bool canCheck = false; //플레이어가 벽을 타고 있는지
+    */
+    
 
     [Header("Events")]
     public Animator animator;
@@ -70,7 +80,37 @@ public class CharacterController2D : MonoBehaviour
                     limitVelOnWallJump = false;*/ // TODO 벽타기 관련
             }
         }
+
+        //벽타기 관련
+        /*m_IsWall = false;*/
+        
+        if (!m_Grounded)//플레이어가 접지중이 아니라면
+        {
+            OnFallEvent.Invoke();//떨어지는 이벤트 호출
+            
+            #region 벽타기 관련
+            
+            Vector2 boxPosition;
+            if (m_FacingRight)
+            {
+                boxPosition = new Vector2(transform.position.x + 1f, transform.position.y);
+            }
+            else
+            {
+                boxPosition = new Vector2(transform.position.x - 1f, transform.position.y);
+            }
+            Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.5f, 2f), 0f, wallLayer);
+            //LogColliderNames(collidersWall);
+            #endregion
+            
+            #region 착지 관련
+            Collider2D[] landingColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y - 2.5f), new Vector2(0.05f, 3f), 0f, groundLayer);
+            //LogColliderNames(landingColliders);
+            #endregion
+        }
     }
+    
+    
 
     /// <summary>
     /// 플레이어 움직임을 관리하는 로직
@@ -118,8 +158,7 @@ public class CharacterController2D : MonoBehaviour
             if (m_Grounded && jump)
             {
                 //점프 애니메이션으로 전환
-                /*animator.SetBool("IsJumping", true);
-                animator.SetBool("JumpUp", true);*/
+                animator.SetBool("IsJumping", true);
                 //지면에 있지 않음으로 상태 변경
                 m_Grounded = false;
                 //플레이어에게 수직으로 힘추가
@@ -154,9 +193,41 @@ public class CharacterController2D : MonoBehaviour
         transform.localScale = theScale;
     }
     
+    //충돌을 감지하는 기즈모를 *에디터상에만* 표시시키기 
     private void OnDrawGizmosSelected()
     {
+        //착지검사
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(1f, 0.5f));
+        
+        //플레이어가 바라보는 방향의 박스
+        Gizmos.color = Color.blue;
+        if (m_FacingRight)//오른쪽을 보고있는 경우
+        {
+            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.5f, 2f));
+        }
+        else
+        {
+            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.5f, 2f));
+        }
+        
+        //플레이어 착지 준비 검사 (Landing)
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - 2.5f), new Vector2(0.05f, 3f));
+    }
+    
+    /// <summary>
+    /// 레이케스트 디버그용 로그찍는 함수
+    /// </summary>
+    /// <param name="colliders">레이케스트로 감지하는 콜라이더들</param>
+    private void LogColliderNames(Collider2D[] colliders)
+    {
+        foreach (var collider in colliders)
+        {
+            if (collider != null && collider.gameObject != null)
+            {
+                Debug.Log(collider.gameObject.name);
+            }
+        }
     }
 }

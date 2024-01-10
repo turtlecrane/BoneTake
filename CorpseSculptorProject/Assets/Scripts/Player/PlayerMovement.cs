@@ -41,8 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnFall()
     {
-        Debug.Log($"{GetType().Name} >> OnFall()\n애니메이션 >> IsJumping - true\n-----------------------");
-        //animator.SetBool("IsJumping", true);
+        //Debug.Log($"공중에 있음");
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("IsLanding", false);
     }
 
     /// <summary>
@@ -50,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnLanding()
     {
-        Debug.Log($"{GetType().Name} >> OnFall()\n애니메이션 >> IsJumping - fasle\n-----------------------");
-        //animator.SetBool("IsJumping", false);
+        Debug.Log($"방금 착지함");
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsLanding", true);
     }
 }
