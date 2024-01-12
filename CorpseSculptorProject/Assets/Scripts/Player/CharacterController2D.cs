@@ -87,7 +87,6 @@ public class CharacterController2D : MonoBehaviour
         if (!m_Grounded)//플레이어가 접지중이 아니라면
         {
             OnFallEvent.Invoke();//떨어지는 이벤트 호출
-            
             #region 벽타기 관련
             
             Vector2 boxPosition;
@@ -101,11 +100,6 @@ public class CharacterController2D : MonoBehaviour
             }
             Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.5f, 2f), 0f, wallLayer);
             //LogColliderNames(collidersWall);
-            #endregion
-            
-            #region 착지 관련
-            Collider2D[] landingColliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y - 2.5f), new Vector2(0.05f, 3f), 0f, groundLayer);
-            //LogColliderNames(landingColliders);
             #endregion
         }
     }
@@ -210,10 +204,6 @@ public class CharacterController2D : MonoBehaviour
         {
             Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.5f, 2f));
         }
-        
-        //플레이어 착지 준비 검사 (Landing)
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - 2.5f), new Vector2(0.05f, 3f));
     }
     
     /// <summary>
