@@ -20,9 +20,22 @@ public class PlayerMovement : MonoBehaviour
         //이동 속도에 따른 뛰는(Player_Running)애니메이션 조절
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); 
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) //점프시작
         {
             jump = true;
+            controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime;
+            controller.m_Rigidbody2D.gravityScale = 0f;
+            if (controller.m_JumpForce > controller.m_limitJumpForce)
+            {
+                jump = false;
+                //controller.m_JumpForce = controller.m_originalJumpForce;
+                controller.m_Rigidbody2D.gravityScale = 5f;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W)) //점프끝
+        {
+            controller.m_JumpForce = controller.m_originalJumpForce;
+            controller.m_Rigidbody2D.gravityScale = 5f;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -51,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnLanding()
     {
-        Debug.Log($"방금 착지함");
+        //Debug.Log($"방금 착지함");
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsLanding", true);
     }

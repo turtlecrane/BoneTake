@@ -12,8 +12,12 @@ public class CharacterController2D : MonoBehaviour
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     
     [Header("점프 관련")]
-    public Rigidbody2D m_Rigidbody2D;   //플레이어 리지드바디
-    public float m_JumpForce = 400f;    //점프력(임시) -> TODO 누를수록 강도가 높아져야하는 메커니즘으로 변경해야함
+    public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
+    public float m_originalJumpForce = 200f; //초기 점프력
+    public float m_JumpForce;               //점프력 -> TODO 누를수록 강도가 높아져야하는 메커니즘으로 변경해야함
+    public float m_jumpForceIncrement = 100f; //누를수록 증가되는 점프력의 양
+    public float m_limitJumpForce;            //최대 점프력
+    
     public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있는가 -> TODO 결정해야함
     public bool m_Grounded;             //플레이어가 접지되었는지 여부.
     public Vector3 velocity = Vector3.zero;
