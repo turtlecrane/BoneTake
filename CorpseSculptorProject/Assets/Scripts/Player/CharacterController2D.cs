@@ -9,38 +9,34 @@ using UnityEngine.Events;
 /// </summary>
 public class CharacterController2D : MonoBehaviour
 {
-    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+    private float m_MovementSmoothing = .05f;
     
     [Header("점프 관련")]
+    public bool m_Grounded;             //플레이어가 접지되었는지 여부.
+    public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있는가 -> TODO 결정해야함
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public float m_originalJumpForce = 200f; //초기 점프력
-    public float m_JumpForce;               //점프력 -> TODO 누를수록 강도가 높아져야하는 메커니즘으로 변경해야함
+    public float m_JumpForce;               //점프력
     public float m_jumpForceIncrement = 100f; //누를수록 증가되는 점프력의 양
     public float m_limitJumpForce;            //최대 점프력
-    
-    public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있는가 -> TODO 결정해야함
-    public bool m_Grounded;             //플레이어가 접지되었는지 여부.
     public Vector3 velocity = Vector3.zero;
     public float limitFallSpeed = 25f;  //낙하 속도 제한
-    public bool canDoubleJump = true;   //플레이어가 더블점프를 할수있는지
     public LayerMask groundLayer;       //바닥을 나타내는 레이어
     
     [Header("이동 관련")]
     public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
-    public float m_DashForce = 25f;     //플레이어 대쉬의 크기
     public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     public bool canMove = true;         //플레이어가 움직일수 있는지
+    public float m_DashForce = 25f;     //플레이어 대쉬의 크기
 
     [Header("벽타기 관련")] 
+    public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
+    public bool isClimbing = false; //벽 메달리기 중인지
     public LayerMask wallLayer;
-    /*
-    public bool m_IsWall = false; //플레이어 앞에 벽이 있는 경우
-    public bool isWallSliding = false; //플레이어가 벽에서 미끄러지는 경우
-    public bool oldWallSlidding = false; //플레이어가 이전 프레임에서 벽에서 미끄러지는 경우
-    public float prevVelocityX = 0f;
-    public bool canCheck = false; //플레이어가 벽을 타고 있는지
-    */
+    public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
+    private float prevVelocityX = 0f;
+    
     
 
     [Header("Events")]
@@ -54,7 +50,6 @@ public class CharacterController2D : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>(); //TODO 애니메이터 연결해야함
 
         if (OnFallEvent == null)
             OnFallEvent = new UnityEvent();
@@ -79,57 +74,79 @@ public class CharacterController2D : MonoBehaviour
                 OnLandEvent.Invoke();
                 /*if (!m_IsWall && !isDashing) 
                     particleJumpDown.Play();*/ //착지 파티클 재생
-                canDoubleJump = true;
                 /*if (m_Rigidbody2D.velocity.y < 0f)
                     limitVelOnWallJump = false;*/ // TODO 벽타기 관련
             }
         }
-
-        //벽타기 관련
-        /*m_IsWall = false;*/
+        //기본적으로는 벽에 매달릴수 없는 상태임.
+        m_IsWall = false;
+        climbingDirect = 0;
         
         if (!m_Grounded)//플레이어가 접지중이 아니라면
         {
             OnFallEvent.Invoke();//떨어지는 이벤트 호출
             #region 벽타기 관련
-            
             Vector2 boxPosition;
             if (m_FacingRight)
             {
                 boxPosition = new Vector2(transform.position.x + 1f, transform.position.y);
+                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.2f, 2f), 0f, wallLayer);
+                CheckWallHangingIsPossible(collidersWall);
+                climbingDirect = 1;
             }
             else
             {
                 boxPosition = new Vector2(transform.position.x - 1f, transform.position.y);
+                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.2f, 2f), 0f, wallLayer);
+                CheckWallHangingIsPossible(collidersWall);
+                climbingDirect = -1;
             }
-            Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.5f, 2f), 0f, wallLayer);
-            //LogColliderNames(collidersWall);
             #endregion
         }
     }
-    
-    
 
     /// <summary>
-    /// 플레이어 움직임을 관리하는 로직
+    /// 인자로 들어온 collider의 layerMask가 wallLayer일때 벽타기 가능상태인지 확인하는 함수
     /// </summary>
-    /// <param name="move">플레이어의 움직임 속도</param>
-    /// <param name="jump">플레이어가 점프중인지</param>
-    /// <param name="dash">플레이어가 대쉬중인지</param>
+    /// <param name="_collidersWall">layerMask가 wall로 되어있는 Physics2D배열</param>
+    public void CheckWallHangingIsPossible(Collider2D[] _collidersWall)
+    {
+        for (int i = 0; i < _collidersWall.Length; i++)
+        {
+            if (_collidersWall[i].gameObject != null)
+            {
+                isDashing = false;//대쉬 불가능
+                m_IsWall = true;//벽타기 가능상태로 전환
+            }
+        }
+            
+        prevVelocityX = m_Rigidbody2D.velocity.x;
+    }
+    
+    /// <summary>
+    /// 플레이어 움직임을 관리하는 로직 <br/>
+    /// PlayerMovement.cs에서 호출됨
+    /// </summary>
+    /// <param name="move">플레이어의 움직임 <br/>(0 - 정지, -1 - 왼쪽, +1 - 오른쪽)</param>
+    /// <param name="jump">플레이어가 점프키를 눌렀는지</param>
+    /// <param name="dash">플레이어가 대쉬키를 눌렀는지</param>
     public void Move(float move, bool jump, bool dash)
     {
         //움직일수 있는지 판단
         if (canMove)
         {
-            if (dash && canDash)//&& !isWallSliding
+            //대쉬 조작 ----
+            if (dash && canDash)
             {
                 StartCoroutine(DashCooldown());
             }
-            //대쉬
+            
+            //대쉬 ----
             if (isDashing)
             {
                 m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
             }
+            
             //땅에 있거나 airControl이 켜져 있는 경우에 플레이어 제어
             else if (m_Grounded || m_AirControl)
             {
@@ -141,18 +158,20 @@ public class CharacterController2D : MonoBehaviour
                 m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
                 //입력이 플레이어를 오른쪽으로 움직이고 플레이어가 왼쪽을 바라보고 있는 경우
-                if (move > 0 && !m_FacingRight) // && !isWallSliding
+                if (move > 0 && !m_FacingRight)
                 {
                     Flip();
+                    m_Rigidbody2D.gravityScale = 5f; //중력 재개
                 }
                 //그렇지 않으면 입력이 플레이어를 왼쪽으로 움직이고 플레이어가 오른쪽을 향하고 있는 경우
-                else if (move < 0 && m_FacingRight) // && !isWallSliding
+                else if (move < 0 && m_FacingRight)
                 {
                     Flip();
+                    m_Rigidbody2D.gravityScale = 5f; //중력 재개
                 }
             }
             
-            //플레이어가 점프하는 경우
+            //점프 ----
             if (m_Grounded && jump)
             {
                 //점프 애니메이션으로 전환
@@ -162,7 +181,34 @@ public class CharacterController2D : MonoBehaviour
                 //플레이어에게 수직으로 힘추가
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
+
+            //벽타기 ----
+            if (!m_Grounded && m_IsWall)//점프하고 벽에 붙어있는 상태에서
+            {
+                if (climbingDirect > 0 && move>0)//오른쪽을 바라보고 방향키 오른쪽을 누르면
+                {
+                    ClimbingWall();
+                }
+                else if (climbingDirect < 0 && move<0)//왼쪽을 바라보고
+                {
+                    ClimbingWall();
+                }
+            }
+            else
+            {
+                isClimbing = false;
+            }
         }
+    }
+
+    /// <summary>
+    /// 벽으로 점프하고 벽쪽으로 방향키를 누르면 벽타기로 간주, <br/> *벽에 고정되어있게 함.
+    /// </summary>
+    public void ClimbingWall()
+    {
+        isClimbing = true;
+        m_Rigidbody2D.velocity = new Vector2(0f, 0f); // 속도 초기화
+        m_Rigidbody2D.gravityScale = 0f; // 중력 제거
     }
 
     /// <summary>
@@ -191,7 +237,7 @@ public class CharacterController2D : MonoBehaviour
         transform.localScale = theScale;
     }
     
-    //충돌을 감지하는 기즈모를 *에디터상에만* 표시시키기 
+    //충돌을 감지하는 기즈모들를 표시
     private void OnDrawGizmosSelected()
     {
         //착지검사
@@ -202,11 +248,11 @@ public class CharacterController2D : MonoBehaviour
         Gizmos.color = Color.blue;
         if (m_FacingRight)//오른쪽을 보고있는 경우
         {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.5f, 2f));
+            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.2f, 2f));
         }
         else
         {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.5f, 2f));
+            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.2f, 2f));
         }
     }
     

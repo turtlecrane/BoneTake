@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
             if (controller.m_JumpForce > controller.m_limitJumpForce)
             {
                 jump = false;
-                //controller.m_JumpForce = controller.m_originalJumpForce;
                 controller.m_Rigidbody2D.gravityScale = 5f;
             }
         }
@@ -54,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnFall()
     {
-        //Debug.Log($"공중에 있음");
         animator.SetBool("IsJumping", true);
         animator.SetBool("IsLanding", false);
     }
@@ -64,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnLanding()
     {
-        //Debug.Log($"방금 착지함");
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsLanding", true);
     }
