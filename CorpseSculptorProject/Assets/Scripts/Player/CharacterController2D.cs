@@ -125,13 +125,15 @@ public class CharacterController2D : MonoBehaviour
     
     /// <summary>
     /// 플레이어 움직임을 관리하는 로직 <br/>
-    /// PlayerMovement.cs에서 호출됨
+    /// PlayerMovement.cs에서 Update호출됨
     /// </summary>
     /// <param name="move">플레이어의 움직임 <br/>(0 - 정지, -1 - 왼쪽, +1 - 오른쪽)</param>
     /// <param name="jump">플레이어가 점프키를 눌렀는지</param>
     /// <param name="dash">플레이어가 대쉬키를 눌렀는지</param>
-    public void Move(float move, bool jump, bool dash)
+    /// <param name="walljump">플레이어가 벽타기 중에 점프키를 눌렀는지</param>
+    public void Move(float move, bool jump, bool dash, bool walljump)
     {
+        Debug.Log("move : " + move + ", jump : " + jump + ", dash : " + dash + ", walljump : " + walljump);
         //움직일수 있는지 판단
         if (canMove)
         {
@@ -147,6 +149,7 @@ public class CharacterController2D : MonoBehaviour
                 m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
             }
             
+            //이동 ----
             //땅에 있거나 airControl이 켜져 있는 경우에 플레이어 제어
             else if (m_Grounded || m_AirControl)
             {
@@ -174,12 +177,11 @@ public class CharacterController2D : MonoBehaviour
             //점프 ----
             if (m_Grounded && jump)
             {
-                //점프 애니메이션으로 전환
-                animator.SetBool("IsJumping", true);
-                //지면에 있지 않음으로 상태 변경
-                m_Grounded = false;
-                //플레이어에게 수직으로 힘추가
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                Player_Jump();
+            }
+            if (walljump) //벽메달리기 중 점프
+            {
+                Player_WallJump();
             }
 
             //벽타기 ----
@@ -199,6 +201,38 @@ public class CharacterController2D : MonoBehaviour
                 isClimbing = false;
             }
         }
+    }
+
+    /// <summary>
+    /// 플레이어의 점프하기
+    /// </summary>
+    public void Player_Jump()
+    {
+        //점프 애니메이션으로 전환
+        animator.SetBool("IsJumping", true);
+        
+        //지면에 있지 않음으로 상태 변경
+        m_Grounded = false;
+        
+        //플레이어에게 수직으로 힘추가
+        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+    }
+    
+    /// <summary>
+    /// 플레이어의 벽에서 점프하기
+    /// </summary>
+    public void Player_WallJump()
+    {
+        Debug.Log("벽타기점프");
+        
+        //점프 애니메이션으로 전환
+        animator.SetBool("IsJumping", true);
+        
+        m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+        m_Rigidbody2D.AddForce(new Vector2((-1*transform.localScale.x) * 2000, 900f));
+        
+        //뒤집기
+        Flip();
     }
 
     /// <summary>

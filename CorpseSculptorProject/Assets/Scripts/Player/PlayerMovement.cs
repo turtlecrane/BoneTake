@@ -9,32 +9,47 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 40f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
-    bool dash = false;
+    private float horizontalMove = 0f;
+    private bool jump = false;
+    private bool dash = false;
+    private bool walljump = false;
     
     void Update () {
         
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         
         //이동 속도에 따른 뛰는(Player_Running)애니메이션 조절
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); 
-
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) //점프시작
+        {
+            if (controller.isClimbing)
+            {
+                walljump = true;
+                controller.m_JumpForce = controller.m_originalJumpForce;
+            }
+            controller.m_Rigidbody2D.gravityScale = 5f;
+        }
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) //점프시작
         {
-            jump = true;
             controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime;
-            controller.m_Rigidbody2D.gravityScale = 0f;
-            if (controller.m_JumpForce > controller.m_limitJumpForce)
+            if (controller.m_Grounded)
+            {
+                jump = true;
+                controller.m_Rigidbody2D.gravityScale = 0f;
+            }
+            if ((controller.m_JumpForce > controller.m_limitJumpForce) && !controller.isClimbing)
             {
                 jump = false;
                 controller.m_Rigidbody2D.gravityScale = 5f;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W)) //점프끝
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))) //점프끝
         {
-            controller.m_JumpForce = controller.m_originalJumpForce;
-            controller.m_Rigidbody2D.gravityScale = 5f;
+            if (!controller.isClimbing)
+            {
+                controller.m_JumpForce = controller.m_originalJumpForce;
+                controller.m_Rigidbody2D.gravityScale = 5f;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -46,9 +61,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate ()
     {
         //움직이기
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, walljump);
         jump = false;
         dash = false;
+        walljump = false;
     }
 
     public void OnFall()

@@ -1137,30 +1137,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fe9d1c1e8bceb46bad347ee163cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementSmoothing: 0.05
+  m_Grounded: 0
+  m_AirControl: 1
   m_Rigidbody2D: {fileID: 1924651500}
   m_originalJumpForce: 200
   m_JumpForce: 200
   m_jumpForceIncrement: 1000
   m_limitJumpForce: 500
-  m_AirControl: 1
-  m_Grounded: 0
   velocity: {x: 0, y: 0, z: 0}
   limitFallSpeed: 25
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   m_FacingRight: 1
-  m_DashForce: 20
   canDash: 1
   isDashing: 0
   canMove: 1
+  m_DashForce: 20
+  m_IsWall: 0
+  isClimbing: 0
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
-  m_IsWall: 0
-  isClimbing: 0
-  prevVelocityX: 0
+  climbingDirect: 0
   animator: {fileID: 1924651506}
   OnFallEvent:
     m_PersistentCalls:
