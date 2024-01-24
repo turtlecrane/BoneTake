@@ -10,8 +10,9 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
     private float m_MovementSmoothing = .05f;
-    
-    [Header("플레이어 컴포넌트")]
+
+    [Header("플레이어 컴포넌트")] 
+    public PlayerMovement playerMovement;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     
@@ -30,20 +31,20 @@ public class CharacterController2D : MonoBehaviour
     
     [Header("이동 관련")]
     public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
-    private bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
+    public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     private bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     private bool canMove = true;         //플레이어가 움직일수 있는지
     public float m_DashForce = 25f;     //플레이어 대쉬의 크기
 
-    [Header("벽타기 관련")] 
-    private bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
+    [Header("벽타기 관련")]
     public bool isClimbing = false; //벽 메달리기 중인지
     public LayerMask wallLayer;
+    public float climbingCount;
+    public float limitClimbingCount;
     private int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     private float prevVelocityX = 0f;
+    public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     
-    
-
     [Header("Events")]
     public UnityEvent OnFallEvent;
     public UnityEvent OnLandEvent;
@@ -62,6 +63,18 @@ public class CharacterController2D : MonoBehaviour
             OnLandEvent = new UnityEvent();
     }
 
+    private void Update()
+    {
+        if (isClimbing)
+        {
+            climbingCount += Time.deltaTime; // 초단위로 카운팅
+            if (climbingCount >= limitClimbingCount)
+            {
+                InitClimbing(); // 클라이밍 종료
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
@@ -73,13 +86,12 @@ public class CharacterController2D : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
                 m_Grounded = true;
-            if (!wasGrounded )
+            if (!wasGrounded)
             {
                 OnLandEvent.Invoke();
                 /*if (!m_IsWall && !isDashing) 
-                    particleJumpDown.Play();*/ //착지 파티클 재생
-                /*if (m_Rigidbody2D.velocity.y < 0f)
-                    limitVelOnWallJump = false;*/ // TODO 벽타기 관련
+                    particleJumpDown.Play();
+                */ //착지 파티클 재생
             }
         }
         //기본적으로는 벽에 매달릴수 없는 상태임.
@@ -108,24 +120,6 @@ public class CharacterController2D : MonoBehaviour
             #endregion
         }
     }
-
-    /// <summary>
-    /// 인자로 들어온 collider의 layerMask가 wallLayer일때 벽타기 가능상태인지 확인하는 함수
-    /// </summary>
-    /// <param name="_collidersWall">layerMask가 wall로 되어있는 Physics2D배열</param>
-    public void CheckWallHangingIsPossible(Collider2D[] _collidersWall)
-    {
-        for (int i = 0; i < _collidersWall.Length; i++)
-        {
-            if (_collidersWall[i].gameObject != null)
-            {
-                isDashing = false;//대쉬 불가능
-                m_IsWall = true;//벽타기 가능상태로 전환
-            }
-        }
-            
-        prevVelocityX = m_Rigidbody2D.velocity.x;
-    }
     
     /// <summary>
     /// 플레이어 움직임을 관리하는 로직 <br/>
@@ -137,7 +131,7 @@ public class CharacterController2D : MonoBehaviour
     /// <param name="walljump">플레이어가 벽타기 중에 점프키를 눌렀는지</param>
     public void Move(float move, bool jump, bool dash, bool walljump)
     {
-        Debug.Log("move : " + move + ", jump : " + jump + ", dash : " + dash + ", walljump : " + walljump);
+//        Debug.Log("move : " + move + ", jump : " + jump + ", dash : " + dash + ", walljump : " + walljump);
         //움직일수 있는지 판단
         if (canMove)
         {
@@ -195,7 +189,7 @@ public class CharacterController2D : MonoBehaviour
                 {
                     ClimbingWall();
                 }
-                else if (climbingDirect < 0 && move<0)//왼쪽을 바라보고
+                else if (climbingDirect < 0 && move<0)//왼쪽을 바라보고 방향키 왼쪽을 누르면
                 {
                     ClimbingWall();
                 }
@@ -227,11 +221,8 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_WallJump()
     {
-        Debug.Log("벽타기점프");
-        
         //점프 애니메이션으로 전환
         animator.SetBool("IsJumping", true);
-        
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
         m_Rigidbody2D.AddForce(new Vector2((-1*transform.localScale.x) * wallJumpHorizontalForce, wallJumpVerticalForce));
         
@@ -246,7 +237,36 @@ public class CharacterController2D : MonoBehaviour
     {
         isClimbing = true;
         m_Rigidbody2D.velocity = new Vector2(0f, 0f); // 속도 초기화
-        m_Rigidbody2D.gravityScale = 0f; // 중력 제거
+        m_Rigidbody2D.gravityScale = 0.0001f; // 중력 제거 <---- TODO 문제점임. 벽에서 점프할때 이 중력이 5로 빠르게 안변함. 그래서 간헐적으로 슈퍼점프가 됨.
+    }
+    
+    /// <summary>
+    /// 벽타기가 초기화 처리하는 함수<br/>(벽타기 카운트 초기화, 중력복구 등)
+    /// </summary>
+    public void InitClimbing()
+    {
+        isClimbing = false;
+        m_JumpForce = m_originalJumpForce;
+        climbingCount = 0f;
+        m_Rigidbody2D.gravityScale = 5f; // 중력 복구
+    }
+    
+    /// <summary>
+    /// 인자로 들어온 collider의 layerMask가 wallLayer일때 벽타기 가능상태인지 확인하는 함수
+    /// </summary>
+    /// <param name="_collidersWall">layerMask가 wall로 되어있는 Physics2D배열</param>
+    public void CheckWallHangingIsPossible(Collider2D[] _collidersWall)
+    {
+        for (int i = 0; i < _collidersWall.Length; i++)
+        {
+            if (_collidersWall[i].gameObject != null)
+            {
+                isDashing = false;//대쉬 불가능
+                m_IsWall = true;//벽타기 가능상태로 전환
+            }
+        }
+            
+        prevVelocityX = m_Rigidbody2D.velocity.x;
     }
 
     /// <summary>

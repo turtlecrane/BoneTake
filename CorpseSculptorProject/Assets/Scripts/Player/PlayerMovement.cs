@@ -22,17 +22,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) //점프시작
         {
+            controller.m_Rigidbody2D.gravityScale = 5f;
             if (controller.isClimbing)
             {
-                walljump = true;
                 controller.m_JumpForce = controller.m_originalJumpForce;
+                walljump = true;
             }
-            controller.m_Rigidbody2D.gravityScale = 5f;
         }
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) //점프시작
         {
             controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime;
-            if (controller.m_Grounded)
+            if (controller.m_Grounded && !controller.isClimbing)
             {
                 jump = true;
                 controller.m_Rigidbody2D.gravityScale = 0f;
