@@ -106,14 +106,14 @@ public class CharacterController2D : MonoBehaviour
             if (m_FacingRight)
             {
                 boxPosition = new Vector2(transform.position.x + 1f, transform.position.y);
-                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.2f, 2f), 0f, wallLayer);
+                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.01f, 2f), 0f, wallLayer);
                 CheckWallHangingIsPossible(collidersWall);
                 climbingDirect = 1;
             }
             else
             {
                 boxPosition = new Vector2(transform.position.x - 1f, transform.position.y);
-                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.2f, 2f), 0f, wallLayer);
+                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.01f, 2f), 0f, wallLayer);
                 CheckWallHangingIsPossible(collidersWall);
                 climbingDirect = -1;
             }
@@ -221,6 +221,7 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_WallJump()
     {
+        m_Rigidbody2D.gravityScale = 5f;
         //점프 애니메이션으로 전환
         animator.SetBool("IsJumping", true);
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
@@ -306,11 +307,11 @@ public class CharacterController2D : MonoBehaviour
         Gizmos.color = Color.blue;
         if (m_FacingRight)//오른쪽을 보고있는 경우
         {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.2f, 2f));
+            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.01f, 2f));
         }
         else
         {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.2f, 2f));
+            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.01f, 2f));
         }
     }
     

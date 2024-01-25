@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
                 jump = true;
                 controller.m_Rigidbody2D.gravityScale = 0f;
             }
+            else if (!controller.m_Grounded && controller.isClimbing)
+            {
+                controller.m_Rigidbody2D.gravityScale = 5f;
+            }
             if ((controller.m_JumpForce > controller.m_limitJumpForce) && !controller.isClimbing)
             {
                 jump = false;
