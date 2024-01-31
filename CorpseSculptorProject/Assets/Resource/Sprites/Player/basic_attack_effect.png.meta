@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 071aeb7927597d74194bdb65b76ce312
+guid: a560912079ecdd34dbf51ca80e08cb46
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -101,122 +101,89 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash_0
+      name: basic_attack_effect_0
       rect:
         serializedVersion: 2
-        x: 1012
+        x: 1
         y: 0
-        width: 198
-        height: 186
-      alignment: 9
-      pivot: {x: 0.45843506, y: 0.5}
+        width: 188
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eac6c4b8db52b74f8ba9e04ef85fc3c
-      internalID: 1086690709
+      spriteID: 87163913a1ba5494288d0a113e155387
+      internalID: -811018405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_1
+      name: basic_attack_effect_1
       rect:
         serializedVersion: 2
-        x: 804
+        x: 199
         y: 0
-        width: 207
-        height: 186
-      alignment: 9
-      pivot: {x: 0.47831365, y: 0.5}
+        width: 351
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46d42579922d8e4bb65f406926e96ed
-      internalID: 54517851
+      spriteID: 62eb1497ab76e844fa9c32c36498a289
+      internalID: 281016617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_3
+      name: basic_attack_effect_2
       rect:
         serializedVersion: 2
-        x: 298
+        x: 560
         y: 0
-        width: 291
-        height: 186
-      alignment: 9
-      pivot: {x: 0.26089707, y: 0.5}
+        width: 265
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2fa00e7f2cf034c8ded52683196a90
-      internalID: -689092594
+      spriteID: 9b2a5986f9826bf42adefe288b9ac3d0
+      internalID: -1625426200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_4
+      name: basic_attack_effect_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 835
         y: 0
-        width: 298
-        height: 186
-      alignment: 9
-      pivot: {x: 0.2439182, y: 0.5}
+        width: 486
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac040a38c063bd46a6eb3176e3e3f0c
-      internalID: -1083841295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dash_2
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 0
-        width: 214
-        height: 186
-      alignment: 9
-      pivot: {x: 0.4790233, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83df4010f12601643bcb6d19997dcce6
-      internalID: 1947090065
+      spriteID: 1e5a2325a2792274b93c77cf290a9dbf
+      internalID: -916770414
       vertices: []
       indices: 
       edges: []
@@ -224,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ba8bad185636a904db5037a9b89fb801
+    spriteID: b101d7341cbc9224698775dc9c032810
     internalID: 0
     vertices: []
     indices: 
@@ -232,11 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash_3: -689092594
-      Dash_0: 1086690709
-      Dash_4: -1083841295
-      Dash_1: 54517851
-      Dash_2: 1947090065
+      basic_attack_effect_3: -916770414
+      basic_attack_effect_1: 281016617
+      basic_attack_effect_0: -811018405
+      basic_attack_effect_2: -1625426200
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
