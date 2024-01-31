@@ -15,12 +15,42 @@ public class PlayerMovement : MonoBehaviour
     private bool walljump = false;
     
     void Update () {
-        
+        if (controller.canMove)
+        {
+            Player_Running();
+            Player_JumpingClimbing(KeyCode.Space, KeyCode.W);
+            Player_Dash(KeyCode.LeftShift);
+        }
+    }
+    
+    void FixedUpdate ()
+    {
+        //움직이기
+        if (controller.canMove)
+        {
+            controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, walljump);
+            jump = false;
+            dash = false;
+            walljump = false;
+        }
+    }
+    
+    /// <summary>
+    /// 플레이어 좌우 움직임
+    /// </summary>
+    public void Player_Running()
+    {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
         //이동 속도에 따른 뛰는(Player_Running)애니메이션 조절
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) //점프시작
+    }
+
+    /// <summary>
+    /// 플레이어가 점프하는 기능, 벽메달리기 기능 담당 (중력을 컨트롤함)
+    /// </summary>
+    public void Player_JumpingClimbing(KeyCode JumpKey1, KeyCode JumpKey2)
+    {
+        if (Input.GetKeyDown(JumpKey1) || Input.GetKeyDown(JumpKey2)) //점프시작
         {
             controller.m_Rigidbody2D.gravityScale = 5f;
             if (controller.isClimbing)
@@ -29,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                 walljump = true;
             }
         }
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) //점프시작
+        if (Input.GetKey(JumpKey1) || Input.GetKey(JumpKey2)) //점프시작
         {
             controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime;
             if (controller.m_Grounded && !controller.isClimbing)
@@ -37,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
                 jump = true;
                 controller.m_Rigidbody2D.gravityScale = 0f;
             }
-            else if (!controller.m_Grounded && controller.isClimbing)
+            else if (!controller.m_Grounded && controller.isClimbing)//등반중인경우의 점프
             {
                 controller.m_Rigidbody2D.gravityScale = 5f;
             }
@@ -47,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 controller.m_Rigidbody2D.gravityScale = 5f;
             }
         }
-        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))) //점프끝
+        if ((Input.GetKeyUp(JumpKey1) || Input.GetKeyUp(JumpKey2))) //점프끝
         {
             if (!controller.isClimbing)
             {
@@ -55,20 +85,17 @@ public class PlayerMovement : MonoBehaviour
                 controller.m_Rigidbody2D.gravityScale = 5f;
             }
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+    /// <summary>
+    /// 플레이어의 대쉬
+    /// </summary>
+    public void Player_Dash(KeyCode DashKey)
+    {
+        if (Input.GetKeyDown(DashKey))
         {
             dash = true;
         }
-    }
-    
-    void FixedUpdate ()
-    {
-        //움직이기
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, walljump);
-        jump = false;
-        dash = false;
-        walljump = false;
     }
 
     public void OnFall()
@@ -82,6 +109,13 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnLanding()
     {
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsLanding", true);
+    }
+    
+    public void OnBigLanding() //TODO 큰 착지 이벤트 실행
+    {
+        Debug.Log("큰착지 이벤트 발생");
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsLanding", true);
     }

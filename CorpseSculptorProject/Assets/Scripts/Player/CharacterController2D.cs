@@ -18,12 +18,14 @@ public class CharacterController2D : MonoBehaviour
     
     [Header("점프 관련")]
     public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    public bool isBigLanding;           //큰 착지인지 아닌지 판단
     private bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     public float m_originalJumpForce = 200f; //초기 점프력
     public float m_JumpForce;               //점프력
     public float m_jumpForceIncrement = 100f; //누를수록 증가되는 점프력의 양
     public float m_limitJumpForce;            //최대 점프력
     private Vector3 velocity = Vector3.zero;
+    public float fallingCount;           //공중에 몇초 있는지 카운트
     public float limitFallSpeed = 25f;  //낙하 속도 제한
     public LayerMask groundLayer;       //바닥을 나타내는 레이어
     public float wallJumpHorizontalForce; //벽타기중 점프시 수평으로 튕기는 정도 - 초기값 : 1000
@@ -33,7 +35,7 @@ public class CharacterController2D : MonoBehaviour
     public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     private bool isDashing = false;      //플레이어가 대쉬를 하는중인지
-    private bool canMove = true;         //플레이어가 움직일수 있는지
+    public bool canMove = true;         //플레이어가 움직일수 있는지
     public float m_DashForce = 25f;     //플레이어 대쉬의 크기
 
     [Header("벽타기 관련")]
@@ -48,6 +50,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Events")]
     public UnityEvent OnFallEvent;
     public UnityEvent OnLandEvent;
+    public UnityEvent OnBigLandEvent;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -61,16 +64,31 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+        
+        if (OnBigLandEvent == null)
+            OnBigLandEvent = new UnityEvent();
     }
 
     private void Update()
     {
-        if (isClimbing)
+        if (!m_Grounded)
         {
-            climbingCount += Time.deltaTime; // 초단위로 카운팅
-            if (climbingCount >= limitClimbingCount)
+            if (isClimbing)
             {
-                InitClimbing(); // 클라이밍 종료
+                climbingCount += Time.deltaTime; // 초단위로 카운팅
+                fallingCount = 0;
+                if (climbingCount >= limitClimbingCount)
+                {
+                    InitClimbing(); // 클라이밍 종료
+                }
+            }
+            else
+            {
+                fallingCount += Time.deltaTime;
+                if (fallingCount > 2.0f)
+                {
+                    isBigLanding = true;
+                }
             }
         }
     }
@@ -85,13 +103,26 @@ public class CharacterController2D : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
+            {
                 m_Grounded = true;
+                fallingCount = 0;
+            }
             if (!wasGrounded)
             {
-                OnLandEvent.Invoke();
-                /*if (!m_IsWall && !isDashing) 
-                    particleJumpDown.Play();
-                */ //착지 파티클 재생
+                if (isBigLanding)//공중에 2초이상 낙하하고 착지했을 경우
+                {
+                    Debug.Log("큰착지를 함");
+                    OnBigLandEvent.Invoke();//TODO 큰착지 애니메이션 실행 (임시)
+                                            //TODO 큰 착지 이벤트에는 몇초동안 플레이어가 움직일수 없어야한다.
+                    StartCoroutine(BigLandingMoveCooldown());
+                }
+                else//일반적인 착지 이벤트
+                {
+                    OnLandEvent.Invoke();//착지 이벤트 실행
+                    /*if (!m_IsWall && !isDashing)
+                        particleJumpDown.Play();
+                    */ //착지 파티클 재생
+                }
             }
         }
         //기본적으로는 벽에 매달릴수 없는 상태임.
@@ -131,7 +162,6 @@ public class CharacterController2D : MonoBehaviour
     /// <param name="walljump">플레이어가 벽타기 중에 점프키를 눌렀는지</param>
     public void Move(float move, bool jump, bool dash, bool walljump)
     {
-//        Debug.Log("move : " + move + ", jump : " + jump + ", dash : " + dash + ", walljump : " + walljump);
         //움직일수 있는지 판단
         if (canMove)
         {
@@ -282,6 +312,14 @@ public class CharacterController2D : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(0.5f);
         canDash = true;
+    }
+
+    IEnumerator BigLandingMoveCooldown()
+    {
+        isBigLanding = false;
+        canMove = false;
+        yield return new WaitForSeconds(2.0f);
+        canMove = true;
     }
     
     /// <summary>
