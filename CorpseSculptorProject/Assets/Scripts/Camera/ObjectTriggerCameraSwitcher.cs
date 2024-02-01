@@ -8,7 +8,7 @@ using UnityEngine;
 /// - 플레이어가 트리거에서 벗어나면
 ///   플레이어 추적 카메라 활성화, 해당 트리거 가상 카메라 OFF
 /// </summary>
-public class PlayerCameraSwitcher : MonoBehaviour
+public class ObjectTriggerCameraSwitcher : MonoBehaviour
 {
     public GameObject m_playerFollowCamera;
     public GameObject m_thisVituralCam;

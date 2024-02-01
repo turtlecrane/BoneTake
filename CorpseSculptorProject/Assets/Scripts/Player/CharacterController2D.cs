@@ -9,55 +9,86 @@ using UnityEngine.Events;
 /// </summary>
 public class CharacterController2D : MonoBehaviour
 {
-    private float m_MovementSmoothing = .05f;
-
     [Header("플레이어 컴포넌트")] 
     public PlayerMovement playerMovement;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     
+    //---------------------
+    
     [Header("점프 관련")]
-    public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     public bool isBigLanding;           //큰 착지인지 아닌지 판단
     private bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
+    
+    [Tooltip("초기 점프력 - 점프력의 최소값")]
     public float m_originalJumpForce = 200f; //초기 점프력
-    public float m_JumpForce;               //점프력
+    
+    [Tooltip("누를수록 증가되는 점프력의 양")]
     public float m_jumpForceIncrement = 100f; //누를수록 증가되는 점프력의 양
+    
+    [Tooltip("최대 점프력")]
     public float m_limitJumpForce;            //최대 점프력
-    private Vector3 velocity = Vector3.zero;
-    public float fallingCount;           //공중에 몇초 있는지 카운트
-    public float limitFallSpeed = 25f;  //낙하 속도 제한
-    public LayerMask groundLayer;       //바닥을 나타내는 레이어
+    
+    [Tooltip("최대 낙하 속도 제한")]
+    public float limitFallSpeed;  //낙하 속도 제한
+    
+    [Tooltip("벽타기중 점프시 수평으로 튕기는 정도")]
     public float wallJumpHorizontalForce; //벽타기중 점프시 수평으로 튕기는 정도 - 초기값 : 1000
+    
+    [Tooltip("벽타기중 점프시 점프력")]
     public float wallJumpVerticalForce; //벽타기중 점프시 점프력 - 초기값 : 900
     
+    public LayerMask groundLayer;       //바닥을 나타내는 레이어
+    private Vector3 velocity = Vector3.zero;
+    private float m_MovementSmoothing = .05f;
+    
+    //---------------------
+    
     [Header("이동 관련")]
-    public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
-    public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
-    private bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     public bool canMove = true;         //플레이어가 움직일수 있는지
+    private bool isDashing = false;      //플레이어가 대쉬를 하는중인지
+    
+    [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
+    public float bigFallCantMoveCoolTime;
+    
+    [Tooltip("플레이어 대쉬의 힘")]
     public float m_DashForce = 25f;     //플레이어 대쉬의 크기
 
     [Header("벽타기 관련")]
     public bool isClimbing = false; //벽 메달리기 중인지
     public LayerMask wallLayer;
-    public float climbingCount;
+    
+    [Tooltip("벽에서 몇초만큼 조작이 없을때 추락하는지")]
     public float limitClimbingCount;
+    
     private int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     private float prevVelocityX = 0f;
-    public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
+    
+    //---------------------
     
     [Header("Events")]
     public UnityEvent OnFallEvent;
     public UnityEvent OnLandEvent;
     public UnityEvent OnBigLandEvent;
 
+    [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
+    [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
+    [HideInInspector] public float m_JumpForce;               //현재 점프력
+    [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
+    [HideInInspector] public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
+    [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    [HideInInspector] public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
+    
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
+    
+    
+    
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_playerRigidGravity = m_Rigidbody2D.gravityScale;
 
         if (OnFallEvent == null)
             OnFallEvent = new UnityEvent();
@@ -71,25 +102,17 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
-        if (!m_Grounded)
+        if (isClimbing && !m_Grounded) 
         {
-            if (isClimbing)
-            {
-                climbingCount += Time.deltaTime; // 초단위로 카운팅
-                fallingCount = 0;
-                if (climbingCount >= limitClimbingCount)
-                {
-                    InitClimbing(); // 클라이밍 종료
-                }
+            climbingCount += Time.deltaTime; // 초단위로 카운팅
+            if (climbingCount >= limitClimbingCount)
+            { 
+                InitClimbing(); // 클라이밍 종료
             }
-            else
-            {
-                fallingCount += Time.deltaTime;
-                if (fallingCount > 2.0f)
-                {
-                    isBigLanding = true;
-                }
-            }
+        }
+        if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
+        {
+            isBigLanding = true;
         }
     }
 
@@ -105,15 +128,18 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                fallingCount = 0;
             }
             if (!wasGrounded)
             {
-                if (isBigLanding)//공중에 2초이상 낙하하고 착지했을 경우
+                if (isBigLanding)
                 {
-                    Debug.Log("큰착지를 함");
+                    //Debug.Log("큰착지를 함");
+                    var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
+                    if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
+                    {
+                        StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
+                    }
                     OnBigLandEvent.Invoke();//TODO 큰착지 애니메이션 실행 (임시)
-                                            //TODO 큰 착지 이벤트에는 몇초동안 플레이어가 움직일수 없어야한다.
                     StartCoroutine(BigLandingMoveCooldown());
                 }
                 else//일반적인 착지 이벤트
@@ -181,8 +207,13 @@ public class CharacterController2D : MonoBehaviour
             //땅에 있거나 airControl이 켜져 있는 경우에 플레이어 제어
             else if (m_Grounded || m_AirControl)
             {
+                //최고 낙하속도 제한 (낙하 속도가 너무 빠르면 맵이 뚫림)
                 if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
+                {
                     m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
+                    isBigLanding = true;
+                }
+                
                 //인자로 받은 플레이어 움직임 속도로 플레이어 이동
                 Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
                 //그리고 SmoothDamp하여 캐릭터에 적용
@@ -192,13 +223,13 @@ public class CharacterController2D : MonoBehaviour
                 if (move > 0 && !m_FacingRight)
                 {
                     Flip();
-                    m_Rigidbody2D.gravityScale = 5f; //중력 재개
+                    m_Rigidbody2D.gravityScale = m_playerRigidGravity; //중력 재개 5
                 }
                 //그렇지 않으면 입력이 플레이어를 왼쪽으로 움직이고 플레이어가 오른쪽을 향하고 있는 경우
                 else if (move < 0 && m_FacingRight)
                 {
                     Flip();
-                    m_Rigidbody2D.gravityScale = 5f; //중력 재개
+                    m_Rigidbody2D.gravityScale = m_playerRigidGravity; //중력 재개 5
                 }
             }
             
@@ -251,7 +282,6 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_WallJump()
     {
-        m_Rigidbody2D.gravityScale = 5f;
         //점프 애니메이션으로 전환
         animator.SetBool("IsJumping", true);
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
@@ -268,7 +298,7 @@ public class CharacterController2D : MonoBehaviour
     {
         isClimbing = true;
         m_Rigidbody2D.velocity = new Vector2(0f, 0f); // 속도 초기화
-        m_Rigidbody2D.gravityScale = 0.0001f; // 중력 제거 <---- TODO 문제점임. 벽에서 점프할때 이 중력이 5로 빠르게 안변함. 그래서 간헐적으로 슈퍼점프가 됨.
+        m_Rigidbody2D.gravityScale = 0f; // 중력 제거
     }
     
     /// <summary>
@@ -279,7 +309,6 @@ public class CharacterController2D : MonoBehaviour
         isClimbing = false;
         m_JumpForce = m_originalJumpForce;
         climbingCount = 0f;
-        m_Rigidbody2D.gravityScale = 5f; // 중력 복구
     }
     
     /// <summary>
@@ -318,7 +347,7 @@ public class CharacterController2D : MonoBehaviour
     {
         isBigLanding = false;
         canMove = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(bigFallCantMoveCoolTime);
         canMove = true;
     }
     
@@ -350,21 +379,6 @@ public class CharacterController2D : MonoBehaviour
         else
         {
             Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.01f, 2f));
-        }
-    }
-    
-    /// <summary>
-    /// 레이케스트 디버그용 로그찍는 함수
-    /// </summary>
-    /// <param name="colliders">레이케스트로 감지하는 콜라이더들</param>
-    private void LogColliderNames(Collider2D[] colliders)
-    {
-        foreach (var collider in colliders)
-        {
-            if (collider != null && collider.gameObject != null)
-            {
-                Debug.Log(collider.gameObject.name);
-            }
         }
     }
 }

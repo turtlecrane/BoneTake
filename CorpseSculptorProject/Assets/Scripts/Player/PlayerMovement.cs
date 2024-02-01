@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
-    public float runSpeed = 40f;
+    [Tooltip("플레이어의 이동속도 조절")]
+    public float runSpeed;
 
     private float horizontalMove = 0f;
     private bool jump = false;
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(JumpKey1) || Input.GetKeyDown(JumpKey2)) //점프시작
         {
-            controller.m_Rigidbody2D.gravityScale = 5f;
+            controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity; //5
             if (controller.isClimbing)
             {
                 controller.m_JumpForce = controller.m_originalJumpForce;
@@ -69,12 +70,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (!controller.m_Grounded && controller.isClimbing)//등반중인경우의 점프
             {
-                controller.m_Rigidbody2D.gravityScale = 5f;
+                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
             }
             if ((controller.m_JumpForce > controller.m_limitJumpForce) && !controller.isClimbing)
             {
                 jump = false;
-                controller.m_Rigidbody2D.gravityScale = 5f;
+                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
             }
         }
         if ((Input.GetKeyUp(JumpKey1) || Input.GetKeyUp(JumpKey2))) //점프끝
@@ -82,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             if (!controller.isClimbing)
             {
                 controller.m_JumpForce = controller.m_originalJumpForce;
-                controller.m_Rigidbody2D.gravityScale = 5f;
+                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
             }
         }
     }
@@ -115,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
     
     public void OnBigLanding() //TODO 큰 착지 이벤트 실행
     {
-        Debug.Log("큰착지 이벤트 발생");
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsLanding", true);
     }
