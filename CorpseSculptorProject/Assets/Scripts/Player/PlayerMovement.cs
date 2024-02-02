@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
-    [Tooltip("플레이어의 이동속도 조절")]
-    public float runSpeed;
-
     private float horizontalMove = 0f;
     private bool jump = false;
     private bool dash = false;
@@ -41,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void Player_Running()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * controller.playerdata.playerSpeed;
         //이동 속도에 따른 뛰는(Player_Running)애니메이션 조절
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
@@ -72,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
             }
-            if ((controller.m_JumpForce > controller.m_limitJumpForce) && !controller.isClimbing)
+            if ((controller.m_JumpForce > controller.playerdata.playerJumpForce) && !controller.isClimbing)
             {
                 jump = false;
                 controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5

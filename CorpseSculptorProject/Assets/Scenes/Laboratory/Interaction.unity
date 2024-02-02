@@ -265,7 +265,7 @@ Transform:
   m_Children:
   - {fileID: 1394948532}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &222964840
 MonoBehaviour:
@@ -1324,6 +1324,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &607637676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607637678}
+  - component: {fileID: 607637677}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &607637677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607637676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76349b2f353d6744bb9516eeab4f4fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData:
+    playerSpeed: 80
+    playerJumpForce: 500
+    playerDashForce: 40
+    weaponType: 0
+--- !u!4 &607637678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607637676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676915590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1413,7 @@ Transform:
   - {fileID: 514526673}
   - {fileID: 2001202958}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808293501
 GameObject:
@@ -1429,7 +1478,7 @@ Transform:
   - {fileID: 1398266243}
   - {fileID: 970542731}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &808293504
 MonoBehaviour:
@@ -3115,7 +3164,7 @@ Transform:
   m_Children:
   - {fileID: 1276678502}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329310131
 GameObject:
@@ -3466,7 +3515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.2, y: 20.5, z: -10}
+  m_LocalPosition: {x: 52.83, y: 1.88, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5355,6 +5404,7 @@ GameObject:
   - component: {fileID: 1924651499}
   - component: {fileID: 1924651506}
   - component: {fileID: 1924651505}
+  - component: {fileID: 1924651507}
   - component: {fileID: 1924651504}
   m_Layer: 0
   m_Name: Player
@@ -5473,11 +5523,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47.2, y: 20.5}
+  m_AnchoredPosition: {x: 52.83, y: 1.88}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924651504
@@ -5492,13 +5542,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fe9d1c1e8bceb46bad347ee163cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata:
+    playerSpeed: 0
+    playerJumpForce: 0
+    playerDashForce: 0
+    weaponType: 0
   playerMovement: {fileID: 1924651505}
   m_Rigidbody2D: {fileID: 1924651500}
   animator: {fileID: 1924651506}
   isBigLanding: 0
   m_originalJumpForce: 200
   m_jumpForceIncrement: 1000
-  m_limitJumpForce: 500
   limitFallSpeed: 45
   wallJumpHorizontalForce: 1000
   wallJumpVerticalForce: 900
@@ -5507,7 +5561,6 @@ MonoBehaviour:
     m_Bits: 64
   canMove: 1
   bigFallCantMoveCoolTime: 2
-  m_DashForce: 40
   isClimbing: 0
   wallLayer:
     serializedVersion: 2
@@ -5579,7 +5632,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1924651504}
   animator: {fileID: 1924651506}
-  runSpeed: 70
 --- !u!95 &1924651506
 Animator:
   serializedVersion: 5
@@ -5600,6 +5652,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1924651507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924651498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe05be3435e4d3842aef930ec8b2d1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon_type: 0
+  canAttack: 1
 --- !u!1 &1991785121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5984,7 +6050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.2, y: 20.5, z: -10}
+  m_LocalPosition: {x: 52.830006, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

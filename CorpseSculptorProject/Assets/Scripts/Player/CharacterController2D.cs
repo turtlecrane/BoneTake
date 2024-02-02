@@ -9,6 +9,10 @@ using UnityEngine.Events;
 /// </summary>
 public class CharacterController2D : MonoBehaviour
 {
+    [Header("플레이어 데이터")]
+    public PlayerData playerdata;
+    
+    [Space (10f)]
     [Header("플레이어 컴포넌트")] 
     public PlayerMovement playerMovement;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
@@ -24,10 +28,7 @@ public class CharacterController2D : MonoBehaviour
     public float m_originalJumpForce = 200f; //초기 점프력
     
     [Tooltip("누를수록 증가되는 점프력의 양")]
-    public float m_jumpForceIncrement = 100f; //누를수록 증가되는 점프력의 양
-    
-    [Tooltip("최대 점프력")]
-    public float m_limitJumpForce;            //최대 점프력
+    public float m_jumpForceIncrement; //누를수록 증가되는 점프력의 양
     
     [Tooltip("최대 낙하 속도 제한")]
     public float limitFallSpeed;  //낙하 속도 제한
@@ -50,9 +51,6 @@ public class CharacterController2D : MonoBehaviour
     
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
     public float bigFallCantMoveCoolTime;
-    
-    [Tooltip("플레이어 대쉬의 힘")]
-    public float m_DashForce = 25f;     //플레이어 대쉬의 크기
 
     [Header("벽타기 관련")]
     public bool isClimbing = false; //벽 메달리기 중인지
@@ -81,14 +79,13 @@ public class CharacterController2D : MonoBehaviour
     
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
-
-    
-    
     
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_playerRigidGravity = m_Rigidbody2D.gravityScale;
+        //플레이어 데이터 받아오기
+        ReroadPlayerData();
 
         if (OnFallEvent == null)
             OnFallEvent = new UnityEvent();
@@ -200,7 +197,7 @@ public class CharacterController2D : MonoBehaviour
             //대쉬 ----
             if (isDashing)
             {
-                m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
+                m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * playerdata.playerDashForce, 0);
             }
             
             //이동 ----
@@ -327,6 +324,11 @@ public class CharacterController2D : MonoBehaviour
         }
             
         prevVelocityX = m_Rigidbody2D.velocity.x;
+    }
+    
+    public void ReroadPlayerData()
+    {
+        playerdata = GameManager.Instance.GetPlayerDataManager().playerData;
     }
 
     /// <summary>
