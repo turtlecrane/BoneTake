@@ -15,6 +15,10 @@ public class PlayerAttack : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private CharacterController2D playercCharacterController2D;
     public bool canAttack = true;
+
+    public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
+    
+    public float attackCount; //공격하고 다시 공격할때까지 카운트 세기
     
     void Start()
     {
@@ -28,19 +32,64 @@ public class PlayerAttack : MonoBehaviour
         // 좌클릭 감지
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            Debug.Log("왼쪽 마우스가 클릭됨");
             canAttack = false;
             StartCoroutine(AttackCooldown());
-            if (_weapon_type == Weapon_Type.Basic)
+            if (_weapon_type == Weapon_Type.Basic)//착용중인 무기가 기본 무기인경우 (손톱)
             {
-                Debug.Log("기본무기로 공격함.");
-                playercCharacterController2D.animator.SetBool("IsBasicAttacking", true);
+                Player_BasicAttack();
             }
             else
             {
+                //TODO 이곳에 다른 무기도 추가
                 Debug.Log("제작중인 무기 혹은 존재하지 않는 무기 종류입니다.");
             }
         }
+
+        EnableMultiAttackMode();
+
+    }
+
+    /// <summary>
+    /// 다중 공격이 가능한 상태가되면 정해진 카운트만큼 다중공격 가능상태로 전환 <br/>
+    /// 공격하는 애니메이션 길이만큼 다중공격 가능상태로 간주
+    /// </summary>
+    public void EnableMultiAttackMode()
+    {
+        if (isAbleMultipleAttack)//업데이트에서 다중 타수가 가능한지 계속 추적하다가 다중타수가 가능한 상태가 되면
+        {
+            attackCount += Time.deltaTime;
+            if (attackCount > GetCurrentAnimationLength())
+            {
+                isAbleMultipleAttack = false;
+                attackCount = 0;
+            }
+        }
+    }
+
+    public void Player_BasicAttack()
+    {
+        playercCharacterController2D.animator.SetBool("IsBasicAttacking", true); //기본공격 모션으로 전환
+        if (isAbleMultipleAttack) //다중타수의 경우 -> 기본공격은 타수가 2타가 최대임
+        {
+            playercCharacterController2D.animator.SetInteger("Num of Hits", 1);
+        }
+        else
+        {
+            isAbleMultipleAttack = true; //다중타수 가능한 상태임을 알림
+        }
+    }
+    
+    /// <summary>
+    /// Animator에서 현재 재생 중인 애니메이션의 길이를 가져오기
+    /// </summary>
+    /// <returns>현재 애니메이션의 길이</returns>
+    float GetCurrentAnimationLength()
+    {
+        //(인자는 레이어의 번호)
+        AnimatorStateInfo stateInfo = playercCharacterController2D.animator.GetCurrentAnimatorStateInfo(0);
+        // 애니메이션의 길이(시간) 반환
+        float animationLength = stateInfo.length;
+        return animationLength;
     }
     
     /// <summary>
