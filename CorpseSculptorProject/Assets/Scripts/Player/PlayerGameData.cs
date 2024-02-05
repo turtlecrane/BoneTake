@@ -18,6 +18,9 @@ public class PlayerData
     //현재 장착중인 무기가 무엇인지
     public Weapon_Type weaponType;
     
+    //현재 공격력
+    public int playerATK;
+
     //현재 체력
     //현재 위치
 }

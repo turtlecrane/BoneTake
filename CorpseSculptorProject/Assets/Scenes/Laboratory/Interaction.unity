@@ -1358,6 +1358,7 @@ MonoBehaviour:
     playerJumpForce: 500
     playerDashForce: 40
     weaponType: 0
+    playerATK: 1
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0
@@ -2861,9 +2862,10 @@ GameObject:
   - component: {fileID: 1276678505}
   - component: {fileID: 1276678504}
   - component: {fileID: 1276678503}
+  - component: {fileID: 1276678506}
   m_Layer: 0
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2877,7 +2879,7 @@ Transform:
   m_GameObject: {fileID: 1276678501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.24, y: 3.25, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1531236737}
@@ -2896,10 +2898,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 10
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 15
+  m_AngularDrag: 0
+  m_GravityScale: 25
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2919,7 +2921,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 1.9999999}
+  m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!212 &1276678505
 SpriteRenderer:
@@ -2973,6 +2975,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1276678506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276678501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adabe991445f014496052eae934d7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 10
+  isCorpseState: 0
 --- !u!1 &1299552270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,7 +3576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.1, y: 2.7, z: -10}
+  m_LocalPosition: {x: -19.71, y: 2.65, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4276,7 +4292,7 @@ GameObject:
   - component: {fileID: 1531236739}
   - component: {fileID: 1531236738}
   m_Layer: 0
-  m_Name: Name
+  m_Name: TestName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5572,7 +5588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.1, y: 2.7}
+  m_AnchoredPosition: {x: -19.71, y: 2.65}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924651504
@@ -5592,6 +5608,7 @@ MonoBehaviour:
     playerJumpForce: 0
     playerDashForce: 0
     weaponType: 0
+    playerATK: 0
   playerMovement: {fileID: 1924651505}
   m_Rigidbody2D: {fileID: 1924651500}
   animator: {fileID: 1924651506}
@@ -5611,6 +5628,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   limitClimbingCount: 5
+  climbingCount: 0
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5662,7 +5680,6 @@ MonoBehaviour:
   m_FacingRight: 1
   canDash: 1
   m_Grounded: 0
-  climbingCount: 0
 --- !u!114 &1924651505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5712,7 +5729,7 @@ MonoBehaviour:
   _weapon_type: 0
   canAttack: 1
   isAbleMultipleAttack: 0
-  attackCount: 0
+  attackCount: 1
 --- !u!1 &1991785121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,7 +6114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.1, y: 8, z: -10}
+  m_LocalPosition: {x: -19.71, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

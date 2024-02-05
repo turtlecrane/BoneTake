@@ -61,7 +61,7 @@ public class CharacterController2D : MonoBehaviour
     
     private int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     private float prevVelocityX = 0f;
-    
+    public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     //---------------------
     
     [Header("Events")]
@@ -75,7 +75,7 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
-    [HideInInspector] public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
+    [HideInInspector] 
     
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -279,6 +279,7 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_WallJump()
     {
+        climbingCount = 0f;
         //점프 애니메이션으로 전환
         animator.SetBool("IsJumping", true);
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
@@ -303,8 +304,10 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void InitClimbing()
     {
+        Debug.Log("벽타기 종료");
         isClimbing = false;
         m_JumpForce = m_originalJumpForce;
+        m_Rigidbody2D.gravityScale = m_playerRigidGravity;
         climbingCount = 0f;
     }
     
@@ -347,6 +350,7 @@ public class CharacterController2D : MonoBehaviour
 
     IEnumerator BigLandingMoveCooldown()
     {
+        m_Rigidbody2D.velocity = Vector2.zero;
         isBigLanding = false;
         canMove = false;
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);

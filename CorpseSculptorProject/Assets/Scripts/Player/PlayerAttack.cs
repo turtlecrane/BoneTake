@@ -24,7 +24,9 @@ public class PlayerAttack : MonoBehaviour
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playercCharacterController2D = GetComponent<CharacterController2D>();
-        _weapon_type = playercCharacterController2D.playerdata.weaponType;
+        
+        //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
+        _weapon_type = playercCharacterController2D.playerdata.weaponType; 
     }
 
     void Update()
@@ -66,6 +68,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 플레이어 공격 - 기본 무기(손톱)
+    /// </summary>
     public void Player_BasicAttack()
     {
         playercCharacterController2D.animator.SetBool("IsBasicAttacking", true); //기본공격 모션으로 전환
@@ -106,7 +111,28 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void Player_DoBasicDamege()
     {
-        Debug.Log("플레이어 공격 함수 실행됨.");
+        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x+2.125f, transform.position.y), new Vector2(2.25f, 2f), 0f);
+
+        for (int i = 0; i < basicHitBox.Length; i++)
+        {
+            if (basicHitBox[i].gameObject != null)
+            {
+                if (basicHitBox[i].CompareTag("Enemy"))
+                {
+                    //Debug.Log($"Enemy Detected, Name : {basicHitBox[i].gameObject.name}");
+                    //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
+                    //HP를 줄이는건 0+데이터ATK로 깎는다.
+                    //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
+                    basicHitBox[i].gameObject.SendMessage("ApplyDamage", 0+playercCharacterController2D.playerdata.playerATK);
+                }
+            }
+        }
     }
-    
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x+2.125f, transform.position.y), new Vector2(2.25f, 2f));
+    }
+
 }
