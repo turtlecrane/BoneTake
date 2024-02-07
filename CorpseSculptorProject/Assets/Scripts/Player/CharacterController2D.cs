@@ -75,7 +75,6 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
-    [HideInInspector] 
     
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -128,10 +127,10 @@ public class CharacterController2D : MonoBehaviour
             }
             if (!wasGrounded)
             {
+                var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
                 if (isBigLanding)
                 {
                     //Debug.Log("큰착지를 함");
-                    var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
                     if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
                     {
                         StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
@@ -142,6 +141,7 @@ public class CharacterController2D : MonoBehaviour
                 else//일반적인 착지 이벤트
                 {
                     OnLandEvent.Invoke();//착지 이벤트 실행
+                    playerCameraScript.virtualCamera.m_Lens.OrthographicSize = playerCameraScript.lensOrtho_InitSize;
                     /*if (!m_IsWall && !isDashing)
                         particleJumpDown.Play();
                     */ //착지 파티클 재생
@@ -155,23 +155,11 @@ public class CharacterController2D : MonoBehaviour
         if (!m_Grounded)//플레이어가 접지중이 아니라면
         {
             OnFallEvent.Invoke();//떨어지는 이벤트 호출
-            #region 벽타기 관련
-            Vector2 boxPosition;
-            if (m_FacingRight)
-            {
-                boxPosition = new Vector2(transform.position.x + 1f, transform.position.y);
-                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.01f, 2f), 0f, wallLayer);
-                CheckWallHangingIsPossible(collidersWall);
-                climbingDirect = 1;
-            }
-            else
-            {
-                boxPosition = new Vector2(transform.position.x - 1f, transform.position.y);
-                Collider2D[] collidersWall = Physics2D.OverlapBoxAll(boxPosition, new Vector2(0.01f, 2f), 0f, wallLayer);
-                CheckWallHangingIsPossible(collidersWall);
-                climbingDirect = -1;
-            }
-            #endregion
+            //벽타기 관련
+            float xOffset = m_FacingRight ? 1f : -1f;
+            climbingDirect = m_FacingRight ? 1 : -1;
+            Collider2D[] collidersWall = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(0.01f, 2f), 0f, wallLayer);
+            CheckWallHangingIsPossible(collidersWall);
         }
     }
     
@@ -378,13 +366,7 @@ public class CharacterController2D : MonoBehaviour
         
         //플레이어가 바라보는 방향의 박스
         Gizmos.color = Color.blue;
-        if (m_FacingRight)//오른쪽을 보고있는 경우
-        {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x + 1f, transform.position.y), new Vector2(0.01f, 2f));
-        }
-        else
-        {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x - 1f, transform.position.y), new Vector2(0.01f, 2f));
-        }
+        float xOffset = m_FacingRight ? 1f : -1f;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(0.01f, 2f));
     }
 }

@@ -282,6 +282,7 @@ MonoBehaviour:
   m_playerFollowCamera: {fileID: 1394948530}
   lensOrtho_InitSize: 0
   LensOrtho_ZoomValue: 0.02
+  Impulse_PowerValue: 5
   InitialImpulseData:
     AmplitudeGain: 0
     FrequencyGain: 0
@@ -3576,7 +3577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.71, y: 2.65, z: -10}
+  m_LocalPosition: {x: 26.04, y: 2.22, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5588,7 +5589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.71, y: 2.65}
+  m_AnchoredPosition: {x: 26.04, y: 2.22}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924651504
@@ -5622,7 +5623,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canMove: 1
-  bigFallCantMoveCoolTime: 2
+  bigFallCantMoveCoolTime: 1
   isClimbing: 0
   wallLayer:
     serializedVersion: 2
@@ -6114,7 +6115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.71, y: 8, z: -10}
+  m_LocalPosition: {x: 26.04, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

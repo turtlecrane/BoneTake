@@ -16,7 +16,7 @@ public class PlayerFollowCameraController : MonoBehaviour
 {
     public GameObject m_playerFollowCamera; //플레이어 추적중인 카메라 오브젝트
 
-    private CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
+    public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
     private CinemachineCollisionImpulseSource screenShake; 
     private CharacterController2D player_CharacterController; //플레이어 스크립트
     
@@ -24,6 +24,9 @@ public class PlayerFollowCameraController : MonoBehaviour
     
     [Range (0.0f, 0.1f)]
     public float LensOrtho_ZoomValue;//낙하시 줌 되는 정도
+
+    [Range(0.0f, 10.0f)]
+    public float Impulse_PowerValue;
     
     public CinemachineImpulseData InitialImpulseData; //Impulse데이터 초기값 저장
     
@@ -58,8 +61,8 @@ public class PlayerFollowCameraController : MonoBehaviour
         virtualCamera.m_Lens.OrthographicSize = lensOrtho_InitSize; //화면 줌 값을 초기값으로 변경
         
         //Impulse 진동 속성 조절
-        screenShake.m_ImpulseDefinition.m_AmplitudeGain = 5f;
-        screenShake.m_ImpulseDefinition.m_FrequencyGain = 5f;
+        screenShake.m_ImpulseDefinition.m_AmplitudeGain = Impulse_PowerValue;
+        screenShake.m_ImpulseDefinition.m_FrequencyGain = Impulse_PowerValue;
         screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = player_CharacterController.bigFallCantMoveCoolTime / 2;
         screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = player_CharacterController.bigFallCantMoveCoolTime;//지속시간 (여기선 큰착지 쿨타임 시간과 동일하게)
         screenShake.GenerateImpulse();

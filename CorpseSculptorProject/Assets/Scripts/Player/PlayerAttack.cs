@@ -111,8 +111,9 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void Player_DoBasicDamege()
     {
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x+2.125f, transform.position.y), new Vector2(2.25f, 2f), 0f);
-
+        float xOffset = playercCharacterController2D.m_FacingRight ? 2.125f : -2.125f;
+        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(2.25f, 2f), 0f);
+        
         for (int i = 0; i < basicHitBox.Length; i++)
         {
             if (basicHitBox[i].gameObject != null)
@@ -129,10 +130,11 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    /*private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x+2.125f, transform.position.y), new Vector2(2.25f, 2f));
-    }
+        float xOffset = playercCharacterController2D.m_FacingRight ? 2.125f : -2.125f;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x+xOffset, transform.position.y), new Vector2(2.25f, 2f));
+    }*/
 
 }
