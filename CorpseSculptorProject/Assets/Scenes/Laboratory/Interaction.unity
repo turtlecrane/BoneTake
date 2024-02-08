@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerFollowCamera: {fileID: 1394948530}
+  virtualCamera: {fileID: 0}
   lensOrtho_InitSize: 0
   LensOrtho_ZoomValue: 0.02
   Impulse_PowerValue: 5
@@ -3577,7 +3578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.04, y: 2.22, z: -10}
+  m_LocalPosition: {x: 47.49, y: 19.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5488,8 +5489,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2996264, y: 0.0027250648}
-  m_Size: {x: 1.375997, y: 1.7830359}
+  m_Offset: {x: 0.2996264, y: 0.98116744}
+  m_Size: {x: 1.375997, y: 1.8412311}
   m_Direction: 0
 --- !u!50 &1924651500
 Rigidbody2D:
@@ -5589,9 +5590,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.04, y: 2.22}
+  m_AnchoredPosition: {x: 47.49, y: 19.64}
   m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6115,7 +6116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.04, y: 8, z: -10}
+  m_LocalPosition: {x: 47.49, y: 19.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

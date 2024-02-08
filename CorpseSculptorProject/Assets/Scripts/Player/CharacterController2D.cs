@@ -118,7 +118,7 @@ public class CharacterController2D : MonoBehaviour
         m_Grounded = false;
         
         //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(1f, 0.5f), 0f, groundLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.5f), 0f, groundLayer);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -158,7 +158,7 @@ public class CharacterController2D : MonoBehaviour
             //벽타기 관련
             float xOffset = m_FacingRight ? 1f : -1f;
             climbingDirect = m_FacingRight ? 1 : -1;
-            Collider2D[] collidersWall = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(0.01f, 2f), 0f, wallLayer);
+            Collider2D[] collidersWall = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f), 0f, wallLayer);
             CheckWallHangingIsPossible(collidersWall);
         }
     }
@@ -362,11 +362,11 @@ public class CharacterController2D : MonoBehaviour
     {
         //착지검사
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - 1f), new Vector2(1f, 0.5f));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.5f));
         
         //플레이어가 바라보는 방향의 박스
         Gizmos.color = Color.blue;
         float xOffset = m_FacingRight ? 1f : -1f;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(0.01f, 2f));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f));
     }
 }
