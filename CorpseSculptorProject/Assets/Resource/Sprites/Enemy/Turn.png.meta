@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e9a764d97b64a547aed666f1042c38e
+guid: 2eb964fdd9490d74282bf4f39ecfa2ac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,64 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: Turn_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 159
-        height: 162
+        width: 126
+        height: 172
       alignment: 9
-      pivot: {x: 0.4513754, y: 0}
+      pivot: {x: 0.53873825, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d99c491f2216628469af473b8efdcc42
-      internalID: -464981091
+      spriteID: 5f4a24bbe5d3e7b4fa12b931d058a86c
+      internalID: -175517359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: Turn_1
       rect:
         serializedVersion: 2
-        x: 168
+        x: 136
         y: 0
-        width: 161
-        height: 161
+        width: 126
+        height: 172
       alignment: 9
-      pivot: {x: 0.4513754, y: 0}
+      pivot: {x: 0.47914076, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea3ddc48095ec04b8f2b39153220008
-      internalID: -1584549709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_2
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 0
-        width: 160
-        height: 160
-      alignment: 9
-      pivot: {x: 0.4513754, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c762cbdd42d4733468639ceaacc73712
-      internalID: -645383748
+      spriteID: 2dd5e123b8370554099c21a0861f7ed6
+      internalID: -1570322575
       vertices: []
       indices: 
       edges: []
@@ -170,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ffbd208cc60d66949b1d2dc44d408166
+    spriteID: ee5a998433f3e2c4c99736b7dcea3c5c
     internalID: 0
     vertices: []
     indices: 
@@ -178,9 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: -1584549709
-      Idle_0: -464981091
-      Idle_2: -645383748
+      Turn_0: -175517359
+      Turn_1: -1570322575
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
