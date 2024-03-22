@@ -27,7 +27,7 @@ public class TestEnemyBasic : MonoBehaviour
             StartCoroutine(EnemyKnockdown());
         }
 
-        //테스트용------
+        //...TEST CODE
         if (isCorpseState)
         {
             var b = this.GetComponentInChildren<TextMeshPro>();
@@ -36,17 +36,25 @@ public class TestEnemyBasic : MonoBehaviour
     }
     
     public void ApplyDamage(float damage) {
-        if (!isInvincible) 
-        {
-            float direction = damage / Mathf.Abs(damage);
-            damage = Mathf.Abs(damage);
+        if (!isInvincible) {
+            //TODO 애니메이션 트리거 설정
             //transform.GetComponent<Animator>().SetBool("Hit", true);
-            life -= damage;//라이프 차감
-            rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(direction * 3500f, 0));//넉백
+
+            life -= damage; // 라이프 차감
+            rb.velocity = Vector2.zero; // 현재 속도를 0으로 초기화
+
+            // 넉백 방향 결정 (캐릭터가 오른쪽을 바라보고 있으면 오른쪽으로, 그렇지 않으면 왼쪽으로 넉백)
+            bool isFacingRight = GameManager.Instance.GetCharacterController2D().m_FacingRight;
+            float basicForce = 7000f;
+            float knockbackForce = isFacingRight ? basicForce : -basicForce;
+
+            rb.AddForce(new Vector2(knockbackForce, 0)); // 넉백 적용
+
+            // 히트 효과 코루틴 실행
             StartCoroutine(HitTime());
         }
     }
+
     
     IEnumerator HitTime()
     {

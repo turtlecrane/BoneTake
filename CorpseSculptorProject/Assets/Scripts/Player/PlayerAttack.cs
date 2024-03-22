@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,17 +13,22 @@ public enum Weapon_Type
 public class PlayerAttack : MonoBehaviour
 {
     public Weapon_Type _weapon_type;
-    private Rigidbody2D m_Rigidbody2D;
-    private CharacterController2D playercCharacterController2D;
     public bool canAttack = true;
-
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     
-    public float attackCount; //공격하고 다시 공격할때까지 카운트 세기
+    public float attackCount; //공격 애니메이션 카운트 세기
+    private CharacterController2D playercCharacterController2D;
+    
+    //...TESTCODE
+    [Header("테스트코드")]
+    public int count = 0;
+    public bool isAttacking;
+    public float AbleMultipleAttack_Time;
+    public float multiAtk_maxTime;
+    //public float lastClickTime; // 마지막으로 클릭한 시간
     
     void Start()
     {
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playercCharacterController2D = GetComponent<CharacterController2D>();
         
         //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
@@ -34,8 +40,15 @@ public class PlayerAttack : MonoBehaviour
         // 좌클릭 감지
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            canAttack = false;
-            StartCoroutine(AttackCooldown());
+            //------- ...TEST CODE [보류중]
+            if(!playercCharacterController2D.m_Grounded) return; //점프공격
+            if(playercCharacterController2D.isDashing) return; //대쉬공격
+            if(playercCharacterController2D.isClimbing) return; //벽타기때 공격하는경우
+            //---------------------------
+                
+            isAttacking = true;
+            isAbleMultipleAttack = true;
+            
             if (_weapon_type == Weapon_Type.Basic)//착용중인 무기가 기본 무기인경우 (손톱)
             {
                 Player_BasicAttack();
@@ -45,42 +58,59 @@ public class PlayerAttack : MonoBehaviour
                 //TODO 이곳에 다른 무기도 추가
                 Debug.Log("제작중인 무기 혹은 존재하지 않는 무기 종류입니다.");
             }
+            
+            //공격중이면 플레이어를 멈추게함.
+            playercCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero;
+            playercCharacterController2D.canMove = false;
+            
+            canAttack = false;
+            StartCoroutine(AttackCooldown());
         }
 
-        EnableMultiAttackMode();
+        // 공격 상태 업데이트
+        UpdateAttackState(ref isAttacking, ref attackCount);
+        // 연속 공격 가능 상태 업데이트
+        UpdateAttackState(ref isAbleMultipleAttack, ref AbleMultipleAttack_Time, multiAtk_maxTime);
 
-    }
-
-    /// <summary>
-    /// 다중 공격이 가능한 상태가되면 정해진 카운트만큼 다중공격 가능상태로 전환 <br/>
-    /// 공격하는 애니메이션 길이만큼 다중공격 가능상태로 간주
-    /// </summary>
-    public void EnableMultiAttackMode()
-    {
-        if (isAbleMultipleAttack)//업데이트에서 다중 타수가 가능한지 계속 추적하다가 다중타수가 가능한 상태가 되면
+        if (!isAbleMultipleAttack)
         {
-            attackCount += Time.deltaTime;
-            if (attackCount > GetCurrentAnimationLength())
+            count = 0;
+            playercCharacterController2D.canMove = true;
+        }
+    }
+    
+    /// <summary>
+    /// 공격 상태를 업데이트하는 함수
+    /// </summary>
+    /// <param name="extraDuration">연속 공격 가능 상태에 대해 추가 시간</param>
+    void UpdateAttackState(ref bool stateFlag, ref float timer, float extraDuration = 0)
+    {
+        if (stateFlag)
+        {
+            timer += Time.deltaTime;
+            if (timer > GetCurrentAnimationLength() + extraDuration)
             {
-                isAbleMultipleAttack = false;
-                attackCount = 0;
+                timer = 0;
+                stateFlag = false;
             }
         }
     }
-
+    
     /// <summary>
     /// 플레이어 공격 - 기본 무기(손톱)
     /// </summary>
     public void Player_BasicAttack()
     {
-        playercCharacterController2D.animator.SetBool("IsBasicAttacking", true); //기본공격 모션으로 전환
-        if (isAbleMultipleAttack) //다중타수의 경우 -> 기본공격은 타수가 2타가 최대임
+        // 첫 타격 시 카운팅 시작
+        count = Mathf.Min(count + 1, 2); // count를 1 증가시키되, 2를 초과하지 않도록 함
+
+        // 기본 공격 모션으로 전환
+        playercCharacterController2D.animator.SetBool("IsBasicAttacking", true);
+    
+        // count가 2 이상일 때만 Num of Hits 설정
+        if (count == 2)
         {
-            playercCharacterController2D.animator.SetInteger("Num of Hits", 1);
-        }
-        else
-        {
-            isAbleMultipleAttack = true; //다중타수 가능한 상태임을 알림
+            playercCharacterController2D.animator.SetInteger("Num of Hits", count);
         }
     }
     
@@ -116,25 +146,29 @@ public class PlayerAttack : MonoBehaviour
         
         for (int i = 0; i < basicHitBox.Length; i++)
         {
-            if (basicHitBox[i].gameObject != null)
+            if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
             {
-                if (basicHitBox[i].CompareTag("Enemy"))
-                {
-                    //Debug.Log($"Enemy Detected, Name : {basicHitBox[i].gameObject.name}");
-                    //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
-                    //HP를 줄이는건 0+데이터ATK로 깎는다.
-                    //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
-                    basicHitBox[i].gameObject.SendMessage("ApplyDamage", 0+playercCharacterController2D.playerdata.playerATK);
-                }
+                //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
+                //HP를 줄이는건 0+데이터ATK로 깎는다.
+                //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
+                basicHitBox[i].gameObject.SendMessage("ApplyDamage", 0+playercCharacterController2D.playerdata.playerATK);
             }
         }
     }
-
-    /*private void OnDrawGizmosSelected()
+    
+    
+    
+    //<---------애니메이션에서 호출 (Key Event)--------->
+    
+    public void EnablePleyerMovement()
     {
-        Gizmos.color = Color.yellow;
-        float xOffset = playercCharacterController2D.m_FacingRight ? 2.125f : -2.125f;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x+xOffset, transform.position.y), new Vector2(2.25f, 2f));
-    }*/
+        playercCharacterController2D.canMove = true;
+    }
+
+    public void DisablePleyerMovement()
+    {
+        playercCharacterController2D.canMove = false;
+        playercCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero;
+    }
 
 }

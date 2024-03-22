@@ -47,7 +47,7 @@ public class CharacterController2D : MonoBehaviour
     
     [Header("이동 관련")]
     public bool canMove = true;         //플레이어가 움직일수 있는지
-    private bool isDashing = false;      //플레이어가 대쉬를 하는중인지
+    [HideInInspector]public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
     public float bigFallCantMoveCoolTime;
