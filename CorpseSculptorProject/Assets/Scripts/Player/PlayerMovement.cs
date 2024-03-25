@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
-    private float horizontalMove = 0f;
+    public float horizontalMove = 0f;
     private bool jump = false;
     private bool dash = false;
     private bool walljump = false;
