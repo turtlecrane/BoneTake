@@ -16,20 +16,14 @@ public class PlayerAttack : MonoBehaviour
     public Weapon_Type weapon_type;
     public bool canAttack = true;
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
-    
-    private CharacterController2D playerCharacterController2D;
-    
-    //...TESTCODE
-    [Header("테스트코드")]
-    public int count = 0;
     public bool isAttacking;
-    public float AbleMultipleAttack_Time;
+    public int count = 0;
     public float multiAtk_maxTime;
     
-    public float comparisonTimer;
-    bool previousIsAttacking = false; // isAttacking의 이전 상태를 추적하기 위한 변수
-    
-    public 
+    private float AbleMultipleAttack_Time;
+    private float comparisonTimer;
+    private bool previousIsAttacking = false; // isAttacking의 이전 상태를 추적하기 위한 변수
+    private CharacterController2D playerCharacterController2D; 
     void Start()
     {
         playerCharacterController2D = GetComponent<CharacterController2D>();

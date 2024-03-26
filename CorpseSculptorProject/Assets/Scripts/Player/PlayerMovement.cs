@@ -98,8 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnFall()
     {
-        animator.SetBool("IsJumping", true);
-        animator.SetBool("IsLanding", false);
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsFalling", true);
     }
 
     /// <summary>
@@ -107,13 +107,13 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnLanding()
     {
-        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsFalling", false);
         animator.SetBool("IsLanding", true);
     }
     
     public void OnBigLanding() //TODO 큰 착지 이벤트 실행
     {
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("IsLanding", true);
+        animator.SetBool("IsFalling", false);
+        animator.SetBool("IsBigLanding", true);
     }
 }

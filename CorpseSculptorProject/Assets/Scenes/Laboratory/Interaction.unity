@@ -5733,11 +5733,9 @@ MonoBehaviour:
   weapon_type: 2
   canAttack: 1
   isAbleMultipleAttack: 0
-  count: 0
   isAttacking: 0
-  AbleMultipleAttack_Time: 0
+  count: 0
   multiAtk_maxTime: 1
-  comparisonTimer: 0
 --- !u!1 &1991785121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,7 +6120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5955462, y: 8.096638, z: -10}
+  m_LocalPosition: {x: -5.595533, y: 8.096621, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

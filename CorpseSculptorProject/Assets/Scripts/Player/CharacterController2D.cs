@@ -23,7 +23,9 @@ public class CharacterController2D : MonoBehaviour
     [Header("점프 관련")]
     public bool isBigLanding;           //큰 착지인지 아닌지 판단
     private bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
-    
+    public bool isJumping; //점프중인지
+    public bool isFalling; //추락중인지
+
     [Tooltip("초기 점프력 - 점프력의 최소값")]
     public float m_originalJumpForce = 200f; //초기 점프력
     
@@ -106,10 +108,22 @@ public class CharacterController2D : MonoBehaviour
                 InitClimbing(); // 클라이밍 종료
             }
         }
+        
         if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
         {
             isBigLanding = true;
         }
+        if (m_Rigidbody2D.velocity.y >= 0.1)
+        {
+            isJumping = true;
+            Debug.Log("Jumping");
+        }
+        else if (m_Rigidbody2D.velocity.y <= -0.1)
+        {
+            isFalling = true;
+            Debug.Log("Falling");
+        }
+        
     }
 
     private void FixedUpdate()
