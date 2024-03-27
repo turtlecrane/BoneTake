@@ -22,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
     
     [Header("점프 관련")]
     public bool isBigLanding;           //큰 착지인지 아닌지 판단
+    public bool isLanding;           //기본 착지인지 아닌지 판단
     private bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     public bool isJumping; //점프중인지
     public bool isFalling; //추락중인지
@@ -109,23 +110,31 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         
-        if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
-        {
-            isBigLanding = true;
-        }
+        
         if (m_Rigidbody2D.velocity.y >= 0.1)
         {
             isJumping = true;
-            Debug.Log("Jumping");
         }
-        else if (m_Rigidbody2D.velocity.y <= -0.1)
+        else if ( -39.0f < m_Rigidbody2D.velocity.y && m_Rigidbody2D.velocity.y <= -0.1)
         {
+            //떨어지고있으면
+            isJumping = false;
             isFalling = true;
-            Debug.Log("Falling");
+            isLanding = true;
+        }
+        else if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
+        {
+            //기본착지 -> 큰착지로 전환
+            isLanding = false;
+            isBigLanding = true;
         }
         
+        animator.SetBool("IsFalling", isFalling);
+        animator.SetBool("IsBigLanding", isBigLanding);
+        animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsLanding", isLanding);
     }
-
+    
     private void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
@@ -138,37 +147,40 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-            }
-            if (!wasGrounded)
-            {
-                var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
-                if (isBigLanding)
+                if (!wasGrounded && isFalling)
                 {
-                    //Debug.Log("큰착지를 함");
-                    if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
+                    var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
+                    if (isBigLanding)
                     {
-                        StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
+                        //착지를했을때 1번만 실행됨.
+                        //Debug.Log("큰착지를 함");
+                        if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
+                        {
+                            StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
+                        }
+                        //OnBigLandEvent.Invoke();
+                        StartCoroutine(BigLandingMoveCooldown());
                     }
-                    OnBigLandEvent.Invoke();//TODO 큰착지 애니메이션 실행 (임시)
-                    StartCoroutine(BigLandingMoveCooldown());
+                    else
+                    {
+                        StartCoroutine(BasicLandingCooldown());
+                        //카메라 초기화
+                        playerCameraScript.virtualCamera.m_Lens.OrthographicSize = playerCameraScript.lensOrtho_InitSize;
+                        /*if (!m_IsWall && !isDashing)
+                            particleJumpDown.Play();
+                        */ //착지 파티클 재생
+                    }
                 }
-                else//일반적인 착지 이벤트
-                {
-                    OnLandEvent.Invoke();//착지 이벤트 실행
-                    playerCameraScript.virtualCamera.m_Lens.OrthographicSize = playerCameraScript.lensOrtho_InitSize;
-                    /*if (!m_IsWall && !isDashing)
-                        particleJumpDown.Play();
-                    */ //착지 파티클 재생
-                }
+                isFalling = false;
             }
         }
+        
         //기본적으로는 벽에 매달릴수 없는 상태임.
         m_IsWall = false;
         climbingDirect = 0;
         
         if (!m_Grounded)//플레이어가 접지중이 아니라면
         {
-            OnFallEvent.Invoke();//떨어지는 이벤트 호출
             //벽타기 관련
             float xOffset = m_FacingRight ? 1f : -1f;
             climbingDirect = m_FacingRight ? 1 : -1;
@@ -266,9 +278,6 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_Jump()
     {
-        //점프 애니메이션으로 전환
-        animator.SetBool("IsJumping", true);
-        
         //지면에 있지 않음으로 상태 변경
         m_Grounded = false;
         
@@ -283,6 +292,7 @@ public class CharacterController2D : MonoBehaviour
     {
         climbingCount = 0f;
         //점프 애니메이션으로 전환
+        //TODO WallJump로 수정해야함!!
         animator.SetBool("IsJumping", true);
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
         m_Rigidbody2D.AddForce(new Vector2((-1*transform.localScale.x) * wallJumpHorizontalForce, wallJumpVerticalForce));
@@ -350,13 +360,24 @@ public class CharacterController2D : MonoBehaviour
         canDash = true;
     }
 
+    /// <summary>
+    /// 큰착지 후 움직일수없게 하는 함수
+    /// </summary>
+    /// <returns></returns>
     IEnumerator BigLandingMoveCooldown()
     {
         m_Rigidbody2D.velocity = Vector2.zero;
-        isBigLanding = false;
         canMove = false;
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);
         canMove = true;
+        isBigLanding = false;
+    }
+    
+    IEnumerator BasicLandingCooldown()
+    {
+        Debug.Log("기본 착지를 함");
+        yield return new WaitForSeconds(0.1f);
+        isLanding = false;
     }
     
     /// <summary>

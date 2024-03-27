@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerFollowCamera: {fileID: 1394948530}
-  virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 1394948531}
   lensOrtho_InitSize: 0
   LensOrtho_ZoomValue: 0.02
   Impulse_PowerValue: 5
@@ -3578,7 +3578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6, y: 2.9, z: -10}
+  m_LocalPosition: {x: 46.11, y: 18.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5590,7 +5590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.6, y: 2.9}
+  m_AnchoredPosition: {x: 46.11, y: 18.87}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
@@ -5615,6 +5615,9 @@ MonoBehaviour:
   m_Rigidbody2D: {fileID: 1924651500}
   animator: {fileID: 1924651506}
   isBigLanding: 0
+  isLanding: 0
+  isJumping: 0
+  isFalling: 0
   m_originalJumpForce: 200
   m_jumpForceIncrement: 1000
   limitFallSpeed: 45
@@ -5625,7 +5628,7 @@ MonoBehaviour:
     m_Bits: 64
   canMove: 1
   isDashing: 0
-  bigFallCantMoveCoolTime: 1
+  bigFallCantMoveCoolTime: 1.833
   isClimbing: 0
   wallLayer:
     serializedVersion: 2
@@ -6120,7 +6123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.595533, y: 8.096621, z: -10}
+  m_LocalPosition: {x: 46.11, y: 18.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
