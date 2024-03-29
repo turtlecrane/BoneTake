@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2512,30 +2512,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fe9d1c1e8bceb46bad347ee163cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata:
+    playerSpeed: 0
+    playerJumpForce: 0
+    playerDashForce: 0
+    weaponType: 0
+    playerATK: 0
   playerMovement: {fileID: 1924651505}
   m_Rigidbody2D: {fileID: 1924651500}
   animator: {fileID: 1924651506}
-  m_Grounded: 0
+  isBigLanding: 0
   m_originalJumpForce: 200
-  m_JumpForce: 200
   m_jumpForceIncrement: 1000
-  m_limitJumpForce: 500
   limitFallSpeed: 25
+  wallJumpHorizontalForce: 1000
+  wallJumpVerticalForce: 900
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  wallJumpHorizontalForce: 1000
-  wallJumpVerticalForce: 900
-  m_FacingRight: 1
-  canDash: 1
-  m_DashForce: 40
+  canMove: 1
+  bigFallCantMoveCoolTime: 0
   isClimbing: 0
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
-  climbingCount: 0
   limitClimbingCount: 5
-  m_IsWall: 0
+  climbingCount: 0
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2566,6 +2568,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnBigLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_IsWall: 0
+  m_playerRigidGravity: 0
+  m_JumpForce: 200
+  m_FacingRight: 1
+  canDash: 1
+  m_Grounded: 0
 --- !u!114 &1924651505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,7 +2591,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1924651504}
   animator: {fileID: 1924651506}
-  runSpeed: 70
 --- !u!95 &1924651506
 Animator:
   serializedVersion: 5
