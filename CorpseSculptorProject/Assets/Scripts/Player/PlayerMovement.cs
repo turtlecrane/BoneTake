@@ -95,29 +95,4 @@ public class PlayerMovement : MonoBehaviour
             dash = true;
         }
     }
-
-    /*
-    public void OnFall()
-    {
-        Debug.Log("떨어지는중");
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("IsFalling", true);
-    }
-
-    /// <summary>
-    /// 점프 하고 착지할때 CharacterController2D에서 호출됨
-    /// </summary>
-    public void OnLanding()
-    {
-        Debug.Log("그냥 착지 함");
-        animator.SetBool("IsFalling", false);
-        animator.SetBool("IsLanding", true);
-    }
-    
-    public void OnBigLanding() //TODO 큰 착지 이벤트 실행
-    {
-        Debug.Log("큰 착지 함");
-        animator.SetBool("IsFalling", false);
-        animator.SetBool("IsBigLanding", true);
-    }*/
 }

@@ -67,10 +67,11 @@ public class CharacterController2D : MonoBehaviour
     public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     //---------------------
     
+    /*
     [Header("Events")]
     public UnityEvent OnFallEvent;
     public UnityEvent OnLandEvent;
-    public UnityEvent OnBigLandEvent;
+    public UnityEvent OnBigLandEvent;*/
 
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
@@ -89,7 +90,8 @@ public class CharacterController2D : MonoBehaviour
         //플레이어 데이터 받아오기
         ReroadPlayerData();
 
-        if (OnFallEvent == null)
+        /*
+         if (OnFallEvent == null)
             OnFallEvent = new UnityEvent();
 
         if (OnLandEvent == null)
@@ -97,6 +99,7 @@ public class CharacterController2D : MonoBehaviour
         
         if (OnBigLandEvent == null)
             OnBigLandEvent = new UnityEvent();
+        */
     }
 
     private void Update()
@@ -153,12 +156,10 @@ public class CharacterController2D : MonoBehaviour
                     if (isBigLanding)
                     {
                         //착지를했을때 1번만 실행됨.
-                        //Debug.Log("큰착지를 함");
                         if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
                         {
                             StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
                         }
-                        //OnBigLandEvent.Invoke();
                         StartCoroutine(BigLandingMoveCooldown());
                     }
                     else
@@ -368,6 +369,7 @@ public class CharacterController2D : MonoBehaviour
     {
         m_Rigidbody2D.velocity = Vector2.zero;
         canMove = false;
+        Debug.Log("!!!!!!!!!!!! "+canMove);
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);
         canMove = true;
         isBigLanding = false;
