@@ -49,7 +49,7 @@ public class CharacterController2D : MonoBehaviour
     //---------------------
     
     [Header("이동 관련")]
-    public bool canMove = true;         //플레이어가 움직일수 있는지
+    public bool canMove;         //플레이어가 움직일수 있는지
     [HideInInspector]public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
@@ -85,21 +85,11 @@ public class CharacterController2D : MonoBehaviour
     
     private void Awake()
     {
+        canMove = true;
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_playerRigidGravity = m_Rigidbody2D.gravityScale;
         //플레이어 데이터 받아오기
         ReroadPlayerData();
-
-        /*
-         if (OnFallEvent == null)
-            OnFallEvent = new UnityEvent();
-
-        if (OnLandEvent == null)
-            OnLandEvent = new UnityEvent();
-        
-        if (OnBigLandEvent == null)
-            OnBigLandEvent = new UnityEvent();
-        */
     }
 
     private void Update()
@@ -112,7 +102,6 @@ public class CharacterController2D : MonoBehaviour
                 InitClimbing(); // 클라이밍 종료
             }
         }
-        
         
         if (m_Rigidbody2D.velocity.y >= 0.1)
         {
@@ -369,7 +358,6 @@ public class CharacterController2D : MonoBehaviour
     {
         m_Rigidbody2D.velocity = Vector2.zero;
         canMove = false;
-        Debug.Log("!!!!!!!!!!!! "+canMove);
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);
         canMove = true;
         isBigLanding = false;
