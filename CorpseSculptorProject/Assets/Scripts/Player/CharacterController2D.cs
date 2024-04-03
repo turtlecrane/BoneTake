@@ -66,12 +66,6 @@ public class CharacterController2D : MonoBehaviour
     private float prevVelocityX = 0f;
     public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     //---------------------
-    
-    /*
-    [Header("Events")]
-    public UnityEvent OnFallEvent;
-    public UnityEvent OnLandEvent;
-    public UnityEvent OnBigLandEvent;*/
 
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값

@@ -35,8 +35,8 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         isAttacking = IsCurrentAnimationTag("attack");
-        //TODO << 이쪽에서 2타 공격시 움직임이 작동되지 않음
-        //playerCharacterController2D.canMove = !isAttacking;
+        //BigLanding중 이거나, 공격중이면 움직일수없도록 함.
+        playerCharacterController2D.canMove = !isAttacking && !playerCharacterController2D.isBigLanding;
         if (isAttacking) playerCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero; 
         
         // 좌클릭 감지
