@@ -23,8 +23,8 @@ public class CharacterController2D : MonoBehaviour
     [Header("점프 관련")]
     public bool isBigLanding;           //큰 착지인지 아닌지 판단
     public bool isLanding;           //기본 착지인지 아닌지 판단
-    private bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     public bool isJumping; //점프중인지
+    public bool isWallJumping; //점프중인지
     public bool isFalling; //추락중인지
 
     [Tooltip("초기 점프력 - 점프력의 최소값")]
@@ -43,14 +43,11 @@ public class CharacterController2D : MonoBehaviour
     public float wallJumpVerticalForce; //벽타기중 점프시 점프력 - 초기값 : 900
     
     public LayerMask groundLayer;       //바닥을 나타내는 레이어
-    private Vector3 velocity = Vector3.zero;
-    private float m_MovementSmoothing = .05f;
     
     //---------------------
     
     [Header("이동 관련")]
     public bool canMove;         //플레이어가 움직일수 있는지
-    [HideInInspector]public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
     public float bigFallCantMoveCoolTime;
@@ -62,11 +59,14 @@ public class CharacterController2D : MonoBehaviour
     [Tooltip("벽에서 몇초만큼 조작이 없을때 추락하는지")]
     public float limitClimbingCount;
     
-    private int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     private float prevVelocityX = 0f;
     public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     //---------------------
-
+    
+    [HideInInspector] public float m_MovementSmoothing = .05f;
+    [HideInInspector] public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
+    [HideInInspector]public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
+    [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
     [HideInInspector] public float m_JumpForce;               //현재 점프력
@@ -74,8 +74,9 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     
+    /*
     [System.Serializable]
-    public class BoolEvent : UnityEvent<bool> { }
+    public class BoolEvent : UnityEvent<bool> { }*/
     
     private void Awake()
     {
@@ -105,6 +106,7 @@ public class CharacterController2D : MonoBehaviour
         {
             //떨어지고있으면
             isJumping = false;
+            isWallJumping = false;
             isFalling = true;
             isLanding = true;
         }
@@ -118,7 +120,10 @@ public class CharacterController2D : MonoBehaviour
         animator.SetBool("IsFalling", isFalling);
         animator.SetBool("IsBigLanding", isBigLanding);
         animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsWallJumping", isWallJumping);
         animator.SetBool("IsLanding", isLanding);
+        animator.SetBool("IsHanging", isClimbing);
+        
     }
     
     private void FixedUpdate()
@@ -174,90 +179,6 @@ public class CharacterController2D : MonoBehaviour
     }
     
     /// <summary>
-    /// 플레이어 움직임을 관리하는 로직 <br/>
-    /// PlayerMovement.cs에서 Update호출됨
-    /// </summary>
-    /// <param name="move">플레이어의 움직임 <br/>(0 - 정지, -1 - 왼쪽, +1 - 오른쪽)</param>
-    /// <param name="jump">플레이어가 점프키를 눌렀는지</param>
-    /// <param name="dash">플레이어가 대쉬키를 눌렀는지</param>
-    /// <param name="walljump">플레이어가 벽타기 중에 점프키를 눌렀는지</param>
-    public void Move(float move, bool jump, bool dash, bool walljump)
-    {
-        //움직일수 있는지 판단
-        if (canMove)
-        {
-            //대쉬 조작 ----
-            if (dash && canDash)
-            {
-                StartCoroutine(DashCooldown());
-            }
-            
-            //대쉬 ----
-            if (isDashing)
-            {
-                m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * playerdata.playerDashForce, 0);
-            }
-            
-            //이동 ----
-            //땅에 있거나 airControl이 켜져 있는 경우에 플레이어 제어
-            else if (m_Grounded || m_AirControl)
-            {
-                //최고 낙하속도 제한 (낙하 속도가 너무 빠르면 맵이 뚫림)
-                if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
-                {
-                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
-                    isBigLanding = true;
-                }
-                
-                //인자로 받은 플레이어 움직임 속도로 플레이어 이동
-                Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-                //그리고 SmoothDamp하여 캐릭터에 적용
-                m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
-
-                //입력이 플레이어를 오른쪽으로 움직이고 플레이어가 왼쪽을 바라보고 있는 경우
-                if (move > 0 && !m_FacingRight)
-                {
-                    Flip();
-                    m_Rigidbody2D.gravityScale = m_playerRigidGravity; //중력 재개 5
-                }
-                //그렇지 않으면 입력이 플레이어를 왼쪽으로 움직이고 플레이어가 오른쪽을 향하고 있는 경우
-                else if (move < 0 && m_FacingRight)
-                {
-                    Flip();
-                    m_Rigidbody2D.gravityScale = m_playerRigidGravity; //중력 재개 5
-                }
-            }
-            
-            //점프 ----
-            if (m_Grounded && jump)
-            {
-                Player_Jump();
-            }
-            if (walljump) //벽메달리기 중 점프
-            {
-                Player_WallJump();
-            }
-
-            //벽타기 ----
-            if (!m_Grounded && m_IsWall)//점프하고 벽에 붙어있는 상태에서
-            {
-                if (climbingDirect > 0 && move>0)//오른쪽을 바라보고 방향키 오른쪽을 누르면
-                {
-                    ClimbingWall();
-                }
-                else if (climbingDirect < 0 && move<0)//왼쪽을 바라보고 방향키 왼쪽을 누르면
-                {
-                    ClimbingWall();
-                }
-            }
-            else
-            {
-                isClimbing = false;
-            }
-        }
-    }
-
-    /// <summary>
     /// 플레이어의 점프하기
     /// </summary>
     public void Player_Jump()
@@ -274,10 +195,9 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     public void Player_WallJump()
     {
+        Debug.Log("벽에서 점프했습니다.");
         climbingCount = 0f;
-        //점프 애니메이션으로 전환
-        //TODO WallJump로 수정해야함!!
-        animator.SetBool("IsJumping", true);
+        isWallJumping = true;
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
         m_Rigidbody2D.AddForce(new Vector2((-1*transform.localScale.x) * wallJumpHorizontalForce, wallJumpVerticalForce));
         
@@ -293,6 +213,11 @@ public class CharacterController2D : MonoBehaviour
         isClimbing = true;
         m_Rigidbody2D.velocity = new Vector2(0f, 0f); // 속도 초기화
         m_Rigidbody2D.gravityScale = 0f; // 중력 제거
+        //초기화
+        isJumping = false;
+        isWallJumping = false;
+        isFalling = false;
+        isLanding = false;
     }
     
     /// <summary>
@@ -331,20 +256,6 @@ public class CharacterController2D : MonoBehaviour
     }
 
     /// <summary>
-    /// 대쉬 쿨타임 및 대쉬중인지 판단 여부 bool 변수 설정
-    /// </summary>
-    IEnumerator DashCooldown()
-    {
-        animator.SetBool("IsDashing", true);
-        isDashing = true;
-        canDash = false;
-        yield return new WaitForSeconds(0.1f);
-        isDashing = false;
-        yield return new WaitForSeconds(0.5f);
-        canDash = true;
-    }
-
-    /// <summary>
     /// 큰착지 후 움직일수없게 하는 함수
     /// </summary>
     /// <returns></returns>
@@ -367,7 +278,7 @@ public class CharacterController2D : MonoBehaviour
     /// <summary>
     /// 플레이어가 바라보는곳으로 플레이어의 이미지를 뒤집음
     /// </summary>
-    private void Flip()
+    public void Flip()
     {
         m_FacingRight = !m_FacingRight;
 
