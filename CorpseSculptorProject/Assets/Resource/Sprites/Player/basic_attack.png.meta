@@ -129,7 +129,7 @@ TextureImporter:
       name: basic_attack_1
       rect:
         serializedVersion: 2
-        x: 328
+        x: 327
         y: 0
         width: 381
         height: 197
@@ -155,7 +155,7 @@ TextureImporter:
         width: 390
         height: 189
       alignment: 9
-      pivot: {x: 0.39147386, y: 0}
+      pivot: {x: 0.3789643, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 376
         height: 189
       alignment: 9
-      pivot: {x: 0.3851721, y: 0}
+      pivot: {x: 0.38028345, y: 0.0077006244}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
