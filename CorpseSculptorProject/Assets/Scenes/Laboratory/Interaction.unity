@@ -3578,7 +3578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.6, y: 18.74, z: -10}
+  m_LocalPosition: {x: -0.3, y: 10.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5590,7 +5590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.6, y: 18.74}
+  m_AnchoredPosition: {x: -0.3, y: 10.9}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
@@ -5617,6 +5617,7 @@ MonoBehaviour:
   isBigLanding: 0
   isLanding: 0
   isJumping: 0
+  isWallJumping: 0
   isFalling: 0
   m_originalJumpForce: 200
   m_jumpForceIncrement: 1000
@@ -5627,7 +5628,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canMove: 0
-  isDashing: 0
   bigFallCantMoveCoolTime: 1.833
   isClimbing: 0
   wallLayer:
@@ -5635,6 +5635,10 @@ MonoBehaviour:
     m_Bits: 128
   limitClimbingCount: 5
   climbingCount: 0
+  m_MovementSmoothing: 0.05
+  climbingDirect: 0
+  isDashing: 0
+  m_AirControl: 1
   m_IsWall: 0
   m_playerRigidGravity: 0
   m_JumpForce: 200
@@ -5692,6 +5696,8 @@ MonoBehaviour:
   canAttack: 1
   isAbleMultipleAttack: 0
   isAttacking: 0
+  isJumpAttacking: 0
+  isDashAttacking: 0
   count: 0
   multiAtk_maxTime: 1
 --- !u!1 &1991785121
@@ -6078,7 +6084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.6, y: 18.74, z: -10}
+  m_LocalPosition: {x: -0.3, y: 10.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

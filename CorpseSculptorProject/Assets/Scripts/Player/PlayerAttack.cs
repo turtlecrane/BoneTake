@@ -35,16 +35,16 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         isAttacking = IsCurrentAnimationTag("attack");
+        playerCharacterController2D.animator.SetBool("IsAttacking", isAttacking);
         //BigLanding중 이거나, 공격중이면 움직일수없도록 함.
         playerCharacterController2D.canMove = !isAttacking && !playerCharacterController2D.isBigLanding;
         if (isAttacking) playerCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero; 
         
         // 좌클릭 감지
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetMouseButtonDown(0) && canAttack && playerCharacterController2D.canMove)
         {
             #region ...HOLD CODE [보류중]
             //---------------------------
-            if(!playerCharacterController2D.m_Grounded) return; //점프공격
             if(playerCharacterController2D.isDashing) return; //대쉬공격
             if(playerCharacterController2D.isClimbing) return; //벽타기때 공격하는경우
             //---------------------------
@@ -57,6 +57,11 @@ public class PlayerAttack : MonoBehaviour
             
             if (weapon_type == Weapon_Type.Basic)//착용중인 무기가 기본 무기인경우 (손톱)
             {
+                /*if (!playerCharacterController2D.m_Grounded) //점프공격의 경우
+                {
+                    Debug.Log("점프공격");
+                }
+                */
                 Player_BasicAttack();
             }
             else

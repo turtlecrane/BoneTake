@@ -65,7 +65,7 @@ public class CharacterController2D : MonoBehaviour
     
     [HideInInspector] public float m_MovementSmoothing = .05f;
     [HideInInspector] public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
-    [HideInInspector]public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
+    [HideInInspector] public bool isDashing = false;      //플레이어가 대쉬를 하는중인지
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
