@@ -177,41 +177,4 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         canAttack = true;
     }
-    
-    
-    
-    
-    //<---------애니메이션에서 호출 (Key Event)--------->
-    
-    /// <summary>
-    /// 애니메이션의 Event호출로 호출되는 플레이어 공격 함수
-    /// </summary>
-    public void Player_DoBasicDamege()
-    {
-        float xOffset = playerCharacterController2D.m_FacingRight ? 2.125f : -2.125f;
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(2.25f, 2f), 0f);
-        
-        for (int i = 0; i < basicHitBox.Length; i++)
-        {
-            if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
-            {
-                //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
-                //HP를 줄이는건 0+데이터ATK로 깎는다.
-                //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
-                basicHitBox[i].gameObject.SendMessage("ApplyDamage", 0+playerCharacterController2D.playerdata.playerATK);
-            }
-        }
-    }
-    
-    public void EnablePleyerMovement()
-    {
-        playerCharacterController2D.canMove = true;
-    }
-
-    public void DisablePleyerMovement()
-    {
-        playerCharacterController2D.canMove = false;
-        playerCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero;
-    }
-
 }

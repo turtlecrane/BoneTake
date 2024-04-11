@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     public float horizontalMove = 0f;
-    private bool jump = false;
+    public bool jump = false;
     private bool dash = false;
     private bool walljump = false;
     private Vector3 velocity = Vector3.zero;
@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
         //움직이기
         if (controller.canMove)
         {
-            Move(horizontalMove * Time.fixedDeltaTime, jump, dash, walljump);
-            jump = false;
+            Move(horizontalMove * Time.fixedDeltaTime, dash, walljump); //jump
+            //jump = false;
             dash = false;
             walljump = false;
         }
@@ -38,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
     /// 플레이어 움직임을 관리하는 로직 <br/>
     /// </summary>
     /// <param name="move">플레이어의 움직임 <br/>(0 - 정지, -1 - 왼쪽, +1 - 오른쪽)</param>
-    /// <param name="jump">플레이어가 점프키를 눌렀는지</param>
+    /// <param name="jump">플레이어가 점프키를 눌렀는지</param> 
     /// <param name="dash">플레이어가 대쉬키를 눌렀는지</param>
     /// <param name="walljump">플레이어가 벽타기 중에 점프키를 눌렀는지</param>
-    public void Move(float move, bool jump, bool dash, bool walljump)
+    public void Move(float move, bool dash, bool walljump) //bool jump,
     {
         //움직일수 있는지 판단
         if (controller.canMove)
@@ -88,11 +88,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             
-            //점프 ----
-            if (controller.m_Grounded && jump)
-            {
-                controller.Player_Jump();
-            }
             if (walljump) //벽메달리기 중 점프
             {
                 controller.Player_WallJump();
@@ -133,40 +128,48 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void Player_JumpingClimbing(KeyCode JumpKey1, KeyCode JumpKey2)
     {
-        if (Input.GetKeyDown(JumpKey1) || Input.GetKeyDown(JumpKey2)) //점프시작
+        // 점프 키를 누르기 시작했을 때
+        if ((Input.GetKeyDown(JumpKey1) || Input.GetKeyDown(JumpKey2)))
         {
-            controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity; //5
-            if (controller.isClimbing)
+            if (controller.isClimbing) //벽점프의 경우
             {
                 controller.m_JumpForce = controller.m_originalJumpForce;
                 walljump = true;
             }
-        }
-        if (Input.GetKey(JumpKey1) || Input.GetKey(JumpKey2)) //점프시작
-        {
-            controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime;
-            if (controller.m_Grounded && !controller.isClimbing)
+            else if (controller.m_Grounded) //그냥 점프의 경우
             {
-                jump = true;
-                controller.m_Rigidbody2D.gravityScale = 0f;
-            }
-            else if (!controller.m_Grounded && controller.isClimbing)//등반중인경우의 점프
-            {
-                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
-            }
-            if ((controller.m_JumpForce > controller.playerdata.playerJumpForce) && !controller.isClimbing)
-            {
-                jump = false;
-                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
+                controller.m_Rigidbody2D.gravityScale = 0f; // 중력을 일시적으로 0으로 설정하여 점프 시작 시의 낙하를 방지
+                controller.m_JumpForce = controller.m_originalJumpForce; // 점프력을 초기화
+                jump = true; // 점프 상태 시작
             }
         }
-        if ((Input.GetKeyUp(JumpKey1) || Input.GetKeyUp(JumpKey2))) //점프끝
+
+        // 점프 키를 계속 누르고 있을 때
+        if ((Input.GetKey(JumpKey1) || Input.GetKey(JumpKey2)) && jump)
         {
-            if (!controller.isClimbing)
+            if (controller.m_JumpForce <= controller.playerdata.playerMaxJumpForce)
             {
-                controller.m_JumpForce = controller.m_originalJumpForce;
-                controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity;//5
+                controller.m_Rigidbody2D.AddForce(Vector2.up * controller.m_JumpForce * Time.deltaTime, ForceMode2D.Impulse); // 위쪽으로 힘을 가함
+                controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime; // 시간에 따라 점프력 증가
             }
+            else
+            {
+                jump = false; // 최대 점프력에 도달하면 점프 상태 종료
+            }
+        }
+        
+        // 점프 키에서 손을 뗐을 때
+        if (Input.GetKeyUp(JumpKey1) || Input.GetKeyUp(JumpKey2))
+        {
+            jump = false; // 점프 상태 종료
+            controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity; // 중력을 원래대로 복구하여 낙하 시작
+        }
+
+        // 점프 상태가 아닐 때 중력 복구 
+        if (!jump && controller.m_Rigidbody2D.gravityScale == 0f)
+        {
+            if (controller.isClimbing) return; //등반중인 경우에는 무시
+            controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity; // 중력을 원래대로 복구
         }
     }
 

@@ -69,14 +69,10 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
-    [HideInInspector] public float m_JumpForce;               //현재 점프력
+    [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool canDash = true;         //플레이어가 대쉬를 할수있는 상황인지 여부
-    [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
-    
-    /*
-    [System.Serializable]
-    public class BoolEvent : UnityEvent<bool> { }*/
+    public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     
     private void Awake()
     {
@@ -132,7 +128,7 @@ public class CharacterController2D : MonoBehaviour
         m_Grounded = false;
         
         //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.5f), 0f, groundLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.1f), 0f, groundLayer);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -179,23 +175,10 @@ public class CharacterController2D : MonoBehaviour
     }
     
     /// <summary>
-    /// 플레이어의 점프하기
-    /// </summary>
-    public void Player_Jump()
-    {
-        //지면에 있지 않음으로 상태 변경
-        m_Grounded = false;
-        
-        //플레이어에게 수직으로 힘추가
-        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-    }
-    
-    /// <summary>
     /// 플레이어의 벽에서 점프하기
     /// </summary>
     public void Player_WallJump()
     {
-        Debug.Log("벽에서 점프했습니다.");
         climbingCount = 0f;
         isWallJumping = true;
         m_Rigidbody2D.velocity = new Vector2(0f, 0f);
@@ -218,6 +201,7 @@ public class CharacterController2D : MonoBehaviour
         isWallJumping = false;
         isFalling = false;
         isLanding = false;
+        climbingCount = 0f;
     }
     
     /// <summary>
@@ -270,6 +254,7 @@ public class CharacterController2D : MonoBehaviour
     
     IEnumerator BasicLandingCooldown()
     {
+        //isLanding = true;
         Debug.Log("기본 착지를 함");
         yield return new WaitForSeconds(0.1f);
         isLanding = false;
@@ -292,7 +277,7 @@ public class CharacterController2D : MonoBehaviour
     {
         //착지검사
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.5f));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y+0.1f), new Vector2(1f, 0.2f));
         
         //플레이어가 바라보는 방향의 박스
         Gizmos.color = Color.blue;
