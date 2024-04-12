@@ -45,7 +45,6 @@ public class PlayerAttack : MonoBehaviour
         {
             #region ...HOLD CODE [보류중]
             //---------------------------
-            if(playerCharacterController2D.isDashing) return; //대쉬공격
             if(playerCharacterController2D.isClimbing) return; //벽타기때 공격하는경우
             //---------------------------
             #endregion

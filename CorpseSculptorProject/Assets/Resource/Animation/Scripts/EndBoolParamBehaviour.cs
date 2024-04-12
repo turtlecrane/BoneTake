@@ -21,7 +21,7 @@ public class EndBoolParamBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool(parameter, false);
-        //Debug.Log("OnStateExit");
+        Debug.Log(parameter + " : OnStateExit");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
