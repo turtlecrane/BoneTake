@@ -5917,6 +5917,7 @@ MonoBehaviour:
   canMove: 0
   canDash: 1
   isDashing: 0
+  isDashAttacking: 0
   canDashAttack: 0
   bigFallCantMoveCoolTime: 1.833
   isClimbing: 0
@@ -5945,8 +5946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72b5b735b8d3e04db22b0e3443c9617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1924651504}
-  animator: {fileID: 1924651506}
   Count_dashAttackCool: 0
   Time_dashAttackCool: 3
   testDashAttackText: {fileID: 1894746341}
