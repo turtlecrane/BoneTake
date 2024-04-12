@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -368,6 +368,10 @@ MonoBehaviour:
   m_Rigidbody2D: {fileID: 286930617}
   animator: {fileID: 286930615}
   isBigLanding: 0
+  isLanding: 0
+  isJumping: 0
+  isWallJumping: 0
+  isFalling: 0
   m_originalJumpForce: 200
   m_jumpForceIncrement: 1000
   limitFallSpeed: 45
@@ -384,51 +388,10 @@ MonoBehaviour:
     m_Bits: 128
   limitClimbingCount: 5
   climbingCount: 0
-  OnFallEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 286930614}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnFall
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 286930614}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnBigLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 286930614}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnBigLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_MovementSmoothing: 0.05
+  climbingDirect: 0
+  isDashing: 0
+  m_AirControl: 1
   m_IsWall: 0
   m_playerRigidGravity: 0
   m_JumpForce: 200
@@ -447,10 +410,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe05be3435e4d3842aef930ec8b2d1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon_type: 0
+  weapon_type: 0
   canAttack: 1
   isAbleMultipleAttack: 0
-  attackCount: 1
+  isAttacking: 0
+  count: 0
+  multiAtk_maxTime: 0
 --- !u!114 &286930614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 286930612}
   animator: {fileID: 286930615}
+  horizontalMove: 0
 --- !u!95 &286930615
 Animator:
   serializedVersion: 5
@@ -576,7 +542,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.91, y: 1.86}
+  m_Size: {x: 1.98, y: 1.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
