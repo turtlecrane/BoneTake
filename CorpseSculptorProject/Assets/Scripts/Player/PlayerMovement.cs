@@ -203,6 +203,8 @@ public class PlayerMovement : MonoBehaviour
     
     IEnumerator DashCooldown()
     {
+        //true만 시켜주고 각 애니메이션에 붙어있는
+        //EndBoolParamBehaviour스크립트에 의해서 false가 됨 (트리거 역할)
         animator.SetBool("IsDashAttacking", controller.isDashAttacking);
         animator.SetBool("IsDashing", controller.isDashing);
         

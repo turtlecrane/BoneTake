@@ -12,8 +12,8 @@ public class PlayerEventKey : MonoBehaviour
     /// </summary>
     public void Player_DoBasicDamege()
     {
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 2.125f : -2.125f;
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y), new Vector2(2.25f, 2f), 0f);
+        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_X), transform.position.y + 1 + GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_Y), GameManager.Instance.GetCharacterController2D().playerAttack.hitBoxSize, 0f);
         
         for (int i = 0; i < basicHitBox.Length; i++)
         {
@@ -49,5 +49,13 @@ public class PlayerEventKey : MonoBehaviour
     {
         GameManager.Instance.GetCharacterController2D().isLanding = false;
         GameManager.Instance.GetCharacterController2D().isBigLanding = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        //히트박스 에디터 상에서 표시 2.125f : -2.125f;
+        Gizmos.color = Color.cyan;
+        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_X), transform.position.y + 1f + GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_Y), GameManager.Instance.GetCharacterController2D().playerAttack.hitBoxSize);
     }
 }

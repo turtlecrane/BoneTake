@@ -15,8 +15,10 @@ public class CharacterController2D : MonoBehaviour
     [Space (10f)]
     [Header("플레이어 컴포넌트")] 
     public PlayerMovement playerMovement;
+    public PlayerAttack playerAttack;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
+    
     
     //---------------------
     
@@ -282,7 +284,7 @@ public class CharacterController2D : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y+0.1f), new Vector2(1f, 0.2f));
         
-        //플레이어가 바라보는 방향의 박스
+        //플레이어가 바라보는 방향의 박스 (벽검사 등)
         Gizmos.color = Color.blue;
         float xOffset = m_FacingRight ? 1f : -1f;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f));

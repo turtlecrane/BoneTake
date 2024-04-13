@@ -13,12 +13,16 @@ public enum Weapon_Type
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Weapon_Type weapon_type;
-    public bool canAttack = true;
+    public Weapon_Type weapon_type; //현재 착용중인 무기
+    public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
-    public bool isAttacking;
-    public int count = 0;
+    public bool isAttacking; //공격중인지
+    public int count = 0; //현재 공격이 몇타째 인지
     public float multiAtk_maxTime;
+    
+    public Vector2 hitBoxSize; //공격이 맞는 히트박스의 크기 조절
+    public float playerOffset_X;//공격 X축 반경을 조절
+    public float playerOffset_Y; //공격 Y축 반경을 조절
     
     private float AbleMultipleAttack_Time;
     private float comparisonTimer;

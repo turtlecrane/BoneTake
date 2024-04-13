@@ -9,14 +9,14 @@ public class TestEnemyBasic : MonoBehaviour
     public float life;
     public bool isCorpseState;
     
-    
     private Rigidbody2D rb;
     private bool isInvincible = false;
-    //private bool isHitted = false;
+    private Animator animator;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,8 +37,8 @@ public class TestEnemyBasic : MonoBehaviour
     
     public void ApplyDamage(float damage) {
         if (!isInvincible) {
-            //TODO 애니메이션 트리거 설정
-            //transform.GetComponent<Animator>().SetBool("Hit", true);
+            //피격 (Hit) 애니메이션 트리거 설정
+            animator.SetTrigger("Hit");
 
             life -= damage; // 라이프 차감
             rb.velocity = Vector2.zero; // 현재 속도를 0으로 초기화
@@ -58,38 +58,23 @@ public class TestEnemyBasic : MonoBehaviour
     
     IEnumerator HitTime()
     {
-        //isHitted = true;
         isInvincible = true;
-        yield return new WaitForSeconds(0.1f);
-        //isHitted = false;
+        yield return new WaitForSeconds(0.1f); //0.1초동안 무적상태
         isInvincible = false;
     }
     
     IEnumerator EnemyKnockdown()
     {
+        animator.SetBool("Dead", true);
         isInvincible = true;
-        CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
-        /*capsule.size = new Vector2(1f, 1f);
-        capsule.offset = new Vector2(0f, -0.5f);
-        capsule.direction = CapsuleDirection2D.Horizontal;*/
+        CircleCollider2D circle = GetComponent<CircleCollider2D>();
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
         yield return new WaitForSeconds(0.25f);
-        capsule.isTrigger = true;
+        circle.isTrigger = true;
+        box.isTrigger = true;
         yield return new WaitForSeconds(1f);
-        isCorpseState = true;
-        
-        /*
-        CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
-        capsule.size = new Vector2(1f, 0.25f);
-        capsule.offset = new Vector2(0f, -0.8f);
-        capsule.direction = CapsuleDirection2D.Horizontal;
-        yield return new WaitForSeconds(0.25f);
-        rb.velocity = new Vector2(0, rb.velocity.y);
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
-        */
-
+        isCorpseState = true; //시체 파밍 상태로 전환
     }
-    
 }
