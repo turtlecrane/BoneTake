@@ -19,7 +19,6 @@ public class CharacterController2D : MonoBehaviour
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     
-    
     //---------------------
     
     [Header("점프 관련")]
@@ -259,8 +258,7 @@ public class CharacterController2D : MonoBehaviour
     
     IEnumerator BasicLandingCooldown()
     {
-        //isLanding = true;
-        Debug.Log("기본 착지를 함");
+        //Debug.Log("기본 착지를 함");
         yield return new WaitForSeconds(0.1f);
         isLanding = false;
     }
