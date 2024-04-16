@@ -1,3 +1,4 @@
+using System;
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class Enemy01_AI : MonoBehaviour
     [Header("Pathfinding")]
     public Transform target;
     public float activateDistance = 25f;
-    public float pathUpdateSeconds = 0.1f;
+    //public float pathUpdateSeconds = 0.1f;
 
     [Header("Physics")]
     public float speed = 15f;
@@ -22,10 +23,9 @@ public class Enemy01_AI : MonoBehaviour
     [SerializeField] Vector3 startOffset;
 
     [Header("State")] 
-    //public bool isJumping;
+    public bool isRunning;
     public bool isInAir;
     public bool isGrounded;
-    
     
     private Path path;
     private int currentWaypoint = 0;
@@ -33,6 +33,9 @@ public class Enemy01_AI : MonoBehaviour
     private Rigidbody2D rb;
     private bool isOnCoolDown;
     private Rigidbody2D targetRb;
+    
+    //TESTCODE
+    public float movementJudgmentValue;
     
     public void Start()
     {
@@ -43,7 +46,7 @@ public class Enemy01_AI : MonoBehaviour
         isInAir = false;
         isOnCoolDown = false; 
 
-        InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
+        //InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
     private void FixedUpdate()
@@ -54,6 +57,26 @@ public class Enemy01_AI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        UpdatePath();
+        /*if (TargetInDistance() && followEnabled)
+        {
+            EnemyMove();
+        }*/
+        
+        //움직이고있는지 판단 movementJudgmentValue< rb.velocity.x && rb.velocity.x < movementJudgmentValue
+        //x속도가 0.1보다 크거나, x속도가 -0.1보다 작을경우
+        if ((rb.velocity.x <= -movementJudgmentValue || rb.velocity.x >= movementJudgmentValue) && !isInAir)
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+    }
+
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -61,6 +84,8 @@ public class Enemy01_AI : MonoBehaviour
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
     }
+    
+    void EnemyMove(){}
 
     private void PathFollow()
     {

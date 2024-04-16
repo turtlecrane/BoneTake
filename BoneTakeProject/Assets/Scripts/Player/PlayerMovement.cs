@@ -137,13 +137,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (controller.isClimbing) //벽점프의 경우
             {
-                controller.m_JumpForce = controller.m_originalJumpForce;
+                controller.m_JumpForce = 0f;
                 walljump = true;
             }
             else if (controller.m_Grounded) //그냥 점프의 경우
             {
                 controller.m_Rigidbody2D.gravityScale = 0f; // 중력을 일시적으로 0으로 설정하여 점프 시작 시의 낙하를 방지
-                controller.m_JumpForce = controller.m_originalJumpForce; // 점프력을 초기화
+                controller.m_JumpForce = 0f; // 점프력을 초기화 controller.m_originalJumpForce
+                //Debug.Log("[GetKeyDown] // controller.m_JumpForce : " + controller.m_JumpForce);
                 jump = true; // 점프 상태 시작
             }
         }
@@ -151,7 +152,14 @@ public class PlayerMovement : MonoBehaviour
         // 점프 키를 계속 누르고 있을 때
         if ((Input.GetKey(JumpKey1) || Input.GetKey(JumpKey2)) && jump)
         {
-            if (controller.m_JumpForce <= controller.playerdata.playerMaxJumpForce)
+            // 점프를 시작할 때 최소 점프력을 적용합니다.
+            if (controller.m_JumpForce < controller.minJumpForce)
+            {
+                //Debug.Log("[GetKey] // controller.m_JumpForce : " + controller.m_JumpForce);
+                controller.m_Rigidbody2D.AddForce(Vector2.up * controller.minJumpForce, ForceMode2D.Impulse); // 최소 점프력으로 점프
+                controller.m_JumpForce = controller.minJumpForce + controller.m_jumpForceIncrement * Time.deltaTime; // 다음 프레임을 위해 최소 점프력 이상으로 설정
+            }
+            else if (controller.m_JumpForce <= controller.playerdata.playerMaxJumpForce)
             {
                 controller.m_Rigidbody2D.AddForce(Vector2.up * controller.m_JumpForce * Time.deltaTime, ForceMode2D.Impulse); // 위쪽으로 힘을 가함
                 controller.m_JumpForce += controller.m_jumpForceIncrement * Time.deltaTime; // 시간에 따라 점프력 증가
