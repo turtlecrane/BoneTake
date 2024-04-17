@@ -6,18 +6,19 @@ using UnityEngine;
 
 public class EnemyHitHandler : MonoBehaviour
 {
+    public EnemyAI enemyAIScript;
+    public Animator animator;
     public float life; //현재 남은 HP
     public float knockbackBasicForce; //피격시 넉백의 강도
     public bool isCorpseState; //시체상태인지
     
     private Rigidbody2D rb;
     private bool isInvincible = false; //무적상태인지
-    private Animator animator;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -65,6 +66,13 @@ public class EnemyHitHandler : MonoBehaviour
     
     IEnumerator EnemyKnockdown()
     {
+        //Enemy 상태 초기화
+        enemyAIScript.canMove = false;
+        enemyAIScript.canRotation = false;
+        enemyAIScript.canTracking = false;
+        enemyAIScript.canAttack = false;
+        enemyAIScript.isRunning = false;
+        
         animator.SetBool("Dead", true);
         isInvincible = true;
         
