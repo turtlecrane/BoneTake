@@ -73,8 +73,16 @@ public class EnemyHitHandler : MonoBehaviour
         enemyAIScript.canAttack = false;
         enemyAIScript.isRunning = false;
         
+        //공중에서 사망한경우
+        if (!enemyAIScript.isGrounded)
+        {
+            // enemyAIScript.isGrounded가 true가 될 때까지 기다리기
+            yield return new WaitUntil(() => enemyAIScript.isGrounded == true);
+        }
+        
         animator.SetBool("Dead", true);
         isInvincible = true;
+        //rb.gravityScale = 10;
         
         Collider2D[] colliders = GetComponents<Collider2D>();//몬스터에게 붙어있는 콜라이더 컴포넌트 모두 가져오기
         rb.velocity = Vector2.zero;
@@ -87,6 +95,7 @@ public class EnemyHitHandler : MonoBehaviour
         }
         
         yield return new WaitForSeconds(1f);
+        
         isCorpseState = true; //시체 파밍 상태로 전환
     }
 }

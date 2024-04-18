@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,12 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public Transform enemyGFX;
     public CapsuleCollider2D enemyTrackingRange;
-    public float enemyAttackingRangeRadius;
     
     public float speed;
     public float maxSpeed;
     public float jumpForce;
     public float jumpCoolTime;
+    public float groundedCheckDistance;
     public LayerMask playerLayer;
 
     [Header("State")]
@@ -23,11 +24,13 @@ public class EnemyAI : MonoBehaviour
     public bool canRotation;
     public bool canTracking;
     public bool isRunning;
+    public bool isAttacking = false;
     public bool jumpEnabled;
     public bool isGrounded;
     public bool facingRight = true;
     public bool isJumpCoolDown;
-    
+
+    private Animator animator;
     private float nextWaypointDistance = 1f;
     private Vector3 startOffset;
     private Path path;
@@ -35,19 +38,30 @@ public class EnemyAI : MonoBehaviour
     private bool reachedEndOfPath = false;
     private Seeker seeker;
     private Rigidbody2D rb;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = enemyGFX.gameObject.GetComponent<Animator>();
         canMove = true;
         canRotation = true;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         //경로찾기를 0.1초마다 리프래쉬 한다.
         InvokeRepeating("UpdatePath", 0f, .2f);
     }
-    
+
+    private void Update()
+    {
+        animator.SetBool("IsRunning", isRunning);
+        
+        isAttacking = IsCurrentAnimationTag("attack");
+    }
+
     void FixedUpdate()
     {
         if (path == null) return;
@@ -58,11 +72,9 @@ public class EnemyAI : MonoBehaviour
         
         // 땅에 닿아 있는 상태인지 검사
         startOffset = transform.position;
-        isGrounded = Physics2D.Raycast(startOffset, Vector2.down, 1.5f, LayerMask.GetMask("Ground")).collider != null;
-        Debug.DrawRay(startOffset, Vector2.down * 1.5f, Color.red);
+        isGrounded = Physics2D.Raycast(startOffset, Vector2.down, groundedCheckDistance, LayerMask.GetMask("Ground")).collider != null;
+        Debug.DrawRay(startOffset, Vector2.down * groundedCheckDistance, Color.red);
         if (isGrounded) jumpEnabled = false;
-        
-        CheckAttackEnable();
         
         Flip();
         
@@ -73,7 +85,16 @@ public class EnemyAI : MonoBehaviour
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {
-            currentWaypoint++;
+            if (currentWaypoint + 1 < path.vectorPath.Count) // 경로의 마지막 waypoint를 체크
+            {
+                currentWaypoint++;
+            }
+            else
+            {
+                // 경로의 마지막 waypoint에 도달했을 때의 처리를 여기에 추가
+                // 예를 들어, 적이 플레이어에 도달했거나, 경로 추적을 중단할 수 있습니다.
+                Debug.Log("적이 플레이어에 도달했거나, 경로 추적을 중단");
+            }
         }
 
         CalculatePathDirection();
@@ -88,6 +109,11 @@ public class EnemyAI : MonoBehaviour
         {
             EnemyMoving();
             EnemyJumping();
+        }
+
+        if (isAttacking)
+        {
+            StartCoroutine(EnemyAttackCoolDown());
         }
     }
 
@@ -109,36 +135,11 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void EnemyJumping()
     {
-        if (jumpEnabled && isGrounded && !isJumpCoolDown)
+        if (canMove && jumpEnabled && isGrounded && !isJumpCoolDown &&!isAttacking)
         {
             // 수직 방향으로 점프력을 가함
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(JumpCoolDown());
-        }
-    }
-
-    /// <summary>
-    /// 공격 가능 상태인지 검사 (공격범위에 들어왔는지)
-    /// </summary>
-    void CheckAttackEnable()
-    {
-        if (canTracking)
-        {
-            bool playerFound = false; // 이번 프레임에서 플레이어를 찾았는지 여부
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, enemyAttackingRangeRadius, playerLayer);
-
-            foreach (var hit in hits)
-            {
-                if (hit.gameObject.CompareTag("Player"))
-                {
-                    playerFound = true; // 플레이어가 범위 안에 있다면 playerFound를 true로 설정
-                    if (!canAttack) canAttack = true; // 상태 업데이트
-                    break; // 플레이어를 찾았으니 루프 종료
-                }
-            }
-
-            // 플레이어가 이전 프레임에서는 범위 안에 있었지만, 이번 프레임에서는 범위 안에 없는 경우
-            if (canAttack && !playerFound) canAttack = false; // 상태 업데이트
         }
     }
     
@@ -170,17 +171,30 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void CalculatePathDirection()
     {
-        if (((Vector2)path.vectorPath[currentWaypoint] - rb.position).x <= -0.1f)
+        if (canTracking && !isAttacking)
         {
-            facingRight = false;
-            isRunning = true;
+            if (((Vector2)path.vectorPath[currentWaypoint] - rb.position).x <= -0.1f)
+            {
+                if (canRotation)
+                {
+                    facingRight = false;
+                }
+                isRunning = true;
+            }
+            else if(((Vector2)path.vectorPath[currentWaypoint] - rb.position).x >= 0.1f)
+            {
+                if (canRotation)
+                {
+                    facingRight = true;
+                }
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
         }
-        else if(((Vector2)path.vectorPath[currentWaypoint] - rb.position).x >= 0.1f)
-        {
-            facingRight = true;
-            isRunning = true;
-        }
-        else
+        if (!canMove)
         {
             isRunning = false;
         }
@@ -208,13 +222,33 @@ public class EnemyAI : MonoBehaviour
         }
     }
     
+    private bool IsCurrentAnimationTag(string tag)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsTag(tag);
+    }
+    
+    private IEnumerator EnemyAttackCoolDown()
+    {
+        canMove = false;
+        canRotation = false;
+        //animator.SetTrigger("IsAttacking");
+        yield return new WaitUntil(() =>  isAttacking == false);
+        //Debug.Log("공격!");
+        canMove = true;
+        canRotation = true;
+    }
+    
     // 플레이어가 추적 범위에 들어왔을 때
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) // 플레이어 태그를 확인
         {
             canTracking = true;
-            canMove = true;
+            if (!isAttacking)
+            {
+                canMove = true;
+            }
         }
     }
 
@@ -226,12 +260,5 @@ public class EnemyAI : MonoBehaviour
             canTracking = false;
             canMove = false;
         }
-    }
-    
-    private void OnDrawGizmos()
-    {
-        // 에디터 상에서 공격 범위를 파랑색 원으로 표시
-        Gizmos.color = Color.blue; // 파랑색으로 설정
-        Gizmos.DrawWireSphere(transform.position, enemyAttackingRangeRadius); // 원 그리기
     }
 }
