@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: daa223ebf6b6c1d4f90cd96c07904eac
+guid: 36bf58e1f32290d488b6e3cc2b8cd602
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wp01_jump_attack_0
+      name: Enemy02_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 653
-        height: 275
+        width: 223
+        height: 240
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6648166db8e87c448bf5aba1f88e429f
-      internalID: -194935158
+      spriteID: 098dcc2f7207af34c9b41e009a78b9c6
+      internalID: 1557543938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp01_jump_attack_1
+      name: Enemy02_idle_1
       rect:
         serializedVersion: 2
-        x: 653
+        x: 223
         y: 0
-        width: 653
-        height: 275
+        width: 223
+        height: 240
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca75ba44be9a1e0448db667343dbe76f
-      internalID: 557109783
+      spriteID: 8ed3621e6f72a1e45a01fb9ab5c550f0
+      internalID: 686540412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp01_jump_attack_2
+      name: Enemy02_idle_2
       rect:
         serializedVersion: 2
-        x: 1306
+        x: 446
         y: 0
-        width: 653
-        height: 275
+        width: 223
+        height: 240
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ad4155b17f481640bb8b26a41da4961
-      internalID: -457851289
+      spriteID: 4f5e30651e8e68747bf543b03b88601d
+      internalID: -436197427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp01_jump_attack_3
+      name: Enemy02_idle_3
       rect:
         serializedVersion: 2
-        x: 1959
+        x: 669
         y: 0
-        width: 653
-        height: 275
+        width: 223
+        height: 240
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43cb4ee3be6ca8d478424d15d4531c43
-      internalID: 1664744313
+      spriteID: 5421ec2be9fff714d8ceb338f840dd89
+      internalID: -1081403895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy02_idle_4
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 0
+        width: 223
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9c0c041a23c544d8442f4cea37ffd3
+      internalID: 1532071340
       vertices: []
       indices: 
       edges: []
@@ -191,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d961f411caaf2864487db5e6fea69b14
+    spriteID: 5e394e06815acee4592b3edfb23c270b
     internalID: 0
     vertices: []
     indices: 
@@ -199,10 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wp01_jump_attack_2: -457851289
-      wp01_jump_attack_0: -194935158
-      wp01_jump_attack_1: 557109783
-      wp01_jump_attack_3: 1664744313
+      Enemy02_idle_4: 1532071340
+      Enemy02_idle_3: -1081403895
+      Enemy02_idle_2: -436197427
+      Enemy02_idle_1: 686540412
+      Enemy02_idle_0: 1557543938
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
