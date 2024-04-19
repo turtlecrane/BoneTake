@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc118d2fab91c5547a17d8246fcf9460
+guid: 3c1ecb178ff952d4f8393da649ae3568
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wp02_attack_effect_0
+      name: Enemy02_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 319
-        height: 228
+        width: 290.33334
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5153703d85b31b49b7e33811dd37358
-      internalID: 775209075
+      spriteID: 6eac5bc586dac6c469e261cb3e0fcba2
+      internalID: 1541117787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp02_attack_effect_1
+      name: Enemy02_attack_1
       rect:
         serializedVersion: 2
-        x: 319
+        x: 290
         y: 0
-        width: 319
-        height: 228
+        width: 290.33334
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80661654e6c08244ca87b6365930829b
-      internalID: -1160867089
+      spriteID: fb9b70d0a3014d74d8fbeb56815c4109
+      internalID: 534862336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp02_attack_effect_2
+      name: Enemy02_attack_2
       rect:
         serializedVersion: 2
-        x: 638
+        x: 580
         y: 0
-        width: 319
-        height: 228
+        width: 290.33334
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e4e05f2fe41d240a7cdee2263d9b65
-      internalID: 199912158
+      spriteID: 99025559e1d24454a9488817a94d2792
+      internalID: 267237339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp02_attack_effect_3
+      name: Enemy02_attack_3
       rect:
         serializedVersion: 2
-        x: 957
+        x: 870
         y: 0
-        width: 319
-        height: 228
+        width: 290.33334
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d25fa5d5b6a0a6d408ad35978477bcd6
-      internalID: -2041598406
+      spriteID: 7f06d6556256ce44f87e5f05812627ec
+      internalID: -1664835946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp02_attack_effect_4
+      name: Enemy02_attack_4
       rect:
         serializedVersion: 2
-        x: 1276
+        x: 1160
         y: 0
-        width: 319
-        height: 228
+        width: 290.33334
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +203,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f5fa75cf21b7741bf82f2707baa66f
-      internalID: 506836962
+      spriteID: 7cbb2c2391aebd54287bb6aaab0ea158
+      internalID: 987540098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wp02_attack_effect_5
+      name: Enemy02_attack_5
       rect:
         serializedVersion: 2
-        x: 1661
+        x: 1450
         y: 0
-        width: 283
-        height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 290.33334
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 944d3bd4dc82607418448fcc663aa910
-      internalID: 1772625059
+      spriteID: 84351f5f69912c44fa7f87082df865aa
+      internalID: -694753369
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 96266afebca39bb4cb4e61a7804a5af7
+    spriteID: 843e2457de122f74e86b8139e9530810
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wp02_attack_effect_2: 199912158
-      wp02_attack_effect_0: 775209075
-      wp02_attack_effect_3: -2041598406
-      wp02_attack_effect_1: -1160867089
-      wp02_attack_effect_4: 506836962
-      wp02_attack_effect_5: 1772625059
+      Enemy02_attack_2: 267237339
+      Enemy02_attack_0: 1541117787
+      Enemy02_attack_3: -1664835946
+      Enemy02_attack_1: 534862336
+      Enemy02_attack_4: 987540098
+      Enemy02_attack_5: -694753369
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20eb285ebf497d74599563693026c5dd
-      internalID: -2125786085
+      spriteID: 6630f36e56a1cb54594b81d2ad7622b9
+      internalID: -526070072
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c622d3bc4fb9d545ba3e8a001cd9035
-      internalID: -98843201
+      spriteID: d7b07dce23864c94f8a51f627c1961a3
+      internalID: -1874333529
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb5eece1331c2d43b9acf9c3a34deff
-      internalID: 243608453
+      spriteID: 002c49e9f554fdb4c8b31d3e04b5280e
+      internalID: 1769933203
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a81e2c5adab9487448aaaa545111b8a8
-      internalID: -1614660050
+      spriteID: 3afbd2ebc73f90b46bb55506f530072e
+      internalID: -191722390
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6280e6e2962185d43a2c249ec2accaa3
+    spriteID: 8ecef7870c80e2f49b79c114471aa64f
     internalID: 0
     vertices: []
     indices: 
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wp01_jump_attack_effect_0: -2125786085
-      wp01_jump_attack_effect_3: -1614660050
-      wp01_jump_attack_effect_2: 243608453
-      wp01_jump_attack_effect_1: -98843201
+      wp01_jump_attack_effect_0: -526070072
+      wp01_jump_attack_effect_3: -191722390
+      wp01_jump_attack_effect_2: 1769933203
+      wp01_jump_attack_effect_1: -1874333529
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: daa223ebf6b6c1d4f90cd96c07904eac
+guid: 7f34d483cb89f814e8e8bc8b93d07c03
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,106 +103,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: wp01_jump_attack_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 653
-        height: 275
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6648166db8e87c448bf5aba1f88e429f
-      internalID: -194935158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wp01_jump_attack_1
-      rect:
-        serializedVersion: 2
-        x: 653
-        y: 0
-        width: 653
-        height: 275
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca75ba44be9a1e0448db667343dbe76f
-      internalID: 557109783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wp01_jump_attack_2
-      rect:
-        serializedVersion: 2
-        x: 1306
-        y: 0
-        width: 653
-        height: 275
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ad4155b17f481640bb8b26a41da4961
-      internalID: -457851289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wp01_jump_attack_3
-      rect:
-        serializedVersion: 2
-        x: 1959
-        y: 0
-        width: 653
-        height: 275
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43cb4ee3be6ca8d478424d15d4531c43
-      internalID: 1664744313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d961f411caaf2864487db5e6fea69b14
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      wp01_jump_attack_2: -457851289
-      wp01_jump_attack_0: -194935158
-      wp01_jump_attack_1: 557109783
-      wp01_jump_attack_3: 1664744313
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
