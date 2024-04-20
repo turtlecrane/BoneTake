@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     
     public PlayerFollowCameraController GetPlayerFollowCameraController() => GameObject.Find("PlayerFollowCameraController").GetComponent<PlayerFollowCameraController>();
     public PlayerGameData GetPlayerDataManager() => GameObject.Find("DataManager").GetComponent<PlayerGameData>();
+    public DevSystemSetting GetDevSetting() => GameObject.Find("DevSetting").GetComponent<DevSystemSetting>();
     public CharacterController2D GetCharacterController2D() => GameObject.Find("Player").GetComponent<CharacterController2D>();
     
 }

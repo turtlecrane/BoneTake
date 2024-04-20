@@ -22,7 +22,7 @@ public class PlayerEventKey : MonoBehaviour
                 //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
                 //HP를 줄이는건 0+데이터ATK로 깎는다.
                 //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
-                basicHitBox[i].gameObject.SendMessage("ApplyDamage", 0+GameManager.Instance.GetCharacterController2D().playerdata.playerATK);
+                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", 0+GameManager.Instance.GetCharacterController2D().playerdata.playerATK);
             }
         }
     }

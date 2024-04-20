@@ -37,7 +37,11 @@ public class EnemyHitHandler : MonoBehaviour
         }
     }
     
-    public void ApplyDamage(float damage) {
+    /// <summary>
+    /// PlayerEventKey스크립트에서 SendMessage로 호출됨
+    /// </summary>
+    /// <param name="damage"></param>
+    public void Enemy_ApplyDamage(float damage) {
         if (!isInvincible) {
             //피격 (Hit) 애니메이션 트리거 설정
             animator.SetTrigger("Hit");
@@ -82,7 +86,6 @@ public class EnemyHitHandler : MonoBehaviour
         
         animator.SetBool("Dead", true);
         isInvincible = true;
-        //rb.gravityScale = 10;
         
         Collider2D[] colliders = GetComponents<Collider2D>();//몬스터에게 붙어있는 콜라이더 컴포넌트 모두 가져오기
         rb.velocity = Vector2.zero;

@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76027454}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -52.17, y: 3.9508, z: 0}
+  m_LocalPosition: {x: -130.06, y: 3.9508, z: 0}
   m_LocalScale: {x: 0.3922, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,6 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAIScript: {fileID: 716085076}
   damage: 1
+  isCritDamage: 0
   attackRangeBoxSize: {x: 1.6, y: 1.8}
   attackRangeOffset_X: 1.2
   attackRangeOffset_Y: 0.9
@@ -552,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283907917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.37, y: 2.83, z: 0}
+  m_LocalPosition: {x: -114.26, y: 2.83, z: 0}
   m_LocalScale: {x: 0.25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1533,7 +1534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494724402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.58, y: 7.93, z: 0}
+  m_LocalPosition: {x: -127.47, y: 7.93, z: 0}
   m_LocalScale: {x: 0.25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2151,6 +2152,7 @@ MonoBehaviour:
     playerDashForce: 100
     weaponType: 2
     playerATK: 1
+    playerHP: 2227
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,6 +2250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866a740f190acbc40bb9519e88344f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitHandler: {fileID: 716085082}
   target: {fileID: 907808799}
   enemyGFX: {fileID: 95005926}
   enemyTrackingRange: {fileID: 347513221}
@@ -2347,7 +2350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716085075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.56, y: 1.02, z: 0.21264872}
+  m_LocalPosition: {x: -3.11, y: 1.02, z: 0.21264872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2500,7 +2503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828017917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.73, y: 5, z: 0}
+  m_LocalPosition: {x: -120.62, y: 5, z: 0}
   m_LocalScale: {x: 0.25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4469,7 +4472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344444329}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -33.91, y: 1.3682, z: 0}
+  m_LocalPosition: {x: -111.8, y: 1.3682, z: 0}
   m_LocalScale: {x: 0.13807452, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6725,9 +6728,10 @@ GameObject:
   - component: {fileID: 1924651500}
   - component: {fileID: 1924651499}
   - component: {fileID: 1924651506}
+  - component: {fileID: 1924651504}
   - component: {fileID: 1924651505}
   - component: {fileID: 1924651507}
-  - component: {fileID: 1924651504}
+  - component: {fileID: 1924651509}
   - component: {fileID: 1924651508}
   m_Layer: 9
   m_Name: Player
@@ -6873,8 +6877,10 @@ MonoBehaviour:
     playerDashForce: 0
     weaponType: 0
     playerATK: 0
+    playerHP: 0
   playerMovement: {fileID: 1924651505}
   playerAttack: {fileID: 1924651507}
+  playerHitHandler: {fileID: 1924651509}
   m_Rigidbody2D: {fileID: 1924651500}
   animator: {fileID: 1924651506}
   isJumping: 0
@@ -6979,6 +6985,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507d5e238cce014e951dc3b838a070e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1924651509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924651498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0a0aacb2ceccb41bd8feaf139942fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  isInvincible: 0
+  isKnockBack: 0
+  hitInvincibleTime: 1
+  Basic_knockbackForce: 500
+  Critcal_knockbackForce: 1500
 --- !u!1 &1991785121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,7 +7387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.146023, y: 8.113106, z: -10}
+  m_LocalPosition: {x: -37.146023, y: 8.117523, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
             Player_JumpingClimbing(KeyCode.Space, KeyCode.W);
             Player_Dash(KeyCode.LeftShift);
         }
+        else
+        {
+            //움직이지 못할때는 Idle이 재생되게함
+            horizontalMove = 0f;
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
     }
     
     void FixedUpdate ()

@@ -6,6 +6,7 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    public EnemyHitHandler enemyHitHandler;
     public Transform target;
     public Transform enemyGFX;
     public CapsuleCollider2D enemyTrackingRange;

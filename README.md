@@ -1,5 +1,4 @@
-#### 『 FridayPopcorn 』
-## CorpseSculptor
+## BoneTake
 
 ---
 

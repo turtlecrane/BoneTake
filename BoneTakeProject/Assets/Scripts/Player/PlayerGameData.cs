@@ -22,6 +22,8 @@ public class PlayerData
     public int playerATK;
 
     //현재 체력
+    public int playerHP;
+    
     //현재 위치
 }
 

@@ -16,10 +16,9 @@ public class CharacterController2D : MonoBehaviour
     [Header("플레이어 컴포넌트")] 
     public PlayerMovement playerMovement;
     public PlayerAttack playerAttack;
+    public PlayerHitHandler playerHitHandler;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
-    
-    //---------------------
     
     [Header("점프 관련")]
     public bool isJumping; //점프중인지
@@ -27,28 +26,12 @@ public class CharacterController2D : MonoBehaviour
     public bool isFalling; //추락중인지
     public bool isBigLanding;           //큰 착지인지 아닌지 판단
     public bool isLanding;           //기본 착지인지 아닌지 판단
-
-    //[Tooltip("초기 점프력")]
-    //public float basicJumpForce = 200f; //초기 점프력
-    
-    [Tooltip("누를수록 증가되는 점프력의 양")]
     public float m_jumpForceIncrement; //누를수록 증가되는 점프력의 양
-    
-    [Tooltip("점프력의 최소값")]
     public float minJumpForce; //초기 점프력
-    
-    [Tooltip("최대 낙하 속도 제한")]
     public float limitFallSpeed;  //낙하 속도 제한
-    
-    [Tooltip("벽타기중 점프시 수평으로 튕기는 정도")]
     public float wallJumpHorizontalForce; //벽타기중 점프시 수평으로 튕기는 정도 - 초기값 : 1000
-    
-    [Tooltip("벽타기중 점프시 점프력")]
     public float wallJumpVerticalForce; //벽타기중 점프시 점프력 - 초기값 : 900
-    
     public LayerMask groundLayer;       //바닥을 나타내는 레이어
-    
-    //---------------------
     
     [Header("이동 관련")]
     public bool canMove;         //플레이어가 움직일수 있는지
@@ -59,7 +42,6 @@ public class CharacterController2D : MonoBehaviour
     
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
     public float bigFallCantMoveCoolTime;
-    
     
     [Header("벽타기 관련")]
     public bool isClimbing = false; //벽 메달리기 중인지
@@ -77,7 +59,7 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
     [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
-    public float m_JumpForce;             //현재 점프력
+    [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     
@@ -99,6 +81,11 @@ public class CharacterController2D : MonoBehaviour
             { 
                 InitClimbing(); // 클라이밍 종료
             }
+        }
+
+        if (m_Grounded)
+        {
+            isJumping = false;
         }
         
         if (m_Rigidbody2D.velocity.y >= 0.1)
