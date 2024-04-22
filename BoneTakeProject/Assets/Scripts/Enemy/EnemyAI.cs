@@ -3,20 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Random = UnityEngine.Random;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Component")]
     public EnemyHitHandler enemyHitHandler;
     public Transform target;
     public Transform enemyGFX;
     public CapsuleCollider2D enemyTrackingRange;
     
+    [Header("SettingValue")]
     public float speed;
     public float maxSpeed;
     public float jumpForce;
     public float jumpCoolTime;
     public float groundedCheckDistance;
     public LayerMask playerLayer;
+    public float randomMovingValue_MIN;
+    public float randomMovingValue_MAX;
 
     [Header("State")]
     //TESTCODE ...
@@ -30,6 +35,7 @@ public class EnemyAI : MonoBehaviour
     public bool isGrounded;
     public bool facingRight = true;
     public bool isJumpCoolDown;
+    public float movingCount;
 
     private Animator animator;
     private float nextWaypointDistance = 1f;
@@ -39,9 +45,11 @@ public class EnemyAI : MonoBehaviour
     private bool reachedEndOfPath = false;
     private Seeker seeker;
     private Rigidbody2D rb;
+    private float randomValue;
 
     private void Awake()
     {
+        randomValue = 1f + Random.value;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = enemyGFX.gameObject.GetComponent<Animator>();
@@ -59,8 +67,36 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         animator.SetBool("IsRunning", isRunning);
+        if (isRunning)
+        {
+            movingCount += Time.deltaTime;
+        }
+        else
+        {
+            movingCount = 0;
+        }
+        
+        // movingCount가 1과 2사이일 때
+        if (movingCount > randomMovingValue_MIN && movingCount <= randomMovingValue_MAX)
+        {
+            if (movingCount >= randomValue)
+            {
+                StartCoroutine(StopMoving());
+            }
+        }
         
         isAttacking = IsCurrentAnimationTag("attack");
+    }
+
+    private IEnumerator StopMoving()
+    {
+        Debug.Log("멈추기");
+        movingCount = 0;
+        randomValue = 1+Random.value;
+        canMove = false;
+        yield return new WaitForSeconds(0.5f + Random.value);
+        Debug.Log("다시이동");
+        canMove = true;
     }
 
     void FixedUpdate()

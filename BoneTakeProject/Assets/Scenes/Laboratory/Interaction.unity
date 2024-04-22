@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 293737344}
   - component: {fileID: 293737343}
   m_Layer: 0
-  m_Name: TestName
+  m_Name: DebugName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2262,6 +2262,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  randomMovingValue_MIN: 1
+  randomMovingValue_MAX: 2
   canMove: 0
   canAttack: 0
   canRotation: 0
@@ -2272,6 +2274,7 @@ MonoBehaviour:
   isGrounded: 0
   facingRight: 1
   isJumpCoolDown: 0
+  movingCount: 0
 --- !u!61 &716085077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4795,7 +4798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.15, y: 3.48, z: -10}
+  m_LocalPosition: {x: -26.5, y: 3.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6856,7 +6859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.15, y: 3.48}
+  m_AnchoredPosition: {x: -26.5, y: 3.48}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
@@ -7387,7 +7390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.146023, y: 8.117523, z: -10}
+  m_LocalPosition: {x: -26.496025, y: 8.10837, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
