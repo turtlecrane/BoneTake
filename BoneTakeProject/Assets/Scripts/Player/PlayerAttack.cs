@@ -41,7 +41,12 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = IsCurrentAnimationTag("attack");
         playerCharacterController2D.animator.SetBool("IsAttacking", isAttacking);
         //BigLanding중 이거나, 공격중이거나, 특수한 공격에 피격당해서 넉백이 일어난 경우 움직일수없도록 함.
-        playerCharacterController2D.canMove = !isAttacking && !playerCharacterController2D.isBigLanding &&!playerCharacterController2D.playerHitHandler.isKnockBack;
+        playerCharacterController2D.canMove = 
+            !isAttacking && 
+            !playerCharacterController2D.isBigLanding &&
+            !playerCharacterController2D.playerHitHandler.isBigKnockBack &&
+            !playerCharacterController2D.playerHitHandler.isSmallKnockBack; //&&
+            
         if (isAttacking) playerCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero; 
         
         // 좌클릭 감지

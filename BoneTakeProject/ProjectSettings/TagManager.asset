@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - NPC
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Wall
   - Enemy
   - Player
-  - 
+  - Map
   - 
   - 
   - 

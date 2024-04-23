@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Component")]
     public EnemyHitHandler enemyHitHandler;
+    public EnemyAttack enemyAttack;
     public Transform target;
     public Transform enemyGFX;
     public CapsuleCollider2D enemyTrackingRange;
