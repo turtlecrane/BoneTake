@@ -14,6 +14,7 @@ public class CinemachineImpulseData
 
 public class PlayerFollowCameraController : MonoBehaviour
 {
+    public GameObject mainCamera;
     public GameObject m_playerFollowCamera; //플레이어 추적중인 카메라 오브젝트
 
     public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라

@@ -13,6 +13,21 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         testInteractionText.SetActive(canInteraction);
+        if (Input.GetKey(KeyCode.F))
+        {
+            if (canExtractBones)
+            {
+                Debug.Log("발골중... ");
+            }
+            if (canTalkToNPC)
+            {
+                Debug.Log("NPC와 상호작용");
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using Random = UnityEngine.Random;
 
 public class PlayerHitHandler : MonoBehaviour
@@ -17,10 +18,14 @@ public class PlayerHitHandler : MonoBehaviour
     
     private CharacterController2D charCon2D;
     private float collisionCount;
+    private PostProcessVolume hitVignette;
+    private HitShake hitShakeScript;
 
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
+        hitShakeScript = GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.GetComponent<HitShake>();
+        hitVignette = GameManager.Instance.GetPlayerFollowCameraController().mainCamera.GetComponent<PostProcessVolume>();
     }
     
     private void Update()
@@ -41,6 +46,13 @@ public class PlayerHitHandler : MonoBehaviour
     /// <param name="knockbackModifier">넉백 보정값 - Nullable</param>
     public void Player_ApplyDamage(int damage, bool criticalHit, bool facingRight, float knockbackModifier = 0)
     {
+        //카메라 흔들기
+        hitShakeScript.HitScreenShake();
+        
+        //비네트 효과 적용
+        hitVignette.weight = 1f;
+        StartCoroutine(FadeOutVignette());
+        
         //살아있는 상태에서만 피격가능
         if (!isDead && !isInvincible)
         {
@@ -53,7 +65,6 @@ public class PlayerHitHandler : MonoBehaviour
                 charCon2D.animator.SetTrigger("Hit_KnockBack");
                 charCon2D.m_Rigidbody2D.AddForce(new Vector2(critical_knockbackForce, 0)); // 넉백 적용
                 isBigKnockBack = true;
-                Debug.Log("넉백 시작~");
                 StartCoroutine(KnockbackEndCoroutine());
             }
             else
@@ -72,6 +83,25 @@ public class PlayerHitHandler : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// 비네트 효과 서서히 사라지게하기
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FadeOutVignette()
+    {
+        float duration = hitInvincibleTime; // Vignette 효과가 사라지는 데 걸리는 시간
+        float currentTime = 0f;
+
+        while (currentTime < duration)
+        {
+            hitVignette.weight = Mathf.Lerp(1f, 0f, currentTime / duration);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        hitVignette.weight = 0f; // 최종적으로 Vignette 효과를 완전히 제거
+    }
+    
     IEnumerator KnockbackEndCoroutine()
     {
         yield return new WaitForSeconds(0.1f); // 넉백이 시작되고 나서 체크하기 전에 잠깐 기다리는 시간
@@ -79,7 +109,6 @@ public class PlayerHitHandler : MonoBehaviour
         {
             yield return null; // 다음 프레임까지 기다림
         }
-        Debug.Log("넉백 끝!");
         isBigKnockBack = false;
         charCon2D.animator.SetBool("IsKnockBackEnd", true);
     }
