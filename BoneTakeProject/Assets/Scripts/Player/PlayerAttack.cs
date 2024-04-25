@@ -7,13 +7,23 @@ using UnityEngine;
 [System.Serializable]
 public enum Weapon_Type
 {
-    Basic = 2,
-    etc = 0
+    Basic,
+    Knife,
+    Bow,
+    etc
 }
 
 public class PlayerAttack : MonoBehaviour
 {
     public Weapon_Type weapon_type; //현재 착용중인 무기
+    private Dictionary<Weapon_Type, int> weaponAttackCounts = new Dictionary<Weapon_Type, int>
+    {
+        { Weapon_Type.Basic, 2 },
+        { Weapon_Type.Knife, 2 },
+        { Weapon_Type.Bow, 1 },
+        { Weapon_Type.etc, 0 }
+    };
+    
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
@@ -28,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
     private float comparisonTimer;
     private bool previousIsAttacking = false; // isAttacking의 이전 상태를 추적하기 위한 변수
     private CharacterController2D playerCharacterController2D; 
+    
     void Start()
     {
         playerCharacterController2D = GetComponent<CharacterController2D>();
@@ -44,6 +55,7 @@ public class PlayerAttack : MonoBehaviour
         playerCharacterController2D.canMove = 
             !isAttacking && 
             !playerCharacterController2D.isBigLanding &&
+            !playerCharacterController2D.playerHitHandler.isDead &&
             !playerCharacterController2D.playerHitHandler.isBigKnockBack &&
             !playerCharacterController2D.playerHitHandler.isSmallKnockBack; //&&
             
@@ -59,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
             #endregion
             
             //타격 시 카운팅 시작
-            count = Mathf.Min(count + 1, (int)weapon_type); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
+            count = Mathf.Min(count + 1, GetAttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
             
             isAbleMultipleAttack = true;
             
@@ -118,8 +130,8 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 //각 무기에 해당하는 마지막타수의 경우에는 추가시간을 기다리지 않고 바로 다중 공격 상태 종료
-                if ((count == (int)weapon_type && comparisonTimer > timer) ||
-                    (count != (int)weapon_type && comparisonTimer > timer + extraDuration))
+                if ((count == GetAttackCount(weapon_type) && comparisonTimer > timer) ||
+                    (count != GetAttackCount(weapon_type) && comparisonTimer > timer + extraDuration))
                 {
                     InitMultiAttackState(ref stateFlag, ref timer);
                 }
@@ -149,7 +161,7 @@ public class PlayerAttack : MonoBehaviour
         playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
-        if (count == (int)weapon_type)
+        if (count == GetAttackCount(weapon_type))
         {
             playerCharacterController2D.animator.SetInteger("Num of Hits", count);
         }
@@ -185,5 +197,18 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         canAttack = true;
+    }
+    
+    public int GetAttackCount(Weapon_Type weaponType)
+    {
+        if (weaponAttackCounts.TryGetValue(weaponType, out int attackCount))
+        {
+            return attackCount;
+        }
+        else
+        {
+            Debug.LogError("정의되어 있지 않은 WeaponType");
+            return 0;
+        }
     }
 }

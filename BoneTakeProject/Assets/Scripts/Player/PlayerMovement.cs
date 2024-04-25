@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update () {
-        if (controller.canMove)
+        if (controller.canMove && !controller.playerHitHandler.isDead)
         {
             Player_Running();
             Player_JumpingClimbing(KeyCode.Space, KeyCode.W);

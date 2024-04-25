@@ -41,7 +41,7 @@ public class Enemy01_Attack : EnemyAttack
             }
 
             // 플레이어가 이전 프레임에서는 범위 안에 있었지만, 이번 프레임에서는 범위 안에 없는 경우
-            if (enemyAIScript.canAttack && !playerFound)
+            if ((enemyAIScript.canAttack && !playerFound) || enemyAIScript.charCon2D.playerHitHandler.isDead)
             {
                 enemyAIScript.canAttack = false; // 상태 업데이트
                 animator.SetBool("IsAttacking", false);

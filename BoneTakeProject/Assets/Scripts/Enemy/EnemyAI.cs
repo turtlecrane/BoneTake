@@ -8,13 +8,15 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Component")]
+    [HideInInspector]public CharacterController2D charCon2D;
     public EnemyHitHandler enemyHitHandler;
     public EnemyAttack enemyAttack;
     public Transform target;
     public Transform enemyGFX;
     public CapsuleCollider2D enemyTrackingRange;
-    
-    [Header("SettingValue")]
+
+    [Header("SettingValue")] 
+    public Weapon_Type weaponType;
     public float speed;
     public float maxSpeed;
     public float jumpForce;
@@ -23,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask playerLayer;
     public float randomMovingValue_MIN;
     public float randomMovingValue_MAX;
+    public float boneExtractionTime;
 
     [Header("State")]
     //TESTCODE ...
@@ -54,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = enemyGFX.gameObject.GetComponent<Animator>();
+        charCon2D = GameManager.Instance.GetCharacterController2D();
         canMove = true;
         canRotation = true;
     }
@@ -143,7 +147,7 @@ public class EnemyAI : MonoBehaviour
             jumpEnabled = true;
         }
         
-        if (canMove)
+        if (canMove && !charCon2D.playerHitHandler.isDead)
         {
             EnemyMoving();
             EnemyJumping();
@@ -186,7 +190,7 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void UpdatePath()
     {
-        if (canTracking && seeker.IsDone())
+        if (canTracking && seeker.IsDone() && !charCon2D.playerHitHandler.isDead)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplte);
         }
@@ -209,7 +213,7 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void CalculatePathDirection()
     {
-        if (canTracking && !isAttacking)
+        if (canTracking && !isAttacking && !charCon2D.playerHitHandler.isDead)
         {
             if (((Vector2)path.vectorPath[currentWaypoint] - rb.position).x <= -0.1f)
             {
@@ -270,9 +274,7 @@ public class EnemyAI : MonoBehaviour
     {
         canMove = false;
         canRotation = false;
-        //animator.SetTrigger("IsAttacking");
         yield return new WaitUntil(() =>  isAttacking == false);
-        //Debug.Log("공격!");
         canMove = true;
         canRotation = true;
     }

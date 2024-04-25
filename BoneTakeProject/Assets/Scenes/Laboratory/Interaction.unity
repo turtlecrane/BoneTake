@@ -849,7 +849,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.56}
-  m_SizeDelta: {x: 3.17, y: 1}
+  m_SizeDelta: {x: 4.89, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293737343
 MonoBehaviour:
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uB2E8\uAC80\uD1A0\uB07C]"
+  m_text: "[\uAC15 \uB109\uBC31 \uB2E8\uAC80\uD1A0\uB07C]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bfa1bdd050c56fd409b36cc9be9837a7, type: 2}
   m_sharedMaterial: {fileID: 1101954890573954074, guid: bfa1bdd050c56fd409b36cc9be9837a7, type: 2}
@@ -880,8 +880,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279835135
+  m_fontColor: {r: 1, g: 0.0990566, b: 0.0990566, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1031,19 +1031,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303812711}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 866a740f190acbc40bb9519e88344f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charCon2D: {fileID: 0}
   enemyHitHandler: {fileID: 303812712}
   enemyAttack: {fileID: 797208115}
   target: {fileID: 907808799}
   enemyGFX: {fileID: 797208117}
   enemyTrackingRange: {fileID: 1088207727}
+  weaponType: 1
   speed: 2100
   maxSpeed: 8
-  jumpForce: 24
+  jumpForce: 110
   jumpCoolTime: 1
   groundedCheckDistance: 0.7
   playerLayer:
@@ -1051,6 +1053,7 @@ MonoBehaviour:
     m_Bits: 512
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
+  boneExtractionTime: 3
   canMove: 0
   canAttack: 0
   canRotation: 0
@@ -2511,9 +2514,9 @@ MonoBehaviour:
     playerSpeed: 80
     playerMaxJumpForce: 90
     playerDashForce: 100
-    weaponType: 2
+    weaponType: 0
     playerATK: 1
-    playerHP: 2227
+    playerHP: 5
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0
@@ -2611,14 +2614,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866a740f190acbc40bb9519e88344f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charCon2D: {fileID: 0}
   enemyHitHandler: {fileID: 716085082}
   enemyAttack: {fileID: 95005930}
   target: {fileID: 907808799}
   enemyGFX: {fileID: 95005926}
   enemyTrackingRange: {fileID: 347513221}
+  weaponType: 1
   speed: 15000
   maxSpeed: 7
-  jumpForce: 24
+  jumpForce: 110
   jumpCoolTime: 1
   groundedCheckDistance: 0.7
   playerLayer:
@@ -2626,6 +2631,7 @@ MonoBehaviour:
     m_Bits: 512
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
+  boneExtractionTime: 5
   canMove: 0
   canAttack: 0
   canRotation: 0
@@ -5537,7 +5543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18, y: 3.48, z: -10}
+  m_LocalPosition: {x: -18.3, y: 3.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7613,7 +7619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 3.48}
+  m_AnchoredPosition: {x: -18.3, y: 3.48}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
@@ -7777,6 +7783,9 @@ MonoBehaviour:
   canInteraction: 0
   canExtractBones: 0
   canTalkToNPC: 0
+  isExtractingBones: 0
+  boneExtractCount: 0
+  m_boneExtractionTime: 0
 --- !u!1 &1991785121
 GameObject:
   m_ObjectHideFlags: 0
@@ -8122,7 +8131,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8163,7 +8172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.996025, y: 8.107262, z: -10}
+  m_LocalPosition: {x: -18.296032, y: 8.107519, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

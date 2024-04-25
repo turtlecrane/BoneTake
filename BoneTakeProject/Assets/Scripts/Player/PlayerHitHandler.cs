@@ -36,8 +36,6 @@ public class PlayerHitHandler : MonoBehaviour
             Debug.Log("[사망 상태]");
         }
     }
-
-    
     
     /// <summary>
     /// 플레이어의 피격(Hit) 액션
@@ -46,6 +44,9 @@ public class PlayerHitHandler : MonoBehaviour
     /// <param name="knockbackModifier">넉백 보정값 - Nullable</param>
     public void Player_ApplyDamage(int damage, bool criticalHit, bool facingRight, float knockbackModifier = 0)
     {
+        //살아있는 상태 or 무적상태가 아닐때만 피격가능
+        if (isDead || isInvincible) return;
+        
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         
@@ -53,34 +54,29 @@ public class PlayerHitHandler : MonoBehaviour
         hitVignette.weight = 1f;
         StartCoroutine(FadeOutVignette());
         
-        //살아있는 상태에서만 피격가능
-        if (!isDead && !isInvincible)
+        float critical_knockbackForce = facingRight ? Critcal_knockbackForce+knockbackModifier : -(Critcal_knockbackForce+knockbackModifier);
+        float basic_knockbackForce = facingRight ? Basic_knockbackForce+knockbackModifier : -(Basic_knockbackForce + knockbackModifier);
+        
+        if (criticalHit)
         {
-            float critical_knockbackForce = facingRight ? Critcal_knockbackForce+knockbackModifier : -(Critcal_knockbackForce+knockbackModifier);
-            float basic_knockbackForce = facingRight ? Basic_knockbackForce+knockbackModifier : -(Basic_knockbackForce + knockbackModifier);
-            
-            if (criticalHit)
-            {
-                //넉백피격시
-                charCon2D.animator.SetTrigger("Hit_KnockBack");
-                charCon2D.m_Rigidbody2D.AddForce(new Vector2(critical_knockbackForce, 0)); // 넉백 적용
-                isBigKnockBack = true;
-                StartCoroutine(KnockbackEndCoroutine());
-            }
-            else
-            {
-                //일반피격시
-                charCon2D.animator.SetTrigger("Hit");
-                charCon2D.m_Rigidbody2D.AddForce(new Vector2(basic_knockbackForce, 0)); // 넉백 적용
-            }
-            
-            charCon2D.playerdata.playerHP -= damage;
-            charCon2D.m_Rigidbody2D.gravityScale = 5;//점프시 공격받으면 생기는 버그 fix
-            charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
-            
-            //무적상태 코루틴 실행
-            StartCoroutine(HitTime(criticalHit));
+            //넉백피격시
+            charCon2D.animator.SetTrigger("Hit_KnockBack");
+            charCon2D.m_Rigidbody2D.AddForce(new Vector2(critical_knockbackForce, 0)); // 넉백 적용
+            isBigKnockBack = true;
+            StartCoroutine(KnockbackEndCoroutine());
         }
+        else
+        {
+            //일반피격시
+            charCon2D.animator.SetTrigger("Hit");
+            charCon2D.m_Rigidbody2D.AddForce(new Vector2(basic_knockbackForce, 0)); // 넉백 적용
+        }
+        
+        charCon2D.playerdata.playerHP -= damage;
+        charCon2D.m_Rigidbody2D.gravityScale = 5;//점프시 공격받으면 생기는 버그 fix
+        charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
+        
+        StartCoroutine(HitTime(criticalHit));
     }
     
     /// <summary>
@@ -113,11 +109,14 @@ public class PlayerHitHandler : MonoBehaviour
         charCon2D.animator.SetBool("IsKnockBackEnd", true);
     }
 
+    /// <summary>
+    /// 피격당했을때 무적상태 
+    /// </summary>
     IEnumerator HitTime(bool _criticalHit)
     {
         if (_criticalHit)
         {
-            //GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f;
+            GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f;
             charCon2D.canMove = false;
             charCon2D.canDash = false;
             charCon2D.canDashAttack = false;
@@ -129,7 +128,7 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.canDashAttack = true;
             charCon2D.playerAttack.canAttack = true;
             isInvincible = false;
-            //GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
+            GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
         }
         else
         {
