@@ -2516,7 +2516,7 @@ MonoBehaviour:
     playerDashForce: 100
     weaponType: 0
     playerATK: 1
-    playerHP: 5
+    playerHP: 3277
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0

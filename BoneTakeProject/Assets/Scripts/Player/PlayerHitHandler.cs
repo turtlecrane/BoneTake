@@ -116,7 +116,7 @@ public class PlayerHitHandler : MonoBehaviour
     {
         if (_criticalHit)
         {
-            GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f;
+            //GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f;
             charCon2D.canMove = false;
             charCon2D.canDash = false;
             charCon2D.canDashAttack = false;
@@ -128,7 +128,7 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.canDashAttack = true;
             charCon2D.playerAttack.canAttack = true;
             isInvincible = false;
-            GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
+            //GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
         }
         else
         {
