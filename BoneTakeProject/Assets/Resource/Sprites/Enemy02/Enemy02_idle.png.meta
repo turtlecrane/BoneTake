@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 098dcc2f7207af34c9b41e009a78b9c6
-      internalID: 1557543938
+      spriteID: af8e0fb7afb60bc4a94a6ea0aa0d3b0d
+      internalID: -1115313120
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed3621e6f72a1e45a01fb9ab5c550f0
-      internalID: 686540412
+      spriteID: bd5a1017ac383a740a82aa54224d2971
+      internalID: 1303578911
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f5e30651e8e68747bf543b03b88601d
-      internalID: -436197427
+      spriteID: 3ec729d111d2667459ac8c722984b4d7
+      internalID: -826036195
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5421ec2be9fff714d8ceb338f840dd89
-      internalID: -1081403895
+      spriteID: d2409bd123ecadd478a66d3712a0fb42
+      internalID: -603454087
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac9c0c041a23c544d8442f4cea37ffd3
-      internalID: 1532071340
+      spriteID: c2be8c73bdb14e844acb79d4781248d6
+      internalID: 599654676
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e394e06815acee4592b3edfb23c270b
+    spriteID: 0bbae7c5941d4e54f85af1026fba8c77
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy02_idle_4: 1532071340
-      Enemy02_idle_3: -1081403895
-      Enemy02_idle_2: -436197427
-      Enemy02_idle_1: 686540412
-      Enemy02_idle_0: 1557543938
+      Enemy02_idle_4: 599654676
+      Enemy02_idle_3: -603454087
+      Enemy02_idle_2: -826036195
+      Enemy02_idle_1: 1303578911
+      Enemy02_idle_0: -1115313120
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c1ecb178ff952d4f8393da649ae3568
+guid: fc3741596480817479eacbbe4c6f411a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,127 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy02_attack_0
+      name: Jumping_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.4739909, y: 0.17721578}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9eeba72e200de4286ba00abbdb372a
-      internalID: 1183593192
+      spriteID: b95e9f805032c0a459c78e54e65e223b
+      internalID: 1971272373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_1
+      name: Jumping_1
       rect:
         serializedVersion: 2
-        x: 290
+        x: 260
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5352907, y: 0.16972564}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25f96b0b395c3b64091b67173f388a90
-      internalID: -99545470
+      spriteID: d3598ac6105400b4caa82f593a8e8142
+      internalID: -1914400089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_2
+      name: Jumping_2
       rect:
         serializedVersion: 2
-        x: 580
+        x: 516
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.7104575, y: 0.0325831}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 754a9c625d93fa74799eb9eada4945c9
-      internalID: 1318902992
+      spriteID: 6074e6f55d09ed7459effd4003648775
+      internalID: -567976590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_3
+      name: Jumping_3
       rect:
         serializedVersion: 2
-        x: 870
+        x: 774
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.6328532, y: 0.12966011}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4ccb8f2eb4d57448b08f91eaa16f0c
-      internalID: -1851865963
+      spriteID: 3162fb14d26769a489bde5c472c9e69e
+      internalID: 1983045285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_4
+      name: Jumping_4
       rect:
         serializedVersion: 2
-        x: 1160
+        x: 1032
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.6130485, y: 0.066997975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1796ea62be5c5f43b48dbd63647802b
-      internalID: 682392495
+      spriteID: 5572b74c1b15f5e44a48f95a9d06249a
+      internalID: -1271095123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_5
+      name: Jumping_5
       rect:
         serializedVersion: 2
-        x: 1450
+        x: 1290
         y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 258
+        height: 199
+      alignment: 9
+      pivot: {x: 0.52983624, y: 0.07980779}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8765a4b6c2c40aa4db642721bb70884b
-      internalID: -426387586
+      spriteID: 702b1b47366735e4b951714eb73847a2
+      internalID: 862767900
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 223751ddffe1e0340b790ddb105a230e
+    spriteID: 9d5cc9576cb436b4c874945703d3ef6b
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy02_attack_2: 1318902992
-      Enemy02_attack_0: 1183593192
-      Enemy02_attack_3: -1851865963
-      Enemy02_attack_1: -99545470
-      Enemy02_attack_4: 682392495
-      Enemy02_attack_5: -426387586
+      Jumping_4: -1271095123
+      Jumping_2: -567976590
+      Jumping_5: 862767900
+      Jumping_0: 1971272373
+      Jumping_1: -1914400089
+      Jumping_3: 1983045285
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
