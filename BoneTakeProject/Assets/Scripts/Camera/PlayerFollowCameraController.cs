@@ -47,13 +47,19 @@ public class PlayerFollowCameraController : MonoBehaviour
 
     void Update()
     {
-        if (player_CharacterController.m_Rigidbody2D.velocity.y < -31.0f)//어느정도 속도부터 낙하시 줌이 되는지 조절 
+        if (player_CharacterController.m_Rigidbody2D.velocity.y < -31.0f) //어느정도 속도부터 낙하시 줌이 되는지 조절 
         {
             virtualCamera.m_Lens.OrthographicSize -= LensOrtho_ZoomValue;
         }
         if (!m_playerFollowCamera.activeSelf)//플레이어 추적중인 카메라가 비활성화 되어있는 경우 (다른 카메라로 시네머신 브레인이 넘어간 경우)
         {
             virtualCamera.m_Lens.OrthographicSize = lensOrtho_InitSize; //화면 줌 값을 초기값으로 변경
+        }
+        
+        //카메라 줌 제한
+        if (virtualCamera.m_Lens.OrthographicSize < 4)
+        {
+            virtualCamera.m_Lens.OrthographicSize = 4f;
         }
     }
 

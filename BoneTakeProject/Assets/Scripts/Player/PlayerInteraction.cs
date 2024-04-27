@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject testInteractionText;
+    
     [SerializeField] private bool canInteraction = false;
     [SerializeField] private bool canExtractBones = false;
     [SerializeField] private bool canTalkToNPC = false;
@@ -16,11 +17,13 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float m_boneExtractionTime;
     
     private CharacterController2D charCon2D;
+    private PlayerFollowCameraController followCameraController;
     private Weapon_Type getWeaponType;
 
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
+        followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
     }
 
     private void Update()
@@ -31,19 +34,27 @@ public class PlayerInteraction : MonoBehaviour
 
     private void HandleInteractionInput()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (canInteraction)
         {
-            StartInteraction();
-        }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                StartInteraction();
+            }
     
-        if (Input.GetKey(KeyCode.F))
-        {
-            ContinueBoneExtraction();
-        }
+            if (Input.GetKey(KeyCode.F))
+            {
+                ContinueBoneExtraction();
+            }
 
-        if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                CancelBoneExtraction();
+            }
+        }
+        else
         {
-            CancelBoneExtraction();
+            //Debug.Log("상호작용 취소됨");
+            ResetBoneExtraction();
         }
     }
 
@@ -62,6 +73,8 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("발골중... ");
             isExtractingBones = true;
             boneExtractCount += Time.deltaTime;
+            //카메라 줌
+            followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.001f;
             
             if (boneExtractCount >= m_boneExtractionTime)
             {
@@ -86,9 +99,19 @@ public class PlayerInteraction : MonoBehaviour
     {
         boneExtractCount = 0f;
         isExtractingBones = false;
+        //카메라 복구
+        if (!(charCon2D.m_Rigidbody2D.velocity.y < -31.0f) &&
+            !charCon2D.playerHitHandler.isDead
+            )
+        {
+            followCameraController.virtualCamera.m_Lens.OrthographicSize = followCameraController.lensOrtho_InitSize;
+        }
     }
 
-
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Map") || collision.CompareTag("Untagged")) return;

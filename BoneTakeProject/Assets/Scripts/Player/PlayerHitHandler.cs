@@ -20,21 +20,14 @@ public class PlayerHitHandler : MonoBehaviour
     private float collisionCount;
     private PostProcessVolume hitVignette;
     private HitShake hitShakeScript;
+    private PlayerFollowCameraController followCameraController;
 
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
         hitShakeScript = GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.GetComponent<HitShake>();
         hitVignette = GameManager.Instance.GetPlayerFollowCameraController().mainCamera.GetComponent<PostProcessVolume>();
-    }
-    
-    private void Update()
-    {
-        if (charCon2D.playerdata.playerHP <= 0)
-        {
-            isDead = true;
-            Debug.Log("[사망 상태]");
-        }
+        followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
     }
     
     /// <summary>
@@ -71,12 +64,18 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.animator.SetTrigger("Hit");
             charCon2D.m_Rigidbody2D.AddForce(new Vector2(basic_knockbackForce, 0)); // 넉백 적용
         }
+        StartCoroutine(HitTime(criticalHit));
         
         charCon2D.playerdata.playerHP -= damage;
+        if (charCon2D.playerdata.playerHP <= 0)
+        {
+            StartCoroutine(DeathCameraEffect());
+            isDead = true;
+            charCon2D.animator.SetBool("IsDead", isDead);
+        }
+        
         charCon2D.m_Rigidbody2D.gravityScale = 5;//점프시 공격받으면 생기는 버그 fix
         charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
-        
-        StartCoroutine(HitTime(criticalHit));
     }
     
     /// <summary>
@@ -141,6 +140,27 @@ public class PlayerHitHandler : MonoBehaviour
             isSmallKnockBack = false;
             charCon2D.animator.SetBool("IsKnockBackEnd", true);
         }
+    }
+    
+    IEnumerator DeathCameraEffect()
+    {
+        float startTime = Time.unscaledTime;
+        float duration = 3f; // 줌인과 시간 느려지는 효과에 걸리는 시간 (초)
+        float targetOrthographicSize = 5f; // 목표 OrthographicSize
+        GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f; // 시간 느려지게 함
+
+        while (Time.unscaledTime - startTime < duration)
+        {
+            float t = (Time.unscaledTime - startTime) / duration;
+            followCameraController.virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(followCameraController.lensOrtho_InitSize, targetOrthographicSize, t);
+            yield return null;
+        }
+
+        // 마지막으로 목표값으로 확실히 설정
+        followCameraController.virtualCamera.m_Lens.OrthographicSize = targetOrthographicSize;
+
+        // 추가 대기 시간 없이 바로 원래 시간 속도로 복구
+        GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)

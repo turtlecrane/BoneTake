@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         if (controller.canMove && !controller.playerHitHandler.isDead)
         {
             Player_Running();
-            Player_JumpingClimbing(KeyCode.Space, KeyCode.W);
+            Player_JumpingClimbing(KeyCode.Space); //, KeyCode.W
             Player_Dash(KeyCode.LeftShift);
         }
         else
@@ -136,10 +136,10 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// 플레이어가 점프하는 기능, 벽메달리기 기능 담당 (중력을 컨트롤함)
     /// </summary>
-    public void Player_JumpingClimbing(KeyCode JumpKey1, KeyCode JumpKey2)
+    public void Player_JumpingClimbing(KeyCode JumpKey1) //, KeyCode JumpKey2
     {
         // 점프 키를 누르기 시작했을 때
-        if ((Input.GetKeyDown(JumpKey1) || Input.GetKeyDown(JumpKey2)))
+        if (Input.GetKeyDown(JumpKey1))// || Input.GetKeyDown(JumpKey2))
         {
             if (controller.isClimbing) //벽점프의 경우
             {
@@ -155,8 +155,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // 점프 키를 계속 누르고 있을 때
-        if ((Input.GetKey(JumpKey1) || Input.GetKey(JumpKey2)) && jump)
+        // 점프 키를 계속 누르고 있을 때 || Input.GetKey(JumpKey2)
+        if (Input.GetKey(JumpKey1) && jump)
         {
             // 점프를 시작할 때 최소 점프력을 적용합니다.
             if (controller.m_JumpForce < controller.minJumpForce)
@@ -176,8 +176,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        // 점프 키에서 손을 뗐을 때
-        if (Input.GetKeyUp(JumpKey1) || Input.GetKeyUp(JumpKey2))
+        // 점프 키에서 손을 뗐을 때  || Input.GetKeyUp(JumpKey2)
+        if (Input.GetKeyUp(JumpKey1))
         {
             jump = false; // 점프 상태 종료
             controller.m_Rigidbody2D.gravityScale = controller.m_playerRigidGravity; // 중력을 원래대로 복구하여 낙하 시작
