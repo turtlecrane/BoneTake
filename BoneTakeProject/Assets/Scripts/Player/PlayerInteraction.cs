@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject testInteractionText;
+    public EnemyAI enemyAIscript;
     
     [SerializeField] private bool canInteraction = false;
     [SerializeField] private bool canExtractBones = false;
@@ -18,7 +19,6 @@ public class PlayerInteraction : MonoBehaviour
     
     private CharacterController2D charCon2D;
     private PlayerFollowCameraController followCameraController;
-    private Weapon_Type getWeaponType;
 
     private void Start()
     {
@@ -68,7 +68,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ContinueBoneExtraction()
     {
-        if (canExtractBones && m_boneExtractionTime != 0f)
+        if (!enemyAIscript.enemyHitHandler.isExtracted&& canExtractBones && m_boneExtractionTime != 0f)
         {
             Debug.Log("발골중... ");
             isExtractingBones = true;
@@ -81,7 +81,8 @@ public class PlayerInteraction : MonoBehaviour
                 Debug.Log("발골완료!");
                 m_boneExtractionTime = 0f;
                 ResetBoneExtraction();
-                charCon2D.playerAttack.weapon_type = getWeaponType;
+                charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기교체
+                enemyAIscript.enemyHitHandler.isExtracted = true;
             }
         }
     }
@@ -116,19 +117,23 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.CompareTag("Map") || collision.CompareTag("Untagged")) return;
         
-        canInteraction = true;
-
         if (collision.CompareTag("Enemy"))
         {
-            EnemyAI enemyScript = collision.GetComponent<EnemyAI>();
-            canExtractBones = enemyScript.enemyHitHandler.isCorpseState;
-            m_boneExtractionTime = enemyScript.boneExtractionTime;
-            getWeaponType = enemyScript.weaponType;
+            enemyAIscript = collision.GetComponent<EnemyAI>();
+            if (enemyAIscript.enemyHitHandler.isExtracted)
+            {
+                canInteraction = false;
+                return;
+            }
+            canExtractBones = enemyAIscript.enemyHitHandler.isCorpseState;
+            m_boneExtractionTime = enemyAIscript.boneExtractionTime;
         }
         else if (collision.CompareTag("NPC"))
         {
             canTalkToNPC = true;
         }
+        
+        canInteraction = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -136,12 +141,12 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.CompareTag("Map") || collision.CompareTag("Untagged")) return;
 
         canInteraction = false;
+        enemyAIscript = null;
 
         if (collision.CompareTag("Enemy"))
         { 
             canExtractBones = false;
             m_boneExtractionTime = 0;
-            getWeaponType = Weapon_Type.etc;
         }
         else if (collision.CompareTag("NPC"))
         {

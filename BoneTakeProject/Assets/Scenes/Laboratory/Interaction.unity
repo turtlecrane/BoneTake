@@ -2516,7 +2516,7 @@ MonoBehaviour:
     playerDashForce: 100
     weaponType: 0
     playerATK: 1
-    playerHP: 2
+    playerHP: 1611
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0
@@ -8172,7 +8172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.29603, y: 8.105373, z: -10}
+  m_LocalPosition: {x: -18.296024, y: 8.105244, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

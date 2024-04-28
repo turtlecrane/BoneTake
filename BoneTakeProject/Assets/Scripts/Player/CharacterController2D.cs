@@ -62,18 +62,34 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    private int playerLayer;
+    private int nonCollidingPlayerLayer;
     
     private void Awake()
     {
         canMove = true;
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_playerRigidGravity = m_Rigidbody2D.gravityScale;
+        playerLayer = LayerMask.NameToLayer("Player");
+        nonCollidingPlayerLayer = LayerMask.NameToLayer("NonCollidingPlayer");
         //플레이어 데이터 받아오기
         ReroadPlayerData();
     }
 
     private void Update()
     {
+        //상태에 따라 레이어 변경
+        if (isDashAttacking)
+        {
+            //gameObject.tag = "NonCollidingPlayer";
+            gameObject.layer = nonCollidingPlayerLayer; //Enemy와의 충돌무시
+        }
+        else
+        {
+            //gameObject.tag = "Player";
+            gameObject.layer = playerLayer;
+        }
+        
         if (isClimbing && !m_Grounded) 
         {
             climbingCount += Time.deltaTime; // 초단위로 카운팅

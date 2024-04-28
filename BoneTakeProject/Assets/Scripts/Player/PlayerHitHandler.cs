@@ -169,7 +169,7 @@ public class PlayerHitHandler : MonoBehaviour
         {
             collisionCount = 0f;
             EnemyAI enemyScript = collision.gameObject.GetComponent<EnemyAI>();
-            if (!enemyScript.enemyHitHandler.isCorpseState)
+            if (!enemyScript.enemyHitHandler.isCorpseState && !charCon2D.isDashAttacking)
             {
                 Player_ApplyDamage(enemyScript.enemyAttack.damage, false, !charCon2D.m_FacingRight);
             }

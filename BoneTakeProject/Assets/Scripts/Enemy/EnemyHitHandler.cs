@@ -11,6 +11,7 @@ public class EnemyHitHandler : MonoBehaviour
     public float life; //현재 남은 HP
     public float knockbackBasicForce; //피격시 넉백의 강도
     public bool isCorpseState; //시체상태인지
+    public bool isExtracted; //발골완료된 상태인지
     
     private Rigidbody2D rb;
     private bool isInvincible = false; //무적상태인지
