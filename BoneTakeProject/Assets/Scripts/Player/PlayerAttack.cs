@@ -84,6 +84,10 @@ public class PlayerAttack : MonoBehaviour
                 */
                 Player_BasicAttack();
             }
+            else if (weapon_type == Weapon_Type.Knife)
+            {
+                Player_Wp01Attack();
+            }         
             else
             {
                 //TODO 이곳에 다른 무기도 추가
@@ -166,18 +170,21 @@ public class PlayerAttack : MonoBehaviour
             playerCharacterController2D.animator.SetInteger("Num of Hits", count);
         }
     }
-    
+
     /// <summary>
-    /// Animator에서 현재 재생 중인 애니메이션의 길이를 가져오기
+    /// 플레이어 공격 - 단검 공격
     /// </summary>
-    /// <returns>현재 애니메이션의 길이</returns>
-    float GetCurrentAnimationLength()
+    public void Player_Wp01Attack()
     {
-        //(인자는 레이어의 번호)
-        AnimatorStateInfo stateInfo = playerCharacterController2D.animator.GetCurrentAnimatorStateInfo(0);
-        // 애니메이션의 길이(시간) 반환
-        float animationLength = stateInfo.length;
-        return animationLength;
+        // 단검 공격 모션으로 전환
+        playerCharacterController2D.animator.SetBool("IsWp01Attacking", true);
+        playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
+    
+        // count가 2 이상일 때만 Num of Hits 설정
+        if (count == GetAttackCount(weapon_type))
+        {
+            playerCharacterController2D.animator.SetInteger("Num of Hits", count);
+        }
     }
     
     /// <summary>
