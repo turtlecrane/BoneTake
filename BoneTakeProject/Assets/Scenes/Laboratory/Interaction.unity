@@ -1043,7 +1043,7 @@ MonoBehaviour:
   target: {fileID: 907808799}
   enemyGFX: {fileID: 797208117}
   enemyTrackingRange: {fileID: 1088207727}
-  weaponType: 1
+  weaponType: 0
   speed: 2100
   maxSpeed: 8
   jumpForce: 110
@@ -2515,7 +2515,7 @@ MonoBehaviour:
     playerSpeed: 80
     playerMaxJumpForce: 90
     playerDashForce: 100
-    weaponType: 1
+    weaponType: 0
     playerATK: 1
     playerHP: 1611
 --- !u!4 &607637678
@@ -2722,7 +2722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716085075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.1, y: 1.02, z: 0.21264872}
+  m_LocalPosition: {x: -3.3, y: 1.02, z: 0.21264872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2782,6 +2782,7 @@ GameObject:
   - component: {fileID: 729090166}
   - component: {fileID: 729090168}
   - component: {fileID: 729090167}
+  - component: {fileID: 729090169}
   m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
@@ -2869,7 +2870,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2878,9 +2879,26 @@ SpriteRenderer:
   m_Size: {x: 7.16, y: 3.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &729090169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729090165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70898dd17d8f86b4791bb33371faa89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wpAnimator: {fileID: 729090167}
+  isWp01: 0
+  isWp02: 0
+  isWp01Attacking: 0
+  numOfHit: 0
 --- !u!1 &797208113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7841,6 +7859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_type: 0
+  weaponAnimator: {fileID: 729090167}
   canAttack: 1
   isAbleMultipleAttack: 0
   isAttacking: 0
@@ -8286,7 +8305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.296034, y: 8.099661, z: -10}
+  m_LocalPosition: {x: -18.296036, y: 8.0980835, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

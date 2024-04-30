@@ -43,6 +43,9 @@ public class PlayerHitHandler : MonoBehaviour
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         
+        //무기 애니메이터에게 Hit상태 알리기
+        charCon2D.playerAttack.weaponAnimator.SetTrigger("Hit");
+        
         //비네트 효과 적용
         hitVignette.weight = 1f;
         StartCoroutine(FadeOutVignette());

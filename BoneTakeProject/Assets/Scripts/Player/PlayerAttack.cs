@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
         { Weapon_Type.Bow, 1 },
         { Weapon_Type.etc, 0 }
     };
-    
+    public Animator weaponAnimator;
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
@@ -90,13 +90,17 @@ public class PlayerAttack : MonoBehaviour
             }         
             else
             {
-                //TODO 이곳에 다른 무기도 추가
                 Debug.Log("제작중인 무기 혹은 존재하지 않는 무기 종류입니다.");
             }
             
             canAttack = false;
             StartCoroutine(AttackCooldown());
         }
+        
+        weaponAnimator.SetBool("IsWp01", weapon_type == Weapon_Type.Knife);
+        weaponAnimator.SetBool("IsWp02", weapon_type == Weapon_Type.Bow);
+        weaponAnimator.SetBool("IsinAir", playerCharacterController2D.isJumping || playerCharacterController2D.isFalling);
+        
         
         // 다중 공격 가능 상태 업데이트
         UpdateMultiAttackState(ref isAbleMultipleAttack, ref AbleMultipleAttack_Time, multiAtk_maxTime);
@@ -161,7 +165,8 @@ public class PlayerAttack : MonoBehaviour
     public void Player_BasicAttack()
     {
         // 기본 공격 모션으로 전환
-        playerCharacterController2D.animator.SetBool("IsBasicAttacking", true);
+        playerCharacterController2D.animator.SetTrigger("IsBasicAttacking");
+        
         playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
@@ -177,13 +182,15 @@ public class PlayerAttack : MonoBehaviour
     public void Player_Wp01Attack()
     {
         // 단검 공격 모션으로 전환
-        playerCharacterController2D.animator.SetBool("IsWp01Attacking", true);
+        playerCharacterController2D.animator.SetTrigger("IsWp01Attacking");
+        weaponAnimator.SetTrigger("IsWp01Attacking");
         playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
         if (count == GetAttackCount(weapon_type))
         {
             playerCharacterController2D.animator.SetInteger("Num of Hits", count);
+            weaponAnimator.SetInteger("Num of Hits", count);
         }
     }
     

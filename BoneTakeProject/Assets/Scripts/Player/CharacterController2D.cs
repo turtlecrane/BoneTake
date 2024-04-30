@@ -138,7 +138,7 @@ public class CharacterController2D : MonoBehaviour
         m_Grounded = false;
         
         //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), new Vector2(1f, 0.1f), 0f, groundLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y + 0.1f), new Vector2(1f, 0.1f), 0f, groundLayer);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -286,7 +286,7 @@ public class CharacterController2D : MonoBehaviour
     {
         //착지검사
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y+0.1f), new Vector2(1f, 0.2f));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + 0.1f), new Vector2(1f, 0.1f));
         
         //플레이어가 바라보는 방향의 박스 (벽검사 등)
         Gizmos.color = Color.blue;
