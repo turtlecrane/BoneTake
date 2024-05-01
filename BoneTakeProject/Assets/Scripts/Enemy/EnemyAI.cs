@@ -17,6 +17,10 @@ public class EnemyAI : MonoBehaviour
 
     [Header("SettingValue")] 
     public Weapon_Type weaponType;
+    
+    //TODO 발골시 발골되는 아이템의 이름을 설정해야함.
+    public Weapon_Name weaponName;
+    
     public float speed;
     public float maxSpeed;
     public float jumpForce;

@@ -73,7 +73,7 @@ public class CharacterController2D : MonoBehaviour
         playerLayer = LayerMask.NameToLayer("Player");
         nonCollidingPlayerLayer = LayerMask.NameToLayer("NonCollidingPlayer");
         //플레이어 데이터 받아오기
-        ReroadPlayerData();
+        ReloadPlayerData();
     }
 
     private void Update()
@@ -244,7 +244,7 @@ public class CharacterController2D : MonoBehaviour
         prevVelocityX = m_Rigidbody2D.velocity.x;
     }
     
-    public void ReroadPlayerData()
+    public void ReloadPlayerData()
     {
         playerdata = GameManager.Instance.GetPlayerDataManager().playerData;
     }

@@ -81,8 +81,10 @@ public class PlayerInteraction : MonoBehaviour
                 Debug.Log("발골완료!");
                 m_boneExtractionTime = 0f;
                 ResetBoneExtraction();
-                charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기교체
-                enemyAIscript.enemyHitHandler.isExtracted = true;
+                charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기타입 교체
+                charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;  //무기이름 교체
+                charCon2D.playerAttack.weaponManager.weaponLife = charCon2D.playerAttack.GetName_WeaponLifeCount(enemyAIscript.weaponName); //무기 이름에따른 무기 HP 부여
+                enemyAIscript.enemyHitHandler.isExtracted = true; //발골된 시체임을 구분
             }
         }
     }

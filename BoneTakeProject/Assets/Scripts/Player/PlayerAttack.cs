@@ -13,6 +13,15 @@ public enum Weapon_Type
     etc
 }
 
+[System.Serializable]
+public enum Weapon_Name
+{
+    Basic,
+    KnifeBunnyKnife,
+    Bowowbow
+}
+
+
 public class PlayerAttack : MonoBehaviour
 {
     public Weapon_Type weapon_type; //현재 착용중인 무기
@@ -23,7 +32,27 @@ public class PlayerAttack : MonoBehaviour
         { Weapon_Type.Bow, 1 },
         { Weapon_Type.etc, 0 }
     };
+
+    public Weapon_Name weapon_name;
+    
+    //무기마다의 공격력 부여
+    private Dictionary<Weapon_Name, int> weaponName_Damage = new Dictionary<Weapon_Name, int>
+    {
+        { Weapon_Name.Basic, 0 },
+        { Weapon_Name.KnifeBunnyKnife, 5 },
+        { Weapon_Name.Bowowbow, 5 }
+    };
+    
+    //무기마다의 무기HP 부여
+    private Dictionary<Weapon_Name, int> weaponName_Life = new Dictionary<Weapon_Name, int>
+    {
+        { Weapon_Name.Basic, -1 },
+        { Weapon_Name.KnifeBunnyKnife, 8 },
+        { Weapon_Name.Bowowbow, 15 }
+    };
+    
     public Animator weaponAnimator;
+    public WeaponManager weaponManager;
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
@@ -44,7 +73,8 @@ public class PlayerAttack : MonoBehaviour
         playerCharacterController2D = GetComponent<CharacterController2D>();
         
         //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
-        weapon_type = playerCharacterController2D.playerdata.weaponType; 
+        weapon_type = playerCharacterController2D.playerdata.weaponType;
+        weapon_name = playerCharacterController2D.playerdata.weaponName;
     }
 
     void Update()
@@ -86,7 +116,7 @@ public class PlayerAttack : MonoBehaviour
             }
             else if (weapon_type == Weapon_Type.Knife)
             {
-                Player_Wp01Attack();
+                Player_KnifeAttack();
             }         
             else
             {
@@ -96,11 +126,6 @@ public class PlayerAttack : MonoBehaviour
             canAttack = false;
             StartCoroutine(AttackCooldown());
         }
-        
-        weaponAnimator.SetBool("IsWp01", weapon_type == Weapon_Type.Knife);
-        weaponAnimator.SetBool("IsWp02", weapon_type == Weapon_Type.Bow);
-        weaponAnimator.SetBool("IsinAir", playerCharacterController2D.isJumping || playerCharacterController2D.isFalling);
-        
         
         // 다중 공격 가능 상태 업데이트
         UpdateMultiAttackState(ref isAbleMultipleAttack, ref AbleMultipleAttack_Time, multiAtk_maxTime);
@@ -179,11 +204,11 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// 플레이어 공격 - 단검 공격
     /// </summary>
-    public void Player_Wp01Attack()
+    public void Player_KnifeAttack()
     {
         // 단검 공격 모션으로 전환
-        playerCharacterController2D.animator.SetTrigger("IsWp01Attacking");
-        weaponAnimator.SetTrigger("IsWp01Attacking");
+        playerCharacterController2D.animator.SetTrigger("IsKnifeAttacking");
+        weaponAnimator.SetTrigger("IsKnifeAttacking");
         playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
@@ -224,5 +249,39 @@ public class PlayerAttack : MonoBehaviour
             Debug.LogError("정의되어 있지 않은 WeaponType");
             return 0;
         }
+    }
+    
+    public int GetName_DamageCount(Weapon_Name weaponName)
+    {
+        if (weaponName_Damage.TryGetValue(weaponName, out int attackDamage))
+        {
+            return attackDamage;
+        }
+        else
+        {
+            Debug.LogError("정의되어 있지 않은 WeaponName");
+            return 0;
+        }
+    }
+    
+    public int GetName_WeaponLifeCount(Weapon_Name weaponName)
+    {
+        if (weaponName_Life.TryGetValue(weaponName, out int weaponLife))
+        {
+            return weaponLife;
+        }
+        else
+        {
+            Debug.LogError("정의되어 있지 않은 WeaponName");
+            return 0;
+        }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        //히트박스 에디터 상에서 표시 2.125f : -2.125f;
+        Gizmos.color = Color.cyan;
+        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
     }
 }

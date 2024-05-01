@@ -12,8 +12,10 @@ public class PlayerEventKey : MonoBehaviour
     /// </summary>
     public void Player_DoBasicDamege()
     {
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_X), transform.position.y + 1 + GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_Y), GameManager.Instance.GetCharacterController2D().playerAttack.hitBoxSize, 0f);
+        CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
+        
+        float xOffset = charCon2D.m_FacingRight ? 1 : -1;
+        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.playerOffset_Y), charCon2D.playerAttack.hitBoxSize, 0f);
         
         for (int i = 0; i < basicHitBox.Length; i++)
         {
@@ -22,7 +24,23 @@ public class PlayerEventKey : MonoBehaviour
                 //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
                 //HP를 줄이는건 0+데이터ATK로 깎는다.
                 //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
-                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", 0+GameManager.Instance.GetCharacterController2D().playerdata.playerATK);
+                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", 0+charCon2D.playerdata.playerATK);
+            }
+        }
+    }
+    
+    public void Player_DoKnifeDamage()
+    {
+        CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
+        
+        float xOffset = charCon2D.m_FacingRight ? 1 : -1;
+        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.weaponManager.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y), charCon2D.playerAttack.weaponManager.hitBoxSize, 0f);
+        
+        for (int i = 0; i < basicHitBox.Length; i++)
+        {
+            if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
+            {
+                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", charCon2D.playerAttack.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
             }
         }
     }
@@ -49,13 +67,5 @@ public class PlayerEventKey : MonoBehaviour
     {
         GameManager.Instance.GetCharacterController2D().isLanding = false;
         GameManager.Instance.GetCharacterController2D().isBigLanding = false;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        //히트박스 에디터 상에서 표시 2.125f : -2.125f;
-        Gizmos.color = Color.cyan;
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_X), transform.position.y + 1f + GameManager.Instance.GetCharacterController2D().playerAttack.playerOffset_Y), GameManager.Instance.GetCharacterController2D().playerAttack.hitBoxSize);
     }
 }

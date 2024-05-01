@@ -40,6 +40,14 @@ public class PlayerHitHandler : MonoBehaviour
         //살아있는 상태 or 무적상태가 아닐때만 피격가능
         if (isDead || isInvincible) return;
         
+        charCon2D.playerdata.playerHP -= damage;
+        if (charCon2D.playerdata.playerHP <= 0)
+        {
+            StartCoroutine(DeathCameraEffect());
+            isDead = true;
+            charCon2D.animator.SetBool("IsDead", isDead);
+        }
+        
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         
@@ -57,7 +65,10 @@ public class PlayerHitHandler : MonoBehaviour
         {
             //넉백피격시
             charCon2D.animator.SetTrigger("Hit_KnockBack");
-            charCon2D.m_Rigidbody2D.AddForce(new Vector2(critical_knockbackForce, 0)); // 넉백 적용
+            if (!isDead)
+            {
+                charCon2D.m_Rigidbody2D.AddForce(new Vector2(critical_knockbackForce, 0)); // 넉백 적용
+            }
             isBigKnockBack = true;
             StartCoroutine(KnockbackEndCoroutine());
         }
@@ -68,14 +79,6 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.m_Rigidbody2D.AddForce(new Vector2(basic_knockbackForce, 0)); // 넉백 적용
         }
         StartCoroutine(HitTime(criticalHit));
-        
-        charCon2D.playerdata.playerHP -= damage;
-        if (charCon2D.playerdata.playerHP <= 0)
-        {
-            StartCoroutine(DeathCameraEffect());
-            isDead = true;
-            charCon2D.animator.SetBool("IsDead", isDead);
-        }
         
         charCon2D.m_Rigidbody2D.gravityScale = 5;//점프시 공격받으면 생기는 버그 fix
         charCon2D.m_Rigidbody2D.velocity = Vector2.zero;

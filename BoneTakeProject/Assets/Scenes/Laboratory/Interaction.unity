@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAIScript: {fileID: 303812713}
   animator: {fileID: 797208114}
-  life: 1
+  life: 30
   knockbackBasicForce: 2000
   isCorpseState: 0
   isExtracted: 0
@@ -1043,7 +1043,8 @@ MonoBehaviour:
   target: {fileID: 907808799}
   enemyGFX: {fileID: 797208117}
   enemyTrackingRange: {fileID: 1088207727}
-  weaponType: 0
+  weaponType: 2
+  weaponName: 2
   speed: 2100
   maxSpeed: 8
   jumpForce: 110
@@ -2516,8 +2517,10 @@ MonoBehaviour:
     playerMaxJumpForce: 90
     playerDashForce: 100
     weaponType: 0
-    playerATK: 1
-    playerHP: 1611
+    weaponName: 0
+    weaponHP: 0
+    playerATK: 10
+    playerHP: 3
 --- !u!4 &607637678
 Transform:
   m_ObjectHideFlags: 0
@@ -2622,7 +2625,8 @@ MonoBehaviour:
   enemyGFX: {fileID: 95005926}
   enemyTrackingRange: {fileID: 347513221}
   weaponType: 1
-  speed: 15000
+  weaponName: 1
+  speed: 13000
   maxSpeed: 7
   jumpForce: 110
   jumpCoolTime: 1
@@ -2632,7 +2636,7 @@ MonoBehaviour:
     m_Bits: 512
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
-  boneExtractionTime: 5
+  boneExtractionTime: 1
   canMove: 0
   canAttack: 0
   canRotation: 0
@@ -2767,7 +2771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAIScript: {fileID: 716085076}
   animator: {fileID: 95005929}
-  life: 1
+  life: 30
   knockbackBasicForce: 2000
   isCorpseState: 0
   isExtracted: 0
@@ -2783,6 +2787,7 @@ GameObject:
   - component: {fileID: 729090168}
   - component: {fileID: 729090167}
   - component: {fileID: 729090169}
+  - component: {fileID: 729090170}
   m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
@@ -2889,16 +2894,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729090165}
-  m_Enabled: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507d5e238cce014e951dc3b838a070e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &729090170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729090165}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70898dd17d8f86b4791bb33371faa89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wpAnimator: {fileID: 729090167}
-  isWp01: 0
-  isWp02: 0
-  isWp01Attacking: 0
-  numOfHit: 0
+  weaponType: 0
+  weaponName: 0
+  weaponLife: 0
+  hitBoxSize: {x: 0.01, y: 2}
+  playerOffset_X: 0.9
+  playerOffset_Y: 0
 --- !u!1 &797208113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7770,6 +7788,8 @@ MonoBehaviour:
     playerMaxJumpForce: 0
     playerDashForce: 0
     weaponType: 0
+    weaponName: 0
+    weaponHP: 0
     playerATK: 0
     playerHP: 0
   playerMovement: {fileID: 1924651505}
@@ -7859,7 +7879,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_type: 0
+  weapon_name: 0
   weaponAnimator: {fileID: 729090167}
+  weaponManager: {fileID: 729090170}
   canAttack: 1
   isAbleMultipleAttack: 0
   isAttacking: 0
@@ -8305,7 +8327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.296036, y: 8.0980835, z: -10}
+  m_LocalPosition: {x: -18.296032, y: 8.107519, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

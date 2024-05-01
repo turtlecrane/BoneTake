@@ -17,6 +17,8 @@ public class PlayerData
     
     //현재 장착중인 무기가 무엇인지
     public Weapon_Type weaponType;
+    public Weapon_Name weaponName;
+    public int weaponHP; //무기 내구도 상태
     
     //현재 공격력
     public int playerATK;

@@ -15,11 +15,11 @@ public class EnemyHitHandler : MonoBehaviour
     
     private Rigidbody2D rb;
     private bool isInvincible = false; //무적상태인지
+    private bool isFading = false; // fade 중인지 상태 확인
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +36,13 @@ public class EnemyHitHandler : MonoBehaviour
             var b = this.GetComponentInChildren<TextMeshPro>();
             b.text = "[시체 상태]";
         }
+
+        //발골됐으면
+        if (isExtracted && !isFading)
+        {
+            StartCoroutine(FadeOutAndDestroy(1f));
+            isFading = true;
+        }
     }
     
     /// <summary>
@@ -43,11 +50,18 @@ public class EnemyHitHandler : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     public void Enemy_ApplyDamage(float damage) {
-        if (!isInvincible) {
+        if (!isInvincible)
+        {
+            CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
             //피격 (Hit) 애니메이션 트리거 설정
             animator.SetTrigger("Hit");
 
             life -= damage; // 라이프 차감
+            if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic 
+                || charCon2D.playerAttack.weapon_type != Weapon_Type.etc)
+            {
+                charCon2D.playerAttack.weaponManager.weaponLife -=  1; //무기 HP를 1 줄임
+            }
             rb.velocity = Vector2.zero; // 현재 속도를 0으로 초기화
 
             // 넉백 방향 결정 (캐릭터가 오른쪽을 바라보고 있으면 오른쪽으로, 그렇지 않으면 왼쪽으로 넉백)
@@ -101,5 +115,26 @@ public class EnemyHitHandler : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         isCorpseState = true; //시체 파밍 상태로 전환
+    }
+    
+    // 알파값을 천천히 0으로 감소시키고 오브젝트 제거
+    IEnumerator FadeOutAndDestroy(float duration)
+    {
+        yield return new WaitForSeconds(2f);//1초 기다리기
+        
+        SpriteRenderer spriteRenderer = animator.GetComponent<SpriteRenderer>();
+
+        float counter = 0;
+        Color spriteColor = spriteRenderer.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, counter / duration);
+            spriteRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }
