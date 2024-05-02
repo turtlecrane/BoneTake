@@ -9,13 +9,16 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Weapon_Name weaponName;
     
     public int weaponLife;
-    public Vector2 hitBoxSize; //공격이 맞는 무기의 히트박스의 크기 조절
-    public float playerOffset_X;//공격 X축 무기 반경을 조절
-    public float playerOffset_Y; //공격 Y축 무기 반경을 조절
+    [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 무기의 히트박스의 크기 조절
+    [HideInInspector] public float playerOffset_X;//공격 X축 무기 반경을 조절
+    [HideInInspector] public float playerOffset_Y; //공격 Y축 무기 반경을 조절
 
     private CharacterController2D charCon2D;
     private Animator animator;
-
+    
+    //TESTCODE
+    public Transform shotPoint;
+    
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
@@ -41,8 +44,8 @@ public class WeaponManager : MonoBehaviour
         
         animator.SetBool("IsKnife", weaponType == Weapon_Type.Knife);
         animator.SetBool("IsBow", weaponType == Weapon_Type.Bow);
-        animator.SetBool("IsKnifeBunnyKnife", weaponName == Weapon_Name.KnifeBunnyKnife);
-        animator.SetBool("IsBowow", weaponName == Weapon_Name.Bowowbow);
+        animator.SetBool("IsKnifeBunnyKnife", weaponName == Weapon_Name.BunnyKnife);
+        animator.SetBool("IsBowow", weaponName == Weapon_Name.WowBow);
         animator.SetBool("IsinAir", charCon2D.isJumping || charCon2D.isFalling);
     }
 
@@ -52,5 +55,9 @@ public class WeaponManager : MonoBehaviour
         Gizmos.color = Color.magenta;
         float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(shotPoint.transform.position, new Vector2(0.1f,0.1f));
+        
     }
 }

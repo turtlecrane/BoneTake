@@ -43,6 +43,11 @@ public class EnemyHitHandler : MonoBehaviour
             StartCoroutine(FadeOutAndDestroy(1f));
             isFading = true;
         }
+
+        if (animator.GetBool("Hit"))
+        {
+            StartCoroutine(HitPauseMovemen());
+        }
     }
     
     /// <summary>
@@ -54,7 +59,7 @@ public class EnemyHitHandler : MonoBehaviour
         {
             CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
             //피격 (Hit) 애니메이션 트리거 설정
-            animator.SetTrigger("Hit");
+            animator.SetBool("Hit", true);
 
             life -= damage; // 라이프 차감
             if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic 
@@ -136,5 +141,13 @@ public class EnemyHitHandler : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+    
+    
+    IEnumerator HitPauseMovemen()
+    {
+        enemyAIScript.canMove = false;
+        yield return new WaitUntil(() => !animator.GetBool("Hit"));
+        enemyAIScript.canMove = true;
     }
 }

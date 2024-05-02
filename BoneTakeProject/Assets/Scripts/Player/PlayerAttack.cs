@@ -17,8 +17,8 @@ public enum Weapon_Type
 public enum Weapon_Name
 {
     Basic,
-    KnifeBunnyKnife,
-    Bowowbow
+    BunnyKnife,
+    WowBow
 }
 
 
@@ -39,16 +39,16 @@ public class PlayerAttack : MonoBehaviour
     private Dictionary<Weapon_Name, int> weaponName_Damage = new Dictionary<Weapon_Name, int>
     {
         { Weapon_Name.Basic, 0 },
-        { Weapon_Name.KnifeBunnyKnife, 5 },
-        { Weapon_Name.Bowowbow, 5 }
+        { Weapon_Name.BunnyKnife, 5 },
+        { Weapon_Name.WowBow, 5 }
     };
     
     //무기마다의 무기HP 부여
     private Dictionary<Weapon_Name, int> weaponName_Life = new Dictionary<Weapon_Name, int>
     {
         { Weapon_Name.Basic, -1 },
-        { Weapon_Name.KnifeBunnyKnife, 8 },
-        { Weapon_Name.Bowowbow, 15 }
+        { Weapon_Name.BunnyKnife, 8 },
+        { Weapon_Name.WowBow, 15 }
     };
     
     public Animator weaponAnimator;
@@ -66,37 +66,37 @@ public class PlayerAttack : MonoBehaviour
     private float AbleMultipleAttack_Time;
     private float comparisonTimer;
     private bool previousIsAttacking = false; // isAttacking의 이전 상태를 추적하기 위한 변수
-    private CharacterController2D playerCharacterController2D; 
+    private CharacterController2D charCon2D; 
     
     void Start()
     {
-        playerCharacterController2D = GetComponent<CharacterController2D>();
+        charCon2D = GetComponent<CharacterController2D>();
         
         //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
-        weapon_type = playerCharacterController2D.playerdata.weaponType;
-        weapon_name = playerCharacterController2D.playerdata.weaponName;
+        weapon_type = charCon2D.playerdata.weaponType;
+        weapon_name = charCon2D.playerdata.weaponName;
     }
 
     void Update()
     {
         isAttacking = IsCurrentAnimationTag("attack");
-        playerCharacterController2D.animator.SetBool("IsAttacking", isAttacking);
+        charCon2D.animator.SetBool("IsAttacking", isAttacking);
         //BigLanding중 이거나, 공격중이거나, 특수한 공격에 피격당해서 넉백이 일어난 경우 움직일수없도록 함.
-        playerCharacterController2D.canMove = 
+        charCon2D.canMove = 
             !isAttacking && 
-            !playerCharacterController2D.isBigLanding &&
-            !playerCharacterController2D.playerHitHandler.isDead &&
-            !playerCharacterController2D.playerHitHandler.isBigKnockBack &&
-            !playerCharacterController2D.playerHitHandler.isSmallKnockBack; //&&
+            !charCon2D.isBigLanding &&
+            !charCon2D.playerHitHandler.isDead &&
+            !charCon2D.playerHitHandler.isBigKnockBack &&
+            !charCon2D.playerHitHandler.isSmallKnockBack; //&&
             
-        if (isAttacking) playerCharacterController2D.m_Rigidbody2D.velocity = Vector2.zero; 
+        if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero; 
         
         // 좌클릭 감지
-        if (Input.GetMouseButtonDown(0) && canAttack && playerCharacterController2D.canMove)
+        if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
         {
             #region ...HOLD CODE [보류중]
             //---------------------------
-            if(playerCharacterController2D.isClimbing) return; //벽타기때 공격하는경우
+            if(charCon2D.isClimbing) return; //벽타기때 공격하는경우
             //---------------------------
             #endregion
             
@@ -107,17 +107,20 @@ public class PlayerAttack : MonoBehaviour
             
             if (weapon_type == Weapon_Type.Basic)//착용중인 무기가 기본 무기인경우 (손톱)
             {
-                /*if (!playerCharacterController2D.m_Grounded) //점프공격의 경우
-                {
-                    Debug.Log("점프공격");
-                }
-                */
+                //if (!charCon2D.m_Grounded) Debug.Log("점프공격"); //점프공격의 경우
                 Player_BasicAttack();
             }
             else if (weapon_type == Weapon_Type.Knife)
             {
                 Player_KnifeAttack();
-            }         
+            }
+            else if (weapon_type == Weapon_Type.Bow)
+            {
+                if (charCon2D.m_Grounded)
+                {
+                    Player_BowAttack();
+                }
+            }  
             else
             {
                 Debug.Log("제작중인 무기 혹은 존재하지 않는 무기 종류입니다.");
@@ -138,7 +141,7 @@ public class PlayerAttack : MonoBehaviour
     void UpdateMultiAttackState(ref bool stateFlag, ref float timer, float extraDuration = 0)
     {
         //이동중이면 다중 공격이 아닌 첫타로 구분 
-        if (playerCharacterController2D.playerMovement.horizontalMove != 0)
+        if (charCon2D.playerMovement.horizontalMove != 0)
         {
             InitMultiAttackState(ref stateFlag, ref timer);
             return;
@@ -190,14 +193,13 @@ public class PlayerAttack : MonoBehaviour
     public void Player_BasicAttack()
     {
         // 기본 공격 모션으로 전환
-        playerCharacterController2D.animator.SetTrigger("IsBasicAttacking");
-        
-        playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
+        charCon2D.animator.SetTrigger("IsBasicAttacking");
+        charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
         if (count == GetAttackCount(weapon_type))
         {
-            playerCharacterController2D.animator.SetInteger("Num of Hits", count);
+            charCon2D.animator.SetInteger("Num of Hits", count);
         }
     }
 
@@ -207,16 +209,24 @@ public class PlayerAttack : MonoBehaviour
     public void Player_KnifeAttack()
     {
         // 단검 공격 모션으로 전환
-        playerCharacterController2D.animator.SetTrigger("IsKnifeAttacking");
+        charCon2D.animator.SetTrigger("IsKnifeAttacking");
         weaponAnimator.SetTrigger("IsKnifeAttacking");
-        playerCharacterController2D.m_Rigidbody2D.gravityScale = 5;
+        charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
         if (count == GetAttackCount(weapon_type))
         {
-            playerCharacterController2D.animator.SetInteger("Num of Hits", count);
+            charCon2D.animator.SetInteger("Num of Hits", count);
             weaponAnimator.SetInteger("Num of Hits", count);
         }
+    }
+
+    public void Player_BowAttack()
+    {
+        // 활 공격 모션으로 전환
+        charCon2D.animator.SetTrigger("IsBowAttacking");
+        weaponAnimator.SetTrigger("IsBowAttacking");
+        charCon2D.m_Rigidbody2D.gravityScale = 5;
     }
     
     /// <summary>
@@ -225,7 +235,7 @@ public class PlayerAttack : MonoBehaviour
     /// <returns></returns>
     bool IsCurrentAnimationTag(string tag)
     {
-        AnimatorStateInfo stateInfo = playerCharacterController2D.animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo stateInfo = charCon2D.animator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsTag(tag);
     }
     
