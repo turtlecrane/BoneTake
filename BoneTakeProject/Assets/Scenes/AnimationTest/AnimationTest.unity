@@ -469,8 +469,10 @@ MonoBehaviour:
     playerDashForce: 0
     weaponType: 0
     playerATK: 0
+    playerHP: 0
   playerMovement: {fileID: 286930614}
   playerAttack: {fileID: 0}
+  playerHitHandler: {fileID: 0}
   m_Rigidbody2D: {fileID: 286930617}
   animator: {fileID: 286930615}
   isJumping: 0
@@ -776,7 +778,7 @@ GameObject:
   - component: {fileID: 1911837539}
   - component: {fileID: 1911837538}
   m_Layer: 0
-  m_Name: Enemy02_idle_0
+  m_Name: Enemy02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

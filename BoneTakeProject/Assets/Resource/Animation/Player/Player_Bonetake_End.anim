@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wp01_attack_1hit_End
+  m_Name: Player_Bonetake_End
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -645227674, guid: 9af19dc90975f9d4d8d864ea2b39662f, type: 3}
+      value: {fileID: -494776019, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - time: 0.083333336
+      value: {fileID: -1029221293, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - time: 0.5833333
+      value: {fileID: 1467628813, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - time: 0.6666667
+      value: {fileID: 1789407565, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - time: 0.75
+      value: {fileID: -942953658, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,13 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -645227674, guid: 9af19dc90975f9d4d8d864ea2b39662f, type: 3}
+    - {fileID: -494776019, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - {fileID: -1029221293, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - {fileID: 1467628813, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - {fileID: 1789407565, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
+    - {fileID: -942953658, guid: 6f8f0d6fa9622514b96161aade706e40, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.8333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
