@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HeathenEngineering.PhysKit;
+using HeathenEngineering.PhysKit.API;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -17,7 +19,9 @@ public class WeaponManager : MonoBehaviour
     private Animator animator;
     
     //TESTCODE
-    public Transform shotPoint;
+    public Transform projector;
+    public Transform emitter;
+    public TrickShot2D trickShot;
     
     private void Start()
     {
@@ -44,6 +48,14 @@ public class WeaponManager : MonoBehaviour
         
         animator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
         animator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
+        
+        
+        Aim();
+            
+        if(Input.GetMouseButtonDown(0))
+        {
+            trickShot.Shoot();
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -54,7 +66,14 @@ public class WeaponManager : MonoBehaviour
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
         
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(shotPoint.transform.position, new Vector2(0.1f,0.1f));
+        Gizmos.DrawWireCube(projector.transform.position, new Vector2(0.1f,0.1f));
         
+    }
+    
+    private void Aim()
+    {
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Ballistics.Solution2D(emitter.position, trickShot.speed, mousePos, Physics2D.gravity.magnitude, out Quaternion low, out Quaternion _);
+        projector.rotation = low;
     }
 }

@@ -94,12 +94,6 @@ public class PlayerAttack : MonoBehaviour
         // 좌클릭 감지
         if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
         {
-            #region ...HOLD CODE [보류중]
-            //---------------------------
-            if(charCon2D.isClimbing) return; //벽타기때 공격하는경우
-            //---------------------------
-            #endregion
-            
             //타격 시 카운팅 시작
             count = Mathf.Min(count + 1, GetAttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
             

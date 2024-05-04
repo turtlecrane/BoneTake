@@ -11,9 +11,10 @@ public class CharacterController2D : MonoBehaviour
 {
     [Header("플레이어 데이터")]
     public PlayerData playerdata;
-    
-    [Space (10f)]
+
+    [Space(10f)] 
     [Header("플레이어 컴포넌트")] 
+    public Transform playerTarget;
     public PlayerMovement playerMovement;
     public PlayerAttack playerAttack;
     public PlayerHitHandler playerHitHandler;
@@ -79,16 +80,7 @@ public class CharacterController2D : MonoBehaviour
     private void Update()
     {
         //상태에 따라 레이어 변경
-        if (isDashAttacking)
-        {
-            //gameObject.tag = "NonCollidingPlayer";
-            gameObject.layer = nonCollidingPlayerLayer; //Enemy와의 충돌무시
-        }
-        else
-        {
-            //gameObject.tag = "Player";
-            gameObject.layer = playerLayer;
-        }
+        gameObject.layer = isDashAttacking ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
         
         if (isClimbing && !m_Grounded) 
         {
