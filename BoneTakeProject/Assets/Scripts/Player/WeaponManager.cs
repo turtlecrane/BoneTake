@@ -42,11 +42,8 @@ public class WeaponManager : MonoBehaviour
             charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
         }
         
-        animator.SetBool("IsKnife", weaponType == Weapon_Type.Knife);
-        animator.SetBool("IsBow", weaponType == Weapon_Type.Bow);
-        animator.SetBool("IsKnifeBunnyKnife", weaponName == Weapon_Name.BunnyKnife);
-        animator.SetBool("IsBowow", weaponName == Weapon_Name.WowBow);
-        animator.SetBool("IsinAir", charCon2D.isJumping || charCon2D.isFalling);
+        animator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
+        animator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
     }
 
     private void OnDrawGizmosSelected()

@@ -17,8 +17,8 @@ public enum Weapon_Type
 public enum Weapon_Name
 {
     Basic,
-    BunnyKnife,
-    WowBow
+    Wp01, //KnifeBunnyKnife
+    Wp02  //BowowBow
 }
 
 
@@ -39,16 +39,16 @@ public class PlayerAttack : MonoBehaviour
     private Dictionary<Weapon_Name, int> weaponName_Damage = new Dictionary<Weapon_Name, int>
     {
         { Weapon_Name.Basic, 0 },
-        { Weapon_Name.BunnyKnife, 5 },
-        { Weapon_Name.WowBow, 5 }
+        { Weapon_Name.Wp01, 5 },
+        { Weapon_Name.Wp02, 5 }
     };
     
     //무기마다의 무기HP 부여
     private Dictionary<Weapon_Name, int> weaponName_Life = new Dictionary<Weapon_Name, int>
     {
         { Weapon_Name.Basic, -1 },
-        { Weapon_Name.BunnyKnife, 8 },
-        { Weapon_Name.WowBow, 15 }
+        { Weapon_Name.Wp01, 8 },
+        { Weapon_Name.Wp02, 15 }
     };
     
     public Animator weaponAnimator;
@@ -210,14 +210,12 @@ public class PlayerAttack : MonoBehaviour
     {
         // 단검 공격 모션으로 전환
         charCon2D.animator.SetTrigger("IsKnifeAttacking");
-        weaponAnimator.SetTrigger("IsKnifeAttacking");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
         if (count == GetAttackCount(weapon_type))
         {
             charCon2D.animator.SetInteger("Num of Hits", count);
-            weaponAnimator.SetInteger("Num of Hits", count);
         }
     }
 
@@ -225,7 +223,6 @@ public class PlayerAttack : MonoBehaviour
     {
         // 활 공격 모션으로 전환
         charCon2D.animator.SetTrigger("IsBowAttacking");
-        weaponAnimator.SetTrigger("IsBowAttacking");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     }
     
