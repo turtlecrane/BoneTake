@@ -3724,8 +3724,8 @@ MonoBehaviour:
   distance: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 64
-  bounces: 2
+    m_Bits: 192
+  bounces: 0
   bounceDamping: 0.5
   distanceIsTotalLength: 1
   prediction: []
@@ -5860,7 +5860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394948530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.12, y: 0.4, z: -10}
+  m_LocalPosition: {x: -8.4, y: 0.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7938,7 +7938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.12, y: 0.4}
+  m_AnchoredPosition: {x: -8.4, y: 0.4}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1924651504
@@ -8530,7 +8530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146520784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.126587, y: 8.063838, z: -10}
+  m_LocalPosition: {x: -8.393393, y: 8.099022, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -114,6 +114,15 @@ public class CharacterController2D : MonoBehaviour
             isLanding = false;
             isBigLanding = true;
         }
+
+        if (isClimbing)
+        {
+            playerAttack.canAttack = false;
+        }
+        else
+        {
+            playerAttack.canAttack = true;
+        }
         
         animator.SetBool("IsFalling", isFalling);
         animator.SetBool("IsBigLanding", isBigLanding);
