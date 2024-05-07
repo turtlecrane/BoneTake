@@ -32,6 +32,7 @@ public class PlayerEventKey : MonoBehaviour
     public void Player_DoKnifeDamage()
     {
         CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
+        WeaponData weaponDataScript = GameManager.Instance.GetWeaponData();
         
         float xOffset = charCon2D.m_FacingRight ? 1 : -1;
         Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.weaponManager.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y), charCon2D.playerAttack.weaponManager.hitBoxSize, 0f);
@@ -40,7 +41,7 @@ public class PlayerEventKey : MonoBehaviour
         {
             if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
             {
-                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", charCon2D.playerAttack.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
+                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
             }
         }
     }

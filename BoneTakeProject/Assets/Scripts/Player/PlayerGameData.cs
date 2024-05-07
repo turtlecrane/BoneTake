@@ -34,5 +34,4 @@ public class PlayerGameData : MonoBehaviour
 {
     public PlayerData playerData;
     
-    
 }

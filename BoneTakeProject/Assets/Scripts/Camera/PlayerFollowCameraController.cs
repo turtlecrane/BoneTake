@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [System.Serializable]
@@ -80,6 +82,25 @@ public class PlayerFollowCameraController : MonoBehaviour
         screenShake.m_ImpulseDefinition.m_FrequencyGain = InitialImpulseData.FrequencyGain;
         screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = InitialImpulseData.SustainTime;
         screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = InitialImpulseData.DecayTime;
+    }
+
+    /// <summary>
+    /// duration동안 targetSize정도의 카메라 줌인이 되게하는 함수
+    /// </summary>
+    /// <param name="duration"> 목표까지 도달하는데 걸리는 시간 </param>
+    /// <param name="targetSize">목표 사이즈 </param>
+    public IEnumerator CameraTargetTimeZoomIn(float duration, float targetSize)
+    {
+        float startSize = virtualCamera.m_Lens.OrthographicSize;
+        float currentTime = 0f;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime; // 시간 업데이트
+            float newSize = Mathf.Lerp(startSize, targetSize, currentTime / duration); // 새 사이즈 계산
+            virtualCamera.m_Lens.OrthographicSize = newSize; // 카메라 사이즈 업데이트
+            yield return null;
+        }
     }
     
 }

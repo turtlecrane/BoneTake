@@ -4,53 +4,11 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-[System.Serializable]
-public enum Weapon_Type
-{
-    Basic,
-    Knife,
-    Bow,
-    etc
-}
-
-[System.Serializable]
-public enum Weapon_Name
-{
-    Basic,
-    Wp01, //KnifeBunnyKnife
-    Wp02  //BowowBow
-}
-
 
 public class PlayerAttack : MonoBehaviour
 {
     public Weapon_Type weapon_type; //현재 착용중인 무기
-    private Dictionary<Weapon_Type, int> weaponAttackCounts = new Dictionary<Weapon_Type, int>
-    {
-        { Weapon_Type.Basic, 2 },
-        { Weapon_Type.Knife, 2 },
-        { Weapon_Type.Bow, 1 },
-        { Weapon_Type.etc, 0 }
-    };
-
     public Weapon_Name weapon_name;
-    
-    //무기마다의 공격력 부여
-    private Dictionary<Weapon_Name, int> weaponName_Damage = new Dictionary<Weapon_Name, int>
-    {
-        { Weapon_Name.Basic, 0 },
-        { Weapon_Name.Wp01, 5 },
-        { Weapon_Name.Wp02, 5 }
-    };
-    
-    //무기마다의 무기HP 부여
-    private Dictionary<Weapon_Name, int> weaponName_Life = new Dictionary<Weapon_Name, int>
-    {
-        { Weapon_Name.Basic, -1 },
-        { Weapon_Name.Wp01, 8 },
-        { Weapon_Name.Wp02, 15 }
-    };
-    
     public Animator weaponAnimator;
     public WeaponManager weaponManager;
     public bool canAttack = true; //공격을 할 수 있는 상태인지
@@ -67,10 +25,12 @@ public class PlayerAttack : MonoBehaviour
     private float comparisonTimer;
     private bool previousIsAttacking = false; // isAttacking의 이전 상태를 추적하기 위한 변수
     private CharacterController2D charCon2D; 
+    private WeaponData weaponDataScript;
     
     void Start()
     {
         charCon2D = GetComponent<CharacterController2D>();
+        weaponDataScript = GameManager.Instance.GetWeaponData();
         
         //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
         weapon_type = charCon2D.playerdata.weaponType;
@@ -95,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
         {
             //타격 시 카운팅 시작
-            count = Mathf.Min(count + 1, GetAttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
+            count = Mathf.Min(count + 1, weaponDataScript.GetType_AttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
             
             isAbleMultipleAttack = true;
             
@@ -160,8 +120,8 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 //각 무기에 해당하는 마지막타수의 경우에는 추가시간을 기다리지 않고 바로 다중 공격 상태 종료
-                if ((count == GetAttackCount(weapon_type) && comparisonTimer > timer) ||
-                    (count != GetAttackCount(weapon_type) && comparisonTimer > timer + extraDuration))
+                if ((count == weaponDataScript.GetType_AttackCount(weapon_type) && comparisonTimer > timer) ||
+                    (count != weaponDataScript.GetType_AttackCount(weapon_type) && comparisonTimer > timer + extraDuration))
                 {
                     InitMultiAttackState(ref stateFlag, ref timer);
                 }
@@ -191,7 +151,7 @@ public class PlayerAttack : MonoBehaviour
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
-        if (count == GetAttackCount(weapon_type))
+        if (count == weaponDataScript.GetType_AttackCount(weapon_type))
         {
             charCon2D.animator.SetInteger("Num of Hits", count);
         }
@@ -207,7 +167,7 @@ public class PlayerAttack : MonoBehaviour
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정
-        if (count == GetAttackCount(weapon_type))
+        if (count == weaponDataScript.GetType_AttackCount(weapon_type))
         {
             charCon2D.animator.SetInteger("Num of Hits", count);
         }
@@ -237,45 +197,6 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         canAttack = true;
-    }
-    
-    public int GetAttackCount(Weapon_Type weaponType)
-    {
-        if (weaponAttackCounts.TryGetValue(weaponType, out int attackCount))
-        {
-            return attackCount;
-        }
-        else
-        {
-            Debug.LogError("정의되어 있지 않은 WeaponType");
-            return 0;
-        }
-    }
-    
-    public int GetName_DamageCount(Weapon_Name weaponName)
-    {
-        if (weaponName_Damage.TryGetValue(weaponName, out int attackDamage))
-        {
-            return attackDamage;
-        }
-        else
-        {
-            Debug.LogError("정의되어 있지 않은 WeaponName");
-            return 0;
-        }
-    }
-    
-    public int GetName_WeaponLifeCount(Weapon_Name weaponName)
-    {
-        if (weaponName_Life.TryGetValue(weaponName, out int weaponLife))
-        {
-            return weaponLife;
-        }
-        else
-        {
-            Debug.LogError("정의되어 있지 않은 WeaponName");
-            return 0;
-        }
     }
     
     private void OnDrawGizmosSelected()

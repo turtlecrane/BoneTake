@@ -247,7 +247,7 @@ public class CharacterController2D : MonoBehaviour
     
     public void ReloadPlayerData()
     {
-        playerdata = GameManager.Instance.GetPlayerDataManager().playerData;
+        playerdata = GameManager.Instance.GetPlayerGameData().playerData;
     }
 
     /// <summary>

@@ -15,8 +15,12 @@ public class WeaponManager : MonoBehaviour
     [HideInInspector] public float playerOffset_X;//공격 X축 무기 반경을 조절
     [HideInInspector] public float playerOffset_Y; //공격 Y축 무기 반경을 조절
 
+    public Animator weaponGetEffectAnimator;
+    public SpriteRenderer weaponGetEffectSprite;
+    
     private CharacterController2D charCon2D;
-    private Animator animator;
+    private WeaponData weaponDataScript;
+    private Animator weaponAnimator;
     
     //TESTCODE
     public Transform projector;
@@ -26,7 +30,8 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
-        animator = GetComponent<Animator>();
+        weaponDataScript = GameManager.Instance.GetWeaponData();
+        weaponAnimator = GetComponent<Animator>();
         weaponLife = charCon2D.playerdata.weaponHP;
     }
 
@@ -46,8 +51,8 @@ public class WeaponManager : MonoBehaviour
             charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
         }
         
-        animator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
-        animator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
+        weaponAnimator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
+        weaponAnimator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
         
         
         Aim();
@@ -75,5 +80,12 @@ public class WeaponManager : MonoBehaviour
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ballistics.Solution2D(emitter.position, trickShot.speed, mousePos, Physics2D.gravity.magnitude, out Quaternion low, out Quaternion _);
         projector.rotation = low;
+    }
+
+    public void WeaponGetEffect(Weapon_Name weaponName)
+    {
+        weaponGetEffectAnimator.gameObject.SetActive(true);
+        weaponGetEffectSprite.sprite = weaponDataScript.weaponGFXSource.freshIcon[weaponDataScript.GetName_WeaponID(weaponName)];
+        weaponGetEffectAnimator.SetTrigger("IsAcquisite");
     }
 }
