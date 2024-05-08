@@ -7,20 +7,29 @@ using UnityEngine.UI;
 public class InGameUiManager : MonoBehaviour
 {
     public Image weaponIcon;
+    public Transform hpPosition;
+    public GameObject lifePointPrefab;
 
     private CharacterController2D charCon2D;
+    private PlayerGameData playerGameData;
     private WeaponManager weaponManager;
     private WeaponData weaponData;
 
     private float blinkTimer = 0f;
     private bool isRed = false;
     private float blinkInterval = 0.5f; // 번갈아가며 변경될 시간 간격
+    private List<GameObject> lifePoints = new List<GameObject>();
+    private int lastRecordedHp;
     
     private void Start()
     {
+        playerGameData = GameManager.Instance.GetPlayerGameData();
         charCon2D = GameManager.Instance.GetCharacterController2D();
         weaponManager = charCon2D.playerAttack.weaponManager;
         weaponData = GameManager.Instance.GetWeaponData();
+        
+        lastRecordedHp = playerGameData.playerData.playerHP;
+        CreateLifePoints();
     }
 
     void Update()
@@ -54,6 +63,11 @@ public class InGameUiManager : MonoBehaviour
         {
             Debug.Log("hpPercentage : " + hpPercentage*100 + "% \n (float)weaponManager.weaponLife : " + (float)weaponManager.weaponLife + "\n originalWeaponHP : " + weaponData.GetName_WeaponLifeCount(charCon2D.playerAttack.weapon_name));
         }
+        if (lastRecordedHp != playerGameData.playerData.playerHP)
+        {
+            UpdateLifePoints();
+            lastRecordedHp = playerGameData.playerData.playerHP;
+        }
     }
     
     private void ResetBlinkTimer()
@@ -77,6 +91,30 @@ public class InGameUiManager : MonoBehaviour
             blinkTimer = 0f;
             weaponIcon.color = isRed ? Color.white : Color.red;
             isRed = !isRed;
+        }
+    }
+    
+    private void CreateLifePoints()
+    {
+        for (int i = 0; i < playerGameData.playerData.playerHP; i++)
+        {
+            GameObject lifePoint = Instantiate(lifePointPrefab, hpPosition);
+            lifePoints.Add(lifePoint);
+        }
+    }
+    
+    private void UpdateLifePoints()
+    {
+        for (int i = 0; i < lifePoints.Count; i++)
+        {
+            if (i < playerGameData.playerData.playerHP)
+            {
+                lifePoints[i].GetComponent<Image>().color = Color.red;
+            }
+            else
+            {
+                lifePoints[i].GetComponent<Image>().color = Color.grey;
+            }
         }
     }
 }
