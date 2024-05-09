@@ -23,6 +23,9 @@ public class PlayerData
     //현재 공격력
     public int playerATK;
 
+    //플레이어 최대체력 (제한)
+    public int playerMaxHP;
+    
     //현재 체력
     public int playerHP;
     

@@ -75,12 +75,40 @@ public class CharacterController2D : MonoBehaviour
         nonCollidingPlayerLayer = LayerMask.NameToLayer("NonCollidingPlayer");
         //플레이어 데이터 받아오기
         ReloadPlayerData();
+        playerdata.playerMaxHP = playerdata.playerHP;
     }
 
     private void Update()
     {
         //상태에 따라 레이어 변경
         gameObject.layer = isDashAttacking ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
+        
+        //...TESTCODE
+        if (Input.GetKeyDown(KeyCode.Q)) //최대 체력 증가 시스템
+        {
+            playerdata.playerMaxHP++;
+            playerdata.playerHP++;
+        }
+        else if(Input.GetKeyDown(KeyCode.E)) //최대 체력 감소 시스템
+        {
+            if (playerdata.playerMaxHP == playerdata.playerHP)
+            {
+                playerdata.playerHP--;
+            }
+            playerdata.playerMaxHP--;
+        }
+        else if(Input.GetKeyDown(KeyCode.R)) //체력 회복 시스템
+        {
+            if (playerdata.playerMaxHP == playerdata.playerHP)
+            {
+                return;
+            }
+            playerdata.playerHP++;
+        }
+        else if(Input.GetKeyDown(KeyCode.T)) //체력 감소 시스템 (피격과 같음)
+        {
+            playerdata.playerHP--;
+        }
         
         if (isClimbing && !m_Grounded) 
         {

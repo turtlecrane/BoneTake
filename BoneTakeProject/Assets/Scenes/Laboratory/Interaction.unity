@@ -2569,6 +2569,7 @@ MonoBehaviour:
     weaponName: 0
     weaponHP: 0
     playerATK: 10
+    playerMaxHp: 0
     playerHP: 3
 --- !u!4 &607637678
 Transform:
@@ -6946,7 +6947,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!1 &1507790913
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,6 +8821,7 @@ MonoBehaviour:
     weaponName: 0
     weaponHP: 0
     playerATK: 0
+    playerMaxHp: 0
     playerHP: 0
   playerTarget: {fileID: 907808799}
   playerMovement: {fileID: 1924651505}
@@ -9059,6 +9061,7 @@ MonoBehaviour:
   weaponIcon: {fileID: 789399898}
   hpPosition: {fileID: 1439626405}
   lifePointPrefab: {fileID: 3473224948303599461, guid: 4035b894c43eeb44f88f90cb7bceefc0, type: 3}
+  lifePoints: []
 --- !u!1 &1985386368
 GameObject:
   m_ObjectHideFlags: 0
