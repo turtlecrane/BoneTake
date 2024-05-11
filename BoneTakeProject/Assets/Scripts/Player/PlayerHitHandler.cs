@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PlayerHitHandler : MonoBehaviour
 {
+    public Image gameOverPanel;
     [Header("전투 관련 상태")] 
     public bool isDead; //사망상태 인지
     public bool isInvincible; //무적상태 인지
@@ -167,6 +169,7 @@ public class PlayerHitHandler : MonoBehaviour
 
         // 추가 대기 시간 없이 바로 원래 시간 속도로 복구
         GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
+        gameOverPanel.gameObject.SetActive(true);
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
