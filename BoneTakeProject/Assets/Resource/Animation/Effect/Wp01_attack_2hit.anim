@@ -305,7 +305,7 @@ AnimationClip:
       value: {fileID: 462835519, guid: 9af19dc90975f9d4d8d864ea2b39662f, type: 3}
     - time: 0.5
       value: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
-    - time: 1.25
+    - time: 1
       value: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
     attribute: m_Sprite
     path: 
@@ -366,7 +366,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.3333334
+    m_StopTime: 1.0833334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -660,7 +660,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
+  - time: 0.16666667
     functionName: Player_DoKnifeDamage
     data: 
     objectReferenceParameter: {fileID: 0}
