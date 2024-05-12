@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
+    public bool isAiming; //조준중인지 (활 무기 착용시)
     public int count = 0; //현재 공격이 몇타째 인지
     public float multiAtk_maxTime;
     
@@ -72,7 +73,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (charCon2D.m_Grounded)
                 {
-                    Player_BowAttack();
+                    if (!isAiming) Player_BowBasicAttack();
                 }
             }  
             else
@@ -82,6 +83,13 @@ public class PlayerAttack : MonoBehaviour
             
             canAttack = false;
             StartCoroutine(AttackCooldown());
+        }
+        
+        // 조준중인지 확인
+        if (charCon2D.m_Grounded && Input.GetKeyDown(KeyCode.R) && weapon_type == Weapon_Type.Bow)
+        {
+            isAiming = !isAiming;
+            Player_BowAimingAttack();
         }
         
         // 다중 공격 가능 상태 업데이트
@@ -173,11 +181,20 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void Player_BowAttack()
+    /// <summary>
+    /// 플레이어 공격 - 활 기본공격
+    /// </summary>
+    public void Player_BowBasicAttack()
     {
         // 활 공격 모션으로 전환
         charCon2D.animator.SetTrigger("IsBowAttacking");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
+    }
+    
+    public void Player_BowAimingAttack()
+    {
+        // 활 조준 모션으로 전환
+        charCon2D.animator.SetBool("IsBowAiming",isAiming);
     }
     
     /// <summary>

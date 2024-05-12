@@ -50,6 +50,14 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.animator.SetBool("IsDead", isDead);
         }
         
+        //조준중에 피격당하면 조준 풀림
+        if (charCon2D.playerAttack.isAiming)
+        {
+            charCon2D.playerAttack.isAiming = false;
+            charCon2D.animator.SetBool("IsBowAiming", false);
+            charCon2D.playerAttack.weaponAnimator.SetBool("Wp02_attack_Aiming_End", true);
+        }
+        
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         

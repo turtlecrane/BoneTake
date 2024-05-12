@@ -82,14 +82,15 @@ public class CharacterController2D : MonoBehaviour
     {
         //상태에 따라 레이어 변경
         gameObject.layer = isDashAttacking ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
-        
-        //...TESTCODE
-        if (Input.GetKeyDown(KeyCode.Q)) //최대 체력 증가 시스템
+
+        #region 체력 시스템 ... TESTCODE
+
+        if (Input.GetKeyDown(KeyCode.O)) //최대 체력 증가 시스템
         {
             playerdata.playerMaxHP++;
             playerdata.playerHP++;
         }
-        else if(Input.GetKeyDown(KeyCode.E)) //최대 체력 감소 시스템
+        else if(Input.GetKeyDown(KeyCode.K)) //최대 체력 감소 시스템
         {
             if (playerdata.playerMaxHP == playerdata.playerHP)
             {
@@ -97,7 +98,7 @@ public class CharacterController2D : MonoBehaviour
             }
             playerdata.playerMaxHP--;
         }
-        else if(Input.GetKeyDown(KeyCode.R)) //체력 회복 시스템
+        else if(Input.GetKeyDown(KeyCode.P)) //체력 회복 시스템
         {
             if (playerdata.playerMaxHP == playerdata.playerHP)
             {
@@ -105,10 +106,12 @@ public class CharacterController2D : MonoBehaviour
             }
             playerdata.playerHP++;
         }
-        else if(Input.GetKeyDown(KeyCode.T)) //체력 감소 시스템 (피격과 같음)
+        else if(Input.GetKeyDown(KeyCode.L)) //체력 감소 시스템 (피격과 같음)
         {
             playerdata.playerHP--;
         }
+
+        #endregion
         
         if (isClimbing && !m_Grounded) 
         {
@@ -304,9 +307,11 @@ public class CharacterController2D : MonoBehaviour
     public void Flip()
     {
         m_FacingRight = !m_FacingRight;
-
+        
         Vector3 theScale = transform.localScale;
+        
         theScale.x *= -1;
+        
         transform.localScale = theScale;
     }
     

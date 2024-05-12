@@ -53,13 +53,19 @@ public class WeaponManager : MonoBehaviour
         
         weaponAnimator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
         weaponAnimator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
-        
-        
-        Aim();
-            
-        if(Input.GetMouseButtonDown(0))
+
+        if (charCon2D.playerAttack.isAiming)
         {
-            trickShot.Shoot();
+            Aim();
+            if (Input.GetMouseButtonDown(0))
+            {
+                weaponAnimator.SetTrigger("Wp02_attack_Aiming_Shot");
+                trickShot.Shoot();
+            }
+        }
+        else
+        {
+            AimingInit();
         }
     }
 
@@ -69,17 +75,27 @@ public class WeaponManager : MonoBehaviour
         Gizmos.color = Color.magenta;
         float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
-        
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(projector.transform.position, new Vector2(0.1f,0.1f));
-        
     }
     
     private void Aim()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ballistics.Solution2D(emitter.position, trickShot.speed, mousePos, Physics2D.gravity.magnitude, out Quaternion low, out Quaternion _);
-        projector.rotation = low;
+        trickShot.distance = 20f;
+        projector.rotation = new Quaternion(low.x,low.y,low.z,low.w);
+    }
+
+    private void AimingInit()
+    {
+        trickShot.distance = 0f;
+        float parentScaleX = projector.transform.parent.localScale.x;
+        float rotationZ = parentScaleX == -1 ? 90 : -90;
+        projector.rotation = Quaternion.Euler(0, 0, rotationZ);
+    }
+
+    public void Shot_BasicArrow()
+    {
+        trickShot.Shoot();
     }
 
     public void WeaponGetEffect(Weapon_Name weaponName)

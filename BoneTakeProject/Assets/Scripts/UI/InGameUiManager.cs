@@ -64,12 +64,6 @@ public class InGameUiManager : MonoBehaviour
         {
             BlinkWeaponIcon();
         }
-        
-        //...TESTCODE
-        if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic)
-        {
-            Debug.Log("hpPercentage : " + hpPercentage*100 + "% \n (float)weaponManager.weaponLife : " + (float)weaponManager.weaponLife + "\n originalWeaponHP : " + weaponData.GetName_WeaponLifeCount(charCon2D.playerAttack.weapon_name));
-        }
     }
     
     private void ResetBlinkTimer()
