@@ -9,7 +9,8 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject testInteractionText;
     public EnemyAI enemyAIscript;
     public float boneTakeCompleteDuration;
-    
+
+    public bool isInteractiveCamera;
     [SerializeField] private bool canInteraction = false;
     [SerializeField] private bool canExtractBones = false;
     [SerializeField] private bool canTalkToNPC = false;

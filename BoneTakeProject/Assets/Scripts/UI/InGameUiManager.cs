@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,9 @@ public class InGameUiManager : MonoBehaviour
     public Image weaponIcon;
     public Transform hpPosition;
     public GameObject lifePointPrefab;
-
+    public CinemachineVirtualCamera m_playerFollowCamera;
+    public CinemachineVirtualCamera m_cursorFollowCamera;
+    
     private CharacterController2D charCon2D;
     private PlayerGameData playerGameData;
     private WeaponManager weaponManager;
@@ -38,6 +41,7 @@ public class InGameUiManager : MonoBehaviour
     {
         WeaponUISystem();
         LifePointUISystem();
+        CursorCheckState();
     }
 
     private void WeaponUISystem()
@@ -174,6 +178,38 @@ public class InGameUiManager : MonoBehaviour
                 lifePoints[i].GetComponent<Image>().color = Color.red; //이미지라면 White로 Red는 Test용.
                 hpScript.isDisable = false;
             }
+        }
+    }
+    
+    void CursorCheckState()
+    {
+        if (charCon2D.playerAttack.isAiming)
+        {
+            if (!charCon2D.playerInteraction.isInteractiveCamera)
+            {
+                m_playerFollowCamera.gameObject.SetActive(false);
+                m_cursorFollowCamera.gameObject.SetActive(true);
+            }
+            // 마우스 포인터 보이게 하기
+            Cursor.visible = true;
+            // 마우스 포인터 고정 해제
+            Cursor.lockState = CursorLockMode.None;
+            Vector2 hotSpot = new Vector2(charCon2D.playerAttack.weaponManager.aimingCursor.width / 2, charCon2D.playerAttack.weaponManager.aimingCursor.height / 2);
+            Cursor.SetCursor(charCon2D.playerAttack.weaponManager.aimingCursor, hotSpot, CursorMode.Auto);
+        }
+        else
+        {
+            if (!charCon2D.playerInteraction.isInteractiveCamera)
+            {
+                m_playerFollowCamera.gameObject.SetActive(true);
+                m_cursorFollowCamera.gameObject.SetActive(false);
+            }
+            // 마우스 포인터 숨기기
+            Cursor.visible = false;
+            // 마우스 포인터 화면 중앙에 고정
+            Cursor.lockState = CursorLockMode.Locked;
+            // 기본 마우스 포인터로 변경
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }

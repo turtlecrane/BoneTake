@@ -42,6 +42,7 @@ public class PlayerAttack : MonoBehaviour
     {
         isAttacking = IsCurrentAnimationTag("attack");
         charCon2D.animator.SetBool("IsAttacking", isAttacking);
+        charCon2D.animator.SetBool("IsBowAiming",isAiming);
         //BigLanding중 이거나, 공격중이거나, 특수한 공격에 피격당해서 넉백이 일어난 경우 움직일수없도록 함.
         charCon2D.canMove = 
             !isAttacking && 
@@ -89,7 +90,6 @@ public class PlayerAttack : MonoBehaviour
         if (charCon2D.m_Grounded && Input.GetKeyDown(KeyCode.R) && weapon_type == Weapon_Type.Bow)
         {
             isAiming = !isAiming;
-            Player_BowAimingAttack();
         }
         
         // 다중 공격 가능 상태 업데이트
@@ -189,12 +189,6 @@ public class PlayerAttack : MonoBehaviour
         // 활 공격 모션으로 전환
         charCon2D.animator.SetTrigger("IsBowAttacking");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
-    }
-    
-    public void Player_BowAimingAttack()
-    {
-        // 활 조준 모션으로 전환
-        charCon2D.animator.SetBool("IsBowAiming",isAiming);
     }
     
     /// <summary>

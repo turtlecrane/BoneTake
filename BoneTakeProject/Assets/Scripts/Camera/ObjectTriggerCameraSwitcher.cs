@@ -13,14 +13,20 @@ public class ObjectTriggerCameraSwitcher : MonoBehaviour
     public GameObject m_playerFollowCamera;
     public GameObject m_thisVituralCam;
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player") && !other.isTrigger){
+        if(other.CompareTag("Player") && !other.isTrigger)
+        {
+            PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
+            playerInteraction.isInteractiveCamera = true;
             m_playerFollowCamera.SetActive(false);
             m_thisVituralCam.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if(other.CompareTag("Player") && !other.isTrigger){
+        if(other.CompareTag("Player") && !other.isTrigger)
+        {
+            PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
+            playerInteraction.isInteractiveCamera = false;
             m_thisVituralCam.SetActive(false);
             m_playerFollowCamera.SetActive(true);
         }

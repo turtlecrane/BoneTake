@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerAttack playerAttack;
     public PlayerHitHandler playerHitHandler;
+    public PlayerInteraction playerInteraction;
     public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     
@@ -47,12 +48,10 @@ public class CharacterController2D : MonoBehaviour
     [Header("벽타기 관련")]
     public bool isClimbing = false; //벽 메달리기 중인지
     public LayerMask wallLayer;
-    
-    [Tooltip("벽에서 몇초만큼 조작이 없을때 추락하는지")]
-    public float limitClimbingCount;
+    public float limitClimbingCount; //벽에서 몇초만큼 조작이 없을때 추락하는지
     
     private float prevVelocityX = 0f;
-    public float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
+    private float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     //---------------------
     
     [HideInInspector] public float m_MovementSmoothing = .05f;

@@ -11,15 +11,30 @@ public class EnterBoolSetWeaponAnimation : StateMachineBehaviour
     // 애니메이션이 시작될 때 호출
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //Weapon 오브젝트를 찾기
-        GameObject weapon = animator.gameObject.transform.Find("Weapon").gameObject;
-        Animator weaponAnimator = weapon.GetComponent<Animator>();
-        PlayerAttack playerAttackScript = animator.GetComponent<PlayerAttack>();
-        
-        // Weapon 애니메이터에 현재 "착용중인 무기 + 실행될 트리거의 이름" 트리거를 설정
-        if (weaponAnimator != null)
+        // 먼저 PlayerTarget 오브젝트를 찾기
+        Transform playerTarget = animator.gameObject.transform.Find("ShotPoint");
+    
+        // PlayerTarget 하위에서 Weapon 오브젝트를 찾기
+        WeaponManager weapon = null;
+        if (playerTarget != null)
         {
-            weaponAnimator.SetBool( playerAttackScript.weapon_name + "_" + actionName, boolState);
+            Transform weaponTransform = playerTarget.Find("Weapon");
+            if (weaponTransform != null)
+            {
+                weapon = weaponTransform.GetComponent<WeaponManager>();
+            }
+        }
+
+        if (weapon != null)
+        {
+            Animator weaponAnimator = weapon.GetComponent<Animator>();
+            PlayerAttack playerAttackScript = animator.GetComponent<PlayerAttack>();
+        
+            // Weapon 애니메이터에 현재 "착용중인 무기 + 실행될 트리거의 이름" 트리거를 설정합니다.
+            if (weaponAnimator != null)
+            {
+                weaponAnimator.SetBool( playerAttackScript.weapon_name + "_" + actionName, boolState);
+            }
         }
     }
 }

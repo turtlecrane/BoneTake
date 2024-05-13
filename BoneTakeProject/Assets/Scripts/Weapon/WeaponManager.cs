@@ -7,20 +7,21 @@ using HeathenEngineering.PhysKit.API;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private Weapon_Type weaponType;
-    [SerializeField] private Weapon_Name weaponName;
-    
     public int weaponLife;
-    [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 무기의 히트박스의 크기 조절
-    [HideInInspector] public float playerOffset_X;//공격 X축 무기 반경을 조절
-    [HideInInspector] public float playerOffset_Y; //공격 Y축 무기 반경을 조절
-
+    public Texture2D aimingCursor;
     public Animator weaponGetEffectAnimator;
     public SpriteRenderer weaponGetEffectSprite;
     
+    [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 무기의 히트박스의 크기 조절
+    [HideInInspector] public float playerOffset_X;//공격 X축 무기 반경을 조절
+    [HideInInspector] public float playerOffset_Y; //공격 Y축 무기 반경을 조절
+    private Weapon_Type weaponType;
+    private Weapon_Name weaponName;
     private CharacterController2D charCon2D;
     private WeaponData weaponDataScript;
     private Animator weaponAnimator;
+    private float lastShootTime = 0f;
+    private float shootCooldown = 0.5f; // 0.5초 쿨다운
     
     //TESTCODE
     public Transform projector;
@@ -46,6 +47,7 @@ public class WeaponManager : MonoBehaviour
 
         if (weaponLife <= 0) //무기파괴
         {
+            charCon2D.playerAttack.isAiming = false;
             weaponLife = -1;
             charCon2D.playerAttack.weapon_type = Weapon_Type.Basic;
             charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
@@ -57,10 +59,11 @@ public class WeaponManager : MonoBehaviour
         if (charCon2D.playerAttack.isAiming)
         {
             Aim();
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && Time.time >= lastShootTime + shootCooldown)
             {
                 weaponAnimator.SetTrigger("Wp02_attack_Aiming_Shot");
                 trickShot.Shoot();
+                lastShootTime = Time.time;
             }
         }
         else
@@ -82,7 +85,15 @@ public class WeaponManager : MonoBehaviour
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ballistics.Solution2D(emitter.position, trickShot.speed, mousePos, Physics2D.gravity.magnitude, out Quaternion low, out Quaternion _);
         trickShot.distance = 20f;
-        projector.rotation = new Quaternion(low.x,low.y,low.z,low.w);
+        projector.rotation = low;
+
+        float zRotation = projector.eulerAngles.z;
+
+        // 캐릭터가 오른쪽을 보고 있고, zRotation이 180도 이하일 때, 또는 캐릭터가 왼쪽을 보고 있고, zRotation이 180도를 초과할 때
+        bool shouldFlip = charCon2D.m_FacingRight ? zRotation > 180 : zRotation <= 180;
+
+        // shouldFlip이 참이면 localScale의 x 값을 양수로, 거짓이면 음수로 설정
+        projector.localScale = new Vector3(shouldFlip ? Mathf.Abs(projector.localScale.x) : -Mathf.Abs(projector.localScale.x), projector.localScale.y, projector.localScale.z);
     }
 
     private void AimingInit()
@@ -91,6 +102,9 @@ public class WeaponManager : MonoBehaviour
         float parentScaleX = projector.transform.parent.localScale.x;
         float rotationZ = parentScaleX == -1 ? 90 : -90;
         projector.rotation = Quaternion.Euler(0, 0, rotationZ);
+        projector.localScale = new Vector3(Mathf.Abs(projector.localScale.x), projector.localScale.y, projector.localScale.z);
+        charCon2D.playerAttack.isAiming = false;
+        weaponAnimator.SetBool("Wp02_attack_Aiming_End", true);
     }
 
     public void Shot_BasicArrow()
