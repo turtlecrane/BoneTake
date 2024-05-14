@@ -87,7 +87,7 @@ public class PlayerAttack : MonoBehaviour
         }
         
         // 조준중인지 확인
-        if (charCon2D.m_Grounded && Input.GetKeyDown(KeyCode.R) && weapon_type == Weapon_Type.Bow)
+        if (charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") != 0  && weapon_type == Weapon_Type.Bow)
         {
             isAiming = !isAiming;
         }

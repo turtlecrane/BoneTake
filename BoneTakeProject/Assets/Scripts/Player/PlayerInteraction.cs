@@ -77,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ContinueBoneExtraction()
     {
-        if (!enemyAIscript.enemyHitHandler.isExtracted&& canExtractBones && m_boneExtractionTime != 0f)
+        if (!canTalkToNPC && !enemyAIscript.enemyHitHandler.isExtracted&& canExtractBones && m_boneExtractionTime != 0f)
         {
             charCon2D.animator.SetBool("IsBoneTaking", true);
             charCon2D.animator.SetBool("IsBoneTakeIntro", true);
@@ -100,7 +100,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void CancelBoneTake()
     {
-        if (canExtractBones && isExtractingBones)
+        if (!canTalkToNPC && canExtractBones && isExtractingBones)
         {
             ResetBoneTake();
         }
@@ -141,7 +141,7 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             enemyAIscript = collision.GetComponent<EnemyAI>();
-            if (enemyAIscript.enemyHitHandler.isExtracted)
+            if (enemyAIscript.enemyHitHandler.isExtracted || !enemyAIscript.enemyHitHandler.isCorpseState)
             {
                 canInteraction = false;
                 return;

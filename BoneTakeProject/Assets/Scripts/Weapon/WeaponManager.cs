@@ -84,7 +84,7 @@ public class WeaponManager : MonoBehaviour
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ballistics.Solution2D(emitter.position, trickShot.speed, mousePos, Physics2D.gravity.magnitude, out Quaternion low, out Quaternion _);
-        trickShot.distance = 20f;
+        trickShot.distance = 50f;
         projector.rotation = low;
 
         float zRotation = projector.eulerAngles.z;

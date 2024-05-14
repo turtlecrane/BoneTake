@@ -183,32 +183,35 @@ public class InGameUiManager : MonoBehaviour
     
     void CursorCheckState()
     {
-        if (charCon2D.playerAttack.isAiming)
+        var isAiming = charCon2D.playerAttack.isAiming;
+        var isInteractiveCamera = charCon2D.playerInteraction.isInteractiveCamera;
+        var weaponManager = charCon2D.playerAttack.weaponManager;
+
+        SetCameraActiveState(isAiming, isInteractiveCamera);
+        SetCursorState(isAiming, weaponManager);
+    }
+
+    void SetCameraActiveState(bool isAiming, bool isInteractiveCamera)
+    {
+        if (!isInteractiveCamera)
         {
-            if (!charCon2D.playerInteraction.isInteractiveCamera)
-            {
-                m_playerFollowCamera.gameObject.SetActive(false);
-                m_cursorFollowCamera.gameObject.SetActive(true);
-            }
-            // 마우스 포인터 보이게 하기
-            Cursor.visible = true;
-            // 마우스 포인터 고정 해제
-            Cursor.lockState = CursorLockMode.None;
-            Vector2 hotSpot = new Vector2(charCon2D.playerAttack.weaponManager.aimingCursor.width / 2, charCon2D.playerAttack.weaponManager.aimingCursor.height / 2);
-            Cursor.SetCursor(charCon2D.playerAttack.weaponManager.aimingCursor, hotSpot, CursorMode.Auto);
+            m_playerFollowCamera.gameObject.SetActive(!isAiming);
+            m_cursorFollowCamera.gameObject.SetActive(isAiming);
+        }
+    }
+
+    void SetCursorState(bool isAiming, WeaponManager weaponManager)
+    {
+        Cursor.visible = isAiming;
+        Cursor.lockState = isAiming ? CursorLockMode.None : CursorLockMode.Locked;
+
+        if (isAiming)
+        {
+            Vector2 hotSpot = new Vector2(weaponManager.aimingCursor.width / 2, weaponManager.aimingCursor.height / 2);
+            Cursor.SetCursor(weaponManager.aimingCursor, hotSpot, CursorMode.Auto);
         }
         else
         {
-            if (!charCon2D.playerInteraction.isInteractiveCamera)
-            {
-                m_playerFollowCamera.gameObject.SetActive(true);
-                m_cursorFollowCamera.gameObject.SetActive(false);
-            }
-            // 마우스 포인터 숨기기
-            Cursor.visible = false;
-            // 마우스 포인터 화면 중앙에 고정
-            Cursor.lockState = CursorLockMode.Locked;
-            // 기본 마우스 포인터로 변경
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }

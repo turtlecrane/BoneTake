@@ -20,7 +20,7 @@ public class PlayerFollowCameraController : MonoBehaviour
     public GameObject m_playerFollowCamera; //플레이어 추적중인 카메라 오브젝트
 
     public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
-    private CinemachineCollisionImpulseSource screenShake; 
+    public CinemachineCollisionImpulseSource bigLandingShakeSource; 
     private CharacterController2D player_CharacterController; //플레이어 스크립트
     
     public float lensOrtho_InitSize;//화면 줌 초기값 저장
@@ -38,11 +38,11 @@ public class PlayerFollowCameraController : MonoBehaviour
         virtualCamera = m_playerFollowCamera.GetComponent<CinemachineVirtualCamera>();
         lensOrtho_InitSize = virtualCamera.m_Lens.OrthographicSize;//화면 줌 초기값 저장
 
-        screenShake = m_playerFollowCamera.GetComponent<CinemachineCollisionImpulseSource>();//Impulse데이터 초기값 저장
-        InitialImpulseData.AmplitudeGain = screenShake.m_ImpulseDefinition.m_AmplitudeGain;
-        InitialImpulseData.FrequencyGain = screenShake.m_ImpulseDefinition.m_FrequencyGain;
-        InitialImpulseData.SustainTime = screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime;
-        InitialImpulseData.DecayTime = screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime;
+        //bigLandingShakeSource = m_playerFollowCamera.GetComponent<CinemachineCollisionImpulseSource>();//Impulse데이터 초기값 저장
+        InitialImpulseData.AmplitudeGain = bigLandingShakeSource.m_ImpulseDefinition.m_AmplitudeGain;
+        InitialImpulseData.FrequencyGain = bigLandingShakeSource.m_ImpulseDefinition.m_FrequencyGain;
+        InitialImpulseData.SustainTime = bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime;
+        InitialImpulseData.DecayTime = bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime;
         
         player_CharacterController = virtualCamera.Follow.gameObject.GetComponent<CharacterController2D>();
     }
@@ -70,18 +70,18 @@ public class PlayerFollowCameraController : MonoBehaviour
         virtualCamera.m_Lens.OrthographicSize = lensOrtho_InitSize; //화면 줌 값을 초기값으로 변경
         
         //Impulse 진동 속성 조절
-        screenShake.m_ImpulseDefinition.m_AmplitudeGain = Impulse_PowerValue;
-        screenShake.m_ImpulseDefinition.m_FrequencyGain = Impulse_PowerValue;
-        screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = player_CharacterController.bigFallCantMoveCoolTime / 2;
-        screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = player_CharacterController.bigFallCantMoveCoolTime;//지속시간 (여기선 큰착지 쿨타임 시간과 동일하게)
-        screenShake.GenerateImpulse();
+        bigLandingShakeSource.m_ImpulseDefinition.m_AmplitudeGain = Impulse_PowerValue;
+        bigLandingShakeSource.m_ImpulseDefinition.m_FrequencyGain = Impulse_PowerValue;
+        bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = player_CharacterController.bigFallCantMoveCoolTime / 2;
+        bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = player_CharacterController.bigFallCantMoveCoolTime;//지속시간 (여기선 큰착지 쿨타임 시간과 동일하게)
+        bigLandingShakeSource.GenerateImpulse();
         
         yield return new WaitForSeconds(player_CharacterController.bigFallCantMoveCoolTime);
         //Impulse데이터 초기값으로 초기화
-        screenShake.m_ImpulseDefinition.m_AmplitudeGain = InitialImpulseData.AmplitudeGain;
-        screenShake.m_ImpulseDefinition.m_FrequencyGain = InitialImpulseData.FrequencyGain;
-        screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = InitialImpulseData.SustainTime;
-        screenShake.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = InitialImpulseData.DecayTime;
+        bigLandingShakeSource.m_ImpulseDefinition.m_AmplitudeGain = InitialImpulseData.AmplitudeGain;
+        bigLandingShakeSource.m_ImpulseDefinition.m_FrequencyGain = InitialImpulseData.FrequencyGain;
+        bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = InitialImpulseData.SustainTime;
+        bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime = InitialImpulseData.DecayTime;
     }
 
     /// <summary>
