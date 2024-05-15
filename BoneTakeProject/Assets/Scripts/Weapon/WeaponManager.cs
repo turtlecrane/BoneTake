@@ -15,6 +15,7 @@ public class WeaponManager : MonoBehaviour
     [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 무기의 히트박스의 크기 조절
     [HideInInspector] public float playerOffset_X;//공격 X축 무기 반경을 조절
     [HideInInspector] public float playerOffset_Y; //공격 Y축 무기 반경을 조절
+    
     private Weapon_Type weaponType;
     private Weapon_Name weaponName;
     private CharacterController2D charCon2D;
@@ -45,13 +46,7 @@ public class WeaponManager : MonoBehaviour
         charCon2D.playerdata.weaponName = charCon2D.playerAttack.weapon_name;
         charCon2D.playerdata.weaponHP = weaponLife;
 
-        if (weaponLife <= 0) //무기파괴
-        {
-            charCon2D.playerAttack.isAiming = false;
-            weaponLife = -1;
-            charCon2D.playerAttack.weapon_type = Weapon_Type.Basic;
-            charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
-        }
+        WeaponDestructionEffect();
         
         weaponAnimator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
         weaponAnimator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
@@ -59,9 +54,9 @@ public class WeaponManager : MonoBehaviour
         if (charCon2D.playerAttack.isAiming)
         {
             Aim();
-            if (Input.GetMouseButtonDown(0) && Time.time >= lastShootTime + shootCooldown)
+            if (Input.GetMouseButtonDown(0) && Time.time >= lastShootTime + (weaponDataScript.GetName_BowAimCoolTime(weaponName)+shootCooldown))
             {
-                weaponAnimator.SetTrigger("Wp02_attack_Aiming_Shot");
+                StartCoroutine(AimingShotCoolDown());
                 trickShot.Shoot();
                 lastShootTime = Time.time;
             }
@@ -72,12 +67,11 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private IEnumerator AimingShotCoolDown()
     {
-        //히트박스 에디터 상에서 표시 2.125f : -2.125f;
-        Gizmos.color = Color.magenta;
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
+        weaponAnimator.SetBool("Wp02_attack_Aiming_Shot", true);
+        yield return new WaitForSeconds(weaponDataScript.GetName_BowAimCoolTime(weaponName));
+        weaponAnimator.SetBool("Wp02_attack_Aiming_Shot", false);
     }
     
     private void Aim()
@@ -112,10 +106,35 @@ public class WeaponManager : MonoBehaviour
         trickShot.Shoot();
     }
 
+    /// <summary>
+    /// 무기 습득 효과
+    /// </summary>
     public void WeaponGetEffect(Weapon_Name weaponName)
     {
         weaponGetEffectAnimator.gameObject.SetActive(true);
         weaponGetEffectSprite.sprite = weaponDataScript.weaponGFXSource.freshIcon[weaponDataScript.GetName_WeaponID(weaponName)];
         weaponGetEffectAnimator.SetTrigger("IsAcquisite");
+    }
+
+    /// <summary>
+    /// 무기파괴
+    /// </summary>
+    public void WeaponDestructionEffect()
+    {
+        if (weaponLife <= 0) 
+        {
+            charCon2D.playerAttack.isAiming = false;
+            weaponLife = -1;
+            charCon2D.playerAttack.weapon_type = Weapon_Type.Basic;
+            charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
+        }
+    }
+    
+    //히트박스 에디터 상에서 표시
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
     }
 }

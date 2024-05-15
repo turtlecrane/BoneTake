@@ -17,8 +17,6 @@ public class EnemyAI : MonoBehaviour
 
     [Header("SettingValue")] 
     public Weapon_Type weaponType;
-    
-    //TODO 발골시 발골되는 아이템의 이름을 설정해야함.
     public Weapon_Name weaponName;
     
     public float speed;
@@ -26,23 +24,24 @@ public class EnemyAI : MonoBehaviour
     public float jumpForce;
     public float jumpCoolTime;
     public float groundedCheckDistance;
+    public float landingCheckDistance;
     public LayerMask playerLayer;
     public float randomMovingValue_MIN;
     public float randomMovingValue_MAX;
     public float boneExtractionTime;
 
     [Header("State")]
-    //TESTCODE ...
     public bool canMove;
     public bool canAttack;
     public bool canRotation;
     public bool canTracking;
     public bool isRunning;
     public bool isAttacking = false;
-    public bool jumpEnabled;
     public bool isGrounded;
-    public bool facingRight = true;
+    public bool isLanding;
     public bool isJumpCoolDown;
+    public bool jumpEnabled;
+    public bool facingRight = true;
     public float movingCount;
 
     private Animator animator;
@@ -55,6 +54,8 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private float randomValue;
 
+    public bool wasGrounded; // 이전 상태를 추적하기 위한 변수를 선언
+    
     private void Awake()
     {
         randomValue = 1f + Random.value;
@@ -76,6 +77,14 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         animator.SetBool("IsRunning", isRunning);
+        animator.SetBool("IsJumping", !isGrounded);
+        isAttacking = IsCurrentAnimationTag("attack");
+
+        if (animator.GetBool("IsJumping") && isGrounded)
+        {
+            animator.SetBool("IsJumping", false);
+        }
+        
         if (isRunning)
         {
             movingCount += Time.deltaTime;
@@ -84,6 +93,8 @@ public class EnemyAI : MonoBehaviour
         {
             movingCount = 0;
         }
+
+        isLanding = rb.velocity.y < 0f;
         
         // movingCount가 1과 2사이일 때
         if (movingCount > randomMovingValue_MIN && movingCount <= randomMovingValue_MAX)
@@ -93,19 +104,6 @@ public class EnemyAI : MonoBehaviour
                 StartCoroutine(StopMoving());
             }
         }
-        
-        isAttacking = IsCurrentAnimationTag("attack");
-    }
-
-    private IEnumerator StopMoving()
-    {
-        Debug.Log("멈추기");
-        movingCount = 0;
-        randomValue = 1+Random.value;
-        canMove = false;
-        yield return new WaitForSeconds(0.5f + Random.value);
-        Debug.Log("다시이동");
-        canMove = true;
     }
 
     void FixedUpdate()
@@ -115,12 +113,10 @@ public class EnemyAI : MonoBehaviour
         // 경로의 마지막에 도달했는지 여부를 설정
         reachedEndOfPath = currentWaypoint >= path.vectorPath.Count;
         if (reachedEndOfPath) return;
-        
-        // 땅에 닿아 있는 상태인지 검사
-        startOffset = transform.position;
-        isGrounded = Physics2D.Raycast(startOffset, Vector2.down, groundedCheckDistance, LayerMask.GetMask("Ground")).collider != null;
-        Debug.DrawRay(startOffset, Vector2.down * groundedCheckDistance, Color.red);
-        if (isGrounded) jumpEnabled = false;
+
+        CheckisGround();
+        if(!isGrounded && isLanding)
+            CheckisLanding();
         
         Flip();
         
@@ -138,7 +134,6 @@ public class EnemyAI : MonoBehaviour
             else
             {
                 // 경로의 마지막 waypoint에 도달했을 때의 처리를 여기에 추가
-                // 예를 들어, 적이 플레이어에 도달했거나, 경로 추적을 중단할 수 있습니다.
                 Debug.Log("적이 플레이어에 도달했거나, 경로 추적을 중단");
             }
         }
@@ -187,6 +182,27 @@ public class EnemyAI : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(JumpCoolDown());
         }
+    }
+
+    /// <summary>
+    /// 땅에 닿아 있는 상태인지 검사
+    /// </summary>
+    void CheckisGround()
+    {
+        startOffset = transform.position;
+        isGrounded = Physics2D.Raycast(startOffset, Vector2.down, groundedCheckDistance, LayerMask.GetMask("Ground")).collider != null;
+        Debug.DrawRay(startOffset, Vector2.down * groundedCheckDistance, Color.red);
+        if (isGrounded) jumpEnabled = false;
+    }
+    
+    /// <summary>
+    /// 랜딩상태 추적
+    /// </summary>
+    void CheckisLanding()
+    {
+        startOffset = transform.position;
+        animator.SetBool("IsLanding", Physics2D.Raycast(startOffset, Vector2.down, landingCheckDistance, LayerMask.GetMask("Ground")).collider != null);
+        Debug.DrawRay(startOffset, Vector2.down * landingCheckDistance, Color.magenta);
     }
     
     /// <summary>
@@ -252,11 +268,9 @@ public class EnemyAI : MonoBehaviour
     private IEnumerator JumpCoolDown()
     {
         isRunning = false;
-        //canMove = false;
         isJumpCoolDown = true;
         yield return new WaitForSeconds(jumpCoolTime);
         isJumpCoolDown = false;
-        //canMove = true;
     }
     
     private void OnPathComplte(Path p)
@@ -266,6 +280,15 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+    
+    private IEnumerator StopMoving()
+    {
+        movingCount = 0;
+        randomValue = 1+Random.value;
+        canMove = false;
+        yield return new WaitForSeconds(0.5f + Random.value);
+        canMove = true;
     }
     
     private bool IsCurrentAnimationTag(string tag)

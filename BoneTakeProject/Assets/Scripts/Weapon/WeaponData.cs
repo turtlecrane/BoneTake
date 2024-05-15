@@ -63,6 +63,13 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 15 }
     };
     
+    //활 무기마다 조준 공격 쿨타임을 부여
+    public Dictionary<Weapon_Name, float> bowAimCoolTime = new Dictionary<Weapon_Name, float>
+    {
+        { Weapon_Name.Wp02, 0.5f }
+        //여기에 추가 활의 쿨타임 데이터를 입력
+    };
+    
     /// <summary>
     /// 무기 타입에따른 무기 타수 찾기
     /// </summary>
@@ -119,6 +126,22 @@ public class WeaponData : MonoBehaviour
         if (weaponName_ID.TryGetValue(weaponName, out int weaponId))
         {
             return weaponId;
+        }
+        else
+        {
+            Debug.LogError("정의되어 있지 않은 WeaponName");
+            return 0;
+        }
+    }
+    
+    /// <summary>
+    /// 활 무기 이름에 따른 조준 공격 쿨타임 찾기
+    /// </summary>
+    public float GetName_BowAimCoolTime(Weapon_Name weaponName)
+    {
+        if (bowAimCoolTime.TryGetValue(weaponName, out float aimAttackCool))
+        {
+            return aimAttackCool;
         }
         else
         {
