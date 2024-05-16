@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
-        weaponDataScript = GameManager.Instance.GetWeaponData();
+        weaponDataScript = WeaponData.instance;
         weaponAnimator = GetComponent<Animator>();
         weaponLife = charCon2D.playerdata.weaponHP;
     }

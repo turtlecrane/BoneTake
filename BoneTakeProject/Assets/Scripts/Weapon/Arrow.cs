@@ -54,7 +54,7 @@ public class Arrow : MonoBehaviour
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             
-            WeaponData weaponData = GameManager.Instance.GetWeaponData();
+            WeaponData weaponData = WeaponData.instance;
             EnemyHitHandler enemyHitHandler = collision.GetComponent<EnemyHitHandler>();
             if (!enemyHitHandler.isCorpseState)
             {

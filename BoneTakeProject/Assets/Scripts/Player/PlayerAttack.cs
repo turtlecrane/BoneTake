@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         charCon2D = GetComponent<CharacterController2D>();
-        weaponDataScript = GameManager.Instance.GetWeaponData();
+        weaponDataScript = WeaponData.instance;
         
         //플레이어 캐릭터 컨트롤러에서 현재 플레이어가 착용중인 무기 정보를 가져옴
         weapon_type = charCon2D.playerdata.weaponType;
@@ -49,7 +49,8 @@ public class PlayerAttack : MonoBehaviour
             !charCon2D.isBigLanding &&
             !charCon2D.playerHitHandler.isDead &&
             !charCon2D.playerHitHandler.isBigKnockBack &&
-            !charCon2D.playerHitHandler.isSmallKnockBack; //&&
+            !charCon2D.playerHitHandler.isSmallKnockBack &&
+            !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(); //&&
             
         if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero; 
         

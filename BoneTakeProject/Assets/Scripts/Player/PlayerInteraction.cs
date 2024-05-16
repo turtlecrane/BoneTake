@@ -24,12 +24,13 @@ public class PlayerInteraction : MonoBehaviour
     private CharacterController2D charCon2D;
     private PlayerFollowCameraController followCameraController;
     private WeaponData weaponDataScript;
+    private Collider2D npcCollision;
 
     private void Start()
     {
         charCon2D = GameManager.Instance.GetCharacterController2D();
         followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
-        weaponDataScript = GameManager.Instance.GetWeaponData();
+        weaponDataScript = WeaponData.instance;
     }
 
     private void Update()
@@ -72,6 +73,7 @@ public class PlayerInteraction : MonoBehaviour
         if (canTalkToNPC)
         {
             Debug.Log("NPC와 상호작용");
+            npcCollision.SendMessage("NpcInteraction");
         }
     }
 
@@ -151,6 +153,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (collision.CompareTag("NPC"))
         {
+            npcCollision = collision;
             canTalkToNPC = true;
         }
         
@@ -163,6 +166,7 @@ public class PlayerInteraction : MonoBehaviour
 
         canInteraction = false;
         enemyAIscript = null;
+        npcCollision = null;
 
         if (collision.CompareTag("Enemy"))
         { 

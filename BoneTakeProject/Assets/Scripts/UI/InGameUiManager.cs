@@ -8,33 +8,35 @@ using UnityEngine.UI;
 public class InGameUiManager : MonoBehaviour
 {
     public Image weaponIcon;
+    public Canvas canvas;
     public Transform hpPosition;
     public GameObject lifePointPrefab;
     public CinemachineVirtualCamera m_playerFollowCamera;
     public CinemachineVirtualCamera m_cursorFollowCamera;
+    public List<GameObject> lifePoints = new List<GameObject>();
+    
     
     private CharacterController2D charCon2D;
-    private PlayerGameData playerGameData;
+    private PlayerDataManager playerGameData;
     private WeaponManager weaponManager;
     private WeaponData weaponData;
-
     private float blinkTimer = 0f;
     private bool isRed = false;
     private float blinkInterval = 0.5f; // 번갈아가며 변경될 시간 간격
-    public List<GameObject> lifePoints = new List<GameObject>();
     private int lastRecordedMaxHp;
     private int lastRecordedHp;
     
     private void Start()
     {
-        playerGameData = GameManager.Instance.GetPlayerGameData();
+        playerGameData = PlayerDataManager.instance;
         charCon2D = GameManager.Instance.GetCharacterController2D();
         weaponManager = charCon2D.playerAttack.weaponManager;
-        weaponData = GameManager.Instance.GetWeaponData();
+        weaponData = WeaponData.instance;
         
-        lastRecordedMaxHp = playerGameData.playerData.playerMaxHP;
-        lastRecordedHp = playerGameData.playerData.playerHP;
-        CreateLifePoints(lastRecordedHp);
+        lastRecordedMaxHp = playerGameData.nowPlayer.playerMaxHP;
+        lastRecordedHp = playerGameData.nowPlayer.playerHP;
+        CreateLifePoints(lastRecordedMaxHp);
+        UpdateLifePoints();
     }
 
     void Update()
@@ -96,8 +98,8 @@ public class InGameUiManager : MonoBehaviour
 
     private void LifePointUISystem()
     {
-        int currentMaxHp = playerGameData.playerData.playerMaxHP;
-        int currentHp = playerGameData.playerData.playerHP;
+        int currentMaxHp = playerGameData.nowPlayer.playerMaxHP;
+        int currentHp = playerGameData.nowPlayer.playerHP;
 
         // 최대 체력의 증감 확인 및 처리
         if (lastRecordedMaxHp != currentMaxHp)
@@ -168,7 +170,7 @@ public class InGameUiManager : MonoBehaviour
         for (int i = 0; i < lifePoints.Count; i++)
         {
             LifePointState hpScript = lifePoints[i].GetComponent<LifePointState>();
-            if (i < lifePoints.Count - playerGameData.playerData.playerHP)
+            if (i < lifePoints.Count - playerGameData.nowPlayer.playerHP)
             {
                 lifePoints[i].GetComponent<Image>().color = Color.grey;
                 hpScript.isDisable = true;
@@ -202,8 +204,9 @@ public class InGameUiManager : MonoBehaviour
 
     void SetCursorState(bool isAiming, WeaponManager weaponManager)
     {
-        Cursor.visible = isAiming;
-        Cursor.lockState = isAiming ? CursorLockMode.None : CursorLockMode.Locked;
+        bool uiLayerActive = CheckForActiveUILayer();
+        Cursor.visible = isAiming || uiLayerActive;
+        Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
 
         if (isAiming)
         {
@@ -214,5 +217,19 @@ public class InGameUiManager : MonoBehaviour
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
+    }
+    
+    public bool CheckForActiveUILayer()
+    {
+        foreach (Transform child in canvas.transform)
+        {
+            if (child.gameObject.activeInHierarchy && child.gameObject.layer == LayerMask.NameToLayer("UI"))
+            {
+                //GameManager.Instance.GetDevSetting().Dev_WorldTime = 0f;
+                return true; // "UI" 레이어에 속하고 활성화된 오브젝트가 있으면 true 반환
+            }
+        }
+        //GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
+        return false; // "UI" 레이어에 속하고 활성화된 오브젝트가 없으면 false 반환
     }
 }

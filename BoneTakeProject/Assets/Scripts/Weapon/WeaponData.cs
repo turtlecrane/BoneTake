@@ -28,6 +28,7 @@ public class WeaponGFXSource
 
 public class WeaponData : MonoBehaviour
 {
+    public static WeaponData instance;
     public WeaponGFXSource weaponGFXSource;
     
     // 무기 형식에 따라 최대 타수 부여
@@ -69,6 +70,22 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 0.5f }
         //여기에 추가 활의 쿨타임 데이터를 입력
     };
+    
+    private void Awake()
+    {
+        #region 싱글톤
+        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+        
+        #endregion
+    }
     
     /// <summary>
     /// 무기 타입에따른 무기 타수 찾기

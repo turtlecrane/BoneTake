@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,22 @@ using UnityEngine;
 public class DevSystemSetting : MonoBehaviour
 {
     [Range(0.0f, 1.0f)] public float Dev_WorldTime;
+    private InGameUiManager inGameUiManager;
+
+    private void Awake()
+    {
+        inGameUiManager = GameManager.Instance.GetInGameUiManager();
+    }
 
     void Update()
     {
-        Time.timeScale = Dev_WorldTime;
+        if (inGameUiManager.CheckForActiveUILayer())
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = Dev_WorldTime;
+        }
     }
 }

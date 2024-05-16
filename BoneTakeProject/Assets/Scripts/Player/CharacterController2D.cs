@@ -74,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
         nonCollidingPlayerLayer = LayerMask.NameToLayer("NonCollidingPlayer");
         //플레이어 데이터 받아오기
         ReloadPlayerData();
-        playerdata.playerMaxHP = playerdata.playerHP;
+        //playerdata.playerMaxHP = playerdata.playerHP;
     }
 
     private void Update()
@@ -277,7 +277,7 @@ public class CharacterController2D : MonoBehaviour
     
     public void ReloadPlayerData()
     {
-        playerdata = GameManager.Instance.GetPlayerGameData().playerData;
+        playerdata = PlayerDataManager.instance.nowPlayer;
     }
 
     /// <summary>

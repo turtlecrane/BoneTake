@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour
     }
     
     public PlayerFollowCameraController GetPlayerFollowCameraController() => GameObject.Find("PlayerFollowCameraController").GetComponent<PlayerFollowCameraController>();
-    public PlayerGameData GetPlayerGameData() => GameObject.Find("DataManager").GetComponent<PlayerGameData>();
-    public WeaponData GetWeaponData() => GameObject.Find("DataManager").GetComponent<WeaponData>();
+    //public PlayerDataManager GetPlayerDataManager() => GameObject.Find("DataManager").GetComponent<PlayerDataManager>();
+    //public WeaponData GetWeaponData() => GameObject.Find("DataManager").GetComponent<WeaponData>();
     public DevSystemSetting GetDevSetting() => GameObject.Find("DevSetting").GetComponent<DevSystemSetting>();
     public CharacterController2D GetCharacterController2D() => GameObject.Find("Player").GetComponent<CharacterController2D>();
-    
+    public PopupManager GetPopupManager() => GameObject.Find("Canvas").GetComponent<Transform>().Find("Popup").GetComponent<PopupManager>();
+    public InGameUiManager GetInGameUiManager() => GameObject.Find("Canvas").GetComponent<Transform>().Find("InGameUI").GetComponent<InGameUiManager>();
     
 }
