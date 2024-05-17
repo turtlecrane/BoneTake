@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef38393e171c56c4f93a6237389fa14d
+guid: a693c8ae6f6b1a6479e76f303bad3830
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,148 +105,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dash_attack 1_0
+      name: Boss_Stand_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 209
-        height: 166
-      alignment: 9
-      pivot: {x: 0.49465916, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 093a31198fdb91f4888ac252a827f18f
-      internalID: 9977226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_1
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 2
-        width: 214
-        height: 154
-      alignment: 9
-      pivot: {x: 0.4947839, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 056f2355d40dae343928e7639f3c5909
-      internalID: 1207612507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_2
-      rect:
-        serializedVersion: 2
-        x: 443
-        y: 2
-        width: 291
-        height: 128
-      alignment: 9
-      pivot: {x: 0.3082013, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 976f5ae803a58bb48998d546bba4170c
-      internalID: 1916683726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_3
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 2
-        width: 502
-        height: 188
-      alignment: 9
-      pivot: {x: 0.110862456, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88e7c63bebd0ce94aaca5957cdaa144c
-      internalID: -121018696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_6
-      rect:
-        serializedVersion: 2
-        x: 1257
-        y: 2
-        width: 509
-        height: 171
-      alignment: 9
-      pivot: {x: 0.11840724, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 459cfd5c9d882334da8817b041e723b7
-      internalID: -1129291568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_9
-      rect:
-        serializedVersion: 2
-        x: 1788
-        y: 2
-        width: 463
-        height: 146
-      alignment: 9
-      pivot: {x: 0.130664, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 062f44096808021468541df9306c9663
-      internalID: 72218507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_attack 1_10
-      rect:
-        serializedVersion: 2
-        x: 2309
         y: 0
-        width: 350
-        height: 130
-      alignment: 9
-      pivot: {x: 0.21295968, y: 0}
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9e3eb60dabf20e4aaeaf05ac94ad623
-      internalID: -730673699
+      spriteID: 3f676f74f9266194c80c8c0b6418c8cf
+      internalID: 170676114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_1
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6267af012abc948a6df784438da0cc
+      internalID: -814461996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_2
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc50dfb53a9dcae4286ea8d805e93600
+      internalID: -1949580051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_3
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cfa2a04e8eade4eb53be78d56c85ed
+      internalID: -900572210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_4
+      rect:
+        serializedVersion: 2
+        x: 2580
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352f39689d2aba54a999959727ecf838
+      internalID: -135606290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_5
+      rect:
+        serializedVersion: 2
+        x: 3225
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bbfcc5bf254c9499a363826b0d7153
+      internalID: 1913280526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_6
+      rect:
+        serializedVersion: 2
+        x: 3870
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912974f4d06ac5646aa9062fdebcfd8e
+      internalID: 180861403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_7
+      rect:
+        serializedVersion: 2
+        x: 4515
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cdb2facaecaf974e8f1145a63198950
+      internalID: -908516470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_8
+      rect:
+        serializedVersion: 2
+        x: 5160
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d7a508b4c196c419c96fdbbf363e8c
+      internalID: 783829573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_9
+      rect:
+        serializedVersion: 2
+        x: 5805
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6d1a5976a706e44bc813bb8e7f518f
+      internalID: -1770333510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stand_10
+      rect:
+        serializedVersion: 2
+        x: 6450
+        y: 0
+        width: 645
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4860523847b831347adffcde8f55d045
+      internalID: 465275715
       vertices: []
       indices: 
       edges: []
@@ -254,7 +338,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f0666120b9ad098408952942970a94e0
+    spriteID: e0c33c000d6bb5043944cf51ac8d730a
     internalID: 0
     vertices: []
     indices: 
@@ -262,17 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dash_attack 1_9: 72218507
-      dash_attack 1_8: -79276718
-      dash_attack 1_6: -1129291568
-      dash_attack 1_0: 9977226
-      dash_attack 1_3: -121018696
-      dash_attack 1_7: 77161541
-      dash_attack 1_1: 1207612507
-      dash_attack 1_5: -419816626
-      dash_attack 1_4: -582245042
-      dash_attack 1_2: 1916683726
-      dash_attack 1_10: -730673699
+      Boss_Stand_7: -908516470
+      Boss_Stand_0: 170676114
+      Boss_Stand_9: -1770333510
+      Boss_Stand_5: 1913280526
+      Boss_Stand_4: -135606290
+      Boss_Stand_6: 180861403
+      Boss_Stand_1: -814461996
+      Boss_Stand_2: -1949580051
+      Boss_Stand_10: 465275715
+      Boss_Stand_8: 783829573
+      Boss_Stand_3: -900572210
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
