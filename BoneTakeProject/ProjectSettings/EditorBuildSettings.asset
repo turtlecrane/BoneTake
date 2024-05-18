@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Laboratory/UIScenes/MainTitle.unity
+    guid: b9e9405869b5acb47865019866449eaf
+  - enabled: 1
+    path: Assets/Scenes/Laboratory/UIScenes/DataSlot.unity
+    guid: c61017758c670904bbeaa9af6d00fe2f
+  - enabled: 1
+    path: Assets/Scenes/Laboratory/Interaction.unity
+    guid: 3e227d8ce666745479b2ce139cf4bc12
   m_configObjects: {}

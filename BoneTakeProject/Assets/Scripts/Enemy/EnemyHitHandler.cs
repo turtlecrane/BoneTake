@@ -68,12 +68,14 @@ public class EnemyHitHandler : MonoBehaviour
                 charCon2D.playerAttack.weaponManager.weaponLife -=  1; //무기 HP를 1 줄임
             }
             rb.velocity = Vector2.zero; // 현재 속도를 0으로 초기화
+            
+            // 플레이어 캐릭터와 적 오브젝트의 위치 비교
+            Transform playerTransform = charCon2D.gameObject.transform;
+            float knockbackDirection = transform.position.x - playerTransform.position.x > 0 ? 1f : -1f;
 
-            // 넉백 방향 결정 (캐릭터가 오른쪽을 바라보고 있으면 오른쪽으로, 그렇지 않으면 왼쪽으로 넉백)
-            bool isFacingRight = GameManager.Instance.GetCharacterController2D().m_FacingRight;
-            //knockbackBasicForce = 7000f;
-            float knockbackForce = isFacingRight ? knockbackBasicForce : -knockbackBasicForce;
-
+            // 넉백 방향 결정 (플레이어 캐릭터가 왼쪽에 있으면 오른쪽으로, 오른쪽에 있으면 왼쪽으로 넉백)
+            float knockbackForce = knockbackDirection * Mathf.Abs(knockbackBasicForce);
+            
             rb.AddForce(new Vector2(knockbackForce, 0)); // 넉백 적용
 
             // 히트 효과 코루틴 실행

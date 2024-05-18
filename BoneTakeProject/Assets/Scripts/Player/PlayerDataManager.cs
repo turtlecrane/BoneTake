@@ -39,12 +39,12 @@ public class PlayerData
 
 public class PlayerDataManager : MonoBehaviour
 {
-    //public PlayerData playerData;
     public static PlayerDataManager instance;
     public string path; //경로
     public int nowSlot; // 현재 슬롯번호
 
     public  PlayerData nowPlayer = new PlayerData();
+    private string keyWord = "QmfkdnsE\ud83d\udc31\u200d\ud83d\udc53jtmxmdlqkfTh";
     
     private void Awake()
     {
@@ -67,18 +67,31 @@ public class PlayerDataManager : MonoBehaviour
     public void SaveData()
     {
         string data = JsonUtility.ToJson(nowPlayer);
-        File.WriteAllText(path + nowSlot.ToString(), data);
+        File.WriteAllText(path + nowSlot.ToString(), EncryptAndDecrypt(data));
     }
 
     public void LoadData()
     {
         string data = File.ReadAllText(path + nowSlot.ToString());
-        nowPlayer = JsonUtility.FromJson<PlayerData>(data);
+        nowPlayer = JsonUtility.FromJson<PlayerData>(EncryptAndDecrypt(data));
     }
     
     public void DataClear()
     {
         nowSlot = -1;
         nowPlayer = new PlayerData();
+    }
+
+    private string EncryptAndDecrypt(string data)
+    {
+        string resurt = "";
+
+        for (int i = 0; i < data.Length; i++)
+        {
+            resurt += (char)(data[i] ^ keyWord[i % keyWord.Length]);
+        }
+
+        return resurt;
+        //return data;
     }
 }

@@ -31,7 +31,7 @@ public class WeaponData : MonoBehaviour
     public static WeaponData instance;
     public WeaponGFXSource weaponGFXSource;
     
-    // 무기 형식에 따라 최대 타수 부여
+    // 무기 이름에 따라 무기 ID 부여
     public Dictionary<Weapon_Name, int> weaponName_ID = new Dictionary<Weapon_Name, int>
     {
         { Weapon_Name.Basic, 0 },
