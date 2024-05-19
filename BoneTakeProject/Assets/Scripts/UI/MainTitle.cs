@@ -12,8 +12,6 @@ using System.IO;
 public class MainTitle : MonoBehaviour
 {
     public Button[] buttons;
-    
-    //bool[] savefile = new bool[3];	// 세이브파일 존재유무 저장
 
     private void Start()
     {

@@ -179,7 +179,7 @@ MonoBehaviour:
   nowSlot: 0
   nowPlayer:
     playerName: 
-    playTime: 
+    playTime: 0
     playerSpeed: 80
     playerMaxJumpForce: 90
     playerDashForce: 100
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc6b94048ba6964685d5a0baaebc576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destorySceneName: 
 --- !u!1 &223912256
 GameObject:
   m_ObjectHideFlags: 0

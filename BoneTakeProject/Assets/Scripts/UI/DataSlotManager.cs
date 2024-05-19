@@ -28,14 +28,12 @@ public class DataSlotManager : MonoBehaviour
             string filePath = PlayerDataManager.instance.path + $"{i}";
             if (File.Exists(filePath))// 데이터가 있는 경우
             {
+                dataExists = true;
                 savefile[i] = true; // 해당 슬롯 번호의 bool배열 true로 변환
                 PlayerDataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
                 PlayerDataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
-                slots[i].playerName.text = PlayerDataManager.instance.nowPlayer.playerName;	// 버튼에 닉네임 표시
-                dataExists = true;
-                
-                slots[i].isDataExists = true;
-                UpdateSlotInfo(i);// 데이터가 존재함을 표시
+                slots[i].isDataExists = true; // 데이터가 존재함을 표시
+                UpdateSlotInfo(i);
             }
             else
             {
@@ -56,13 +54,18 @@ public class DataSlotManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 데이터슬롯에 정보 넣기
+    /// </summary>
+    /// <param name="slotIndex">데이터 슬롯 번호</param>
     private void UpdateSlotInfo(int slotIndex)
     {
         PlayerData player = PlayerDataManager.instance.nowPlayer;
         slots[slotIndex].playerName.text = player.playerName;
-        slots[slotIndex].playTime.text = $"플레이 타임 : {player.playTime}";
         slots[slotIndex].weaponIcon.sprite = WeaponData.instance.weaponGFXSource.freshIcon[WeaponData.instance.GetName_WeaponID(PlayerDataManager.instance.nowPlayer.weaponName)];
 
+        PlaytimeTextConvertor(player.playTime, slotIndex);
+        
         slots[slotIndex].lifePoints.Clear();
         for (int i = 0; i < player.playerMaxHP; i++)
         {
@@ -74,8 +77,36 @@ public class DataSlotManager : MonoBehaviour
             lifePoint.GetComponent<Image>().color = hpScript.isDisable ? Color.grey : Color.black;
         }
     }
+
+    /// <summary>
+    /// 플레이타임을 식별용이하게 변환
+    /// </summary>
+    private void PlaytimeTextConvertor(float _playTime, int _index)
+    {
+        // playTime을 시간, 분, 초로 변환
+        int hours = (int)_playTime / 3600;
+        int minutes = ((int)_playTime % 3600) / 60;
+        int seconds = (int)_playTime % 60;
+        
+        string playTimeText = "";
+
+        if (hours > 0) {
+            playTimeText = $"{hours}시간";
+            if (minutes > 0) playTimeText += $" {minutes}분";
+        } else if (minutes > 0) {
+            playTimeText = $"{minutes}분 {seconds}초";
+        } else {
+            playTimeText = $"{seconds}초";
+        }
+
+        slots[_index].playTime.text = $"플레이 타임 : {playTimeText}";
+    }
     
-    public void Slot(int number)	// 슬롯의 기능 구현
+    /// <summary>
+    /// 슬롯의 기능 구현
+    /// </summary>
+    /// <param name="number"></param>
+    public void Slot(int number)
     {
         PlayerDataManager.instance.nowSlot = number;	// 슬롯의 번호를 슬롯번호로 입력함.
 
@@ -90,12 +121,18 @@ public class DataSlotManager : MonoBehaviour
         }
     }
 
-    public void NamePopupCreate()	// 플레이어 닉네임 입력 UI를 활성화하는 메소드
+    /// <summary>
+    /// 플레이어 닉네임 입력 UI를 활성화하는 메소드
+    /// </summary>
+    public void NamePopupCreate()
     {
         creat.gameObject.SetActive(true);
     }
 
-    public void GoGame()	// 게임씬으로 이동
+    /// <summary>
+    /// 게임씬으로 이동
+    /// </summary>
+    public void GoGame()
     {
         if (!savefile[PlayerDataManager.instance.nowSlot])	// 현재 슬롯번호의 데이터가 없다면
         {

@@ -8,18 +8,14 @@ using UnityEngine.Events;
 /// 플레이어의 속성정보를 관리하는 스크립트
 /// </summary>
 public class CharacterController2D : MonoBehaviour
-{
-    [Header("플레이어 데이터")]
-    public PlayerData playerdata;
-
-    [Space(10f)] 
+{ 
     [Header("플레이어 컴포넌트")] 
     public Transform playerTarget;
     public PlayerMovement playerMovement;
     public PlayerAttack playerAttack;
     public PlayerHitHandler playerHitHandler;
     public PlayerInteraction playerInteraction;
-    public Rigidbody2D m_Rigidbody2D;       //플레이어 리지드바디
+    public Rigidbody2D m_Rigidbody2D; //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     
     [Header("점프 관련")]
@@ -52,8 +48,8 @@ public class CharacterController2D : MonoBehaviour
     
     private float prevVelocityX = 0f;
     private float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
-    //---------------------
     
+    [HideInInspector]public PlayerData playerdata; //플레이어 데이터
     [HideInInspector] public float m_MovementSmoothing = .05f;
     [HideInInspector] public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
@@ -64,6 +60,7 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     private int playerLayer;
     private int nonCollidingPlayerLayer;
+    public float playTimeCount;
     
     private void Awake()
     {
@@ -72,9 +69,8 @@ public class CharacterController2D : MonoBehaviour
         m_playerRigidGravity = m_Rigidbody2D.gravityScale;
         playerLayer = LayerMask.NameToLayer("Player");
         nonCollidingPlayerLayer = LayerMask.NameToLayer("NonCollidingPlayer");
-        //플레이어 데이터 받아오기
-        ReloadPlayerData();
-        //playerdata.playerMaxHP = playerdata.playerHP;
+        playerdata = PlayerDataManager.instance.nowPlayer; //플레이어 데이터 받아오기
+        playTimeCount = playerdata.playTime;
     }
 
     private void Update()
@@ -112,14 +108,17 @@ public class CharacterController2D : MonoBehaviour
 
         #endregion
         
-        if (isClimbing && !m_Grounded) 
+        // 사용자가 ESC 키를 눌렀는지 확인
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            climbingCount += Time.deltaTime; // 초단위로 카운팅
-            if (climbingCount >= limitClimbingCount)
-            { 
-                InitClimbing(); // 클라이밍 종료
-            }
+            // isPaused 값을 반전시킴
+            GameManager.Instance.GetPauseMenu().isPaused = !GameManager.Instance.GetPauseMenu().isPaused;
+            
+            // GameManager를 통해 일시정지 메뉴의 활성화 상태 설정
+            GameManager.Instance.GetPauseMenu().gameObject.SetActive(GameManager.Instance.GetPauseMenu().isPaused);
         }
+
+        UpdateClimbingState();
 
         if (m_Grounded)
         {
@@ -145,26 +144,16 @@ public class CharacterController2D : MonoBehaviour
             isBigLanding = true;
         }
 
-        if (isClimbing)
-        {
-            playerAttack.canAttack = false;
-        }
-        else
-        {
-            playerAttack.canAttack = true;
-        }
-        
-        animator.SetBool("IsFalling", isFalling);
-        animator.SetBool("IsBigLanding", isBigLanding);
-        animator.SetBool("IsJumping", isJumping);
-        animator.SetBool("IsWallJumping", isWallJumping);
-        animator.SetBool("IsLanding", isLanding);
-        animator.SetBool("IsHanging", isClimbing);
-        
+        playerAttack.canAttack = !isClimbing;
+
+        UpdateAnimatorParameters();
     }
     
     private void FixedUpdate()
     {
+        playTimeCount += Time.unscaledDeltaTime;
+        playerdata.playTime = playTimeCount;
+        
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         
@@ -213,6 +202,28 @@ public class CharacterController2D : MonoBehaviour
             Collider2D[] collidersWall = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f), 0f, wallLayer);
             CheckWallHangingIsPossible(collidersWall);
         }
+    }
+    
+    private void UpdateClimbingState()
+    {
+        if (isClimbing && !m_Grounded)
+        {
+            climbingCount += Time.deltaTime;
+            if (climbingCount >= limitClimbingCount)
+            {
+                InitClimbing();
+            }
+        }
+    }
+    
+    private void UpdateAnimatorParameters()
+    {
+        animator.SetBool("IsFalling", isFalling);
+        animator.SetBool("IsBigLanding", isBigLanding);
+        animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsWallJumping", isWallJumping);
+        animator.SetBool("IsLanding", isLanding);
+        animator.SetBool("IsHanging", isClimbing);
     }
     
     /// <summary>
@@ -273,11 +284,6 @@ public class CharacterController2D : MonoBehaviour
         }
             
         prevVelocityX = m_Rigidbody2D.velocity.x;
-    }
-    
-    public void ReloadPlayerData()
-    {
-        playerdata = PlayerDataManager.instance.nowPlayer;
     }
 
     /// <summary>

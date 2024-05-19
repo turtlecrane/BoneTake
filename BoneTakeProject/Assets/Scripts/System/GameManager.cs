@@ -33,5 +33,6 @@ public class GameManager : MonoBehaviour
     public CharacterController2D GetCharacterController2D() => GameObject.Find("Player").GetComponent<CharacterController2D>();
     public PopupManager GetPopupManager() => GameObject.Find("Canvas").GetComponent<Transform>().Find("Popup").GetComponent<PopupManager>();
     public InGameUiManager GetInGameUiManager() => GameObject.Find("Canvas").GetComponent<Transform>().Find("InGameUI").GetComponent<InGameUiManager>();
+    public PauseMenu GetPauseMenu() => GameObject.Find("Canvas").GetComponent<Transform>().Find("PauseMenu").GetComponent<PauseMenu>();
     
 }

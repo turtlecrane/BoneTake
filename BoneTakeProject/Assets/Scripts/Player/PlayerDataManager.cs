@@ -12,7 +12,7 @@ using System.IO;
 public class PlayerData
 {
     public string playerName;
-    public string playTime;
+    public float playTime;
     
     //플레이어 조작
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함
