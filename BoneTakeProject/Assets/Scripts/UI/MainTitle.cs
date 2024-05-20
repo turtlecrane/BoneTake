@@ -34,9 +34,14 @@ public class MainTitle : MonoBehaviour
         }
     }
 
-    public void SceneChange(string sceneName)
+    /// <summary>
+    /// 데이터슬롯 진입 (버튼에서 호출)
+    /// </summary>
+    /// <param name="buttonType">진입하는 버튼의 종류) 0 : NewGame, 1 : Continue</param>
+    public void GoDataSlot(int buttonType)
     {
-        SceneManager.LoadScene(sceneName);
+        PlayerPrefs.SetInt("DataSlotEntryType", buttonType);
+        SceneManager.LoadScene("DataSlot");
     }
     
     public void Quit()

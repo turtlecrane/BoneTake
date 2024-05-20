@@ -558,6 +558,7 @@ MonoBehaviour:
     playerATK: 10
     playerMaxHP: 3
     playerHP: 3
+  isNewGame: 0
 --- !u!4 &390627877
 Transform:
   m_ObjectHideFlags: 0
@@ -2522,12 +2523,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1983365447}
         m_TargetAssemblyTypeName: MainTitle, Assembly-CSharp
-        m_MethodName: SceneChange
-        m_Mode: 5
+        m_MethodName: GoDataSlot
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: DataSlot
           m_BoolArgument: 0
@@ -3907,8 +3908,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1983365447}
         m_TargetAssemblyTypeName: MainTitle, Assembly-CSharp
-        m_MethodName: SceneChange
-        m_Mode: 5
+        m_MethodName: GoDataSlot
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
