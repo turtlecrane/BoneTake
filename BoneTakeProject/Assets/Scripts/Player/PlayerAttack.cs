@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
+    public bool isJumpAttacking; //공격중인지
     public bool isAiming; //조준중인지 (활 무기 착용시)
     public int count = 0; //현재 공격이 몇타째 인지
     public float multiAtk_maxTime;
@@ -41,18 +42,20 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         isAttacking = IsCurrentAnimationTag("attack");
-        charCon2D.animator.SetBool("IsAttacking", isAttacking);
+        isJumpAttacking = IsCurrentAnimationTag("jumpAttack");
+        charCon2D.animator.SetBool("IsAttacking", isAttacking || isJumpAttacking);
         charCon2D.animator.SetBool("IsBowAiming",isAiming);
-        //BigLanding중 이거나, 공격중이거나, 특수한 공격에 피격당해서 넉백이 일어난 경우 움직일수없도록 함.
+        
         charCon2D.canMove = 
             !isAttacking && 
+            !isJumpAttacking &&
             !charCon2D.isBigLanding &&
             !charCon2D.playerHitHandler.isDead &&
             !charCon2D.playerHitHandler.isBigKnockBack &&
             !charCon2D.playerHitHandler.isSmallKnockBack &&
             !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(); //&&
             
-        if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero; 
+        if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
         
         // 좌클릭 감지
         if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
@@ -64,7 +67,6 @@ public class PlayerAttack : MonoBehaviour
             
             if (weapon_type == Weapon_Type.Basic)//착용중인 무기가 기본 무기인경우 (손톱)
             {
-                //if (!charCon2D.m_Grounded) Debug.Log("점프공격"); //점프공격의 경우
                 Player_BasicAttack();
             }
             else if (weapon_type == Weapon_Type.Knife)
@@ -111,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //공격중이며 이전에 공격한적이 없다면 타이머 시작(트리거)
-        if (isAttacking && !previousIsAttacking)
+        if ((isAttacking || isJumpAttacking) && !previousIsAttacking)
         {
             timer = 0;
             stateFlag = true;
@@ -122,7 +124,7 @@ public class PlayerAttack : MonoBehaviour
         if (stateFlag)
         {
             comparisonTimer += Time.deltaTime;
-            if (IsCurrentAnimationTag("attack"))
+            if (isAttacking || isJumpAttacking)
             {
                 timer += Time.deltaTime;
             }

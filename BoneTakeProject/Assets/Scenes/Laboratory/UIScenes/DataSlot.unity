@@ -570,6 +570,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1108558506}
+        m_TargetAssemblyTypeName: DataSlotManager, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DataSlot
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &223912259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2921,6 +2933,7 @@ MonoBehaviour:
   - {fileID: 901664259}
   lifePoint_Prefab: {fileID: 3473224948303599461, guid: 4035b894c43eeb44f88f90cb7bceefc0, type: 3}
   newPlayerName: {fileID: 1475764418}
+  savefile: 000000
 --- !u!1 &1174249488
 GameObject:
   m_ObjectHideFlags: 0

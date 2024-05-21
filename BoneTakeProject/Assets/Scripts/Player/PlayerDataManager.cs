@@ -75,10 +75,18 @@ public class PlayerDataManager : MonoBehaviour
         string data = File.ReadAllText(path + nowSlot.ToString());
         nowPlayer = JsonUtility.FromJson<PlayerData>(EncryptAndDecrypt(data));
     }
-    
-    public void DataClear()
+
+    public void DeleteData()
     {
-        nowSlot = -1;
+        if (File.Exists(path + nowSlot.ToString())) // 파일이 실제로 존재하는지 확인
+        {
+            File.Delete(path + nowSlot.ToString()); // 파일이 존재하면 삭제
+        }
+    }
+    
+    public void DataClear(int _nowSlot = -1)
+    {
+        nowSlot = _nowSlot;
         nowPlayer = new PlayerData();
     }
 

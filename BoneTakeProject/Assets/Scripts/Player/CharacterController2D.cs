@@ -134,8 +134,8 @@ public class CharacterController2D : MonoBehaviour
             //떨어지고있으면
             isJumping = false;
             isWallJumping = false;
-            isFalling = true;
             isLanding = true;
+            isFalling = true;
         }
         else if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
         {

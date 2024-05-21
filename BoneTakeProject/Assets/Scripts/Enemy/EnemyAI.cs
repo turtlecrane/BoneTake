@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Pathfinding;
 using Random = UnityEngine.Random;
@@ -13,8 +14,7 @@ public class EnemyAI : MonoBehaviour
     public EnemyAttack enemyAttack;
     public Transform target;
     public Transform enemyGFX;
-    public CapsuleCollider2D enemyTrackingRange;
-
+    public Transform enemyTrackingPosition;
     [Header("SettingValue")] 
     public Weapon_Type weaponType;
     public Weapon_Name weaponName;
@@ -43,18 +43,21 @@ public class EnemyAI : MonoBehaviour
     public bool jumpEnabled;
     public bool facingRight = true;
     public float movingCount;
-
-    private Animator animator;
-    private float nextWaypointDistance = 1f;
-    private Vector3 startOffset;
-    private Path path;
-    private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
-    private Seeker seeker;
-    private Rigidbody2D rb;
-    private float randomValue;
-
-    public bool wasGrounded; // 이전 상태를 추적하기 위한 변수를 선언
+    
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public float nextWaypointDistance = 1f;
+    [HideInInspector] public Vector3 startOffset;
+    [HideInInspector] public Path path;
+    [HideInInspector] public int currentWaypoint = 0;
+    [HideInInspector] public bool reachedEndOfPath = false;
+    [HideInInspector] public Seeker seeker;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public float randomValue;
+    [HideInInspector] public List<Collider2D> collidersInTrigger = new List<Collider2D>();
+    
+    public List<Collider2D> sortedColliders;
+    public int randomMove;
+    
     
     private void Awake()
     {
@@ -67,114 +70,72 @@ public class EnemyAI : MonoBehaviour
         canRotation = true;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //경로찾기를 0.1초마다 리프래쉬 한다.
         InvokeRepeating("UpdatePath", 0f, .2f);
+        Invoke("AutoMoveRandomValue", 3);
     }
-
-    private void Update()
-    {
-        animator.SetBool("IsRunning", isRunning);
-        animator.SetBool("IsJumping", !isGrounded);
-        isAttacking = IsCurrentAnimationTag("attack");
-
-        if (animator.GetBool("IsJumping") && isGrounded)
-        {
-            animator.SetBool("IsJumping", false);
-        }
-        
-        if (isRunning)
-        {
-            movingCount += Time.deltaTime;
-        }
-        else
-        {
-            movingCount = 0;
-        }
-
-        isLanding = rb.velocity.y < 0f;
-        
-        // movingCount가 1과 2사이일 때
-        if (movingCount > randomMovingValue_MIN && movingCount <= randomMovingValue_MAX)
-        {
-            if (movingCount >= randomValue)
-            {
-                StartCoroutine(StopMoving());
-            }
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (path == null) return;
-        
-        // 경로의 마지막에 도달했는지 여부를 설정
-        reachedEndOfPath = currentWaypoint >= path.vectorPath.Count;
-        if (reachedEndOfPath) return;
-
-        CheckisGround();
-        if(!isGrounded && isLanding)
-            CheckisLanding();
-        
-        Flip();
-        
-        // x축 최대 속도 조정
-        float clampedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
-        rb.velocity = new Vector2(clampedSpeed, rb.velocity.y);
-        
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if (distance < nextWaypointDistance)
-        {
-            if (currentWaypoint + 1 < path.vectorPath.Count) // 경로의 마지막 waypoint를 체크
-            {
-                currentWaypoint++;
-            }
-            else
-            {
-                // 경로의 마지막 waypoint에 도달했을 때의 처리를 여기에 추가
-                Debug.Log("적이 플레이어에 도달했거나, 경로 추적을 중단");
-            }
-        }
-
-        CalculatePathDirection();
-
-        //점프 가능 상태라고 알림
-        if (((Vector2)path.vectorPath[currentWaypoint] - rb.position).y >= 0.5f)
-        {
-            jumpEnabled = true;
-        }
-        
-        if (canMove && !charCon2D.playerHitHandler.isDead)
-        {
-            EnemyMoving();
-            EnemyJumping();
-        }
-
-        if (isAttacking)
-        {
-            StartCoroutine(EnemyAttackCoolDown());
-        }
-    }
-
+    
     /// <summary>
     /// 움직이기
     /// </summary>
-    void EnemyMoving()
+    public void EnemyMoving()
     {
         if (isRunning)
         {
             // 플레이어의 방향(오른쪽 또는 왼쪽)에 따라 수평 이동
             float moveDirection = facingRight ? 1f : -1f;
-            rb.AddForce(new Vector2(moveDirection * speed * Time.deltaTime, 0), ForceMode2D.Force);
+            AddForceDirection(moveDirection);
         }
+    }
+
+    public void AddForceDirection(float direction)
+    {
+        if(canMove)
+        {
+            rb.AddForce(new Vector2(direction * speed * Time.deltaTime, 0), ForceMode2D.Force);
+        }
+    }
+
+    public void NonTrackingAutoMove()
+    {
+        AddForceDirection(randomMove);
+        if (randomMove < 0)
+        {
+            facingRight = false;
+        }
+        else if (randomMove > 0)
+        {
+            facingRight = true;
+        }
+
+        if (rb.velocity.x == 0)
+        {
+            isRunning = false;
+        }
+        else
+        {
+            isRunning = true;
+        }
+    }
+
+    /// <summary>
+    /// 무작위 움직임 난수 설정 (3초마다 업데이트)
+    /// </summary>
+    public void AutoMoveRandomValue()
+    {
+        if (!canTracking)
+        {
+            randomMove = Random.Range(-1, 2);
+        }
+        Invoke("AutoMoveRandomValue", 3);
     }
 
     /// <summary>
     /// 점프
     /// </summary>
-    void EnemyJumping()
+    public void EnemyJumping()
     {
         if (canMove && jumpEnabled && isGrounded && !isJumpCoolDown &&!isAttacking)
         {
@@ -187,7 +148,7 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// 땅에 닿아 있는 상태인지 검사
     /// </summary>
-    void CheckisGround()
+    public void CheckisGround()
     {
         startOffset = transform.position;
         isGrounded = Physics2D.Raycast(startOffset, Vector2.down, groundedCheckDistance, LayerMask.GetMask("Ground")).collider != null;
@@ -198,7 +159,7 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// 랜딩상태 추적
     /// </summary>
-    void CheckisLanding()
+    public void CheckisLanding()
     {
         startOffset = transform.position;
         animator.SetBool("IsLanding", Physics2D.Raycast(startOffset, Vector2.down, landingCheckDistance, LayerMask.GetMask("Ground")).collider != null);
@@ -219,19 +180,20 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// 방향 전환
     /// </summary>
-    void Flip()
+    public void Flip()
     {
         if (canRotation)
         {
             float scaleX = facingRight ? 1f : -1f;
-            enemyGFX.localScale = new Vector3(scaleX, 1f, 1f);
+            enemyGFX.localScale = new Vector3(scaleX, 1f, 1f); 
+            enemyTrackingPosition.localScale = new Vector3(scaleX, 1f, 1f); 
         }
     }
 
     /// <summary>
     /// 경로 방향 계산 
     /// </summary>
-    void CalculatePathDirection()
+    public void CalculatePathDirection()
     {
         if (canTracking && !isAttacking && !charCon2D.playerHitHandler.isDead)
         {
@@ -282,7 +244,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
     
-    private IEnumerator StopMoving()
+    public IEnumerator StopMoving()
     {
         movingCount = 0;
         randomValue = 1+Random.value;
@@ -291,13 +253,13 @@ public class EnemyAI : MonoBehaviour
         canMove = true;
     }
     
-    private bool IsCurrentAnimationTag(string tag)
+    public bool IsCurrentAnimationTag(string tag)
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsTag(tag);
     }
     
-    private IEnumerator EnemyAttackCoolDown()
+    public IEnumerator EnemyAttackCoolDown()
     {
         canMove = false;
         canRotation = false;
@@ -307,10 +269,20 @@ public class EnemyAI : MonoBehaviour
     }
     
     // 플레이어가 추적 범위에 들어왔을 때
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) // 플레이어 태그를 확인
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            collidersInTrigger.Add(collision);
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            sortedColliders = collidersInTrigger.OrderBy(collider => (collider.transform.position - transform.position).sqrMagnitude).ToList();
+            if(!sortedColliders[0].gameObject.CompareTag("Player")) return;
             canTracking = true;
             if (!isAttacking)
             {
@@ -320,8 +292,10 @@ public class EnemyAI : MonoBehaviour
     }
 
     // 플레이어가 추적 범위에서 나갔을 때
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
+        collidersInTrigger.Remove(collision);
+        
         if (collision.gameObject.CompareTag("Player")) // 플레이어 태그를 확인
         {
             canTracking = false;

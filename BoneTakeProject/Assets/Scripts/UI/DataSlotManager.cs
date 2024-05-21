@@ -17,7 +17,7 @@ public class DataSlotManager : MonoBehaviour
     public GameObject lifePoint_Prefab;
     
     public TMP_Text newPlayerName;	// 새로 입력된 플레이어의 닉네임
-    bool[] savefile = new bool[3];	// 세이브파일 존재유무 저장
+    public bool[] savefile = new bool[3];	// 세이브파일 존재유무 저장
     
     void Start()
     {
@@ -124,14 +124,11 @@ public class DataSlotManager : MonoBehaviour
                 popupManager.SetPopup("이미 데이터가 존재하는 데이터 슬롯입니다.\n정말 새롭게 시작하시겠습니까?\n<size=70%>이미 존재하는 데이터는 삭제됩니다.</size>",false,
                     () =>
                     {
-                        Debug.Log("새로운 게임으로 데이터가 있는 슬롯을 선택함");
                         popupManager.ClosePopup(); //팝업 닫기
-                        PlayerDataManager.instance.DataClear();
-                        PlayerDataManager.instance.nowSlot = number;
-                        //1. 데이터 삭제
-                        //2. 새로운데이터 생성
-                        //3. 게임씬으로 이동
-                    },()=>{});
+                        PlayerDataManager.instance.DeleteData(); //데이터파일 삭제
+                        savefile[number] = false;
+                        NamePopupCreate();
+                    }, () => { });
             }
             else if(entryType == 1)
             {
@@ -166,7 +163,12 @@ public class DataSlotManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("오류 발생");
+                popupManager.SetPopup("오류 발생",true,
+                    () =>
+                    {
+                        Debug.Log("오류 발생 확인버튼");
+                        popupManager.ClosePopup();
+                    },()=>{});
             }
         }
     }
@@ -186,9 +188,11 @@ public class DataSlotManager : MonoBehaviour
     {
         if (!savefile[PlayerDataManager.instance.nowSlot])	// 현재 슬롯번호의 데이터가 없다면
         {
+            Debug.Log("현재 슬롯번호의 데이터가 없다");
             PlayerDataManager.instance.nowPlayer.playerName = newPlayerName.text; // 입력한 이름을 복사해옴
             PlayerDataManager.instance.SaveData(); // 현재 정보를 저장함.
         }
+        
         SceneChange("Interaction"); // 게임씬으로 이동
     }
     
