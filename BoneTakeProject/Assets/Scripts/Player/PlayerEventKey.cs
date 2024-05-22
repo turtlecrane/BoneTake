@@ -12,7 +12,7 @@ public class PlayerEventKey : MonoBehaviour
     /// </summary>
     public void Player_DoBasicDamege()
     {
-        CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
+        CharacterController2D charCon2D = CharacterController2D.instance;
         
         float xOffset = charCon2D.m_FacingRight ? 1 : -1;
         Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.playerOffset_Y), charCon2D.playerAttack.hitBoxSize, 0f);
@@ -31,7 +31,7 @@ public class PlayerEventKey : MonoBehaviour
     
     public void Player_DoKnifeDamage()
     {
-        CharacterController2D charCon2D = GameManager.Instance.GetCharacterController2D();
+        CharacterController2D charCon2D = CharacterController2D.instance;
         WeaponData weaponDataScript = WeaponData.instance;
         
         float xOffset = charCon2D.m_FacingRight ? 1 : -1;
@@ -51,7 +51,7 @@ public class PlayerEventKey : MonoBehaviour
     /// </summary>
     public void EnablePlayerMovement()
     {
-        GameManager.Instance.GetCharacterController2D().canMove = true;
+        CharacterController2D.instance.canMove = true;
     }
     
     /// <summary>
@@ -59,14 +59,14 @@ public class PlayerEventKey : MonoBehaviour
     /// </summary>
     public void DisablePlayerMovement()
     {
-        GameManager.Instance.GetCharacterController2D().canMove = false;
-        GameManager.Instance.GetCharacterController2D().m_Rigidbody2D.velocity = Vector2.zero;
+        CharacterController2D.instance.canMove = false;
+        CharacterController2D.instance.m_Rigidbody2D.velocity = Vector2.zero;
     }
     
     //착지했을때 착지애니메이션 이 종료되면 착지상태를 false 상태로 만듬
     public void ExitPlayerLanding()
     {
-        GameManager.Instance.GetCharacterController2D().isLanding = false;
-        GameManager.Instance.GetCharacterController2D().isBigLanding = false;
+        CharacterController2D.instance.isLanding = false;
+        CharacterController2D.instance.isBigLanding = false;
     }
 }

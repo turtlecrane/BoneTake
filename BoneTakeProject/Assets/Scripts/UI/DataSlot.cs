@@ -9,6 +9,7 @@ public class DataSlot : MonoBehaviour
     public bool isDataExists;
  
     public TMP_Text playerName;
+    public TMP_Text mapName;
     public TMP_Text playTime;
     public Transform LifePointTransform;
     public Image weaponIcon;

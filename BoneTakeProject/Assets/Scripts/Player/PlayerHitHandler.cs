@@ -26,7 +26,7 @@ public class PlayerHitHandler : MonoBehaviour
 
     private void Start()
     {
-        charCon2D = GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;
         hitShakeScript = GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.GetComponent<HitShake>();
         hitVignette = GameManager.Instance.GetPlayerFollowCameraController().mainCamera.GetComponent<PostProcessVolume>();
         followCameraController = GameManager.Instance.GetPlayerFollowCameraController();

@@ -437,6 +437,7 @@ MonoBehaviour:
   nowPlayer:
     playerName: 
     playTime: 0
+    mapName: 
     playerSpeed: 80
     playerMaxJumpForce: 90
     playerDashForce: 100
@@ -1485,6 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 1753531901}
+  mapName: {fileID: 906631884}
   playTime: {fileID: 595147314}
   LifePointTransform: {fileID: 1541499058}
   weaponIcon: {fileID: 1937746626}
@@ -2206,6 +2208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 654265492}
+  mapName: {fileID: 1495681620}
   playTime: {fileID: 1650175507}
   LifePointTransform: {fileID: 1647109232}
   weaponIcon: {fileID: 1669186306}
@@ -3326,7 +3329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1250909932
@@ -5185,7 +5188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 280}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1770091749
@@ -6060,6 +6063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 1179664206}
+  mapName: {fileID: 1209555230}
   playTime: {fileID: 1593451526}
   LifePointTransform: {fileID: 1029430251}
   weaponIcon: {fileID: 1769544727}

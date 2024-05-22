@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        charCon2D = GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;
         followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
         weaponDataScript = WeaponData.instance;
     }
@@ -138,7 +138,7 @@ public class PlayerInteraction : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map") || collision.CompareTag("Untagged")) return;
+        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged")) return;
         
         if (collision.CompareTag("Enemy"))
         {
@@ -162,7 +162,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map") || collision.CompareTag("Untagged")) return;
+        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged")) return;
 
         canInteraction = false;
         enemyAIscript = null;

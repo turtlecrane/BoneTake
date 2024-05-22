@@ -62,8 +62,22 @@ public class CharacterController2D : MonoBehaviour
     private int nonCollidingPlayerLayer;
     public float playTimeCount;
     
+    public static CharacterController2D instance;
+    
     private void Awake()
     {
+        #region 싱글톤
+        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+        
+        #endregion
         canMove = true;
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_playerRigidGravity = m_Rigidbody2D.gravityScale;
@@ -151,7 +165,7 @@ public class CharacterController2D : MonoBehaviour
     
     private void FixedUpdate()
     {
-        playTimeCount += Time.unscaledDeltaTime;
+        playTimeCount += Time.deltaTime;
         playerdata.playTime = playTimeCount;
         
         bool wasGrounded = m_Grounded;

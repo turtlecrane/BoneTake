@@ -68,8 +68,9 @@ public class DataSlotManager : MonoBehaviour
     {
         PlayerData player = PlayerDataManager.instance.nowPlayer;
         slots[slotIndex].playerName.text = player.playerName;
+        slots[slotIndex].mapName.text = $"현재 위치 : {player.mapName}";
         slots[slotIndex].weaponIcon.sprite = WeaponData.instance.weaponGFXSource.freshIcon[WeaponData.instance.GetName_WeaponID(PlayerDataManager.instance.nowPlayer.weaponName)];
-
+        
         PlaytimeTextConvertor(player.playTime, slotIndex);
         
         slots[slotIndex].lifePoints.Clear();

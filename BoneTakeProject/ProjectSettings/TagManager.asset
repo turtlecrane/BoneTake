@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - Map
   - NonCollidingPlayer
+  - MapSection
   layers:
   - Default
   - TransparentFX

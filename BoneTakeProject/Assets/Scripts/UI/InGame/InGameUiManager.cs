@@ -15,7 +15,6 @@ public class InGameUiManager : MonoBehaviour
     public CinemachineVirtualCamera m_cursorFollowCamera;
     public List<GameObject> lifePoints = new List<GameObject>();
     
-    
     private CharacterController2D charCon2D;
     private PlayerDataManager playerGameData;
     private WeaponManager weaponManager;
@@ -29,9 +28,9 @@ public class InGameUiManager : MonoBehaviour
     private void Start()
     {
         playerGameData = PlayerDataManager.instance;
-        charCon2D = GameManager.Instance.GetCharacterController2D();
-        weaponManager = charCon2D.playerAttack.weaponManager;
         weaponData = WeaponData.instance;
+        charCon2D = CharacterController2D.instance;
+        weaponManager = charCon2D.playerAttack.weaponManager;
         
         lastRecordedMaxHp = playerGameData.nowPlayer.playerMaxHP;
         lastRecordedHp = playerGameData.nowPlayer.playerHP;
@@ -68,6 +67,7 @@ public class InGameUiManager : MonoBehaviour
         // HP가 매우 낮을 때 (12.6% 이하)
         else if (weaponType != Weapon_Type.Basic)
         {
+            weaponIcon.sprite = weaponData.weaponGFXSource.rottenIcon[weaponData.GetName_WeaponID(weaponName)];
             BlinkWeaponIcon();
         }
     }

@@ -9,10 +9,10 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Component")]
-    [HideInInspector]public CharacterController2D charCon2D;
+    [HideInInspector] public CharacterController2D charCon2D;
     public EnemyHitHandler enemyHitHandler;
     public EnemyAttack enemyAttack;
-    public Transform target;
+    [HideInInspector] public Transform target;
     public Transform enemyGFX;
     public Transform enemyTrackingPosition;
     [Header("SettingValue")] 
@@ -65,7 +65,6 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = enemyGFX.gameObject.GetComponent<Animator>();
-        charCon2D = GameManager.Instance.GetCharacterController2D();
         canMove = true;
         canRotation = true;
     }
@@ -75,6 +74,8 @@ public class EnemyAI : MonoBehaviour
         //경로찾기를 0.1초마다 리프래쉬 한다.
         InvokeRepeating("UpdatePath", 0f, .2f);
         Invoke("AutoMoveRandomValue", 3);
+        charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
+        target = GameObject.FindWithTag("Player").transform;
     }
     
     /// <summary>
@@ -100,6 +101,7 @@ public class EnemyAI : MonoBehaviour
 
     public void NonTrackingAutoMove()
     {
+        if (enemyHitHandler.isCorpseState) return;
         AddForceDirection(randomMove);
         if (randomMove < 0)
         {

@@ -1,11 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Test_DataNPC : MonoBehaviour
 {
+    private string nowMapName;
     public bool talkEnable;
-    
+
+    private void Start()
+    {
+        nowMapName = SceneManager.GetActiveScene().name;
+    }
+
     public void NpcInteraction()
     {
         if (!talkEnable)
@@ -14,6 +22,7 @@ public class Test_DataNPC : MonoBehaviour
             popup.SetPopup("저장하시겠습니까?", false, 
             () =>
             {
+                PlayerDataManager.instance.nowPlayer.mapName = nowMapName;
                 Save();
                 popup.ClosePopup();
                 popup.SetPopup("저장되었습니다.", true, () =>

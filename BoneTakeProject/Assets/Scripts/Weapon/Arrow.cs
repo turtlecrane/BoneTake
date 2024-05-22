@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        charCon2D = GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance; //GameManager.Instance.GetCharacterController2D();
     }
 
     private void Start()

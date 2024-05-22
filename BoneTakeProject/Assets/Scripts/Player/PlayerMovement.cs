@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        controller = GameManager.Instance.GetCharacterController2D();
+        controller = CharacterController2D.instance;
         animator = controller.animator;
     }
 

@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     
     private void Start()
     {
-        charCon2D = GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
         weaponDataScript = WeaponData.instance;
         weaponAnimator = GetComponent<Animator>();
         weaponLife = charCon2D.playerdata.weaponHP;
@@ -134,7 +134,7 @@ public class WeaponManager : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        float xOffset = CharacterController2D.instance.m_FacingRight ? 1 : -1;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
     }
 }

@@ -217,7 +217,7 @@ public class PlayerAttack : MonoBehaviour
     {
         //히트박스 에디터 상에서 표시 2.125f : -2.125f;
         Gizmos.color = Color.cyan;
-        float xOffset = GameManager.Instance.GetCharacterController2D().m_FacingRight ? 1 : -1;
+        float xOffset = CharacterController2D.instance.m_FacingRight ? 1 : -1;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (xOffset * playerOffset_X), transform.position.y + 1f + playerOffset_Y), hitBoxSize);
     }
 }

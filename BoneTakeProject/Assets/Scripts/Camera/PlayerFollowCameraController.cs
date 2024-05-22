@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class CinemachineImpulseData
@@ -22,7 +23,7 @@ public class PlayerFollowCameraController : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
     public CinemachineCollisionImpulseSource bigLandingShakeSource; 
     private CharacterController2D player_CharacterController; //플레이어 스크립트
-    
+    private Collider2D mapSection;
     public float lensOrtho_InitSize;//화면 줌 초기값 저장
     
     [Range (0.0f, 0.1f)]
@@ -32,19 +33,46 @@ public class PlayerFollowCameraController : MonoBehaviour
     public float Impulse_PowerValue;
     
     public CinemachineImpulseData InitialImpulseData; //Impulse데이터 초기값 저장
+
+    private void Awake()
+    {
+        virtualCamera = m_playerFollowCamera.GetComponent<CinemachineVirtualCamera>();
+        player_CharacterController = virtualCamera.Follow.gameObject.GetComponent<CharacterController2D>();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += MapSectionLoad;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= MapSectionLoad;
+    }
+
+    // 씬 로딩이 완료되었을 때 호출될 콜백 함수
+    private void MapSectionLoad(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("카메라");
+        mapSection = GameObject.FindWithTag("MapSection").GetComponent<Collider2D>();
+        
+        //카메라 맵 섹션 정하기
+        CinemachineConfiner confiner = virtualCamera.GetComponent<CinemachineConfiner>();
+        if (confiner == null)
+        {
+            Debug.LogError("CinemachineConfiner2D 컴포넌트를 찾을 수 없습니다.");
+            return;
+        }
+        confiner.m_BoundingShape2D = mapSection;
+    }
     
     void Start()
     {
-        virtualCamera = m_playerFollowCamera.GetComponent<CinemachineVirtualCamera>();
         lensOrtho_InitSize = virtualCamera.m_Lens.OrthographicSize;//화면 줌 초기값 저장
-
-        //bigLandingShakeSource = m_playerFollowCamera.GetComponent<CinemachineCollisionImpulseSource>();//Impulse데이터 초기값 저장
         InitialImpulseData.AmplitudeGain = bigLandingShakeSource.m_ImpulseDefinition.m_AmplitudeGain;
         InitialImpulseData.FrequencyGain = bigLandingShakeSource.m_ImpulseDefinition.m_FrequencyGain;
         InitialImpulseData.SustainTime = bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime;
         InitialImpulseData.DecayTime = bigLandingShakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime;
-        
-        player_CharacterController = virtualCamera.Follow.gameObject.GetComponent<CharacterController2D>();
     }
 
     void Update()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -13,6 +14,9 @@ public class PlayerData
 {
     public string playerName;
     public float playTime;
+    
+    //저장된 위치(씬 이름 저장)
+    public string mapName;
     
     //플레이어 조작
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함
