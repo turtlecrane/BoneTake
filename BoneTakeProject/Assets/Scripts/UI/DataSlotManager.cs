@@ -193,8 +193,7 @@ public class DataSlotManager : MonoBehaviour
             PlayerDataManager.instance.nowPlayer.playerName = newPlayerName.text; // 입력한 이름을 복사해옴
             PlayerDataManager.instance.SaveData(); // 현재 정보를 저장함.
         }
-        
-        SceneChange("Interaction"); // 게임씬으로 이동
+        LoadingSceneController.LoadScene(PlayerDataManager.instance.nowPlayer.mapName);// 게임씬으로 이동
     }
     
     public void SceneChange(string sceneName)

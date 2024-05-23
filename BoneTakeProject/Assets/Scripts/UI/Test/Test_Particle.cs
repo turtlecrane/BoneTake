@@ -6,6 +6,8 @@ public class Test_Particle : MonoBehaviour
 {
     public ParticleSystem a;
     public ParticleSystem b;
+    public ParticleSystem c;
+    
 
     // Update is called once per frame
     void Update()
@@ -14,9 +16,13 @@ public class Test_Particle : MonoBehaviour
         {
             a.Play();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             b.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            c.Play();
         }
 
     }

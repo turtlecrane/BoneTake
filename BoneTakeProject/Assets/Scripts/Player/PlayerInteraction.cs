@@ -108,6 +108,11 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    public void SendBloodParticlePlay()
+    {
+        enemyAIscript.SendMessage("PlayBloodParticle");
+    }
+
     private void ResetBoneTake()
     {
         charCon2D.animator.SetBool("IsBoneTakeIntro", false);

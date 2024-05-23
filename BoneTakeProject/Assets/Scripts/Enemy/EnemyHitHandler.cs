@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class EnemyHitHandler : MonoBehaviour
 {
+    public ParticleSystem attackParticle;
+    public ParticleSystem bloodParticle;
+    
     public EnemyAI enemyAIScript;
     public Animator animator;
     public float life; //현재 남은 HP
@@ -60,6 +63,7 @@ public class EnemyHitHandler : MonoBehaviour
             CharacterController2D charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
             //피격 (Hit) 애니메이션 트리거 설정
             animator.SetBool("Hit", true);
+            attackParticle.Play();
 
             life -= damage; // 라이프 차감
             if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic 
@@ -81,6 +85,11 @@ public class EnemyHitHandler : MonoBehaviour
             // 히트 효과 코루틴 실행
             StartCoroutine(HitTime());
         }
+    }
+
+    public void PlayBloodParticle()
+    {
+        bloodParticle.Play();
     }
     
     IEnumerator HitTime()

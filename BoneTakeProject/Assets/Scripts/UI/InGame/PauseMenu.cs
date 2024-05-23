@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         popup.SetPopup("정말 메인화면으로 이동하시겠습니까? \n 저장하지 않은 데이터는 삭제됩니다.", false, 
             () =>
             {
-                SceneManager.LoadScene("MainTitle");
+                LoadingSceneController.LoadScene("MainTitle");
             },
             () => { });
     }

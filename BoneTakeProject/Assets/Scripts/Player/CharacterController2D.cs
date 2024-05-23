@@ -17,6 +17,7 @@ public class CharacterController2D : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public Rigidbody2D m_Rigidbody2D; //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
+    public ParticleSystem dustParticle;
     
     [Header("점프 관련")]
     public bool isJumping; //점프중인지
@@ -306,6 +307,7 @@ public class CharacterController2D : MonoBehaviour
     /// <returns></returns>
     IEnumerator BigLandingMoveCooldown()
     {
+        dustParticle.Play(); //먼지 파티클 재생
         m_Rigidbody2D.velocity = Vector2.zero;
         canMove = false;
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class InGameUiManager : MonoBehaviour
 {

@@ -16,7 +16,7 @@ public class PlayerData
     public float playTime;
     
     //저장된 위치(씬 이름 저장)
-    public string mapName;
+    public string mapName = "Interaction"; //새로시작할때 들어갈 기본 씬을 지정해야함. (ex 튜토리얼 씬)
     
     //플레이어 조작
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함

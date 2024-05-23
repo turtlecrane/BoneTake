@@ -10,14 +10,18 @@ using UnityEngine;
 /// </summary>
 public class ObjectTriggerCameraSwitcher : MonoBehaviour
 {
-    public GameObject m_playerFollowCamera;
+    private GameObject m_playerFollowCamera;
     public GameObject m_thisVituralCam;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player") && !other.isTrigger)
         {
             PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
             playerInteraction.isInteractiveCamera = true;
-            m_playerFollowCamera.SetActive(false);
+            m_playerFollowCamera = GameObject.FindWithTag("PlayerFollowCamera");
+            if (m_playerFollowCamera != null)
+            {
+                m_playerFollowCamera.SetActive(false);
+            }
             m_thisVituralCam.SetActive(true);
         }
     }
@@ -29,6 +33,7 @@ public class ObjectTriggerCameraSwitcher : MonoBehaviour
             playerInteraction.isInteractiveCamera = false;
             m_thisVituralCam.SetActive(false);
             m_playerFollowCamera.SetActive(true);
+            m_playerFollowCamera = null;
         }
     }
 }
