@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f676f74f9266194c80c8c0b6418c8cf
-      internalID: 170676114
+      spriteID: dcd4aaad41c77ff40b855dc32fff795b
+      internalID: 1572125863
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d6267af012abc948a6df784438da0cc
-      internalID: -814461996
+      spriteID: 3db906e05e66e9549b37d0960446f804
+      internalID: 905019191
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc50dfb53a9dcae4286ea8d805e93600
-      internalID: -1949580051
+      spriteID: f2fc922015b7dad4ba611dc5585f419e
+      internalID: -74017240
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54cfa2a04e8eade4eb53be78d56c85ed
-      internalID: -900572210
+      spriteID: 978fc106a7085624ca1669102829ab78
+      internalID: 1449005937
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 352f39689d2aba54a999959727ecf838
-      internalID: -135606290
+      spriteID: d142e38fe7da2b344a0e8208a230a66e
+      internalID: -1395114407
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63bbfcc5bf254c9499a363826b0d7153
-      internalID: 1913280526
+      spriteID: f20c4a5bdf695214a8d7ed90a75a9f4c
+      internalID: 1464525542
       vertices: []
       indices: 
       edges: []
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 912974f4d06ac5646aa9062fdebcfd8e
-      internalID: 180861403
+      spriteID: 84b350ee5943222428980d4cf51c0656
+      internalID: -563441792
       vertices: []
       indices: 
       edges: []
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cdb2facaecaf974e8f1145a63198950
-      internalID: -908516470
+      spriteID: 90e3ab7d739f5d64fa460f72890bcaeb
+      internalID: -1281521687
       vertices: []
       indices: 
       edges: []
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d7a508b4c196c419c96fdbbf363e8c
-      internalID: 783829573
+      spriteID: 472e7f049aba0af488d78432e2aa3727
+      internalID: -1550213437
       vertices: []
       indices: 
       edges: []
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c6d1a5976a706e44bc813bb8e7f518f
-      internalID: -1770333510
+      spriteID: 38ef954fc25df054fa95ba2e44b6e0ce
+      internalID: 1287597924
       vertices: []
       indices: 
       edges: []
@@ -329,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4860523847b831347adffcde8f55d045
-      internalID: 465275715
+      spriteID: 8c7b6a79e714a6c4db6c81a548f6441f
+      internalID: 1323985027
       vertices: []
       indices: 
       edges: []
@@ -338,7 +338,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e0c33c000d6bb5043944cf51ac8d730a
+    spriteID: 09ad696b187797f49931cf65caf19fea
     internalID: 0
     vertices: []
     indices: 
@@ -346,17 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Stand_7: -908516470
-      Boss_Stand_0: 170676114
-      Boss_Stand_9: -1770333510
-      Boss_Stand_5: 1913280526
-      Boss_Stand_4: -135606290
-      Boss_Stand_6: 180861403
-      Boss_Stand_1: -814461996
-      Boss_Stand_2: -1949580051
-      Boss_Stand_10: 465275715
-      Boss_Stand_8: 783829573
-      Boss_Stand_3: -900572210
+      Boss_Stand_7: -1281521687
+      Boss_Stand_0: 1572125863
+      Boss_Stand_9: 1287597924
+      Boss_Stand_5: 1464525542
+      Boss_Stand_4: -1395114407
+      Boss_Stand_6: -563441792
+      Boss_Stand_1: 905019191
+      Boss_Stand_2: -74017240
+      Boss_Stand_10: 1323985027
+      Boss_Stand_8: -1550213437
+      Boss_Stand_3: 1449005937
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
