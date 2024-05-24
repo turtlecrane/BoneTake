@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8df2e5415a52abc47916098f7f8d2c23
+guid: 84ed116d864863846b9437f5a570edc9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,127 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_0
+      name: NPC01_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15cc9b702e1b6bf418c1b79e58f79f05
-      internalID: 95354703
+      spriteID: f4d2ab799d6409345bbc36df1b218f18
+      internalID: 1406174666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_1
+      name: NPC01_Idle_1
       rect:
         serializedVersion: 2
-        x: 1297
+        x: 257
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939335bd51657434c892e82e4ad33332
-      internalID: 1635955624
+      spriteID: f9c4a4caa3872694a9d9379e62977013
+      internalID: 296712165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_2
+      name: NPC01_Idle_2
       rect:
         serializedVersion: 2
-        x: 2594
+        x: 514
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e54273ae088310448474f55e7b8cac1
-      internalID: -1207515303
+      spriteID: 43927e95e9a46a447968d2edb74f96fa
+      internalID: -233735462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_3
+      name: NPC01_Idle_3
       rect:
         serializedVersion: 2
-        x: 3891
+        x: 771
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4573aa51e57d3764392d906f8d030435
-      internalID: -1944681579
+      spriteID: 93bed41b1979333439a19e3499344e23
+      internalID: -1084322670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_4
+      name: NPC01_Idle_4
       rect:
         serializedVersion: 2
-        x: 5188
+        x: 1028
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6564a0fa2d9550741b44d1a3c58db18b
-      internalID: 1729693461
+      spriteID: 93211be3dabfa0840b4d208c082f6241
+      internalID: 1324620856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Attack_01_2hit_5
+      name: NPC01_Idle_5
       rect:
         serializedVersion: 2
-        x: 6485
+        x: 1285
         y: 0
-        width: 1297
-        height: 730
-      alignment: 9
-      pivot: {x: 0.5, y: 0.01}
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85d10ce64f20b87489d888b162062c4b
-      internalID: -832105070
+      spriteID: 33c109f74a530954b8073620aa2cf135
+      internalID: 1210149062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC01_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 0
+        width: 257
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bac48596cc991a42a4247c5ad96e7cc
+      internalID: 650503202
       vertices: []
       indices: 
       edges: []
@@ -233,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c655da6728f098b4ab767c1b764aeb48
+    spriteID: 36fab05d2a1756d4ea830c275e3a1371
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Attack_01_2hit_3: -1944681579
-      Boss_Attack_01_2hit_0: 95354703
-      Boss_Attack_01_2hit_5: -832105070
-      Boss_Attack_01_2hit_1: 1635955624
-      Boss_Attack_01_2hit_2: -1207515303
-      Boss_Attack_01_2hit_4: 1729693461
+      NPC01_Idle_0: 1406174666
+      NPC01_Idle_4: 1324620856
+      NPC01_Idle_2: -233735462
+      NPC01_Idle_5: 1210149062
+      NPC01_Idle_1: 296712165
+      NPC01_Idle_6: 650503202
+      NPC01_Idle_3: -1084322670
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

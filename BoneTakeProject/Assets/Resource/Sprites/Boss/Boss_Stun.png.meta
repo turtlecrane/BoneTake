@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9df797a2f5963a6409d942b5b09dd55e
+guid: a21d9351d896f9b41ab9d989ce7e019b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Idle_0
+      name: Boss_Stun_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e33f3747c37fde4ba46237845106cd2
-      internalID: 1562381243
+      spriteID: 7e6a9435ba7f9b347befa7e07539ede2
+      internalID: -1171927700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Idle_1
+      name: Boss_Stun_1
       rect:
         serializedVersion: 2
-        x: 529
+        x: 980
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -140,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed784e658f3fc4d4caae2d929aadf05c
-      internalID: 789770539
+      spriteID: 68949c2331558e645922f5cb00c6e772
+      internalID: -1443623620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Idle_2
+      name: Boss_Stun_2
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 1960
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -161,19 +161,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ce1f384e0c2b1d4fb71314df3b0bad0
-      internalID: 2037873897
+      spriteID: eca0c93ae38bbdc4a806c64ef265f620
+      internalID: -1933816171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Idle_3
+      name: Boss_Stun_3
       rect:
         serializedVersion: 2
-        x: 1587
+        x: 2940
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -182,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 692a3fb89a9fc4b4aacdb19ebffeeae1
-      internalID: -852063466
+      spriteID: c8f5790e5d176a341aa51e36575c74b0
+      internalID: 72057969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Idle_4
+      name: Boss_Stun_4
       rect:
         serializedVersion: 2
-        x: 2116
+        x: 3920
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -203,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 988c4b1d52018304eb45a46ad685d45e
-      internalID: 363991483
+      spriteID: b67a84a5e01dd69478933382bd8b35d5
+      internalID: 552762553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Idle_5
+      name: Boss_Stun_5
       rect:
         serializedVersion: 2
-        x: 2645
+        x: 4900
         y: 0
-        width: 529
+        width: 980
         height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -224,8 +224,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9f506d46fa9bc64182c3aba39f6576f
-      internalID: -2064981709
+      spriteID: 6bc9d25968e76c844950ef703661490c
+      internalID: 1213643327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_6
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9dd8d2edf5fffd48bc4f9405fe594dc
+      internalID: 1711122851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_7
+      rect:
+        serializedVersion: 2
+        x: 6860
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa597f3dc70c7440a3bd38d4b57188e
+      internalID: -1921667590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_8
+      rect:
+        serializedVersion: 2
+        x: 7840
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd2990923c0a374bb0bb2b45f26f4e5
+      internalID: -1145790578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_9
+      rect:
+        serializedVersion: 2
+        x: 8820
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037d99f65ed617d4da46c414b039a19a
+      internalID: -1401966201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_10
+      rect:
+        serializedVersion: 2
+        x: 9800
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf88d565325c4142a8801590e9c0722
+      internalID: 1821186137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Stun_11
+      rect:
+        serializedVersion: 2
+        x: 10780
+        y: 0
+        width: 980
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05fce23216dd57c42a28f72ebf49dd39
+      internalID: 2012574056
       vertices: []
       indices: 
       edges: []
@@ -233,7 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 06943d9bcc4cebc4abc831c912af4f06
+    spriteID: 33fb387cf90ebec44a9c13066d3d0850
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Idle_1: 789770539
-      Boss_Idle_3: -852063466
-      Boss_Idle_4: 363991483
-      Boss_Idle_5: -2064981709
-      Boss_Idle_0: 1562381243
-      Boss_Idle_2: 2037873897
+      Boss_Stun_2: -1933816171
+      Boss_Stun_6: 1711122851
+      Boss_Stun_4: 552762553
+      Boss_Stun_0: -1171927700
+      Boss_Stun_3: 72057969
+      Boss_Stun_10: 1821186137
+      Boss_Stun_5: 1213643327
+      Boss_Stun_11: 2012574056
+      Boss_Stun_8: -1145790578
+      Boss_Stun_1: -1443623620
+      Boss_Stun_7: -1921667590
+      Boss_Stun_9: -1401966201
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
