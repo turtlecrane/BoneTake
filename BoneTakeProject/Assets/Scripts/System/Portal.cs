@@ -10,27 +10,23 @@ public class Portal : MonoBehaviour
 {
     public Image fadePanel;
     public string sceneName;
+    public Vector3 switchPosition;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
-            /*StartCoroutine(GameManager.Instance.GetInGameUiManager().FadeInFadeOut(() =>
-            {
-                
-            }));*/
-            StartCoroutine(FadeOut());
+            StartCoroutine(FadeOut(other));
         }
     }
     
-    public IEnumerator FadeOut()
+    public IEnumerator FadeOut(Collider2D other)
     {
         Debug.Log("페이드 아웃");
         fadePanel.gameObject.SetActive(true);
         fadePanel.DOFade(1f, 1f);
         yield return new WaitForSeconds(1f);
+        other.transform.position = switchPosition;
         SceneManager.LoadScene(sceneName);
-        /*fadePanel.DOFade(0f, 1f);
-        fadePanel.gameObject.SetActive(false);*/
     }
 }

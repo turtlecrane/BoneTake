@@ -53,8 +53,8 @@ public class PlayerFollowCameraController : MonoBehaviour
     // 씬 로딩이 완료되었을 때 호출될 콜백 함수
     private void MapSectionLoad(Scene scene, LoadSceneMode mode)
     {
-        mapSection = GameObject.FindWithTag("MapSection").GetComponent<Collider2D>();
-        
+        mapSection = GameObject.FindWithTag("MapSection")?.GetComponent<Collider2D>();
+        if (mapSection == null) return;
         //카메라 맵 섹션 정하기
         CinemachineConfiner confiner = virtualCamera.GetComponent<CinemachineConfiner>();
         if (confiner == null)
