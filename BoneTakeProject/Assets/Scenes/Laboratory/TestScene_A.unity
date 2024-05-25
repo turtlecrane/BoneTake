@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 328061860}
   - component: {fileID: 328061862}
   - component: {fileID: 328061861}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

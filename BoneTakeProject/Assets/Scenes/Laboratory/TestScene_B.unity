@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 489892624}
   - component: {fileID: 489892626}
   - component: {fileID: 489892625}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ RectTransform:
   m_Children:
   - {fileID: 489892624}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -793,7 +793,7 @@ Transform:
   - {fileID: 1684184608}
   - {fileID: 2095116290}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233454525
 GameObject:
@@ -1658,7 +1658,7 @@ Transform:
   - {fileID: 1233454526}
   - {fileID: 1453605672}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095116289
 GameObject:

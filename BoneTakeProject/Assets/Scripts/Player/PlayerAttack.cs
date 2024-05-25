@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
             !charCon2D.playerHitHandler.isDead &&
             !charCon2D.playerHitHandler.isBigKnockBack &&
             !charCon2D.playerHitHandler.isSmallKnockBack &&
-            !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(); //&&
+            !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(LayerMask.GetMask("UI")); //&&
             
         if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
         

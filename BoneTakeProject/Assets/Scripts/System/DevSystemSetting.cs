@@ -15,7 +15,7 @@ public class DevSystemSetting : MonoBehaviour
 
     void Update()
     {
-        if (inGameUiManager.CheckForActiveUILayer())
+        if (inGameUiManager.CheckForActiveUILayer(LayerMask.GetMask("UI")))
         {
             Time.timeScale = 0f;
         }

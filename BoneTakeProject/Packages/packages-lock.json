@@ -1,5 +1,55 @@
 {
   "dependencies": {
+    "com.fluid.database": {
+      "version": "2.1.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.fluid.simple-singleton": "1.0.0",
+        "com.fluid.unity-event-plus": "1.0.0"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.fluid.dialogue": {
+      "version": "https://github.com/ashblue/fluid-dialogue.git#nightly",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.fluid.database": "2.1.0",
+        "com.fluid.unity-event-plus": "1.2.0",
+        "com.fluid.simple-spellcheck": "1.1.1",
+        "com.fluid.find-and-replace": "1.0.1"
+      },
+      "hash": "f608c5cd561fa7ee6230b987ec78293f1bd983a4"
+    },
+    "com.fluid.find-and-replace": {
+      "version": "1.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "com.fluid.simple-singleton": {
+      "version": "1.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "com.fluid.simple-spellcheck": {
+      "version": "1.1.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "com.fluid.unity-event-plus": {
+      "version": "1.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
     "com.heathen.systemcore": {
       "version": "https://github.com/heathen-engineering/SystemCore.git?path=/com.heathen.systemcore",
       "depth": 0,

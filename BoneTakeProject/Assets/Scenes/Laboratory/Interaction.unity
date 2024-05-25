@@ -2563,6 +2563,7 @@ GameObject:
   - component: {fileID: 760065118}
   - component: {fileID: 760065120}
   - component: {fileID: 760065121}
+  - component: {fileID: 760065122}
   m_Layer: 0
   m_Name: NPC_DataSaveTest
   m_TagString: NPC
@@ -2668,6 +2669,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkEnable: 0
+--- !u!114 &760065122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760065117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8a89827339fac45b159b01ca5b1b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 95312b960b763ef4ba352bfa3ce5cac2, type: 2}
 --- !u!1 &808293501
 GameObject:
   m_ObjectHideFlags: 0
@@ -7975,6 +7989,10 @@ PrefabInstance:
     - target: {fileID: 3784949372239093031, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: m_Name
       value: Enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784949374225316591, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4742525574691140142, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]

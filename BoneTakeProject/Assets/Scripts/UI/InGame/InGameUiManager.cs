@@ -205,7 +205,7 @@ public class InGameUiManager : MonoBehaviour
 
     void SetCursorState(bool isAiming, WeaponManager weaponManager)
     {
-        bool uiLayerActive = CheckForActiveUILayer();
+        bool uiLayerActive = CheckForActiveUILayer(LayerMask.GetMask("UI", "Cursor"));
         Cursor.visible = isAiming || uiLayerActive;
         Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
 
@@ -220,17 +220,28 @@ public class InGameUiManager : MonoBehaviour
         }
     }
     
-    public bool CheckForActiveUILayer()
+    public bool CheckForActiveUILayer(LayerMask layer)
     {
-        foreach (Transform child in canvas.transform)
+        return CheckTransformForActiveUILayer(canvas.transform, layer);
+    }
+    
+    private bool CheckTransformForActiveUILayer(Transform parent, LayerMask layers)
+    {
+        foreach (Transform child in parent)
         {
-            if (child.gameObject.activeInHierarchy && child.gameObject.layer == LayerMask.NameToLayer("UI"))
+            // child.gameObject가 활성화되어 있고, 주어진 layers에 속하는지 확인
+            if (child.gameObject.activeInHierarchy && ((1 << child.gameObject.layer) & layers) != 0)
             {
-                //GameManager.Instance.GetDevSetting().Dev_WorldTime = 0f;
-                return true; // "UI" 레이어에 속하고 활성화된 오브젝트가 있으면 true 반환
+                return true;
+            }
+        
+            // 재귀적으로 하위 오브젝트 검사
+            if (CheckTransformForActiveUILayer(child, layers))
+            {
+                return true;
             }
         }
-        //GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
-        return false; // "UI" 레이어에 속하고 활성화된 오브젝트가 없으면 false 반환
+
+        return false;
     }
 }

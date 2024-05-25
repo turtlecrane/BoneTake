@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 104044310}
   - component: {fileID: 104044312}
   - component: {fileID: 104044311}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 288000444}
   - component: {fileID: 288000443}
   - component: {fileID: 288000447}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 614793130}
   - component: {fileID: 614793132}
   - component: {fileID: 614793131}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958516882}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 1951898288}
   - component: {fileID: 1951898290}
   - component: {fileID: 1951898289}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: MapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 2039118453}
   - component: {fileID: 2039118455}
   - component: {fileID: 2039118454}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

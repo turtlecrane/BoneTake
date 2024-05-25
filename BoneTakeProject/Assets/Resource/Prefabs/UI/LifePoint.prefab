@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3473224948303599480}
   - component: {fileID: 3473224948303599483}
   - component: {fileID: 8721053049882230479}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: LifePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4253104518778226982}
   - component: {fileID: 6236138401467150039}
   - component: {fileID: 7391134052659432207}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DisableGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
