@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CleverCrow.Fluid.Dialogues.Graphs;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject testInteractionText;
+    public DialoguePlayback dialoguePlayback;
     public EnemyAI enemyAIscript;
     public float boneTakeCompleteDuration;
 
@@ -20,7 +22,8 @@ public class PlayerInteraction : MonoBehaviour
     
     [SerializeField] private float boneExtractCount = 0f;
     [SerializeField] private float m_boneExtractionTime;
-    
+
+    //private DialogueGraph npcDialogue;
     private CharacterController2D charCon2D;
     private PlayerFollowCameraController followCameraController;
     private WeaponData weaponDataScript;
@@ -73,7 +76,7 @@ public class PlayerInteraction : MonoBehaviour
         if (canTalkToNPC)
         {
             Debug.Log("NPC와 상호작용");
-            npcCollision.SendMessage("NpcInteraction");
+            npcCollision.gameObject.SendMessage("NpcInteraction",dialoguePlayback);//DialoguePlayback
         }
     }
 
@@ -158,6 +161,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (collision.CompareTag("NPC"))
         {
+            //npcDialogue = collision.GetComponent<InteractableObject>().dialogue;
             npcCollision = collision;
             canTalkToNPC = true;
         }
@@ -171,6 +175,7 @@ public class PlayerInteraction : MonoBehaviour
 
         canInteraction = false;
         enemyAIscript = null;
+        //npcDialogue = null;
         npcCollision = null;
 
         if (collision.CompareTag("Enemy"))

@@ -36,8 +36,8 @@ public class PlayerSpawner : MonoBehaviour
         color.a = 1f;
         fadePanel.color = color;
 
-        fadePanel.DOFade(0, 1f);
-        yield return new WaitForSeconds(1f);
+        fadePanel.DOFade(0, 1f).SetUpdate(UpdateType.Normal, true); //게임상의 시간 영향을 받지 않음.
+        yield return new WaitForSeconds(1.1f);
         fadePanel.gameObject.SetActive(false);
     }
 }

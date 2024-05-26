@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponRecoveryInteract : MonoBehaviour
+public class WeaponRecoveryInteract : InteractableObject
 {
-    public bool isStone;
     private bool isRecovered = false;
 
-    public void NpcInteraction()
+    public void NpcInteraction(DialoguePlayback _dialoguePlayback)
     {
         int maxWeaponHp = 0;
         int nowWeaponHp = 0;
         int recoveryValue = 0;
         if (!isRecovered)
         {
-            if (isStone)
+            if (!talkEnable) //회복석상 로직
             {
                 //착용중인 무기의 최대 무기HP 가져오기
                 maxWeaponHp = WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName);
@@ -29,8 +28,8 @@ public class WeaponRecoveryInteract : MonoBehaviour
             }
             else //방부업자 로직
             {
-                recoveryValue = WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName);
-                CharacterController2D.instance.playerAttack.weaponManager.weaponLife = recoveryValue;
+                _dialoguePlayback.gameObject.SetActive(true);
+                _dialoguePlayback.PlayDialogue(dialogue);
             }
             isRecovered = true;
             
@@ -41,5 +40,10 @@ public class WeaponRecoveryInteract : MonoBehaviour
         {
             Debug.Log("1회만 회복 가능합니다.");
         }
+    }
+
+    public void FullRecoveryWeapon()
+    {
+        CharacterController2D.instance.playerAttack.weaponManager.weaponLife = WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName);
     }
 }
