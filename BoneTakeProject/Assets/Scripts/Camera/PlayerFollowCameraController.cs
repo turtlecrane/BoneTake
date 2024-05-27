@@ -26,7 +26,7 @@ public class PlayerFollowCameraController : MonoBehaviour
     private Collider2D mapSection;
     public float lensOrtho_InitSize;//화면 줌 초기값 저장
     
-    [Range (0.0f, 0.1f)]
+    [Range (0.0f, 0.5f)]
     public float LensOrtho_ZoomValue;//낙하시 줌 되는 정도
 
     [Range(0.0f, 10.0f)]

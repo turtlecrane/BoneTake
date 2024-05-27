@@ -13,7 +13,7 @@ public class PlayerEventKey : MonoBehaviour
     public void Player_DoBasicDamege()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
-        
+        charCon2D.playerAttack.attackParticle.Play();
         float xOffset = charCon2D.m_FacingRight ? 1 : -1;
         Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.playerOffset_Y), charCon2D.playerAttack.hitBoxSize, 0f);
         
@@ -33,7 +33,7 @@ public class PlayerEventKey : MonoBehaviour
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
         WeaponData weaponDataScript = WeaponData.instance;
-        
+        charCon2D.playerAttack.attackParticle.Play();
         float xOffset = charCon2D.m_FacingRight ? 1 : -1;
         Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.weaponManager.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y), charCon2D.playerAttack.weaponManager.hitBoxSize, 0f);
         

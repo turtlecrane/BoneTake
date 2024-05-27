@@ -187,6 +187,7 @@ public class CharacterController2D : MonoBehaviour
                         //착지를했을때 1번만 실행됨.
                         if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
                         {
+                            dustParticle.Play(); //먼지 파티클 재생
                             StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
                         }
                         StartCoroutine(BigLandingMoveCooldown());
@@ -307,7 +308,6 @@ public class CharacterController2D : MonoBehaviour
     /// <returns></returns>
     IEnumerator BigLandingMoveCooldown()
     {
-        dustParticle.Play(); //먼지 파티클 재생
         m_Rigidbody2D.velocity = Vector2.zero;
         canMove = false;
         yield return new WaitForSeconds(bigFallCantMoveCoolTime);

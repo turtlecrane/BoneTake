@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 134856084}
   - component: {fileID: 134856086}
   - component: {fileID: 134856085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestWall (2)
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 223397178}
   - component: {fileID: 223397180}
-  - component: {fileID: 223397179}
+  - component: {fileID: 223397181}
   m_Layer: 6
   m_Name: TestGround (9)
   m_TagString: Map
@@ -694,32 +694,6 @@ Transform:
   m_Father: {fileID: 676915591}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &223397179
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223397177}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 335b8a4927a783d4e8c2d81625bd1cb6, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.58, y: 0.14068359}
-    newSize: {x: 20.58, y: 0.14068359}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 20.58, y: 0.14068359}
-  m_EdgeRadius: 0
 --- !u!212 &223397180
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -772,6 +746,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &223397181
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223397177}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 335b8a4927a783d4e8c2d81625bd1cb6, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.58, y: 0.14068359}
+    newSize: {x: 20.58, y: 0.14068359}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.58, y: 0.14068359}
+  m_EdgeRadius: 0
 --- !u!1 &283907917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2365,7 @@ GameObject:
   - component: {fileID: 674532801}
   - component: {fileID: 674532803}
   - component: {fileID: 674532802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestWall (6)
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -4698,7 +4698,7 @@ GameObject:
   - component: {fileID: 1329310132}
   - component: {fileID: 1329310134}
   - component: {fileID: 1329310133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestWall (1)
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -6202,7 +6202,7 @@ GameObject:
   - component: {fileID: 1718088347}
   - component: {fileID: 1718088349}
   - component: {fileID: 1718088348}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: TestWall
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -7617,6 +7617,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3784949372239093026, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
+      propertyPath: life
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784949372239093026, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: bloodParticle
       value: 
       objectReference: {fileID: 1950509372}
@@ -7627,6 +7631,10 @@ PrefabInstance:
     - target: {fileID: 3784949372239093031, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: m_Name
       value: Enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784949372239093055, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
+      propertyPath: boneExtractionTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3784949374225316591, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: damage
@@ -7657,6 +7665,10 @@ PrefabInstance:
       propertyPath: attackParticle
       value: 
       objectReference: {fileID: 1653925310}
+    - target: {fileID: 7658005861607967075, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
+      propertyPath: boneExtractionTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7658005861607967100, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
       propertyPath: m_RootOrder
       value: 1

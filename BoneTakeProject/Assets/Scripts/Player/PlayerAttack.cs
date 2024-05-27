@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     public bool isAiming; //조준중인지 (활 무기 착용시)
     public int count = 0; //현재 공격이 몇타째 인지
     public float multiAtk_maxTime;
+    public ParticleSystem attackParticle;
     
     [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 히트박스의 크기 조절
     [HideInInspector] public float playerOffset_X;//공격 X축 반경을 조절

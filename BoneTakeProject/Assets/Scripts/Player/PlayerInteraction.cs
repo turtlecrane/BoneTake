@@ -89,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
             isExtractingBones = true;
             boneExtractCount += Time.deltaTime;
             //카메라 줌
-            followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.001f;
+            followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f; //0.001f;
             
             if (boneExtractCount >= m_boneExtractionTime)
             {

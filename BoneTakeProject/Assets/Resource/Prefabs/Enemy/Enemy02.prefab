@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adabe991445f014496052eae934d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackParticle: {fileID: 6978670849862845182}
+  bloodParticle: {fileID: 4742525574691140142}
   enemyAIScript: {fileID: 3784949372239093055}
   animator: {fileID: 3784949374225316584}
   life: 100
@@ -644,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6079841145748390429, guid: fc0e1c0e7febba74b9b9e41f8a200555, type: 3}
       propertyPath: m_Name
-      value: AttackParticle
+      value: Damage
       objectReference: {fileID: 0}
     - target: {fileID: 6079841145748390430, guid: fc0e1c0e7febba74b9b9e41f8a200555, type: 3}
       propertyPath: m_RootOrder
@@ -707,6 +709,11 @@ PrefabInstance:
 --- !u!4 &6978670849862845176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6079841145748390430, guid: fc0e1c0e7febba74b9b9e41f8a200555, type: 3}
+  m_PrefabInstance: {fileID: 3784949372443279590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6978670849862845182 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6079841145748390424, guid: fc0e1c0e7febba74b9b9e41f8a200555, type: 3}
   m_PrefabInstance: {fileID: 3784949372443279590}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3784949372642830994
@@ -777,5 +784,10 @@ PrefabInstance:
 --- !u!4 &4742525574691140129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454948119490926771, guid: 0179145982e319c4f88a388daa67f7bf, type: 3}
+  m_PrefabInstance: {fileID: 3784949372642830994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4742525574691140142 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8454948119490926780, guid: 0179145982e319c4f88a388daa67f7bf, type: 3}
   m_PrefabInstance: {fileID: 3784949372642830994}
   m_PrefabAsset: {fileID: 0}
