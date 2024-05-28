@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +16,8 @@ public class EnemyHitHandler : MonoBehaviour
     public float knockbackBasicForce; //피격시 넉백의 강도
     public bool isCorpseState; //시체상태인지
     public bool isExtracted; //발골완료된 상태인지
-    
+
+    private SpriteRenderer enemySprite;
     private Rigidbody2D rb;
     private bool isInvincible = false; //무적상태인지
     private bool isFading = false; // fade 중인지 상태 확인
@@ -23,6 +25,7 @@ public class EnemyHitHandler : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemySprite = animator.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class EnemyHitHandler : MonoBehaviour
             //피격 (Hit) 애니메이션 트리거 설정
             animator.SetBool("Hit", true);
             attackParticle.Play();
+            Blink();
 
             life -= damage; // 라이프 차감
             if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic 
@@ -87,6 +91,15 @@ public class EnemyHitHandler : MonoBehaviour
         }
     }
 
+    private void Blink()
+    {
+        enemySprite.color = Color.red;
+        enemySprite.DOColor(Color.white, 0.5f);
+    }
+
+    /// <summary>
+    /// 발골될때 피가 뿜어져나오는 파티클 (애니메이션 키에서 호출됨)
+    /// </summary>
     public void PlayBloodParticle()
     {
         bloodParticle.Play();

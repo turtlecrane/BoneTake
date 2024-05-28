@@ -8,10 +8,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using DG.Tweening;
 
 public class MainTitle : MonoBehaviour
 {
     public Button[] buttons;
+    public Image fade;
+
+    private void OnEnable()
+    {
+        fade.DOFade(0f, 1.5f).OnComplete(() =>
+        {
+            fade.gameObject.SetActive(false);
+        });
+    }
 
     private void Start()
     {

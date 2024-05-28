@@ -6064,16 +6064,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!198 &1653925310 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4474709472649958672, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-  m_PrefabInstance: {fileID: 7658005860246336179}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1685258398 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6978670849862845182, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
-  m_PrefabInstance: {fileID: 3784949373561275820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691203940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,11 +6858,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!198 &1882482922 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2238483926711466295, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-  m_PrefabInstance: {fileID: 7658005860246336179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913150588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7119,11 +7104,6 @@ MonoBehaviour:
   fadePanel: {fileID: 46372201}
   sceneName: TestScene_B
   switchPosition: {x: 0, y: 0, z: 0}
---- !u!198 &1950509372 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4742525574691140142, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
-  m_PrefabInstance: {fileID: 3784949373561275820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991740523
 GameObject:
   m_ObjectHideFlags: 0
@@ -7618,27 +7598,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784949372239093026, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: life
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 3784949372239093026, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
-      propertyPath: bloodParticle
-      value: 
-      objectReference: {fileID: 1950509372}
-    - target: {fileID: 3784949372239093026, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
-      propertyPath: attackParticle
-      value: 
-      objectReference: {fileID: 1685258398}
     - target: {fileID: 3784949372239093031, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: m_Name
-      value: Enemy02
+      value: Enemy01
       objectReference: {fileID: 0}
     - target: {fileID: 3784949372239093055, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: boneExtractionTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784949374225316591, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
-      propertyPath: damage
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4742525574691140142, guid: 8f3f364dc85eab2498c3f242f3ff4208, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
@@ -7658,16 +7626,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 676915591}
     - target: {fileID: 7658005861607967074, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-      propertyPath: bloodParticle
-      value: 
-      objectReference: {fileID: 1882482922}
-    - target: {fileID: 7658005861607967074, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-      propertyPath: attackParticle
-      value: 
-      objectReference: {fileID: 1653925310}
+      propertyPath: life
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7658005861607967075, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
       propertyPath: boneExtractionTime
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7658005861607967100, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
       propertyPath: m_RootOrder
@@ -7715,7 +7679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7658005861607967101, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
       propertyPath: m_Name
-      value: Enemy01
+      value: Enemy00
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
