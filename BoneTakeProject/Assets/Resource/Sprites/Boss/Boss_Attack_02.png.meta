@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a21d9351d896f9b41ab9d989ce7e019b
+guid: 454a9d9a653e8584cbe53821175b9e5f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Stun_0
+      name: Boss_Attack_02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c34183d04c76e184cac0ad81ad5dd4aa
-      internalID: 559505774
+      spriteID: 8fedaff374754a641a06f080517f014c
+      internalID: 492370399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_1
+      name: Boss_Attack_02_1
       rect:
         serializedVersion: 2
-        x: 980
+        x: 1252
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d558d3cd9ac34342819ae3a1c780827
-      internalID: -188479609
+      spriteID: 45ee18d46a32ab641afa657719a5d4f4
+      internalID: 789104398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_2
+      name: Boss_Attack_02_2
       rect:
         serializedVersion: 2
-        x: 1960
+        x: 2504
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9effc85c7d19ffb46937c6befb412a6f
-      internalID: 1426443043
+      spriteID: 8edc0ffeae4b7b44b8ec69aa5b56754c
+      internalID: 1532755016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_3
+      name: Boss_Attack_02_3
       rect:
         serializedVersion: 2
-        x: 2940
+        x: 3756
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14dd1b1f6c2873b4fb8e501f0874df37
-      internalID: 83078000
+      spriteID: 2c41d61aff9151640bcafb1e7be80f24
+      internalID: -1811042134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_4
+      name: Boss_Attack_02_4
       rect:
         serializedVersion: 2
-        x: 3920
+        x: 5008
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50f6f5027164a72419e9470700916127
-      internalID: -1055562109
+      spriteID: 578851714defc6f4a819144e7b836d30
+      internalID: -69375912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_5
+      name: Boss_Attack_02_5
       rect:
         serializedVersion: 2
-        x: 4900
+        x: 6260
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c0ed444ba2d7a640aef26ef1055ea12
-      internalID: 1934146508
+      spriteID: 69bb80b1161fade4882273a7721be699
+      internalID: -94132968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_6
+      name: Boss_Attack_02_6
       rect:
         serializedVersion: 2
-        x: 5880
+        x: 7512
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4de87016922ae5f4b80beaf99637a881
-      internalID: 1164886387
+      spriteID: 00a296c4cccd3064bb766e70659e03de
+      internalID: -382824851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Stun_7
+      name: Boss_Attack_02_7
       rect:
         serializedVersion: 2
-        x: 6860
+        x: 8764
         y: 0
-        width: 980
-        height: 706
+        width: 1252
+        height: 691
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,155 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc988dc17d7908842bac4e716d13b849
-      internalID: 117313748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_8
-      rect:
-        serializedVersion: 2
-        x: 7840
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ef72ee75b5202c4d8030ea0dfab81bd
-      internalID: 1769018120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_9
-      rect:
-        serializedVersion: 2
-        x: 8820
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b69342f34100f5f41a68a1dfa83558cb
-      internalID: -309112436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_10
-      rect:
-        serializedVersion: 2
-        x: 9800
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdd76c0075b167246953c847c9edd378
-      internalID: 2095879226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_11
-      rect:
-        serializedVersion: 2
-        x: 10780
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f2ed91479d306c40afc87519e638db8
-      internalID: -1620310942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_12
-      rect:
-        serializedVersion: 2
-        x: 11760
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a712380c9b69574089c73a05ce6615b
-      internalID: -1020476839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_13
-      rect:
-        serializedVersion: 2
-        x: 12740
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f813f64b6e79fcb44b4484c9616849c9
-      internalID: -1230209465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Stun_14
-      rect:
-        serializedVersion: 2
-        x: 13720
-        y: 0
-        width: 980
-        height: 706
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 887321bf55ae2cb4a935db66e40d4ca3
-      internalID: 1716617833
+      spriteID: e35a02a179afdd546a482450e3cc9dd2
+      internalID: -2074629983
       vertices: []
       indices: 
       edges: []
@@ -422,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5bf57226a06ecd1409ef41f96fbd6e42
+    spriteID: 8e65268db0158c84ea4285eece0d4063
     internalID: 0
     vertices: []
     indices: 
@@ -430,21 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Stun_2: 1426443043
-      Boss_Stun_6: 1164886387
-      Boss_Stun_4: -1055562109
-      Boss_Stun_12: -1020476839
-      Boss_Stun_13: -1230209465
-      Boss_Stun_0: 559505774
-      Boss_Stun_3: 83078000
-      Boss_Stun_10: 2095879226
-      Boss_Stun_14: 1716617833
-      Boss_Stun_5: 1934146508
-      Boss_Stun_11: -1620310942
-      Boss_Stun_8: 1769018120
-      Boss_Stun_1: -188479609
-      Boss_Stun_7: 117313748
-      Boss_Stun_9: -309112436
+      Boss_Attack_02_0: 492370399
+      Boss_Attack_02_6: -382824851
+      Boss_Attack_02_3: -1811042134
+      Boss_Attack_02_1: 789104398
+      Boss_Attack_02_4: -69375912
+      Boss_Attack_02_5: -94132968
+      Boss_Attack_02_2: 1532755016
+      Boss_Attack_02_7: -2074629983
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
