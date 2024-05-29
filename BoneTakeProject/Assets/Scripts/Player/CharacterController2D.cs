@@ -59,6 +59,7 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    [HideInInspector] public bool isBossWake; //보스 만나는 연출
     private int playerLayer;
     private int nonCollidingPlayerLayer;
     public float playTimeCount;

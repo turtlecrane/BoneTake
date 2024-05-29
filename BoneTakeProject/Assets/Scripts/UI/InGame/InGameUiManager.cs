@@ -206,8 +206,8 @@ public class InGameUiManager : MonoBehaviour
     void SetCursorState(bool isAiming, WeaponManager weaponManager)
     {
         bool uiLayerActive = CheckForActiveUILayer(LayerMask.GetMask("UI", "Cursor"));
-        Cursor.visible = isAiming || uiLayerActive;
-        Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
+        //Cursor.visible = isAiming || uiLayerActive;
+        //Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
 
         if (isAiming)
         {

@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
         charCon2D.canMove = 
             !isAttacking && 
             !isJumpAttacking &&
+            !charCon2D.isBossWake &&
             !charCon2D.isBigLanding &&
             !charCon2D.playerHitHandler.isDead &&
             !charCon2D.playerHitHandler.isBigKnockBack &&
