@@ -365,10 +365,18 @@ MonoBehaviour:
     - {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
     - {fileID: 21300000, guid: 4aaca45312989c240a8652de91e76a47, type: 3}
     - {fileID: 21300000, guid: 73384e8408239954698ec823b78baa42, type: 3}
+    - {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
+    - {fileID: 21300000, guid: 874d8401331ede14087e8d8d486ddda6, type: 3}
+    - {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
+    - {fileID: 21300000, guid: 3168140d6f409d0448447f18568d9482, type: 3}
     rottenIcon:
     - {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
     - {fileID: 21300000, guid: 17a12f8f7ac3f12419f54787975c363d, type: 3}
     - {fileID: 21300000, guid: 0235a7c0ddb28f541bc53aea0198a6bb, type: 3}
+    - {fileID: 21300000, guid: 73d124bf77e463c45942d14136745d9f, type: 3}
+    - {fileID: 21300000, guid: 612c5e166a121e3449dad067fbdc37a4, type: 3}
+    - {fileID: 21300000, guid: 0e80bd0b4a8196f46acf73711b9505ec, type: 3}
+    - {fileID: 21300000, guid: 519d97e745e55f041b609f3666cbc037, type: 3}
 --- !u!114 &390627876
 MonoBehaviour:
   m_ObjectHideFlags: 0

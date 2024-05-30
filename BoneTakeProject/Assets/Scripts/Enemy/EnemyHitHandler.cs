@@ -63,7 +63,7 @@ public class EnemyHitHandler : MonoBehaviour
     public void Enemy_ApplyDamage(float damage) {
         if (!isInvincible)
         {
-            CharacterController2D charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
+            CharacterController2D charCon2D = CharacterController2D.instance;
             //피격 (Hit) 애니메이션 트리거 설정
             animator.SetBool("Hit", true);
             attackParticle.Play();

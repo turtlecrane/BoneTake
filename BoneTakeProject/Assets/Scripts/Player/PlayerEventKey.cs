@@ -19,12 +19,19 @@ public class PlayerEventKey : MonoBehaviour
         
         for (int i = 0; i < basicHitBox.Length; i++)
         {
-            if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
+            if (basicHitBox[i].gameObject != null && (basicHitBox[i].CompareTag("Enemy") || basicHitBox[i].CompareTag("Boss")))
             {
-                //해당 오브젝트의 상태 스크립트에 접근해서 HP를 깎아야함.
-                //HP를 줄이는건 0+데이터ATK로 깎는다.
-                //0인이유는 기본공격이라서. 다른 무기들은 도끼) 3+ATK 이런식이다
-                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", 0+charCon2D.playerdata.playerATK);
+                string methodName = "Enemy_ApplyDamage";
+                float damage = 0 + charCon2D.playerdata.playerATK;
+                
+                if (basicHitBox[i].CompareTag("Enemy"))
+                {
+                    basicHitBox[i].gameObject.SendMessage(methodName, damage);
+                }
+                else if(basicHitBox[i].CompareTag("Boss"))
+                {
+                    basicHitBox[i].gameObject.GetComponentInParent<BossHitHandler>().gameObject.SendMessage(methodName, damage);
+                }
             }
         }
     }
@@ -39,9 +46,19 @@ public class PlayerEventKey : MonoBehaviour
         
         for (int i = 0; i < basicHitBox.Length; i++)
         {
-            if (basicHitBox[i].gameObject != null && basicHitBox[i].CompareTag("Enemy"))
+            if (basicHitBox[i].gameObject != null && (basicHitBox[i].CompareTag("Enemy") || basicHitBox[i].CompareTag("Boss")))
             {
-                basicHitBox[i].gameObject.SendMessage("Enemy_ApplyDamage", weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
+                string methodName = "Enemy_ApplyDamage";
+                float damage = weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name) + charCon2D.playerdata.playerATK;
+                
+                if (basicHitBox[i].CompareTag("Enemy"))
+                {
+                    basicHitBox[i].gameObject.SendMessage(methodName, damage);
+                }
+                else if(basicHitBox[i].CompareTag("Boss"))
+                {
+                    basicHitBox[i].gameObject.GetComponentInParent<BossHitHandler>().gameObject.SendMessage(methodName, damage);
+                }
             }
         }
     }

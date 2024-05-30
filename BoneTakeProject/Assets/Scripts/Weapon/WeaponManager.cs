@@ -109,11 +109,13 @@ public class WeaponManager : MonoBehaviour
     /// <summary>
     /// 무기 습득 효과
     /// </summary>
-    public void WeaponGetEffect(Weapon_Name weaponName)
+    public IEnumerator WeaponGetEffect(Weapon_Name weaponName)
     {
         weaponGetEffectAnimator.gameObject.SetActive(true);
         weaponGetEffectSprite.sprite = weaponDataScript.weaponGFXSource.freshIcon[weaponDataScript.GetName_WeaponID(weaponName)];
         weaponGetEffectAnimator.SetTrigger("IsAcquisite");
+        yield return new WaitForSeconds(2.0f);
+        weaponGetEffectAnimator.gameObject.SetActive(false);
     }
 
     /// <summary>

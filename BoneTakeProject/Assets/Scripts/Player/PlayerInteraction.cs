@@ -2,28 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CleverCrow.Fluid.Dialogues.Graphs;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header("Component")]
     public GameObject testInteractionText;
     public DialoguePlayback dialoguePlayback;
-    public EnemyAI enemyAIscript;
-    public float boneTakeCompleteDuration;
-
+    public ItemSelectUI itemSelectPanel;
+    [HideInInspector] public EnemyAI enemyAIscript;
+    [HideInInspector] public BossHitHandler bossHitHandler;
+    
+    [Header("State")]
     public bool isInteractiveCamera;
     [SerializeField] private bool canInteraction = false;
     [SerializeField] private bool canExtractBones = false;
     [SerializeField] private bool canTalkToNPC = false;
-    
     [SerializeField] private bool isExtractingBones = false;
     [SerializeField] private bool isCompleteBones = false;
-    
     [SerializeField] private float boneExtractCount = 0f;
     [SerializeField] private float m_boneExtractionTime;
 
-    //private DialogueGraph npcDialogue;
+    [Space(10f)]
+    public float boneTakeCompleteDuration;
     private CharacterController2D charCon2D;
     private PlayerFollowCameraController followCameraController;
     private WeaponData weaponDataScript;
@@ -63,7 +67,6 @@ public class PlayerInteraction : MonoBehaviour
         }
         else
         {
-            //Debug.Log("상호작용 취소됨");
             if (!isCompleteBones)
             {
                 ResetBoneTake();
@@ -82,25 +85,66 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ContinueBoneExtraction()
     {
-        if (!canTalkToNPC && !enemyAIscript.enemyHitHandler.isExtracted&& canExtractBones && m_boneExtractionTime != 0f)
+        if (bossHitHandler == null && enemyAIscript != null)
         {
-            charCon2D.animator.SetBool("IsBoneTaking", true);
-            charCon2D.animator.SetBool("IsBoneTakeIntro", true);
-            isExtractingBones = true;
-            boneExtractCount += Time.deltaTime;
-            //카메라 줌
-            followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f; //0.001f;
-            
-            if (boneExtractCount >= m_boneExtractionTime)
+            if (!canTalkToNPC && canExtractBones && m_boneExtractionTime != 0f && !enemyAIscript.enemyHitHandler.isExtracted)
             {
-                
-                charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기타입 교체
-                charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;  //무기이름 교체
-                charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName); //무기 이름에따른 무기 HP 부여
-                StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
-                enemyAIscript.enemyHitHandler.isExtracted = true; //발골된 시체임을 구분
+                charCon2D.animator.SetBool("IsBoneTaking", true);
+                charCon2D.animator.SetBool("IsBoneTakeIntro", true);
+                isExtractingBones = true;
+                boneExtractCount += Time.deltaTime;
+                //카메라 줌
+                followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f; //0.001f;
+            
+                if (boneExtractCount >= m_boneExtractionTime)
+                {
+                    charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기타입 교체
+                    charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;  //무기이름 교체
+                    charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName); //무기 이름에따른 무기 HP 부여
+                    StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
+                    enemyAIscript.enemyHitHandler.isExtracted = true; //발골된 시체임을 구분
+                }
             }
         }
+        else if(bossHitHandler != null && enemyAIscript == null)
+        {
+            if (!canTalkToNPC && canExtractBones && m_boneExtractionTime != 0f && !bossHitHandler.isExtracted)
+            {
+                charCon2D.animator.SetBool("IsBoneTaking", true);
+                charCon2D.animator.SetBool("IsBoneTakeIntro", true);
+                isExtractingBones = true;
+                boneExtractCount += Time.deltaTime;
+                //카메라 줌
+                followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f;
+            
+                //발골완료 로직
+                if (boneExtractCount >= m_boneExtractionTime)
+                {
+                    Debug.Log("발골완료!!");
+
+                    foreach (var weapon in bossHitHandler.weaponName)
+                    {
+                        itemSelectPanel.CreateItemSelection(weapon, () =>
+                        {
+                            //발골 자랑
+                            StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
+                        });
+                        itemSelectPanel.gameObject.SetActive(true);
+                        itemSelectPanel.gameObject.GetComponent<Image>()
+                            .DOFade(0.8f, 1f)
+                            .SetUpdate(UpdateType.Normal, true)
+                            .OnComplete(()=>
+                            {
+                                itemSelectPanel.SortSelectedItems();
+                            });
+                    }
+                    
+                    //발골된 시체임을 구분
+                    bossHitHandler.isExtracted = true; 
+                }
+            }
+        }
+        
     }
 
     private void CancelBoneTake()
@@ -113,7 +157,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void SendBloodParticlePlay()
     {
-        enemyAIscript.SendMessage("PlayBloodParticle");
+        if(enemyAIscript != null) enemyAIscript.SendMessage("PlayBloodParticle");
+        if(bossHitHandler != null) bossHitHandler.SendMessage("PlayBloodParticle");
     }
 
     private void ResetBoneTake()
@@ -159,9 +204,19 @@ public class PlayerInteraction : MonoBehaviour
             canExtractBones = enemyAIscript.enemyHitHandler.isCorpseState;
             m_boneExtractionTime = enemyAIscript.boneExtractionTime;
         }
+        else if (collision.CompareTag("Boss"))
+        {
+            bossHitHandler = collision.GetComponentInParent<BossHitHandler>();
+            if (bossHitHandler.isExtracted || !bossHitHandler.isCorpseState)
+            {
+                canInteraction = false;
+                return;
+            }
+            canExtractBones = bossHitHandler.isCorpseState;
+            m_boneExtractionTime = bossHitHandler.boneExtractionTime;
+        }
         else if (collision.CompareTag("NPC"))
         {
-            //npcDialogue = collision.GetComponent<InteractableObject>().dialogue;
             npcCollision = collision;
             canTalkToNPC = true;
         }
@@ -175,10 +230,10 @@ public class PlayerInteraction : MonoBehaviour
 
         canInteraction = false;
         enemyAIscript = null;
-        //npcDialogue = null;
         npcCollision = null;
+        bossHitHandler = null;
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
         { 
             canExtractBones = false;
             m_boneExtractionTime = 0;
@@ -195,6 +250,6 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void PlayWeaponGetEffect()
     {
-        charCon2D.playerAttack.weaponManager.WeaponGetEffect(charCon2D.playerAttack.weapon_name);
+        StartCoroutine(charCon2D.playerAttack.weaponManager.WeaponGetEffect(charCon2D.playerAttack.weapon_name));
     }
 }

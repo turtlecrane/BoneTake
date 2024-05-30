@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-//[InitializeOnLoad] // Unity가 로드될 때 이 클래스를 자동으로 초기화합니다.
+[InitializeOnLoad] // Unity가 로드될 때 이 클래스를 자동으로 초기화합니다.
 public class DefaultSceneLoader
 {
     static DefaultSceneLoader()

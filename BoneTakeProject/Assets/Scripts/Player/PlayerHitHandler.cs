@@ -191,11 +191,21 @@ public class PlayerHitHandler : MonoBehaviour
                 Player_ApplyDamage(enemyScript.enemyAttack.damage, false, !charCon2D.m_FacingRight);
             }
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collisionCount = 0f;
+            BossAttack bossAttackScript = collision.gameObject.GetComponentInParent<BossAttack>();
+            BossHitHandler bossHitHandler = collision.gameObject.GetComponentInParent<BossHitHandler>();
+            if (!bossHitHandler.isCorpseState && !charCon2D.isDashAttacking)
+            {
+                Player_ApplyDamage(bossAttackScript.damage, false, !charCon2D.m_FacingRight);
+            }
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
         {
             collisionCount += Time.deltaTime;
             if (collisionCount > 0.5f)

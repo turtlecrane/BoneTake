@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        charCon2D = CharacterController2D.instance; //GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;
     }
 
     private void Start()
@@ -51,22 +51,42 @@ public class Arrow : MonoBehaviour
                 isUsed = true;
             }
         }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        else
         {
-            
             WeaponData weaponData = WeaponData.instance;
-            EnemyHitHandler enemyHitHandler = collision.GetComponent<EnemyHitHandler>();
-            if (!enemyHitHandler.isCorpseState)
+            
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                if (!isUsed)
+                EnemyHitHandler enemyHitHandler = collision.GetComponent<EnemyHitHandler>();
+                if (!enemyHitHandler.isCorpseState)
                 {
-                    //타격 설정
-                    collision.gameObject.SendMessage("Enemy_ApplyDamage", weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
-                }
+                    if (!isUsed)
+                    {
+                        //타격 설정
+                        collision.gameObject.SendMessage("Enemy_ApplyDamage", weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
+                    }
                 
-                //파괴
-                Destroy(this.gameObject);
+                    //파괴
+                    Destroy(this.gameObject);
+                }
             }
+            if(collision.CompareTag("Boss"))
+            {
+                BossHitHandler bossHitHandler = collision.GetComponentInParent<BossHitHandler>();
+                if (!bossHitHandler.isCorpseState)
+                {
+                    if (!isUsed)
+                    {
+                        //타격 설정
+                        bossHitHandler.SendMessage("Enemy_ApplyDamage", weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
+                    }
+                
+                    //파괴
+                    Destroy(this.gameObject);
+                }
+            }
+            
+            
         }
     }
 }

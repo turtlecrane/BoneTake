@@ -11,6 +11,7 @@ TagManager:
   - MapSection
   - PlayerFollowCamera
   - BossTrigger
+  - Boss
   layers:
   - Default
   - TransparentFX
