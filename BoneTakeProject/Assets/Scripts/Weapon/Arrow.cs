@@ -37,56 +37,66 @@ public class Arrow : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") ||
-            collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        int collisionLayer = collision.gameObject.layer;
+        string layerName = LayerMask.LayerToName(collisionLayer);
+
+        if (layerName == "Wall" || layerName == "Ground")
         {
-            if (!isTrigger)
-            {
-                isNailed = true;
-                rb.isKinematic = true; // 물리적 영향을 받지 않도록 설정
-                rb.velocity = Vector2.zero; // 선택적으로 속도를 0으로 설정
-                isUsed = true;
-            }
+            HandleWallOrGroundCollision();
         }
-        else
+        else if (layerName == "Enemy" || collision.CompareTag("Boss"))
         {
-            WeaponData weaponData = WeaponData.instance;
-            
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                EnemyHitHandler enemyHitHandler = collision.GetComponent<EnemyHitHandler>();
-                if (!enemyHitHandler.isCorpseState)
-                {
-                    if (!isUsed)
-                    {
-                        //타격 설정
-                        collision.gameObject.SendMessage("Enemy_ApplyDamage", weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
-                    }
-                
-                    //파괴
-                    Destroy(this.gameObject);
-                }
-            }
-            if(collision.CompareTag("Boss"))
-            {
-                BossHitHandler bossHitHandler = collision.GetComponentInParent<BossHitHandler>();
-                if (!bossHitHandler.isCorpseState)
-                {
-                    if (!isUsed)
-                    {
-                        //타격 설정
-                        bossHitHandler.SendMessage("Enemy_ApplyDamage", weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name)+charCon2D.playerdata.playerATK);
-                    }
-                
-                    //파괴
-                    Destroy(this.gameObject);
-                }
-            }
-            
-            
+            HandleEnemyCollision(collision);
         }
+    }
+
+    private void HandleWallOrGroundCollision()
+    {
+        if (!isTrigger)
+        {
+            isNailed = true;
+            rb.isKinematic = true; // 물리적 영향을 받지 않도록 설정
+            rb.velocity = Vector2.zero; // 선택적으로 속도를 0으로 설정
+            isUsed = true;
+        }
+    }
+
+    private void HandleEnemyCollision(Collider2D collision)
+    {
+        if (!isUsed)
+        {
+            DamageEnemy(collision);
+            Destroy(gameObject);
+        }
+    }
+
+    private void DamageEnemy(Collider2D collision)
+    {
+        WeaponData weaponData = WeaponData.instance;
+        int damage = weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name) + charCon2D.playerdata.playerATK;
+
+        Component hitHandler = collision.GetComponent<EnemyHitHandler>() ?? (Component)collision.GetComponentInParent<BossHitHandler>();
+
+        if (hitHandler != null && !IsCorpseState(hitHandler))
+        {
+            hitHandler.gameObject.SendMessage("Enemy_ApplyDamage", damage);
+        }
+    }
+
+    private bool IsCorpseState(Component hitHandler)
+    {
+        if (hitHandler is EnemyHitHandler enemyHitHandler)
+        {
+            return enemyHitHandler.isCorpseState;
+        }
+        else if (hitHandler is BossHitHandler bossHitHandler)
+        {
+            return bossHitHandler.isCorpseState;
+        }
+
+        return false;
     }
 }

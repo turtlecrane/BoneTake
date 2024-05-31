@@ -12,7 +12,7 @@ public class BossDirection : MonoBehaviour
     public Animator bossGFX;
     public CinemachineVirtualCamera bossCamera;
     public bool isDirecting;
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -23,61 +23,69 @@ public class BossDirection : MonoBehaviour
 
     public IEnumerator WakeDirection()
     {
-        BossHitHandler hitHandler = bossGFX.GetComponentInParent<BossHitHandler>();
-        //연출시작
-        isDirecting = true;
-        
-        //플레이어 제어
-        CharacterController2D.instance.isBossDirecting = true;
-        CharacterController2D.instance.playerHitHandler.isInvincible = true;
-        
-        //화면전환
-        bossCamera.gameObject.SetActive(true);
-        //화면 전환까지 걸리는 시간
-        yield return new WaitForSeconds(0.9f);
-        
-        bossTitle.gameObject.SetActive(true);
-        hpSlider.gameObject.SetActive(true);
-        bossGFX.SetBool("IsWake", true);
+        StartDirection();
+        yield return TransitionScreen(0.9f);
+        ActivateBossUI();
         yield return new WaitForSeconds(3.6f);
-        //보스 무적상태 제거
-        hitHandler.isInvincible = false;
-        bossGFX.SetBool("IsWake", false);
-        InitWakeDirecting();
+        EndWakeDirection();
     }
 
     public IEnumerator DeadDirection()
     {
-        //연출시작
-        isDirecting = true;
-        
-        //플레이어 제어
-        CharacterController2D.instance.isBossDirecting = true;
-        CharacterController2D.instance.playerHitHandler.isInvincible = true;
-        
-        //화면전환
-        bossCamera.gameObject.SetActive(true);
-        
-        //화면 전환까지 걸리는 시간
-        yield return new WaitForSeconds(0.9f);
-        
-        hpSlider.gameObject.GetComponent<Animator>().SetBool("IsEnd", true);
-        //보스 사망 에니메이션 재생
-        bossGFX.SetBool("IsDead", true);
-        
+        StartDirection();
+        yield return TransitionScreen(0.9f);
+        EndBossLife();
         yield return new WaitForSeconds(3f);
-        hpSlider.gameObject.SetActive(false);
-        
-        InitWakeDirecting();
+        DeactivateBossUI();
+        InitDirection();
     }
 
-    public void InitWakeDirecting()
+    private void StartDirection()
+    {
+        isDirecting = true;
+        CharacterController2D.instance.isBossDirecting = true;
+        CharacterController2D.instance.playerHitHandler.isInvincible = true;
+        bossCamera.gameObject.SetActive(true);
+    }
+
+    private IEnumerator TransitionScreen(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
+
+    private void ActivateBossUI()
+    {
+        bossTitle.SetActive(true);
+        hpSlider.gameObject.SetActive(true);
+        bossGFX.SetBool("IsWake", true);
+    }
+
+    private void EndWakeDirection()
+    {
+        bossGFX.GetComponentInParent<BossHitHandler>().isInvincible = false;
+        bossGFX.SetBool("IsWake", false);
+        InitDirection();
+    }
+
+    private void EndBossLife()
+    {
+        hpSlider.GetComponent<Animator>().SetBool("IsEnd", true);
+        bossGFX.SetBool("IsDead", true);
+    }
+
+    private void DeactivateBossUI()
+    {
+        hpSlider.gameObject.SetActive(false);
+    }
+
+    private void InitDirection()
     {
         bossCamera.gameObject.SetActive(false);
-        bossTitle.gameObject.SetActive(false);
+        bossTitle.SetActive(false);
         isDirecting = false;
         gameObject.SetActive(false);
         CharacterController2D.instance.isBossDirecting = false;
         CharacterController2D.instance.playerHitHandler.isInvincible = false;
     }
 }
+

@@ -7,57 +7,43 @@ using UnityEngine;
 /// </summary>
 public class PlayerEventKey : MonoBehaviour
 {
-    /// <summary>
+     /// <summary>
     /// 기본 공격의 데미지를 주는 함수
     /// </summary>
     public void Player_DoBasicDamege()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
         charCon2D.playerAttack.attackParticle.Play();
-        float xOffset = charCon2D.m_FacingRight ? 1 : -1;
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.playerOffset_Y), charCon2D.playerAttack.hitBoxSize, 0f);
-        
-        for (int i = 0; i < basicHitBox.Length; i++)
-        {
-            if (basicHitBox[i].gameObject != null && (basicHitBox[i].CompareTag("Enemy") || basicHitBox[i].CompareTag("Boss")))
-            {
-                string methodName = "Enemy_ApplyDamage";
-                float damage = 0 + charCon2D.playerdata.playerATK;
-                
-                if (basicHitBox[i].CompareTag("Enemy"))
-                {
-                    basicHitBox[i].gameObject.SendMessage(methodName, damage);
-                }
-                else if(basicHitBox[i].CompareTag("Boss"))
-                {
-                    basicHitBox[i].gameObject.GetComponentInParent<BossHitHandler>().gameObject.SendMessage(methodName, damage);
-                }
-            }
-        }
+        float damage = charCon2D.playerdata.playerATK;
+        Vector2 hitBoxPosition = new Vector2(transform.position.x + (charCon2D.m_FacingRight ? 1 : -1) * charCon2D.playerAttack.playerOffset_X, transform.position.y + 1 + charCon2D.playerAttack.playerOffset_Y);
+        ApplyDamage(hitBoxPosition, charCon2D.playerAttack.hitBoxSize, damage);
     }
-    
+
     public void Player_DoKnifeDamage()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
         WeaponData weaponDataScript = WeaponData.instance;
         charCon2D.playerAttack.attackParticle.Play();
-        float xOffset = charCon2D.m_FacingRight ? 1 : -1;
-        Collider2D[] basicHitBox = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + (xOffset * charCon2D.playerAttack.weaponManager.playerOffset_X), transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y), charCon2D.playerAttack.weaponManager.hitBoxSize, 0f);
-        
-        for (int i = 0; i < basicHitBox.Length; i++)
+        float damage = weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name) + charCon2D.playerdata.playerATK;
+        Vector2 hitBoxPosition = new Vector2(transform.position.x + (charCon2D.m_FacingRight ? 1 : -1) * charCon2D.playerAttack.weaponManager.playerOffset_X, transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y);
+        ApplyDamage(hitBoxPosition, charCon2D.playerAttack.weaponManager.hitBoxSize, damage);
+    }
+
+    private void ApplyDamage(Vector2 hitBoxPosition, Vector2 hitBoxSize, float damage)
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitBoxPosition, hitBoxSize, 0f);
+        foreach (Collider2D collider in hitColliders)
         {
-            if (basicHitBox[i].gameObject != null && (basicHitBox[i].CompareTag("Enemy") || basicHitBox[i].CompareTag("Boss")))
+            if (collider.gameObject != null && (collider.CompareTag("Enemy") || collider.CompareTag("Boss")))
             {
                 string methodName = "Enemy_ApplyDamage";
-                float damage = weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name) + charCon2D.playerdata.playerATK;
-                
-                if (basicHitBox[i].CompareTag("Enemy"))
+                if (collider.CompareTag("Enemy"))
                 {
-                    basicHitBox[i].gameObject.SendMessage(methodName, damage);
+                    collider.gameObject.SendMessage(methodName, damage);
                 }
-                else if(basicHitBox[i].CompareTag("Boss"))
+                else if (collider.CompareTag("Boss"))
                 {
-                    basicHitBox[i].gameObject.GetComponentInParent<BossHitHandler>().gameObject.SendMessage(methodName, damage);
+                    collider.gameObject.GetComponentInParent<BossHitHandler>().gameObject.SendMessage(methodName, damage);
                 }
             }
         }

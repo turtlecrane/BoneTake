@@ -87,64 +87,60 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (bossHitHandler == null && enemyAIscript != null)
         {
-            if (!canTalkToNPC && canExtractBones && m_boneExtractionTime != 0f && !enemyAIscript.enemyHitHandler.isExtracted)
-            {
-                charCon2D.animator.SetBool("IsBoneTaking", true);
-                charCon2D.animator.SetBool("IsBoneTakeIntro", true);
-                isExtractingBones = true;
-                boneExtractCount += Time.deltaTime;
-                //카메라 줌
-                followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f; //0.001f;
-            
-                if (boneExtractCount >= m_boneExtractionTime)
+            PerformBoneExtraction(
+                !enemyAIscript.enemyHitHandler.isExtracted,
+                () =>
                 {
-                    charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;  //무기타입 교체
-                    charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;  //무기이름 교체
-                    charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName); //무기 이름에따른 무기 HP 부여
-                    StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
-                    enemyAIscript.enemyHitHandler.isExtracted = true; //발골된 시체임을 구분
+                    charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;
+                    charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;
+                    charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName);
+                    enemyAIscript.enemyHitHandler.isExtracted = true;
                 }
-            }
+            );
         }
-        else if(bossHitHandler != null && enemyAIscript == null)
+        else if (bossHitHandler != null && enemyAIscript == null)
         {
-            if (!canTalkToNPC && canExtractBones && m_boneExtractionTime != 0f && !bossHitHandler.isExtracted)
-            {
-                charCon2D.animator.SetBool("IsBoneTaking", true);
-                charCon2D.animator.SetBool("IsBoneTakeIntro", true);
-                isExtractingBones = true;
-                boneExtractCount += Time.deltaTime;
-                //카메라 줌
-                followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f;
-            
-                //발골완료 로직
-                if (boneExtractCount >= m_boneExtractionTime)
+            PerformBoneExtraction(
+                !bossHitHandler.isExtracted,
+                () =>
                 {
-                    Debug.Log("발골완료!!");
-
                     foreach (var weapon in bossHitHandler.weaponName)
                     {
                         itemSelectPanel.CreateItemSelection(weapon, () =>
                         {
-                            //발골 자랑
                             StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
                         });
                         itemSelectPanel.gameObject.SetActive(true);
                         itemSelectPanel.gameObject.GetComponent<Image>()
                             .DOFade(0.8f, 1f)
                             .SetUpdate(UpdateType.Normal, true)
-                            .OnComplete(()=>
+                            .OnComplete(() =>
                             {
                                 itemSelectPanel.SortSelectedItems();
                             });
                     }
-                    
-                    //발골된 시체임을 구분
-                    bossHitHandler.isExtracted = true; 
+                    bossHitHandler.isExtracted = true;
                 }
+            );
+        }
+    }
+
+    private void PerformBoneExtraction(bool condition, Action onComplete)
+    {
+        if (!canTalkToNPC && canExtractBones && m_boneExtractionTime != 0f && condition)
+        {
+            charCon2D.animator.SetBool("IsBoneTaking", true);
+            charCon2D.animator.SetBool("IsBoneTakeIntro", true);
+            isExtractingBones = true;
+            boneExtractCount += Time.deltaTime;
+            followCameraController.virtualCamera.m_Lens.OrthographicSize -= 0.01f;
+
+            if (boneExtractCount >= m_boneExtractionTime)
+            {
+                onComplete();
+                StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
             }
         }
-        
     }
 
     private void CancelBoneTake()
@@ -220,7 +216,6 @@ public class PlayerInteraction : MonoBehaviour
             npcCollision = collision;
             canTalkToNPC = true;
         }
-        
         canInteraction = true;
     }
 

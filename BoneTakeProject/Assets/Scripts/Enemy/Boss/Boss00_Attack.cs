@@ -16,43 +16,55 @@ public class Boss00_Attack : BossAttack
     void Update()
     {
         isAttacking = IsCurrentAnimationTag("attack");
-        
+    
         // 플레이어 오브젝트 찾기
         if (player == null)
         {
-            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-            if (playerObject != null) player = playerObject.transform;
+            player = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
 
-        if (player != null && !bossHitHandler.isStun && !bossHitHandler.isCorpseState && !bossDirection.isDirecting && !CharacterController2D.instance.playerHitHandler.isDead)
+        if (CanTrackingPlayer())
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            Vector3 playerDirection = player.position - transform.position;
-
-            if (!isAttacking)
-            {
-                // 플레이어 방향을 바라보도록 설정
-                if (playerDirection.x < 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    facingRight = false;
-                }
-                else
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                    facingRight = true;
-                }
-                
-                if (distanceToPlayer <= closeAttackDistance) 
-                    animator.SetBool("Attack01", true);
-                else if (closeAttackDistance < distanceToPlayer && distanceToPlayer < farAttackDistance)
-                    animator.SetBool("Attack02", true);
-                else if (farAttackDistance <= distanceToPlayer)
-                    animator.SetBool("Attack03", true);
-            }
+            UpdateTowardsPlayer(player.position - transform.position);
+            PerformAttackOnDistance(distanceToPlayer);
         }
     }
 
+    private bool CanTrackingPlayer()
+    {
+        return player != null && 
+               !bossHitHandler.isStun && 
+               !bossHitHandler.isCorpseState && 
+               !bossDirection.isDirecting && 
+               !CharacterController2D.instance.playerHitHandler.isDead;
+    }
+
+    private void UpdateTowardsPlayer(Vector3 playerDirection)
+    {
+        if (!isAttacking)
+        {
+            transform.localScale = new Vector3(playerDirection.x < 0 ? -1 : 1, 1, 1);
+            facingRight = playerDirection.x >= 0;
+        }
+    }
+
+    private void PerformAttackOnDistance(float distanceToPlayer)
+    {
+        if (distanceToPlayer <= closeAttackDistance) 
+        {
+            animator.SetBool("Attack01", true);
+        }
+        else if (distanceToPlayer < farAttackDistance)
+        {
+            animator.SetBool("Attack02", true);
+        }
+        else
+        {
+            animator.SetBool("Attack03", true);
+        }
+    }
+    
     /// <summary>
     /// 중거리공격의 돌진로직
     /// </summary>

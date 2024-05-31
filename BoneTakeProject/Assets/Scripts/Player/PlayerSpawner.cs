@@ -17,19 +17,16 @@ public class PlayerSpawner : MonoBehaviour
         StartCoroutine(FadeIn());
         if (!GameObject.FindWithTag("Player"))
         {
-            //Debug.Log("플레이어가 존재하지않습니다. 플레이어를 생성합니다.");
             player = Instantiate(playerSystemPrefab, SpawnPoint.position, SpawnPoint.rotation);
         }
         else
         {
-            //Debug.Log("플레이어가 이미 존재합니다.");
             return;
         }
     }
 
     public IEnumerator FadeIn()
     {
-        //Debug.Log("페이드인");
         fadePanel.gameObject.SetActive(true);
         
         Color color = fadePanel.color;
