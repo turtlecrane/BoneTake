@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss00_Attack : BossAttack
 {
-    [Header("Boss00 Variables")] 
+    [Header("Boss00 Variables")]
     public ParticleSystem dustParticle;
     public Boss00_EventKeyController eventKeyController;
     public Transform shootPoint;
@@ -25,8 +26,8 @@ public class Boss00_Attack : BossAttack
 
         if (CanTrackingPlayer())
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            UpdateTowardsPlayer(player.position - transform.position);
+            float distanceToPlayer = Vector2.Distance(bossTranform.transform.position, player.position);
+            UpdateTowardsPlayer(player.position - bossTranform.transform.position);
             PerformAttackOnDistance(distanceToPlayer);
         }
     }
@@ -44,7 +45,7 @@ public class Boss00_Attack : BossAttack
     {
         if (!isAttacking)
         {
-            transform.localScale = new Vector3(playerDirection.x < 0 ? -1 : 1, 1, 1);
+            bossTranform.transform.localScale = new Vector3(playerDirection.x < 0 ? -1 : 1, 1, 1);
             facingRight = playerDirection.x >= 0;
         }
     }
@@ -71,19 +72,20 @@ public class Boss00_Attack : BossAttack
     /// <returns></returns>
     public IEnumerator DashAttack()
     {
-        float dashDirection = transform.localScale.x; // 보스 몬스터가 바라보는 방향
-        Vector3 dashVector = new Vector3(dashDirection, 0, 0); // 돌진 벡터
-
+        float dashDirection = bossTranform.transform.localScale.x; // 보스 몬스터가 바라보는 방향
+        Vector2 dashVector = new Vector2(dashDirection, 0) * dashSpeed; // 돌진 벡터
+        
         float dashDuration = 0.65f; // 돌진 지속 시간
         float dashTime = 0f; // 돌진 시간 추적
-        
+    
         while (dashTime < dashDuration)
         {
-            transform.Translate(dashVector * dashSpeed * Time.deltaTime, Space.World);
+            rb.MovePosition(rb.position + dashVector * Time.deltaTime);
             dashTime += Time.deltaTime;
             yield return null;
         }
     }
+
 
     /// <summary>
     /// 투사체 발사
@@ -115,7 +117,7 @@ public class Boss00_Attack : BossAttack
     public void Boss00_DoDamage()
     {
         float xOffset = facingRight ? -1 : 1;
-        Vector2 hitboxCenter = new Vector2(transform.position.x + (xOffset * eventKeyController.hitBoxOffset_X), transform.position.y + eventKeyController.hitBoxOffset_Y);
+        Vector2 hitboxCenter = new Vector2(bossTranform.transform.position.x + (xOffset * eventKeyController.hitBoxOffset_X), bossTranform.transform.position.y + eventKeyController.hitBoxOffset_Y);
         Collider2D[] hitBox = Physics2D.OverlapBoxAll(hitboxCenter, eventKeyController.hitBoxSize,0f);
         
         for (int i = 0; i < hitBox.Length; i++)

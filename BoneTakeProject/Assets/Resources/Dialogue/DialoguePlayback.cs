@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
+using KoreanTyper;
 using System.Collections.Generic;
 using CleverCrow.Fluid.Databases;
 using CleverCrow.Fluid.Dialogues.Graphs;
 using UnityEngine;
 using UnityEngine.UI;
-using CleverCrow.Fluid.Dialogues.Graphs;
 using CleverCrow.Fluid.Dialogues;
 using CleverCrow.Fluid.Dialogues.Choices;
-using DG.Tweening;
 using TMPro;
 
 public class DialoguePlayback : MonoBehaviour {
@@ -24,7 +24,10 @@ public class DialoguePlayback : MonoBehaviour {
     public ChoiceButton choicePrefab; //선택버튼 프리팹
     public Sprite blank;
 
-    [SerializeField] private float textDuration;
+    private float textDuration;
+    private bool isAllTyped;
+    private bool isSkiped;
+    private bool isDialogueChanged;
 
     public void PlayDialogue(DialogueGraph _dialogue) {
         var database = new DatabaseInstance();
@@ -33,12 +36,20 @@ public class DialoguePlayback : MonoBehaviour {
         // @NOTE 오디오가 필요하지 않은 경우 이것 대신 _ctrl.Events.Speak((actor, text) => {})를 호출하세요.
         _ctrl.Events.SpeakWithAudio.AddListener((actor, text, audioClip) => {
             HandleDialogue(actor, text, audioClip);
-            StartCoroutine(NextDialogue());
+            StartCoroutine(NextDialogue(text, () =>
+            {
+                isDialogueChanged = true;
+                _ctrl.Next();
+            }));
         });
 
         _ctrl.Events.Choice.AddListener((actor, text, choices) => {
             HandleDialogue(actor, text, null);
-            DisplayChoices(choices);
+            StartCoroutine(NextDialogue(text, () =>
+            {
+                isDialogueChanged = true;
+                DisplayChoices(choices);
+            }));
         });
 
         _ctrl.Events.End.AddListener(() => {
@@ -46,7 +57,6 @@ public class DialoguePlayback : MonoBehaviour {
         });
 
         _ctrl.Events.NodeEnter.AddListener((node) => {
-            Debug.Log($"Node Enter: {node.GetType()} \n - {node.UniqueId}");
             if (node.GetType().ToString() == "CleverCrow.Fluid.Dialogues.Nodes.NodeRoot")
             {
                 leftPortrait.sprite = blank;
@@ -57,6 +67,11 @@ public class DialoguePlayback : MonoBehaviour {
         _ctrl.Play(_dialogue);
     }
 
+    /// <summary>
+    /// 다이얼로그 표시
+    /// </summary>
+    /// <param name="actor">화자</param>
+    /// <param name="text">대화 내용</param>
     private void HandleDialogue(IActor actor, string text, AudioClip audioClip) {
         // 설정된 텍스트 속도 가져오기
         float textDuration = PlayerPrefs.GetFloat("textSpeedSelected", 0.5f);
@@ -74,10 +89,16 @@ public class DialoguePlayback : MonoBehaviour {
             SetPortraits(rightPortrait, leftPortrait, actor.Portrait, actor.DisplayName);
         }
         
-        contentText.text = text;
-        TMPDOText(contentText, textDuration); // (빠르게 = 0.1f, 보통 = 0.5f, 느리게 = 1f)
+        StartCoroutine(TypingCoroutine(contentText, text, textDuration));
     }
 
+    /// <summary>
+    /// 초상화 표시
+    /// </summary>
+    /// <param name="activePortrait">활성상태의 초상화</param>
+    /// <param name="inactivePortrait">비활성상태의 초상화</param>
+    /// <param name="portrait">초상화 스프라이트</param>
+    /// <param name="actorName">화자의 이름</param>
     private void SetPortraits(Image activePortrait, Image inactivePortrait, Sprite portrait, string actorName) {
         activePortrait.sprite = portrait;
         name.text = actorName;
@@ -91,38 +112,90 @@ public class DialoguePlayback : MonoBehaviour {
         activePortrait.color = activeColor;
     }
 
+    /// <summary>
+    /// 선택(분기)버튼 생성,표시
+    /// </summary>
+    /// <param name="choices"></param>
     private void DisplayChoices(List<IChoice> choices) {
         choices.ForEach(c => {
             var choice = Instantiate(choicePrefab, choiceList);
             choice.contentText.text = c.Text;
-            choice.clickEvent.AddListener(_ctrl.SelectChoice);
+            choice.clickEvent.AddListener(_ctrl.SelectChoice); //다이얼로그 전환
         });
     }
     
+    /// <summary>
+    /// 선택(분기)버튼 초기화
+    /// </summary>
     private void ClearChoices () {
         foreach (Transform child in choiceList) {
             Destroy(child.gameObject);
         }
     }
-
-    private IEnumerator NextDialogue () {
-        yield return null;
-
-        while (!Input.GetMouseButtonDown(0)) {
-            yield return null;
+    
+    /// <summary>
+    /// 기본 다이얼로그에서 다음 다이얼로그로 전환
+    /// </summary>
+    private IEnumerator NextDialogue(string _text, Action _transitionAction)
+    {
+        while (true) // 무한 루프로 계속 클릭 감지
+        {
+            if (Input.GetMouseButtonDown(0)) // 클릭 감지
+            {
+                if (!isAllTyped) // 텍스트가 아직 모두 출력되지 않았다면
+                {
+                    if (!isDialogueChanged)
+                    {
+                        Debug.Log("대화 스킵");
+                        isSkiped = true;
+                        contentText.text = _text;
+                        yield return new WaitForSecondsRealtime(0.1f);
+                        isSkiped = false;
+                        isAllTyped = true;
+                        yield return null;
+                    }
+                        
+                    yield return null;
+                }
+                else // 텍스트가 모두 출력되었다면
+                {
+                    _transitionAction?.Invoke();
+                    break; // 코루틴에서 탈출
+                }
+            }
+            else // 클릭이 감지되지 않았다면
+            {
+                // 다음 프레임까지 대기
+                yield return null;
+            }
         }
-
-        _ctrl.Next();
     }
 
-    private void Update () {
-        // Required to run actions that may span multiple frames
+
+    private void Update () 
+    {
+        // 여러 프레임에 걸쳐 있을 수 있는 작업을 실행하는 데 필요
         _ctrl.Tick();
     }
 
-    public static void TMPDOText(TextMeshProUGUI textMesh, float duration)
+    /// <summary>
+    /// 다이얼로그 텍스트 타이핑효과
+    /// </summary>
+    public IEnumerator TypingCoroutine(TextMeshProUGUI textMesh, string str, float duration) 
     {
-        textMesh.maxVisibleCharacters = 0;
-        DOTween.To(x => textMesh.maxVisibleCharacters = (int)x, 0f, textMesh.text.Length, duration).SetUpdate(UpdateType.Normal, true);
+        textMesh.text = "";                                   // 초기화
+        isAllTyped = false;
+        yield return new WaitForSecondsRealtime(0.1f);     // 0.1초 대기
+
+        int strTypingLength = str.GetTypingLength();          // 최대 타이핑 수 구함
+        for(int  i = 0 ; i <= strTypingLength ; i ++ ) {      // 반복문
+            isDialogueChanged = false;
+            if (isSkiped) break;
+            
+            textMesh.text = str.Typing(i);                    // 타이핑
+            yield return new WaitForSecondsRealtime(duration);           //타이핑속도
+            
+            if (i == strTypingLength) isAllTyped = true;
+        }
     }
 }

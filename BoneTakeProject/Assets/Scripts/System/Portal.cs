@@ -22,7 +22,7 @@ public class Portal : MonoBehaviour
     
     public IEnumerator FadeOut(Collider2D other)
     {
-        Debug.Log("페이드 아웃");
+        //Debug.Log("페이드 아웃");
         fadePanel.gameObject.SetActive(true);
         fadePanel.DOFade(1f, 1f);
         yield return new WaitForSeconds(1f);

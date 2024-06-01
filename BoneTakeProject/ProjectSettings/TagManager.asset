@@ -12,6 +12,7 @@ TagManager:
   - PlayerFollowCamera
   - BossTrigger
   - Boss
+  - dumpedWeapon
   layers:
   - Default
   - TransparentFX

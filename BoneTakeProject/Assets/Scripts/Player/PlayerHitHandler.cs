@@ -147,9 +147,7 @@ public class PlayerHitHandler : MonoBehaviour
         {
             isSmallKnockBack = true;
             isInvincible = true;
-            charCon2D.canMove = false;
             yield return new WaitForSeconds(hitInvincibleTime); //1초동안 무적상태
-            charCon2D.canMove = true;
             isInvincible = false;
             isSmallKnockBack = false;
             charCon2D.animator.SetBool("IsKnockBackEnd", true);

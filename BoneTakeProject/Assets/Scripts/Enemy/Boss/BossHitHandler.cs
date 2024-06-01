@@ -83,6 +83,11 @@ public class BossHitHandler : MonoBehaviour
         Blink();
         nowLife -= damage;
 
+        if (nowLife <= 0)
+        {
+            PlayerDataManager.instance.nowPlayer.killedTypeOfBosses.Add(gameObject.name);
+        }
+
         if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic && 
             charCon2D.playerAttack.weapon_type != Weapon_Type.etc)
         {
@@ -119,18 +124,17 @@ public class BossHitHandler : MonoBehaviour
         {
             collider.isTrigger = isTrigger;
         }
+        bossAttack.rb.velocity = Vector2.zero;
+        bossAttack.rb.gravityScale = 0f;
     }
 
     private IEnumerator StunCoroutine()
     {
         if (isStun) yield break;
-
-        Debug.Log("스턴시작");
         isStun = true;
         bossAttack.animator.SetBool("IsStun", true);
         yield return new WaitForSeconds(5f);
         isStun = false;
         bossAttack.animator.SetBool("IsStun", false);
-        Debug.Log("스턴끝");
     }
 }

@@ -3476,6 +3476,7 @@ MonoBehaviour:
     playerATK: 0
     playerMaxHP: 0
     playerHP: 0
+    killedTypeOfBosses: []
   m_MovementSmoothing: 0.05
   climbingDirect: 0
   m_AirControl: 1
@@ -3566,6 +3567,7 @@ MonoBehaviour:
   itemSelectPanel: {fileID: 6375106547095084390}
   enemyAIscript: {fileID: 0}
   bossHitHandler: {fileID: 0}
+  dumpedWeapon: {fileID: 138789933321409497, guid: 2ce3fcc767f9e99419b3d4b18e317772, type: 3}
   isInteractiveCamera: 0
   canInteraction: 0
   canExtractBones: 0
@@ -5050,7 +5052,6 @@ MonoBehaviour:
   choiceList: {fileID: 2688453249636549749}
   choicePrefab: {fileID: 6392792010350618602, guid: 529aa2ea5cf6c4c408958eaeb468c7ed, type: 3}
   blank: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
-  textDuration: 0
 --- !u!1 &5867189687928426316
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253870086365472971, guid: f5d239fdc7bd439449e4432a87c3506f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.012
+      value: 1.518
       objectReference: {fileID: 0}
     - target: {fileID: 6253870086365472971, guid: f5d239fdc7bd439449e4432a87c3506f, type: 3}
       propertyPath: m_LocalPosition.y

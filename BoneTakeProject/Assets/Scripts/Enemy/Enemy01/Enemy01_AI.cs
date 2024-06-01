@@ -46,7 +46,7 @@ public class Enemy01_AI : EnemyAI
         CheckisGround();
         Flip();
         
-        if (path == null && !canTracking)
+        if (path == null && !canTracking && enemyHitHandler.life > 0)
         {
             //무작위 이동
             NonTrackingAutoMove();
@@ -66,8 +66,8 @@ public class Enemy01_AI : EnemyAI
                 }
             }
             CalculatePathDirection();
-            if (canTracking && canMove && !charCon2D.playerHitHandler.isDead) EnemyMoving();
-            else if (!canTracking && !charCon2D.playerHitHandler.isDead)
+            if (canTracking && canMove && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0) EnemyMoving();
+            else if (!canTracking && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0)
             {
                 NonTrackingAutoMove();
             }

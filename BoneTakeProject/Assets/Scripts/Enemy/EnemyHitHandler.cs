@@ -83,9 +83,8 @@ public class EnemyHitHandler : MonoBehaviour
 
             // 넉백 방향 결정 (플레이어 캐릭터가 왼쪽에 있으면 오른쪽으로, 오른쪽에 있으면 왼쪽으로 넉백)
             float knockbackForce = knockbackDirection * Mathf.Abs(knockbackBasicForce);
-            
             rb.AddForce(new Vector2(knockbackForce, 0)); // 넉백 적용
-
+            
             // 히트 효과 코루틴 실행
             StartCoroutine(HitTime());
         }

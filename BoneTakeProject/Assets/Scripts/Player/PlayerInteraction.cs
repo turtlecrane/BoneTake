@@ -6,6 +6,7 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
     public ItemSelectUI itemSelectPanel;
     [HideInInspector] public EnemyAI enemyAIscript;
     [HideInInspector] public BossHitHandler bossHitHandler;
+    public DumpedWeapon dumpedWeapon;
     
     [Header("State")]
     public bool isInteractiveCamera;
@@ -78,14 +80,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (canTalkToNPC)
         {
-            Debug.Log("NPC와 상호작용");
-            npcCollision.gameObject.SendMessage("NpcInteraction",dialoguePlayback);//DialoguePlayback
+            //Debug.Log("NPC와 상호작용");
+            npcCollision.gameObject.SendMessage("NpcInteraction",dialoguePlayback);
         }
     }
 
     private void ContinueBoneExtraction()
     {
-        if (bossHitHandler == null && enemyAIscript != null)
+        if (bossHitHandler == null && enemyAIscript != null && canExtractBones)
         {
             PerformBoneExtraction(
                 !enemyAIscript.enemyHitHandler.isExtracted,
@@ -98,7 +100,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             );
         }
-        else if (bossHitHandler != null && enemyAIscript == null)
+        else if (bossHitHandler != null && enemyAIscript == null && canExtractBones)
         {
             PerformBoneExtraction(
                 !bossHitHandler.isExtracted,
@@ -137,10 +139,42 @@ public class PlayerInteraction : MonoBehaviour
 
             if (boneExtractCount >= m_boneExtractionTime)
             {
-                onComplete();
+                //1. 현재 플레이어가 착용중인 무기가 basic이나 etc가 아니라면,
+                if (PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.Basic)
+                {
+                    //2. dumpedWeapon 프리팹 생성 (이 스크립트를 가진 오브젝트의 위치의 약간 위에서)
+                    GameObject wp = Instantiate(dumpedWeapon.gameObject, transform.position + Vector3.up, Quaternion.identity);
+                    DumpedWeapon wpscript = wp.GetComponent<DumpedWeapon>();
+                    
+                    //3. 프리팹에 현재 착용중인 무기의 정보를 저장
+                    wpscript.weaponType = charCon2D.playerAttack.weapon_type;
+                    wpscript.weaponName = charCon2D.playerAttack.weapon_name;
+                    wpscript.weaponHP = charCon2D.playerAttack.weaponManager.weaponLife;
+                    SetWeaponIcon(wpscript.spriteRenderer.sprite, charCon2D.playerAttack.weapon_name);
+                    
+                    //4. 프리팹을 윗방향으로 힘을 주기 (마치 분수처럼 랜덤한 윗방향으로)
+                    Vector2 forceDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;
+                    wpscript.rb.AddForce(forceDirection * Random.Range(1000f, 1000f)); // 힘의 정도를 조절하세요.
+                }
+                onComplete(); //5. 그다음 무기교체(or 무기선택 연출)
                 StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
             }
         }
+    }
+
+    private void SetWeaponIcon(Sprite _sprite, Weapon_Name _weaponName)
+    {
+        float hpPercentage = (float)charCon2D.playerAttack.weaponManager.weaponLife / weaponDataScript.GetName_WeaponLifeCount(_weaponName);
+        Debug.Log(hpPercentage);
+        /*if (hpPercentage > 0.35f)
+        {
+            _sprite = weaponDataScript.weaponGFXSource.freshIcon[weaponDataScript.GetName_WeaponID(_weaponName)];
+        }
+        else
+        {
+            _sprite = weaponDataScript.weaponGFXSource.rottenIcon[weaponDataScript.GetName_WeaponID(_weaponName)];
+        }*/
+
     }
 
     private void CancelBoneTake()

@@ -92,7 +92,7 @@ public class CharacterController2D : MonoBehaviour
     private void Update()
     {
         //상태에 따라 레이어 변경
-        gameObject.layer = isDashAttacking ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
+        gameObject.layer = isDashAttacking||playerHitHandler.isInvincible ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
 
         #region 체력 시스템 ... TESTCODE
 

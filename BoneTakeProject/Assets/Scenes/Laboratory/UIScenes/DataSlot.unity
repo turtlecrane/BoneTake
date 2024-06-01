@@ -343,6 +343,7 @@ MonoBehaviour:
     playerATK: 10
     playerMaxHP: 3
     playerHP: 3
+    killedTypeOfBosses: []
 --- !u!4 &68731244
 Transform:
   m_ObjectHideFlags: 0

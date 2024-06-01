@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8853309717385358787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 83a4528d-807c-431a-a8f4-9eff08c115e5
+  rect:
+    serializedVersion: 2
+    x: 50743
+    y: 49768
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: -2228671152740490172}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: pain that produces no resultant pleasure? On the other hand, we denounce
+    with righteous indignation and dislike men who are so beguiled and demoralized
+    by the charms of pleasure of the moment
 --- !u!114 &-8530744585724952825
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,36 +75,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB098\uB3C4 \uC870\uC544"
---- !u!114 &-7785425966250872016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  _uniqueId: 44d2209a-3d64-43cb-8e66-3fd609d4a112
-  rect:
-    serializedVersion: 2
-    x: 50208
-    y: 50327
-    width: 200
-    height: 142
-  nodeTitle: 
-  children:
-  - {fileID: -2228671152740490172}
-  conditions: []
-  enterActions: []
-  exitActions: []
-  choices: []
-  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
-  audio: {fileID: 0}
-  dialogue: "\uAC00\uC2B4 \uC18D\uC5D0\uC11C \uB118\uCCD0 \uB098\uC62C \uB54C"
+  dialogue: "\uC120\uD0DD\uC9C0\uB97C \uD14C\uC2A4\uD2B8 \uD560\uAC70\uC5D0\uC694"
 --- !u!114 &-7156900043944479529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +104,16 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBC29\uAD6C \uBFE1\uBFE1\uB760 \uBC29\uAD6C \uBFE1\uBFE1\uB760"
+  dialogue: "\uAD6D\uAC00\uB294 \uB18D\xB7\uC5B4\uBBFC\uACFC \uC911\uC18C\uAE30\uC5C5\uC758
+    \uC790\uC870\uC870\uC9C1\uC744 \uC721\uC131\uD558\uC5EC\uC57C \uD558\uBA70, \uADF8
+    \uC790\uC728\uC801 \uD65C\uB3D9\uACFC \uBC1C\uC804\uC744 \uBCF4\uC7A5\uD55C\uB2E4.
+    \uACF5\uBB34\uC6D0\uC740 \uAD6D\uBBFC\uC804\uCCB4\uC5D0 \uB300\uD55C \uBD09\uC0AC\uC790\uC774\uBA70,
+    \uAD6D\uBBFC\uC5D0 \uB300\uD558\uC5EC \uCC45\uC784\uC744 \uC9C4\uB2E4.\r\n\r\n\uC0C8\uB85C\uC6B4
+    \uD68C\uACC4\uC5F0\uB3C4\uAC00 \uAC1C\uC2DC\uB420 \uB54C\uAE4C\uC9C0 \uC608\uC0B0\uC548\uC774
+    \uC758\uACB0\uB418\uC9C0 \uBABB\uD55C \uB54C\uC5D0\uB294 \uC815\uBD80\uB294 \uAD6D\uD68C\uC5D0\uC11C
+    \uC608\uC0B0\uC548\uC774 \uC758\uACB0\uB420 \uB54C\uAE4C\uC9C0 \uB2E4\uC74C\uC758
+    \uBAA9\uC801\uC744 \uC704\uD55C \uACBD\uBE44\uB294 \uC804\uB144\uB3C4 \uC608\uC0B0\uC5D0
+    \uC900\uD558\uC5EC \uC9D1\uD589\uD560 \uC218 \uC788\uB2E4."
 --- !u!114 &-6876163472941655904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +214,34 @@ MonoBehaviour:
   _gameObjectName: SaveNPC_01
   _methodName: Save
   _options: 0
+--- !u!114 &-5370878494047795168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 6d2efd83-c500-4991-8ea5-9074b5282604
+  rect:
+    serializedVersion: 2
+    x: 51066
+    y: 50123
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "1\uBC88\uC744 \uC120\uD0DD\uD588\uC5B4\uC694"
 --- !u!114 &-4348388813425380694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: 1
   children:
-  - {fileID: -7156900043944479529}
+  - {fileID: -5370878494047795168}
   _uniqueId: b2310d8f-9c9b-4a4c-b7c6-a5631a575af5
 --- !u!114 &-4163523532444675185
 MonoBehaviour:
@@ -244,6 +283,34 @@ MonoBehaviour:
   enterActions:
   - {fileID: -5846103509194833538}
   exitActions: []
+--- !u!114 &-4085087771714225462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 850b2ac6-1ad2-488c-8125-a78e9e1ac39d
+  rect:
+    serializedVersion: 2
+    x: 51080
+    y: 50501
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "3\uBC88\uC744 \uC120\uD0DD\uD588\uC5B4\uC694"
 --- !u!114 &-3731489753917584864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uB098\uB9CC \uB9D0\uD574"
+  text: "\uC2A4\uD0B5 \uD14C\uC2A4\uD2B8"
   children:
   - {fileID: -7156900043944479529}
   _uniqueId: c33f0cc0-3d91-4955-a4aa-50f1613e803e
@@ -289,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: 2
   children:
-  - {fileID: -8412023604662870063}
+  - {fileID: 7108903336610702039}
   _uniqueId: a81d6641-16ae-49d5-9de0-66167b94d337
 --- !u!114 &-2290191590798582242
 MonoBehaviour:
@@ -319,7 +386,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB09C \uC2EB\uC740\uB370?"
+  dialogue: "\uC120\uD0DD\uC9C0\uB97C \uC120\uD0DD\uD574\uC8FC\uC138\uC694!"
 --- !u!114 &-2228671152740490172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,9 +412,9 @@ MonoBehaviour:
   enterActions: []
   exitActions: []
   choices:
+  - {fileID: -1187551152645091827}
   - {fileID: -3559626709951835745}
   - {fileID: 2677154003477676280}
-  - {fileID: 5165463344972896018}
   - {fileID: 4798908652777904483}
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
@@ -394,6 +461,52 @@ MonoBehaviour:
     \uB2E4 \uB05D\uB098\uB294 \uC634\uB2C8\uBC84\uC2A4\uC2DD \uAD6C\uC131\uC774\uBA70,
     \uC5B4\uB9B0\uC774 \uB9CC\uD654\uB2F5\uAC8C \uAD50\uD6C8\uC801\uC778 \uC5D0\uD53C\uC18C\uB4DC\uAC00
     \uB9CE\uB2E4. "
+--- !u!114 &-1900450517207103472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 79b9cfa3-ce69-4218-a68e-8dce4508694e
+  rect:
+    serializedVersion: 2
+    x: 50467
+    y: 49770
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: -8853309717385358787}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
+  audio: {fileID: 0}
+  dialogue: But I must explain to you how all this mistaken idea of denouncing pleasure
+    and praising pain was born and I will give you a complete account of the system
+--- !u!114 &-1187551152645091827
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
+  m_Name: Choice
+  m_EditorClassIdentifier: 
+  text: "\uC601\uC5B4 \uD0C0\uC774\uD551 \uD14C\uC2A4\uD2B8"
+  children:
+  - {fileID: 6569652379929138060}
+  _uniqueId: 17eea198-a26c-4ce6-bdc5-05fad25edaff
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +524,6 @@ MonoBehaviour:
   - {fileID: -2228671152740490172}
   - {fileID: -7156900043944479529}
   - {fileID: -8412023604662870063}
-  - {fileID: -7785425966250872016}
   - {fileID: -2290191590798582242}
   - {fileID: 6224516637602218029}
   - {fileID: 2255516996665784639}
@@ -425,8 +537,14 @@ MonoBehaviour:
   - {fileID: 3761977889122542092}
   - {fileID: -6581628614044527373}
   - {fileID: -4163523532444675185}
+  - {fileID: 6569652379929138060}
+  - {fileID: -1900450517207103472}
+  - {fileID: -8853309717385358787}
+  - {fileID: -4085087771714225462}
+  - {fileID: -5370878494047795168}
+  - {fileID: 7108903336610702039}
   root: {fileID: -6096672064785672316}
-  scrollPosition: {x: 49899.25, y: 50172.5}
+  scrollPosition: {x: 49486.25, y: 50020.5}
 --- !u!114 &2006116997301369411
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC559 \uAE30\uBAA8"
+  text: "\uC120\uD0DD\uC9C0 \uD14C\uC2A4\uD2B8"
   children:
   - {fileID: -8412023604662870063}
   _uniqueId: fb0bb3da-9696-4dda-a444-20f4b03591ec
@@ -566,7 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: 3
   children:
-  - {fileID: -7785425966250872016}
+  - {fileID: -4085087771714225462}
   _uniqueId: 2c993cc2-a271-412c-b5a5-e307096b1bb1
 --- !u!114 &4798908652777904483
 MonoBehaviour:
@@ -584,22 +702,6 @@ MonoBehaviour:
   children:
   - {fileID: -6581628614044527373}
   _uniqueId: 944f6e19-99fc-44cc-8766-4b1f0c5e56f8
---- !u!114 &5165463344972896018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
-  m_Name: Choice
-  m_EditorClassIdentifier: 
-  text: "NPC\uB9CC"
-  children:
-  - {fileID: -7785425966250872016}
-  _uniqueId: b8cda447-d744-4dbe-81ba-bf4cf3708724
 --- !u!114 &5906688869398970874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +776,65 @@ MonoBehaviour:
   - {fileID: -3400935081274660127}
   - {fileID: 3934117313788102755}
   - {fileID: -3731489753917584864}
+--- !u!114 &6569652379929138060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: a9763e96-a21c-4271-89ae-49dea3b7170f
+  rect:
+    serializedVersion: 2
+    x: 50205
+    y: 49769
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: -1900450517207103472}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: nter consequences that are extremely painful. Nor again is there anyone
+    who loves or pursues or desires to obtain pain of itself, because it is pain,
+    but because occasionally circumstances occur in which toil and p
+--- !u!114 &7108903336610702039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: b51ae0bd-e965-47f9-b64d-deea923b92a9
+  rect:
+    serializedVersion: 2
+    x: 51072
+    y: 50304
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "2\uBC88\uC744 \uC120\uD0DD\uD588\uC5B4\uC694"
 --- !u!114 &7229310665860915757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,5 +920,15 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB098\uB9CC \uACC4\uC18D \uB9D0\uD560\uAC70\uC57C \uC6B0\uD788\uD79B?
-    \uC6B0\uD788\uD788\uD79B? \uC6B0\uD79B \uBD80\uB8E8\uD6C4\uD79B\uD788.."
+  dialogue: "\uD0C4\uD575\uC18C\uCD94\uC758 \uC758\uACB0\uC744 \uBC1B\uC740 \uC790\uB294
+    \uD0C4\uD575\uC2EC\uD310\uC774 \uC788\uC744 \uB54C\uAE4C\uC9C0 \uADF8 \uAD8C\uD55C\uD589\uC0AC\uAC00
+    \uC815\uC9C0\uB41C\uB2E4. \uAD6D\uD68C\uB294 \uD5CC\uBC95 \uB610\uB294 \uBC95\uB960\uC5D0
+    \uD2B9\uBCC4\uD55C \uADDC\uC815\uC774 \uC5C6\uB294 \uD55C \uC7AC\uC801\uC758\uC6D0
+    \uACFC\uBC18\uC218\uC758 \uCD9C\uC11D\uACFC \uCD9C\uC11D\uC758\uC6D0 \uACFC\uBC18\uC218\uC758
+    \uCC2C\uC131\uC73C\uB85C \uC758\uACB0\uD55C\uB2E4. \uAC00\uBD80\uB3D9\uC218\uC778
+    \uB54C\uC5D0\uB294 \uBD80\uACB0\uB41C \uAC83\uC73C\uB85C \uBCF8\uB2E4.\r\n\r\n\uAD6D\uD68C\uC758\uC6D0\uC774
+    \uD68C\uAE30\uC804\uC5D0 \uCCB4\uD3EC \uB610\uB294 \uAD6C\uAE08\uB41C \uB54C\uC5D0\uB294
+    \uD604\uD589\uBC94\uC778\uC774 \uC544\uB2CC \uD55C \uAD6D\uD68C\uC758 \uC694\uAD6C\uAC00
+    \uC788\uC73C\uBA74 \uD68C\uAE30\uC911 \uC11D\uBC29\uB41C\uB2E4. \uB300\uD1B5\uB839\uC740
+    \uD5CC\uBC95\uACFC \uBC95\uB960\uC774 \uC815\uD558\uB294 \uBC14\uC5D0 \uC758\uD558\uC5EC
+    \uAD6D\uAD70\uC744 \uD1B5\uC218\uD55C\uB2E4."

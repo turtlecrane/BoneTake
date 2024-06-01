@@ -52,7 +52,7 @@ public class OptionManager : MonoBehaviour
     void InitializeToggleState()
     {
         // PlayerPrefs에서 저장된 Toggle 상태 불러오기
-        float savedToggle = PlayerPrefs.GetFloat("textSpeedSelected", 0.5f);
+        float savedToggle = PlayerPrefs.GetFloat("textSpeedSelected", 0.03f);
 
         // 저장된 값에 따라 해당 Toggle 활성화
         if(savedToggle == 1f)
@@ -69,9 +69,9 @@ public class OptionManager : MonoBehaviour
         }
 
         // Toggle 변화 이벤트에 메서드 연결
-        slow.onValueChanged.AddListener(delegate {OnToggleChanged(slow, 1f);});
-        normal.onValueChanged.AddListener(delegate {OnToggleChanged(normal, 0.5f);});
-        fast.onValueChanged.AddListener(delegate {OnToggleChanged(fast, 0.1f);});
+        slow.onValueChanged.AddListener(delegate {OnToggleChanged(slow, 0.1f);});
+        normal.onValueChanged.AddListener(delegate {OnToggleChanged(normal, 0.03f);});
+        fast.onValueChanged.AddListener(delegate {OnToggleChanged(fast, 0.01f);});
     }
 
     // Toggle 상태 변화시 호출될 메서드

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using UnityEngine.SceneManagement;
 
 
@@ -36,8 +38,9 @@ public class PlayerData
     
     //현재 체력
     public int playerHP = 3;
-    
-    //현재 위치(맵상 위치)
+
+    //처치한 보스의 종류
+    public List<string> killedTypeOfBosses = new List<string>();
 }
 
 
@@ -71,13 +74,13 @@ public class PlayerDataManager : MonoBehaviour
     public void SaveData()
     {
         string data = JsonUtility.ToJson(nowPlayer);
-        File.WriteAllText(path + nowSlot.ToString(), EncryptAndDecrypt(data));
+        File.WriteAllText(path + nowSlot.ToString(), Encrypt(data, keyWord));
     }
 
     public void LoadData()
     {
         string data = File.ReadAllText(path + nowSlot.ToString());
-        nowPlayer = JsonUtility.FromJson<PlayerData>(EncryptAndDecrypt(data));
+        nowPlayer = JsonUtility.FromJson<PlayerData>(Decrypt(data, keyWord));
     }
 
     public void DeleteData()
@@ -93,17 +96,54 @@ public class PlayerDataManager : MonoBehaviour
         nowSlot = _nowSlot;
         nowPlayer = new PlayerData();
     }
-
-    private string EncryptAndDecrypt(string data)
+    
+    public static string Decrypt(string textToDecrypt, string key)
     {
-        string resurt = "";
+        RijndaelManaged rijndaelCipher = new RijndaelManaged();
+        rijndaelCipher.Mode = CipherMode.CBC;
+        rijndaelCipher.Padding = PaddingMode.PKCS7;
+        rijndaelCipher.KeySize = 128;
+        rijndaelCipher.BlockSize = 128;
+        
+        byte[] encryptedData = Convert.FromBase64String(textToDecrypt);
+        byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
+        byte[] keyBytes = new byte[16];
+        
+        int len = pwdBytes.Length;
+        if (len > keyBytes.Length) len = keyBytes.Length;
 
-        for (int i = 0; i < data.Length; i++)
-        {
-            resurt += (char)(data[i] ^ keyWord[i % keyWord.Length]);
-        }
+        Array.Copy(pwdBytes, keyBytes, len);
+        rijndaelCipher.Key = keyBytes;
+        rijndaelCipher.IV = keyBytes;
 
-        return resurt;
-        //return data;
+        byte[] plainText = rijndaelCipher.CreateDecryptor().TransformFinalBlock(encryptedData, 0, encryptedData.Length);
+        return Encoding.UTF8.GetString(plainText);
     }
+
+ 
+
+        public static string Encrypt(string textToEncrypt, string key)
+        {
+            RijndaelManaged rijndaelCipher = new RijndaelManaged();
+            rijndaelCipher.Mode = CipherMode.CBC;
+            rijndaelCipher.Padding = PaddingMode.PKCS7;
+            rijndaelCipher.KeySize = 128;
+            rijndaelCipher.BlockSize = 128;
+
+            byte[] pwdBytes = Encoding.UTF8.GetBytes(key);
+            byte[] keyBytes = new byte[16];
+            
+            int len = pwdBytes.Length;
+            if (len > keyBytes.Length) len = keyBytes.Length;
+            
+            Array.Copy(pwdBytes, keyBytes, len);
+
+            rijndaelCipher.Key = keyBytes;
+            rijndaelCipher.IV = keyBytes;
+
+            ICryptoTransform transform = rijndaelCipher.CreateEncryptor();
+
+            byte[] plainText = Encoding.UTF8.GetBytes(textToEncrypt);
+            return Convert.ToBase64String(transform.TransformFinalBlock(plainText, 0, plainText.Length));
+        }
 }

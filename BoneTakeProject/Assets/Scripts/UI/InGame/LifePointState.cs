@@ -7,9 +7,11 @@ public class LifePointState : MonoBehaviour
 {
     public bool isDisable;
     public GameObject disableGFX;
+    public Animator animator;
 
     private void Update()
     {
         disableGFX.SetActive(isDisable);
+        animator.SetBool("IsDisable", isDisable);
     }
 }

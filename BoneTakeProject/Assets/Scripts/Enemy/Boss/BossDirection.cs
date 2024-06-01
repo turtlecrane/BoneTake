@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class BossDirection : MonoBehaviour
     public Slider hpSlider;
     public GameObject bossTitle;
     public Animator bossGFX;
+    public GameObject door;
     public CinemachineVirtualCamera bossCamera;
     public bool isDirecting;
 
@@ -23,6 +25,7 @@ public class BossDirection : MonoBehaviour
 
     public IEnumerator WakeDirection()
     {
+        door.transform.DOLocalMoveY(0f, 1).SetEase(Ease.InExpo);
         StartDirection();
         yield return TransitionScreen(0.9f);
         ActivateBossUI();
@@ -32,6 +35,7 @@ public class BossDirection : MonoBehaviour
 
     public IEnumerator DeadDirection()
     {
+        door.transform.DOLocalMoveY(10f, 1).SetEase(Ease.InExpo);
         StartDirection();
         yield return TransitionScreen(0.9f);
         EndBossLife();

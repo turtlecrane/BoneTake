@@ -35,7 +35,7 @@ public class EnemyBullet : MonoBehaviour
             PlayerHitHandler playerHitHandler = collision.gameObject.GetComponent<PlayerHitHandler>();
             if (!isUsed)
             {
-                playerHitHandler.Player_ApplyDamage(bossAttackScript.damage, true, bossAttackScript.facingRight);
+                playerHitHandler.Player_ApplyDamage(bossAttackScript.damage, false, bossAttackScript.facingRight);
             }
             //파괴
             Destroy(this.gameObject);
