@@ -16,13 +16,14 @@ public class PlayerInteraction : MonoBehaviour
     public ItemSelectUI itemSelectPanel;
     [HideInInspector] public EnemyAI enemyAIscript;
     [HideInInspector] public BossHitHandler bossHitHandler;
-    public DumpedWeapon dumpedWeapon;
+    public DumpedWeapon dumpedWeapon_Prefabs;
     
     [Header("State")]
     public bool isInteractiveCamera;
     [SerializeField] private bool canInteraction = false;
     [SerializeField] private bool canExtractBones = false;
     [SerializeField] private bool canTalkToNPC = false;
+    [SerializeField] private bool canGetWeapon = false;
     [SerializeField] private bool isExtractingBones = false;
     [SerializeField] private bool isCompleteBones = false;
     [SerializeField] private float boneExtractCount = 0f;
@@ -34,6 +35,7 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerFollowCameraController followCameraController;
     private WeaponData weaponDataScript;
     private Collider2D npcCollision;
+    private Collider2D dumpedWeapon_Item;
 
     private void Start()
     {
@@ -82,6 +84,19 @@ public class PlayerInteraction : MonoBehaviour
         {
             //Debug.Log("NPC와 상호작용");
             npcCollision.gameObject.SendMessage("NpcInteraction",dialoguePlayback);
+        }
+
+        if (canGetWeapon)
+        {
+            TakeOffWeapon();
+
+            DumpedWeapon wpscript = dumpedWeapon_Item.gameObject.GetComponent<DumpedWeapon>();
+            charCon2D.playerAttack.weapon_type = wpscript.weaponType;
+            charCon2D.playerAttack.weapon_name = wpscript.weaponName;
+            charCon2D.playerAttack.weaponManager.weaponLife = wpscript.weaponHP;
+            
+            //최종적으로 떨어진 아이템 삭제함
+            Destroy(dumpedWeapon_Item.gameObject);
         }
     }
 
@@ -139,42 +154,42 @@ public class PlayerInteraction : MonoBehaviour
 
             if (boneExtractCount >= m_boneExtractionTime)
             {
-                //1. 현재 플레이어가 착용중인 무기가 basic이나 etc가 아니라면,
-                if (PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.Basic)
-                {
-                    //2. dumpedWeapon 프리팹 생성 (이 스크립트를 가진 오브젝트의 위치의 약간 위에서)
-                    GameObject wp = Instantiate(dumpedWeapon.gameObject, transform.position + Vector3.up, Quaternion.identity);
-                    DumpedWeapon wpscript = wp.GetComponent<DumpedWeapon>();
-                    
-                    //3. 프리팹에 현재 착용중인 무기의 정보를 저장
-                    wpscript.weaponType = charCon2D.playerAttack.weapon_type;
-                    wpscript.weaponName = charCon2D.playerAttack.weapon_name;
-                    wpscript.weaponHP = charCon2D.playerAttack.weaponManager.weaponLife;
-                    SetWeaponIcon(wpscript.spriteRenderer.sprite, charCon2D.playerAttack.weapon_name);
-                    
-                    //4. 프리팹을 윗방향으로 힘을 주기 (마치 분수처럼 랜덤한 윗방향으로)
-                    Vector2 forceDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;
-                    wpscript.rb.AddForce(forceDirection * Random.Range(1000f, 1000f)); // 힘의 정도를 조절하세요.
-                }
-                onComplete(); //5. 그다음 무기교체(or 무기선택 연출)
+                TakeOffWeapon();
+                onComplete();
                 StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
             }
         }
     }
 
-    private void SetWeaponIcon(Sprite _sprite, Weapon_Name _weaponName)
+    private void TakeOffWeapon()
     {
-        float hpPercentage = (float)charCon2D.playerAttack.weaponManager.weaponLife / weaponDataScript.GetName_WeaponLifeCount(_weaponName);
-        Debug.Log(hpPercentage);
-        /*if (hpPercentage > 0.35f)
+        //현재 플레이어가 착용중인 무기가 basic이나 etc가 아니라면
+        if (PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.Basic && PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.etc)
         {
-            _sprite = weaponDataScript.weaponGFXSource.freshIcon[weaponDataScript.GetName_WeaponID(_weaponName)];
+            //dumpedWeapon 프리팹 생성
+            GameObject wp = Instantiate(dumpedWeapon_Prefabs.gameObject, transform.position + new Vector3(0,2,0), Quaternion.identity);
+            DumpedWeapon wpscript = wp.GetComponent<DumpedWeapon>();
+                    
+            //프리팹에 현재 착용중인 무기의 정보를 저장
+            wpscript.weaponType = charCon2D.playerAttack.weapon_type;
+            wpscript.weaponName = charCon2D.playerAttack.weapon_name;
+            wpscript.weaponHP = charCon2D.playerAttack.weaponManager.weaponLife;
+                    
+            float hpPercentage = (float)charCon2D.playerAttack.weaponManager.weaponLife / weaponDataScript.GetName_WeaponLifeCount(charCon2D.playerAttack.weapon_name);
+            if (hpPercentage > 0.35f)
+            {
+                wpscript.spriteRenderer.sprite = weaponDataScript.weaponGFXSource
+                    .freshIcon[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
+            }
+            else
+            {
+                wpscript.spriteRenderer.sprite = weaponDataScript.weaponGFXSource
+                    .rottenIcon[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
+            }
+                    
+            Vector2 forceDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;
+            wpscript.rb.AddForce(forceDirection * Random.Range(500f, 1000f));//힘의 정도
         }
-        else
-        {
-            _sprite = weaponDataScript.weaponGFXSource.rottenIcon[weaponDataScript.GetName_WeaponID(_weaponName)];
-        }*/
-
     }
 
     private void CancelBoneTake()
@@ -250,6 +265,11 @@ public class PlayerInteraction : MonoBehaviour
             npcCollision = collision;
             canTalkToNPC = true;
         }
+        else if (collision.CompareTag("DumpedWeapon"))
+        {
+            dumpedWeapon_Item = collision;
+            canGetWeapon = true;
+        }
         canInteraction = true;
     }
 
@@ -261,6 +281,7 @@ public class PlayerInteraction : MonoBehaviour
         enemyAIscript = null;
         npcCollision = null;
         bossHitHandler = null;
+        dumpedWeapon_Item = null;
 
         if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
         { 
@@ -270,6 +291,10 @@ public class PlayerInteraction : MonoBehaviour
         else if (collision.CompareTag("NPC"))
         {
             canTalkToNPC = false;
+        }
+        else if (collision.CompareTag("DumpedWeapon"))
+        {
+            canGetWeapon = false;
         }
     }
     

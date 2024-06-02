@@ -50,7 +50,7 @@ public class CharacterController2D : MonoBehaviour
     private float prevVelocityX = 0f;
     private float climbingCount; //플레이가 몇초동안 벽에 메달려있는지 카운트
     
-    [HideInInspector]public PlayerData playerdata; //플레이어 데이터
+    [HideInInspector] public PlayerData playerdata; //플레이어 데이터
     [HideInInspector] public float m_MovementSmoothing = .05f;
     [HideInInspector] public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
@@ -59,6 +59,7 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    public bool inWater;             //플레이어가 물로 진입했는지 여부
     [HideInInspector] public bool isBossDirecting; //보스 만나는 연출
     private int playerLayer;
     private int nonCollidingPlayerLayer;
@@ -172,6 +173,8 @@ public class CharacterController2D : MonoBehaviour
         
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
+        inWater = false;
+        m_Rigidbody2D.drag = 0f;
         
         //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y + 0.1f), new Vector2(1f, 0.1f), 0f, groundLayer);
@@ -180,29 +183,38 @@ public class CharacterController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                if (!wasGrounded && isFalling)
+                
+                if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Water"))
                 {
-                    var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
-                    if (isBigLanding)
+                    m_Rigidbody2D.drag = 5f;
+                    inWater = true;
+                    isLanding = false;
+                    isBigLanding = false;
+                }
+                else
+                {
+                    if (!wasGrounded && isFalling)
                     {
-                        //착지를했을때 1번만 실행됨.
-                        if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
+                        var playerCameraScript = GameManager.Instance.GetPlayerFollowCameraController();
+                        if (isBigLanding)
                         {
-                            dustParticle.Play(); //먼지 파티클 재생
-                            StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
+                            //착지를했을때 1번만 실행됨.
+                            if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
+                            {
+                                dustParticle.Play(); //먼지 파티클 재생
+                                StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
+                            }
+                            StartCoroutine(BigLandingMoveCooldown());
                         }
-                        StartCoroutine(BigLandingMoveCooldown());
-                    }
-                    else
-                    {
-                        StartCoroutine(BasicLandingCooldown());
-                        //카메라 초기화
-                        playerCameraScript.virtualCamera.m_Lens.OrthographicSize = playerCameraScript.lensOrtho_InitSize;
-                        /*if (!m_IsWall && !isDashing)
-                            particleJumpDown.Play();
-                        */ //착지 파티클 재생
+                        else
+                        {
+                            StartCoroutine(BasicLandingCooldown());
+                            //카메라 초기화
+                            playerCameraScript.virtualCamera.m_Lens.OrthographicSize = playerCameraScript.lensOrtho_InitSize;
+                        }
                     }
                 }
+                
                 isFalling = false;
             }
         }
@@ -241,6 +253,7 @@ public class CharacterController2D : MonoBehaviour
         animator.SetBool("IsWallJumping", isWallJumping);
         animator.SetBool("IsLanding", isLanding);
         animator.SetBool("IsHanging", isClimbing);
+        animator.SetBool("InWater", inWater);
     }
     
     /// <summary>

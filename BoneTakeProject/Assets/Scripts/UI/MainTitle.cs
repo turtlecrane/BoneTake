@@ -9,6 +9,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using DG.Tweening;
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
 public class MainTitle : MonoBehaviour
 {
@@ -22,9 +24,20 @@ public class MainTitle : MonoBehaviour
             fade.gameObject.SetActive(false);
         });
     }
+    
+    private void PlayMainTitleBGM()
+    {
+        if (AudioManager.instance.bgmSource.clip == null)
+        {
+            AudioManager.instance.PlayBGM("MainTitle", 0);
+            AudioManager.instance.bgmSource.loop = false;
+        }
+    }
 
     private void Start()
     {
+        //5분마다 반복
+        AudioManager.instance.BgmFadeIn(1f, () => { InvokeRepeating("PlayMainTitleBGM", 0f, 300f); });
         bool dataExists = false;
         
         //저장된 데이터가 존재하는지 판단
@@ -41,6 +54,22 @@ public class MainTitle : MonoBehaviour
         else // 데이터가 전혀 없으면
         {
             buttons[1].interactable = false;
+        }
+
+        //버튼에 효과음 설정
+        foreach (var btn in buttons)
+        {
+            btn.onClick.AddListener(() => { AudioManager.instance.PlayButtonSound("ButtonClick"); });
+            EventTrigger trigger = btn.gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+
+            entry.callback.AddListener((data) => {
+                AudioManager.instance.PlayButtonSound("ButtonHover");
+            });
+
+            trigger.triggers.Add(entry);
         }
     }
 

@@ -32,7 +32,7 @@ public class ObjectTriggerCameraSwitcher : MonoBehaviour
             PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
             playerInteraction.isInteractiveCamera = false;
             m_thisVituralCam.SetActive(false);
-            m_playerFollowCamera.SetActive(true);
+            //m_playerFollowCamera.SetActive(true);
             m_playerFollowCamera = null;
         }
     }

@@ -12,6 +12,7 @@ public class LoadingSceneController : MonoBehaviour
     {
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");
+        AudioManager.instance.BgmFadeOut(1f);
     }
 
     private void Start()
@@ -39,6 +40,7 @@ public class LoadingSceneController : MonoBehaviour
                 if (timer >= 1f)
                 {
                     op.allowSceneActivation = true;
+                    //AudioManager.instance.BgmFadeIn(3f);
                     yield break;
                 }
             }

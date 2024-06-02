@@ -22,6 +22,7 @@ public class PlayerData
     
     //플레이어 조작
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함
+    //public float playerWaterSpeed = 40f; //물속에서의 움직임 속도
     public float playerMaxJumpForce = 90f; //높아질수록 더 높이 올라감 (올라가는 힘은 변하지않음)
     public float playerDashForce = 100f; //높아질수록 파워가 세짐 (더 멀리감)
     

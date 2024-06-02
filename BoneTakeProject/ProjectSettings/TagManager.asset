@@ -12,12 +12,12 @@ TagManager:
   - PlayerFollowCamera
   - BossTrigger
   - Boss
-  - dumpedWeapon
+  - DumpedWeapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Item
   - Water
   - UI
   - Ground

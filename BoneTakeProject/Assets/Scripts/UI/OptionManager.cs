@@ -17,18 +17,22 @@ public class OptionManager : MonoBehaviour
     public Toggle slow;
     public Toggle normal;
     public Toggle fast;
-    
-    
-    //[Header("음향 설정 관련")]
-    
+
+
+    [Header("음향 설정 관련")] 
+    public Toggle bgmMute;
+    public Toggle sfxMute;
+    public Slider bgmSlider;
+    public Slider sfxSlider;
     
     void Start()
     {
-        InitUI();
-        InitializeToggleState();
+        Init_UI();
+        Init_TextSpeed_ToggleState();
+        Init_AudioValue();
     }
 
-    void InitUI()
+    private void Init_UI()
     {
         resolutions.AddRange(Screen.resolutions);
         resolutionDropdown.options.Clear();
@@ -49,21 +53,21 @@ public class OptionManager : MonoBehaviour
         fullscreenBtn.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
     }
     
-    void InitializeToggleState()
+    private void Init_TextSpeed_ToggleState()
     {
         // PlayerPrefs에서 저장된 Toggle 상태 불러오기
         float savedToggle = PlayerPrefs.GetFloat("textSpeedSelected", 0.03f);
 
         // 저장된 값에 따라 해당 Toggle 활성화
-        if(savedToggle == 1f)
+        if(savedToggle == 0.1f)
         {
             slow.isOn = true;
         }
-        else if(savedToggle == 0.5f)
+        else if(savedToggle == 0.03f)
         {
             normal.isOn = true;
         }
-        else if(savedToggle == 0.1f)
+        else if(savedToggle == 0.01f)
         {
             fast.isOn = true;
         }
@@ -72,6 +76,17 @@ public class OptionManager : MonoBehaviour
         slow.onValueChanged.AddListener(delegate {OnToggleChanged(slow, 0.1f);});
         normal.onValueChanged.AddListener(delegate {OnToggleChanged(normal, 0.03f);});
         fast.onValueChanged.AddListener(delegate {OnToggleChanged(fast, 0.01f);});
+    }
+
+    private void Init_AudioValue()
+    {
+        bgmSlider.value = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        bgmMute.isOn = PlayerPrefs.GetInt("BGMMute", 0) == 1;
+        sfxMute.isOn = PlayerPrefs.GetInt("SFXMute", 0) == 1;
+        
+        bgmMute.onValueChanged.AddListener(delegate {ToggleBGM();});
+        sfxMute.onValueChanged.AddListener(delegate {ToggleSFX();});
     }
 
     // Toggle 상태 변화시 호출될 메서드
@@ -97,5 +112,30 @@ public class OptionManager : MonoBehaviour
     public void OptionConfirm()
     {
         Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, screenMode, resolutions[resolutionNum].refreshRate);
+    }
+
+    public void OptionAudioPlay(string _name)
+    {
+        AudioManager.instance.PlayButtonSound(_name);
+    }
+
+    public void ToggleBGM()
+    {
+        AudioManager.instance.ToggleBGM();
+    }
+
+    public void ToggleSFX()
+    {
+        AudioManager.instance.ToggleSFX();
+    }
+
+    public void BGMVolume()
+    {
+        AudioManager.instance.BGMVolume(bgmSlider.value);
+    }
+    
+    public void SFXVolume()
+    {
+        AudioManager.instance.SFXVolume(sfxSlider.value);
     }
 }

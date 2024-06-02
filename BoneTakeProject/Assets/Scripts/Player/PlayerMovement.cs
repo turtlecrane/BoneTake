@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             //땅에 있거나 airControl이 켜져 있는 경우에 플레이어 제어
             if (controller.m_Grounded || controller.m_AirControl)
             {
-                //최고 낙하속도 제한 (낙하 속도가 너무 빠르면 맵이 뚫림)
+                //최고 낙하속도 제한
                 if (controller.m_Rigidbody2D.velocity.y < -controller.limitFallSpeed)
                 {
                     controller.m_Rigidbody2D.velocity = new Vector2(controller.m_Rigidbody2D.velocity.x, -controller.limitFallSpeed);
@@ -81,10 +81,17 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
                 //인자로 받은 플레이어 움직임 속도로 플레이어 이동
-                Vector3 targetVelocity = new Vector2(move * 10f, controller.m_Rigidbody2D.velocity.y);
-                //그리고 SmoothDamp하여 캐릭터에 적용
-                controller.m_Rigidbody2D.velocity = Vector3.SmoothDamp(controller.m_Rigidbody2D.velocity, targetVelocity, ref velocity, controller.m_MovementSmoothing);
-
+                if (controller.inWater)
+                {
+                    Vector3 targetVelocity = new Vector2(move/2 * 10f, controller.m_Rigidbody2D.velocity.y);
+                    controller.m_Rigidbody2D.velocity = Vector3.SmoothDamp(controller.m_Rigidbody2D.velocity, targetVelocity, ref velocity, controller.m_MovementSmoothing);
+                }
+                else
+                {
+                    Vector3 targetVelocity = new Vector2(move * 10f, controller.m_Rigidbody2D.velocity.y);
+                    controller.m_Rigidbody2D.velocity = Vector3.SmoothDamp(controller.m_Rigidbody2D.velocity, targetVelocity, ref velocity, controller.m_MovementSmoothing);
+                }
+                
                 //입력이 플레이어를 오른쪽으로 움직이고 플레이어가 왼쪽을 바라보고 있는 경우
                 if (move > 0 && !controller.m_FacingRight)
                 {

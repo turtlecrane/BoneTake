@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 public class DataSlotManager : MonoBehaviour
@@ -42,7 +43,6 @@ public class DataSlotManager : MonoBehaviour
             }
         }
         
-        // 불러온 데이터를 초기화시킴.(버튼에 닉네임을 표현하기위함이었기 때문)
         PlayerDataManager.instance.DataClear();	
         
         int entryType = PlayerPrefs.GetInt("DataSlotEntryType", -1);
@@ -57,6 +57,23 @@ public class DataSlotManager : MonoBehaviour
         else
         {
             titleText.text = "오류 발생";
+        }
+        
+        //버튼에 효과음 설정
+        foreach (var slot in slots)
+        {
+            Button btn = slot.GetComponent<Button>();
+            btn.onClick.AddListener(() => { AudioManager.instance.PlayButtonSound("ButtonClick"); });
+            EventTrigger trigger = btn.gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+
+            entry.callback.AddListener((data) => {
+                AudioManager.instance.PlayButtonSound("ButtonHover");
+            });
+
+            trigger.triggers.Add(entry);
         }
     }
 
