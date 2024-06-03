@@ -34,6 +34,11 @@ public class Boss00_EventKeyController : MonoBehaviour
     {
         bossAttack.PlayDustParticle();
     }
+
+    public void Boss00_PlayBombAudio()
+    {
+        AudioManager.instance.PlaySFX("Bomb", Random.Range(0, 3));
+    }
     
     private void OnDrawGizmosSelected()
     {

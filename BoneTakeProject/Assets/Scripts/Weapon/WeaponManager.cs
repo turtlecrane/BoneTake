@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     
     private void Start()
     {
-        charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;
         weaponDataScript = WeaponData.instance;
         weaponAnimator = GetComponent<Animator>();
         weaponLife = charCon2D.playerdata.weaponHP;
@@ -56,6 +56,7 @@ public class WeaponManager : MonoBehaviour
             Aim();
             if (Input.GetMouseButtonDown(0) && Time.time >= lastShootTime + (weaponDataScript.GetName_BowAimCoolTime(weaponName)+shootCooldown))
             {
+                charCon2D.playerEventKey.PlayBowShotAudio();
                 StartCoroutine(AimingShotCoolDown());
                 trickShot.Shoot();
                 lastShootTime = Time.time;

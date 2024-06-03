@@ -15,6 +15,7 @@ public class CharacterController2D : MonoBehaviour
     public PlayerAttack playerAttack;
     public PlayerHitHandler playerHitHandler;
     public PlayerInteraction playerInteraction;
+    public PlayerEventKey playerEventKey;
     public Rigidbody2D m_Rigidbody2D; //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     public ParticleSystem dustParticle;
@@ -39,6 +40,11 @@ public class CharacterController2D : MonoBehaviour
     public bool isDashAttacking;
     public bool canDashAttack = false;   //플레이어가 대쉬어택을 할수있는 상태인지
     
+    public bool inWater;             //플레이어가 물로 진입했는지 여부
+    public bool inDefaultGround;
+    public bool inGrassGround;
+    public bool inHardGround;
+    
     [Tooltip("큰착지시 움직일수 없는 시간 조절")][Range (0.0f, 5.0f)]
     public float bigFallCantMoveCoolTime;
     
@@ -59,7 +65,6 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
     [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
-    public bool inWater;             //플레이어가 물로 진입했는지 여부
     [HideInInspector] public bool isBossDirecting; //보스 만나는 연출
     private int playerLayer;
     private int nonCollidingPlayerLayer;
@@ -201,6 +206,7 @@ public class CharacterController2D : MonoBehaviour
                             //착지를했을때 1번만 실행됨.
                             if (playerCameraScript.m_playerFollowCamera.gameObject.activeSelf)
                             {
+                                playerEventKey.PlayBigLandingAudio();
                                 dustParticle.Play(); //먼지 파티클 재생
                                 StartCoroutine(playerCameraScript.PlayerBigLandingNosie());
                             }
@@ -361,5 +367,12 @@ public class CharacterController2D : MonoBehaviour
         Gizmos.color = Color.blue;
         float xOffset = m_FacingRight ? 1f : -1f;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f));
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        inDefaultGround = other.gameObject.CompareTag("DefaultGround") || other.gameObject.CompareTag("Untagged") || other.gameObject.CompareTag("Map");
+        inGrassGround = other.gameObject.CompareTag("GrassGround");
+        inHardGround = other.gameObject.CompareTag("HardGround");
     }
 }

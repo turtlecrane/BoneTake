@@ -189,10 +189,20 @@ public class DialoguePlayback : MonoBehaviour {
 
         int strTypingLength = str.GetTypingLength();          // 최대 타이핑 수 구함
         for(int  i = 0 ; i <= strTypingLength ; i ++ ) {      // 반복문
+            //AudioManager.instance.PlaySFX("TextTyping");
             isDialogueChanged = false;
             if (isSkiped) break;
             
-            textMesh.text = str.Typing(i);                    // 타이핑
+            string typingText = str.Typing(i);                // 타이핑
+            textMesh.text = typingText;                       // TextMesh에 타이핑된 텍스트 설정
+
+            // 마지막 문자가 공백인지 확인
+            if (typingText.EndsWith(" ")) {
+                AudioManager.instance.PlaySFX("TextTyping", 1); // 공백일 때 사운드 효과
+            } else {
+                AudioManager.instance.PlaySFX("TextTyping", 0); // 공백이 아닐 때 사운드 효과
+            }
+            
             yield return new WaitForSecondsRealtime(duration);           //타이핑속도
             
             if (i == strTypingLength) isAllTyped = true;

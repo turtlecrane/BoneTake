@@ -13,7 +13,7 @@ public class Sound
 public class AudioManager : MonoBehaviour
 {
     public Sound[] bgmSounds, sfxSounds, environmentSounds;
-    
+
     public AudioSource bgmSource;
     public AudioSource sfxSource;
     public AudioSource environSource;
@@ -83,7 +83,7 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    
+
     public void PlayEnvironSound(string name, int arrayNum = 0)
     {
         Sound s = Array.Find(environmentSounds, x => x.Name == name);
@@ -120,7 +120,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void BgmFadeOut(float duration)
+public void BgmFadeOut(float duration)
     {
         StartCoroutine(FadeOut(duration));
     }

@@ -82,6 +82,7 @@ public class Arrow : MonoBehaviour
 
         if (hitHandler != null && !IsCorpseState(hitHandler))
         {
+            AudioManager.instance.PlaySFX("Hit");
             hitHandler.gameObject.SendMessage("Enemy_ApplyDamage", damage);
         }
     }

@@ -92,9 +92,13 @@ public class PlayerAttack : MonoBehaviour
         }
         
         // 조준중인지 확인
-        if (charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") != 0  && weapon_type == Weapon_Type.Bow)
+        if (charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") < 0  && weapon_type == Weapon_Type.Bow)
         {
-            isAiming = !isAiming;
+            isAiming = true;
+        }
+        else if(charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") > 0  && weapon_type == Weapon_Type.Bow)
+        {
+            isAiming = false;
         }
         
         // 다중 공격 가능 상태 업데이트

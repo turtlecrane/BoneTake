@@ -67,4 +67,14 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         action?.Invoke();
     }
+
+    public void PlayButtonClickAudio()
+    {
+        AudioManager.instance.PlayButtonSound("ButtonClick");
+    }
+
+    public void PlayButtonHoverAudio()
+    {
+        AudioManager.instance.PlayButtonSound("ButtonHover");
+    }
 }

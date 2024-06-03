@@ -64,8 +64,8 @@ public class DataSlotManager : MonoBehaviour
         {
             Button btn = slot.GetComponent<Button>();
             btn.onClick.AddListener(() => { AudioManager.instance.PlayButtonSound("ButtonClick"); });
+            
             EventTrigger trigger = btn.gameObject.AddComponent<EventTrigger>();
-
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerEnter;
 

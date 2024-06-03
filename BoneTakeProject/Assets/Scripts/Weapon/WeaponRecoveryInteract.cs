@@ -13,6 +13,7 @@ public class WeaponRecoveryInteract : InteractableObject
         int recoveryValue = 0;
         if (!isRecovered)
         {
+            AudioManager.instance.PlaySFX("WeaponRepair");
             if (!talkEnable) //회복석상 로직
             {
                 //착용중인 무기의 최대 무기HP 가져오기

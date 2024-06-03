@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ItemSelectUI : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class ItemSelectUI : MonoBehaviour
         
         buttonInstance.GetComponent<Button>().onClick.AddListener(() =>
         {
+            AudioManager.instance.PlayButtonSound("ButtonClick");
+            
             CharacterController2D.instance.playerAttack.weapon_name = buttonInstance.weaponName;
             CharacterController2D.instance.playerAttack.weapon_type = WeaponData.instance.GetName_WeaponType(buttonInstance.weaponName);
             CharacterController2D.instance.playerAttack.weaponManager.weaponLife = WeaponData.instance.GetName_WeaponLifeCount(buttonInstance.weaponName);
@@ -43,6 +46,16 @@ public class ItemSelectUI : MonoBehaviour
                     buttonAction?.Invoke();
                 });
         });
+        
+        EventTrigger trigger = buttonInstance.gameObject.AddComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+
+        entry.callback.AddListener((data) => {
+            AudioManager.instance.PlayButtonSound("ButtonHover");
+        });
+
+        trigger.triggers.Add(entry);
     }
 
     public void SortSelectedItems()

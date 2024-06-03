@@ -124,6 +124,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.4166666
+    functionName: Boss00_PlayBombAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.5
     functionName: HitScreenShake
     data: 
@@ -133,6 +140,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2.5
     functionName: Boss00_PlayDustParticle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5
+    functionName: Boss00_PlayBombAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

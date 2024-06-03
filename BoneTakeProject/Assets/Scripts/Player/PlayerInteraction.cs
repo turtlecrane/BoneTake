@@ -166,6 +166,7 @@ public class PlayerInteraction : MonoBehaviour
         //현재 플레이어가 착용중인 무기가 basic이나 etc가 아니라면
         if (PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.Basic && PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.etc)
         {
+            AudioManager.instance.PlaySFX("GetDumpedWeapon");
             //dumpedWeapon 프리팹 생성
             GameObject wp = Instantiate(dumpedWeapon_Prefabs.gameObject, transform.position + new Vector3(0,2,0), Quaternion.identity);
             DumpedWeapon wpscript = wp.GetComponent<DumpedWeapon>();
@@ -208,6 +209,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ResetBoneTake()
     {
+        charCon2D.playerEventKey.StopEnvironSound();
         charCon2D.animator.SetBool("IsBoneTakeIntro", false);
         charCon2D.animator.SetBool("IsBoneTaking", false);
         boneExtractCount = 0f;
@@ -304,6 +306,7 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void PlayWeaponGetEffect()
     {
+        AudioManager.instance.PlaySFX("GetNewWeapon");
         StartCoroutine(charCon2D.playerAttack.weaponManager.WeaponGetEffect(charCon2D.playerAttack.weapon_name));
     }
 }

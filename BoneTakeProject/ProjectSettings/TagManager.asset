@@ -13,6 +13,9 @@ TagManager:
   - BossTrigger
   - Boss
   - DumpedWeapon
+  - DefaultGround
+  - GrassGround
+  - HardGround
   layers:
   - Default
   - TransparentFX

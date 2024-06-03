@@ -37,7 +37,10 @@ public class MainTitle : MonoBehaviour
     private void Start()
     {
         //5분마다 반복
-        AudioManager.instance.BgmFadeIn(1f, () => { InvokeRepeating("PlayMainTitleBGM", 0f, 300f); });
+        //AudioManager.instance.BgmFadeIn(1f, () => { InvokeRepeating("PlayMainTitleBGM", 0f, 300f); });
+        AudioManager.instance.bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        InvokeRepeating("PlayMainTitleBGM", 0f, 300f);
+        
         bool dataExists = false;
         
         //저장된 데이터가 존재하는지 판단

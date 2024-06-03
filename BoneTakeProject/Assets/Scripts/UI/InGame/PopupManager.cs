@@ -59,4 +59,19 @@ public class PopupManager : MonoBehaviour
         Button_No.onClick.RemoveAllListeners(); // 기존 이벤트 제거
         gameObject.SetActive(false);
     }
+
+    public void PlayMouseClickAudio()
+    {
+        AudioManager.instance.PlayButtonSound("MouseClick");
+    }
+    
+    public void PlayButtonClickAudio()
+    {
+        AudioManager.instance.PlayButtonSound("ButtonClick");
+    }
+
+    public void PlayButtonHoverAudio()
+    {
+        AudioManager.instance.PlayButtonSound("ButtonHover");
+    }
 }

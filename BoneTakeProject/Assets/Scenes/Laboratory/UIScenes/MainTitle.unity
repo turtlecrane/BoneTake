@@ -698,15 +698,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 1977863b84268b94a984b3b83557766f, type: 3}
     - {fileID: 8300000, guid: 3b3a205f38169514a980779569c860f8, type: 3}
     - {fileID: 8300000, guid: 4ae494efb96aa0c44a5fff5acd3a727b, type: 3}
-  - Name: HeartBeat
-    Clip:
-    - {fileID: 8300000, guid: c3ee2b810e688e7459758ae2f398a7f3, type: 3}
   - Name: TextTyping
     Clip:
     - {fileID: 8300000, guid: 3cd35eaebbe6d654da1f59c160fe1333, type: 3}
-  - Name: BoneTaking
-    Clip:
-    - {fileID: 8300000, guid: 66607e61bcdb61845b26459e034dfff8, type: 3}
+    - {fileID: 8300000, guid: c9960b8cc6bc8c54dbd161c274be4d0b, type: 3}
   - Name: BowZoom
     Clip:
     - {fileID: 8300000, guid: 19ddf90009e0e2a4896d96866d450f40, type: 3}
@@ -738,7 +733,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: cf72181a99d0f864ab174061e38b4ce3, type: 3}
   - Name: ButtonClick
     Clip:
-    - {fileID: 8300000, guid: cf72181a99d0f864ab174061e38b4ce3, type: 3}
+    - {fileID: 8300000, guid: fb32ab43f22df1e44b84736afcc78157, type: 3}
   - Name: ButtonHover
     Clip:
     - {fileID: 8300000, guid: 8a22512d7c838844f8ecbc4b9eb3f4d6, type: 3}
@@ -761,6 +756,12 @@ MonoBehaviour:
   - Name: Wind
     Clip:
     - {fileID: 8300000, guid: 9271c9f9dcf652c45bf53af8cb3f5c94, type: 3}
+  - Name: HeartBeat
+    Clip:
+    - {fileID: 8300000, guid: c3ee2b810e688e7459758ae2f398a7f3, type: 3}
+  - Name: BoneTaking
+    Clip:
+    - {fileID: 8300000, guid: 66607e61bcdb61845b26459e034dfff8, type: 3}
   bgmSource: {fileID: 993456504}
   sfxSource: {fileID: 1151751716}
   environSource: {fileID: 1477202547}

@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         // 점프 키를 누르기 시작했을 때
         if (Input.GetKeyDown(JumpKey1))// || Input.GetKeyDown(JumpKey2))
         {
+            controller.playerEventKey.PlayFootstepsAudio();
             if (controller.isClimbing) //벽점프의 경우
             {
                 controller.m_JumpForce = 0f;
@@ -157,7 +158,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 controller.m_Rigidbody2D.gravityScale = 0f; // 중력을 일시적으로 0으로 설정하여 점프 시작 시의 낙하를 방지
                 controller.m_JumpForce = 0f; // 점프력을 초기화 controller.m_originalJumpForce
-                //Debug.Log("[GetKeyDown] // controller.m_JumpForce : " + controller.m_JumpForce);
                 jump = true; // 점프 상태 시작
             }
         }
@@ -206,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
         // 대쉬 키 입력과 대쉬 가능 여부를 확인
         if (Input.GetKeyDown(DashKey) && controller.canDash && controller.canMove)
         {
+            controller.playerEventKey.PlayDashAudio();
             // 대쉬 공격이 가능한 상태인지 판단하여 애니메이션 설정
             if (controller.canDashAttack)
             {
