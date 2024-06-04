@@ -13,9 +13,9 @@ public class WeaponRecoveryInteract : InteractableObject
         int recoveryValue = 0;
         if (!isRecovered)
         {
-            AudioManager.instance.PlaySFX("WeaponRepair");
             if (!talkEnable) //회복석상 로직
             {
+                AudioManager.instance.PlaySFX("WeaponRepair");
                 //착용중인 무기의 최대 무기HP 가져오기
                 maxWeaponHp = WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName);
             
@@ -26,13 +26,23 @@ public class WeaponRecoveryInteract : InteractableObject
                 Debug.Log("maxWeaponHp : " + maxWeaponHp + ", nowWeaponHp : " + nowWeaponHp + ", recoveryValue : " + recoveryValue );
             
                 CharacterController2D.instance.playerAttack.weaponManager.weaponLife += recoveryValue;
+                isRecovered = true;
             }
             else //방부업자 로직
             {
-                _dialoguePlayback.gameObject.SetActive(true);
-                _dialoguePlayback.PlayDialogue(dialogue);
+                if (CharacterController2D.instance.playerAttack.weapon_type == Weapon_Type.Basic)
+                {
+                    _dialoguePlayback.gameObject.SetActive(true);
+                    _dialoguePlayback.PlayDialogue(dialogue[1]);
+                    isRecovered = false;
+                }
+                else
+                {
+                    _dialoguePlayback.gameObject.SetActive(true);
+                    _dialoguePlayback.PlayDialogue(dialogue[0]);
+                    isRecovered = true;
+                }
             }
-            isRecovered = true;
             
             //TestCode...
             gameObject.GetComponent<SpriteRenderer>().color = Color.black;
@@ -45,6 +55,7 @@ public class WeaponRecoveryInteract : InteractableObject
 
     public void FullRecoveryWeapon()
     {
+        AudioManager.instance.PlaySFX("WeaponRepair");
         CharacterController2D.instance.playerAttack.weaponManager.weaponLife = WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName);
     }
 }

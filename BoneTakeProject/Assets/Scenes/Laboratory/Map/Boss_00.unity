@@ -1646,6 +1646,14 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: e4470de6c765bc645a73b776c7f3784e, type: 2}
+    - target: {fileID: 8560280141448150021, guid: e97ae2f541af74c44b9b268b9aceeb55, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560280141448150021, guid: e97ae2f541af74c44b9b268b9aceeb55, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e4470de6c765bc645a73b776c7f3784e, type: 2}
     - target: {fileID: 8560280141448150022, guid: e97ae2f541af74c44b9b268b9aceeb55, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2220,8 +2228,8 @@ BoxCollider2D:
   m_Offset: {x: -0.8519952, y: 0.59014106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.45639682, y: 0}
-    oldSize: {x: 10.39, y: 6.682729}
+    pivot: {x: 0.58136, y: 0}
+    oldSize: {x: 6.45, y: 6.82}
     newSize: {x: 5.29, y: 6.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

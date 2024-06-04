@@ -18,9 +18,8 @@ public class Test_DataNPC : InteractableObject
     {
         if (talkEnable)
         {
-            //Debug.Log("말할수있는 객체와 대화 시작");
             _dialoguePlayback.gameObject.SetActive(true);
-            _dialoguePlayback.PlayDialogue(dialogue);
+            _dialoguePlayback.PlayDialogue(dialogue[0]);
         }
     }
 

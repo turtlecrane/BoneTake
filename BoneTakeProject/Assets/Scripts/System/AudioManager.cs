@@ -16,9 +16,15 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource bgmSource;
     public AudioSource sfxSource;
-    public AudioSource environSource;
+    public Transform environSourceList;
+
+    public List<AudioSource> environSource;
+    
+    //public AudioSource environSource;
 
     public static AudioManager instance;
+
+    public bool isBGMChanging;
 
     private void Awake()
     {
@@ -40,8 +46,21 @@ public class AudioManager : MonoBehaviour
         sfxSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         sfxSource.mute = PlayerPrefs.GetInt("SFXMute", 0) == 1;
     }
+    
+    public IEnumerator PlayBGM(string bgmName, int arrayNum = 0)
+    {
+        yield return new WaitUntil(()=>!isBGMChanging);
+        
+        bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        
+        if (bgmSource.clip == null)
+        { 
+            ChangeBGM(bgmName, arrayNum); 
+            bgmSource.loop = false;
+        }
+    }
 
-    public void PlayBGM(string name, int arrayNum = 0)
+    private void ChangeBGM(string name, int arrayNum = 0)
     {
         Sound s = Array.Find(bgmSounds, x => x.Name == name);
 
@@ -100,9 +119,40 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                environSource.clip = s.Clip[arrayNum];
-                environSource.Play();
+                // 오브젝트 생성 및 AudioSource 컴포넌트 추가
+                GameObject newAudioObject = new GameObject(name);
+                newAudioObject.transform.SetParent(environSourceList);
+                AudioSource newAudioSource = newAudioObject.AddComponent<AudioSource>();
+                newAudioSource.loop = true;
+                newAudioSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+
+                // 리스트에 추가
+                environSource.Add(newAudioSource);
+
+                // 오디오 클립 설정 및 재생
+                newAudioSource.clip = s.Clip[arrayNum];
+                newAudioSource.Play();
             }
+        }
+    }
+
+    public void StopAndRemoveEnvironSound(string name)
+    {
+        // environSource 리스트에서 이름이 같은 클립을 재생 중인 오디오 소스 검색
+        AudioSource targetSource = environSource.Find(source => source.clip != null && source.clip.name == name);
+
+        if (targetSource != null)
+        {
+            // 오디오 소스 정지 및 리스트에서 제거
+            targetSource.Stop();
+            environSource.Remove(targetSource);
+
+            // 오브젝트 파괴
+            Destroy(targetSource.gameObject);
+        }
+        else
+        {
+            Debug.Log("해당 이름의 소리를 재생중인 오브젝트가 없습니다.");
         }
     }
 
@@ -120,18 +170,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-public void BgmFadeOut(float duration)
+    public void BgmFadeOut(float duration)
     {
         StartCoroutine(FadeOut(duration));
     }
 
-    public void BgmFadeIn(float duration, Action action = null)
-    {
-        StartCoroutine(FadeIn(duration, action));
-    }
-
     public IEnumerator FadeOut(float duration)
     {
+        isBGMChanging = true;
         float startVolume = bgmSource.volume;
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
@@ -140,17 +186,7 @@ public void BgmFadeOut(float duration)
         }
         bgmSource.volume = 0;
         bgmSource.clip = null;
-    }
-
-    public IEnumerator FadeIn(float duration, Action action = null)
-    {
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            bgmSource.volume = Mathf.Lerp(0, PlayerPrefs.GetFloat("BGMVolume", 1f), t / duration);
-            yield return null;
-        }
-        bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        action?.Invoke();
+        isBGMChanging = false;
     }
 
     public void ToggleBGM()

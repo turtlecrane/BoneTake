@@ -108,6 +108,7 @@ public class PlayerInteraction : MonoBehaviour
                 !enemyAIscript.enemyHitHandler.isExtracted,
                 () =>
                 {
+                    AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
                     charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;
                     charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;
                     charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName);
@@ -117,10 +118,11 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (bossHitHandler != null && enemyAIscript == null && canExtractBones)
         {
-            PerformBoneExtraction(
+            PerformBoneExtraction( 
                 !bossHitHandler.isExtracted,
                 () =>
                 {
+                    AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
                     foreach (var weapon in bossHitHandler.weaponName)
                     {
                         itemSelectPanel.CreateItemSelection(weapon, () =>
@@ -197,6 +199,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (!canTalkToNPC && canExtractBones && isExtractingBones)
         {
+            AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
             ResetBoneTake();
         }
     }
@@ -209,7 +212,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ResetBoneTake()
     {
-        charCon2D.playerEventKey.StopEnvironSound();
         charCon2D.animator.SetBool("IsBoneTakeIntro", false);
         charCon2D.animator.SetBool("IsBoneTaking", false);
         boneExtractCount = 0f;

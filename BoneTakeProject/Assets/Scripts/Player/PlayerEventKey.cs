@@ -22,6 +22,9 @@ public class PlayerEventKey : MonoBehaviour
         ApplyDamage(hitBoxPosition, charCon2D.playerAttack.hitBoxSize, damage);
     }
 
+    /// <summary>
+    /// 단검류 무기로 데미지를 주는 함수
+    /// </summary>
     public void Player_DoKnifeDamage()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
@@ -36,7 +39,7 @@ public class PlayerEventKey : MonoBehaviour
                 transform.position.y + 1 + charCon2D.playerAttack.weaponManager.playerOffset_Y);
         ApplyDamage(hitBoxPosition, charCon2D.playerAttack.weaponManager.hitBoxSize, damage);
     }
-
+    
     private void ApplyDamage(Vector2 hitBoxPosition, Vector2 hitBoxSize, float damage)
     {
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitBoxPosition, hitBoxSize, 0f);
@@ -57,6 +60,11 @@ public class PlayerEventKey : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ForceResumeGravity()
+    {
+        CharacterController2D.instance.m_Rigidbody2D.gravityScale = CharacterController2D.instance.m_playerRigidGravity;
     }
 
     /// <summary>
@@ -140,11 +148,6 @@ public class PlayerEventKey : MonoBehaviour
     public void PlayBoneTakingAudio()
     {
         AudioManager.instance.PlayEnvironSound("BoneTaking");
-    }
-
-    public void StopEnvironSound()
-    {
-        AudioManager.instance.environSource.Stop();
     }
 }
 

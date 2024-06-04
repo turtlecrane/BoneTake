@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "\uC751"
   children:
-  - {fileID: -6876163472941655904}
+  - {fileID: 7229310665860915757}
   _uniqueId: f05e62cc-b7f5-402c-9b59-541a4c779185
 --- !u!114 &-8412023604662870063
 MonoBehaviour:
@@ -114,35 +114,6 @@ MonoBehaviour:
     \uC608\uC0B0\uC548\uC774 \uC758\uACB0\uB420 \uB54C\uAE4C\uC9C0 \uB2E4\uC74C\uC758
     \uBAA9\uC801\uC744 \uC704\uD55C \uACBD\uBE44\uB294 \uC804\uB144\uB3C4 \uC608\uC0B0\uC5D0
     \uC900\uD558\uC5EC \uC9D1\uD589\uD560 \uC218 \uC788\uB2E4."
---- !u!114 &-6876163472941655904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  _uniqueId: f2dad834-5d1b-4bf6-89f3-a5a7e05cb6da
-  rect:
-    serializedVersion: 2
-    x: 51573
-    y: 49977
-    width: 200
-    height: 142
-  nodeTitle: 
-  children:
-  - {fileID: 7229310665860915757}
-  conditions: []
-  enterActions: []
-  exitActions: []
-  choices: []
-  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
-  audio: {fileID: 0}
-  dialogue: "\uBED0\uD0B9 \uC798\uB838\uC5B4 \uB2E4\uC2DC\uB9CC\uB4E4\uC5B4"
 --- !u!114 &-6581628614044527373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +129,8 @@ MonoBehaviour:
   _uniqueId: ec1db983-52ac-464e-800d-8fd380df8c13
   rect:
     serializedVersion: 2
-    x: 50209
-    y: 50535
+    x: 50211
+    y: 50339
     width: 200
     height: 142
   nodeTitle: 
@@ -234,7 +205,8 @@ MonoBehaviour:
     width: 200
     height: 142
   nodeTitle: 
-  children: []
+  children:
+  - {fileID: -2290191590798582242}
   conditions: []
   enterActions: []
   exitActions: []
@@ -273,8 +245,8 @@ MonoBehaviour:
   _uniqueId: 97fc00a5-8668-470f-815a-b2e1fe3a2fe9
   rect:
     serializedVersion: 2
-    x: 50499
-    y: 50578
+    x: 50501
+    y: 50382
     width: 100
     height: 57
   nodeTitle: Save
@@ -303,7 +275,8 @@ MonoBehaviour:
     width: 200
     height: 142
   nodeTitle: 
-  children: []
+  children:
+  - {fileID: -2290191590798582242}
   conditions: []
   enterActions: []
   exitActions: []
@@ -531,8 +504,6 @@ MonoBehaviour:
   - {fileID: -2070500058521208675}
   - {fileID: 3729103715043753846}
   - {fileID: 7569991599770981256}
-  - {fileID: -6876163472941655904}
-  - {fileID: 5906688869398970874}
   - {fileID: 7229310665860915757}
   - {fileID: 3761977889122542092}
   - {fileID: -6581628614044527373}
@@ -544,7 +515,7 @@ MonoBehaviour:
   - {fileID: -5370878494047795168}
   - {fileID: 7108903336610702039}
   root: {fileID: -6096672064785672316}
-  scrollPosition: {x: 49486.25, y: 50020.5}
+  scrollPosition: {x: 49845.25, y: 49927.5}
 --- !u!114 &2006116997301369411
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -657,8 +628,8 @@ MonoBehaviour:
   _uniqueId: c26a985a-9c52-43a5-b9fc-03cd5026a664
   rect:
     serializedVersion: 2
-    x: 51842
-    y: 50144
+    x: 51575
+    y: 50156
     width: 200
     height: 142
   nodeTitle: 
@@ -702,35 +673,6 @@ MonoBehaviour:
   children:
   - {fileID: -6581628614044527373}
   _uniqueId: 944f6e19-99fc-44cc-8766-4b1f0c5e56f8
---- !u!114 &5906688869398970874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  _uniqueId: dfd38f2b-fa63-42e5-9a15-95662db5c675
-  rect:
-    serializedVersion: 2
-    x: 51572
-    y: 50140
-    width: 200
-    height: 142
-  nodeTitle: 
-  children:
-  - {fileID: 3761977889122542092}
-  conditions: []
-  enterActions: []
-  exitActions: []
-  choices: []
-  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
-  audio: {fileID: 0}
-  dialogue: "\uC548 \uC798\uB838\uC5B4 \uADF8\uB798\uB3C4 \uB300\uC751\uC740 \uD574\uC57C\uD560\uB4EF"
 --- !u!114 &5930379680912603035
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -745,7 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "\uC544\uB2C8"
   children:
-  - {fileID: 5906688869398970874}
+  - {fileID: 3761977889122542092}
   _uniqueId: 11753481-179b-4ee0-85e4-fce2cac5c5ad
 --- !u!114 &6224516637602218029
 MonoBehaviour:
@@ -827,7 +769,8 @@ MonoBehaviour:
     width: 200
     height: 142
   nodeTitle: 
-  children: []
+  children:
+  - {fileID: -2290191590798582242}
   conditions: []
   enterActions: []
   exitActions: []
@@ -850,8 +793,8 @@ MonoBehaviour:
   _uniqueId: f993670f-0ef0-468b-a607-cfbffe0819b0
   rect:
     serializedVersion: 2
-    x: 51844
-    y: 49978
+    x: 51575
+    y: 49982
     width: 200
     height: 142
   nodeTitle: 

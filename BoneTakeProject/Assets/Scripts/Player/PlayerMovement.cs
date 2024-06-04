@@ -148,14 +148,15 @@ public class PlayerMovement : MonoBehaviour
         // 점프 키를 누르기 시작했을 때
         if (Input.GetKeyDown(JumpKey1))// || Input.GetKeyDown(JumpKey2))
         {
-            controller.playerEventKey.PlayFootstepsAudio();
             if (controller.isClimbing) //벽점프의 경우
             {
+                controller.playerEventKey.PlayFootstepsAudio();
                 controller.m_JumpForce = 0f;
                 walljump = true;
             }
             else if (controller.m_Grounded) //그냥 점프의 경우
             {
+                controller.playerEventKey.PlayFootstepsAudio();
                 controller.m_Rigidbody2D.gravityScale = 0f; // 중력을 일시적으로 0으로 설정하여 점프 시작 시의 낙하를 방지
                 controller.m_JumpForce = 0f; // 점프력을 초기화 controller.m_originalJumpForce
                 jump = true; // 점프 상태 시작
@@ -168,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
             // 점프를 시작할 때 최소 점프력을 적용합니다.
             if (controller.m_JumpForce < controller.minJumpForce)
             {
-                //Debug.Log("[GetKey] // controller.m_JumpForce : " + controller.m_JumpForce);
                 controller.m_Rigidbody2D.AddForce(Vector2.up * controller.minJumpForce, ForceMode2D.Impulse); // 최소 점프력으로 점프
                 controller.m_JumpForce = controller.minJumpForce + controller.m_jumpForceIncrement * Time.deltaTime; // 다음 프레임을 위해 최소 점프력 이상으로 설정
             }

@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
             !charCon2D.playerHitHandler.isSmallKnockBack &&
             !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(LayerMask.GetMask("UI")); //&&
             
-        if (isAttacking) charCon2D.m_Rigidbody2D.velocity = Vector2.zero;
+        if (isAttacking) charCon2D.m_Rigidbody2D.velocity = new Vector2(0, charCon2D.m_Rigidbody2D.velocity.y);
         
         // 좌클릭 감지
         if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)

@@ -58,7 +58,16 @@ public class DataSlotManager : MonoBehaviour
         {
             titleText.text = "오류 발생";
         }
-        
+
+        SetAudio();
+    }
+
+    public void SetAudio()
+    {
+        if (AudioManager.instance.bgmSource.clip == null)
+        {
+            StartCoroutine(AudioManager.instance.PlayBGM("MainTitle"));
+        }
         //버튼에 효과음 설정
         foreach (var slot in slots)
         {

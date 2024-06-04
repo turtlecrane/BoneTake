@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -20,7 +21,7 @@ public class PlayerHitHandler : MonoBehaviour
     
     private CharacterController2D charCon2D;
     private float collisionCount;
-    private PostProcessVolume hitVignette;
+    private Volume hitVignette;
     private HitShake hitShakeScript;
     private PlayerFollowCameraController followCameraController;
 
@@ -28,7 +29,7 @@ public class PlayerHitHandler : MonoBehaviour
     {
         charCon2D = CharacterController2D.instance;
         hitShakeScript = GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.GetComponent<HitShake>();
-        hitVignette = GameManager.Instance.GetPlayerFollowCameraController().mainCamera.GetComponent<PostProcessVolume>();
+        hitVignette = GameManager.Instance.GetPlayerFollowCameraController().globalVolume;
         followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
     }
     
@@ -45,9 +46,16 @@ public class PlayerHitHandler : MonoBehaviour
         charCon2D.playerdata.playerHP -= damage;
         if (charCon2D.playerdata.playerHP <= 0)
         {
+            AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
             StartCoroutine(DeathCameraEffect());
             isDead = true;
             charCon2D.animator.SetBool("IsDead", isDead);
+        }
+
+        if (charCon2D.playerdata.playerHP <= 1)
+        {
+            Debug.Log("피 1");
+            AudioManager.instance.PlayEnvironSound("HeartBeat");
         }
         
         //조준중에 피격당하면 조준 풀림

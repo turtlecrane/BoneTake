@@ -61,10 +61,10 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public int climbingDirect = 0; //어느쪽 벽 메달리기 인지 상태 (왼-false, 오-true, 벽메달리기 상태가 아님(초기화상태) : 0 )
     [HideInInspector] public bool m_AirControl = true;	//플레이어가 점프 도중 움직일수 있음.
     [HideInInspector] public bool m_IsWall = false; //벽 메달리기가 가능한 상태인지
-    [HideInInspector] public float m_playerRigidGravity; //플레이어가 받는 중력값
+    public float m_playerRigidGravity; //플레이어가 받는 중력값
     [HideInInspector] public float m_JumpForce;             //현재 점프력
     [HideInInspector] public bool m_FacingRight = true;   //플레이어가 현재 어느 방향을 바라보고 있는지
-    [HideInInspector] public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
+    public bool m_Grounded;             //플레이어가 바닥에 접지되었는지 여부.
     [HideInInspector] public bool isBossDirecting; //보스 만나는 연출
     private int playerLayer;
     private int nonCollidingPlayerLayer;
@@ -179,7 +179,6 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         inWater = false;
-        m_Rigidbody2D.drag = 0f;
         
         //접지중임을 판단하는 로직 (이게 있어야 점프가 됨)
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y + 0.1f), new Vector2(1f, 0.1f), 0f, groundLayer);
@@ -191,7 +190,6 @@ public class CharacterController2D : MonoBehaviour
                 
                 if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Water"))
                 {
-                    m_Rigidbody2D.drag = 5f;
                     inWater = true;
                     isLanding = false;
                     isBigLanding = false;

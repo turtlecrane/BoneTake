@@ -216,6 +216,7 @@ namespace Bundos.WaterSystem
             Rigidbody2D otherRigidbody = other.GetComponent<Rigidbody2D>();
             if (otherRigidbody != null)
             {
+                otherRigidbody.drag = 5;
                 Vector2 contactPoint = other.ClosestPoint(transform.position);
 
                 Ripple(contactPoint, false);
@@ -230,6 +231,7 @@ namespace Bundos.WaterSystem
             Rigidbody2D otherRigidbody = other.GetComponent<Rigidbody2D>();
             if (otherRigidbody != null)
             {
+                otherRigidbody.drag = 0;
                 Vector2 contactPoint = other.ClosestPoint(transform.position);
                 Ripple(contactPoint, true);
             }

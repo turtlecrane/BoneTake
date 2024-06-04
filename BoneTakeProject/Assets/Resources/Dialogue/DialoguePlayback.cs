@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using CleverCrow.Fluid.Dialogues;
 using CleverCrow.Fluid.Dialogues.Choices;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class DialoguePlayback : MonoBehaviour {
     private DialogueController _ctrl;
@@ -119,8 +120,24 @@ public class DialoguePlayback : MonoBehaviour {
     private void DisplayChoices(List<IChoice> choices) {
         choices.ForEach(c => {
             var choice = Instantiate(choicePrefab, choiceList);
+            
             choice.contentText.text = c.Text;
             choice.clickEvent.AddListener(_ctrl.SelectChoice); //다이얼로그 전환
+            
+            choice.clickEvent.AddListener(delegate
+            {
+                AudioManager.instance.PlayButtonSound("ButtonClick");
+            }); //다이얼로그 전환
+            
+            EventTrigger trigger = choice.gameObject.AddComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+
+            entry.callback.AddListener((data) => {
+                AudioManager.instance.PlayButtonSound("ButtonHover");
+            });
+
+            trigger.triggers.Add(entry);
         });
     }
     
@@ -189,7 +206,6 @@ public class DialoguePlayback : MonoBehaviour {
 
         int strTypingLength = str.GetTypingLength();          // 최대 타이핑 수 구함
         for(int  i = 0 ; i <= strTypingLength ; i ++ ) {      // 반복문
-            //AudioManager.instance.PlaySFX("TextTyping");
             isDialogueChanged = false;
             if (isSkiped) break;
             

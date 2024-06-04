@@ -17,6 +17,8 @@ public class MainTitle : MonoBehaviour
     public Button[] buttons;
     public Image fade;
 
+    private AudioManager audioManager;
+    
     private void OnEnable()
     {
         fade.DOFade(0f, 1.5f).OnComplete(() =>
@@ -24,22 +26,10 @@ public class MainTitle : MonoBehaviour
             fade.gameObject.SetActive(false);
         });
     }
-    
-    private void PlayMainTitleBGM()
-    {
-        if (AudioManager.instance.bgmSource.clip == null)
-        {
-            AudioManager.instance.PlayBGM("MainTitle", 0);
-            AudioManager.instance.bgmSource.loop = false;
-        }
-    }
 
     private void Start()
     {
-        //5분마다 반복
-        //AudioManager.instance.BgmFadeIn(1f, () => { InvokeRepeating("PlayMainTitleBGM", 0f, 300f); });
-        AudioManager.instance.bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        InvokeRepeating("PlayMainTitleBGM", 0f, 300f);
+        InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
         
         bool dataExists = false;
         
@@ -84,6 +74,11 @@ public class MainTitle : MonoBehaviour
     {
         PlayerPrefs.SetInt("DataSlotEntryType", buttonType);
         SceneManager.LoadScene("DataSlot");
+    }
+    
+    private void InvokePlayMainTitleBGM()
+    {
+        StartCoroutine(AudioManager.instance.PlayBGM("MainTitle"));
     }
     
     public void Quit()
