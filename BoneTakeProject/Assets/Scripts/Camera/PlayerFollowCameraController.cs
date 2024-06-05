@@ -21,7 +21,8 @@ public class PlayerFollowCameraController : MonoBehaviour
     public GameObject mainCamera;
     public GameObject m_playerFollowCamera; //플레이어 추적중인 카메라 오브젝트
     public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
-    public Volume globalVolume;
+    public Volume hitVolume;
+    public Volume shadowVolume;
     public CinemachineCollisionImpulseSource bigLandingShakeSource; 
     private CharacterController2D player_CharacterController; //플레이어 스크립트
     private Collider2D mapSection;

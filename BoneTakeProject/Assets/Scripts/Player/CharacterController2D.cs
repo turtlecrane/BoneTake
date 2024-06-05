@@ -366,11 +366,36 @@ public class CharacterController2D : MonoBehaviour
         float xOffset = m_FacingRight ? 1f : -1f;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f));
     }
-
+    
     private void OnCollisionStay2D(Collision2D other)
     {
         inDefaultGround = other.gameObject.CompareTag("DefaultGround") || other.gameObject.CompareTag("Untagged") || other.gameObject.CompareTag("Map");
         inGrassGround = other.gameObject.CompareTag("GrassGround");
         inHardGround = other.gameObject.CompareTag("HardGround");
+    }
+
+    /*private void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            Debug.Log("물에서 나옴");
+            /*AudioManager.instance.PlaySFX("WaterExit");#1#
+        }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            AudioManager.instance.PlaySFX("WaterEnter");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            AudioManager.instance.PlaySFX("WaterExit");
+        }
     }
 }

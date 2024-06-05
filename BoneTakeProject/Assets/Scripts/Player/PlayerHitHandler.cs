@@ -29,8 +29,12 @@ public class PlayerHitHandler : MonoBehaviour
     {
         charCon2D = CharacterController2D.instance;
         hitShakeScript = GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.GetComponent<HitShake>();
-        hitVignette = GameManager.Instance.GetPlayerFollowCameraController().globalVolume;
+        hitVignette = GameManager.Instance.GetPlayerFollowCameraController().hitVolume;
         followCameraController = GameManager.Instance.GetPlayerFollowCameraController();
+        if (charCon2D.playerdata.playerHP == 1)
+        {
+            AudioManager.instance.PlayEnvironSound("HeartBeat");
+        }
     }
     
     /// <summary>
@@ -52,7 +56,7 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.animator.SetBool("IsDead", isDead);
         }
 
-        if (charCon2D.playerdata.playerHP <= 1)
+        if (charCon2D.playerdata.playerHP == 1)
         {
             Debug.Log("피 1");
             AudioManager.instance.PlayEnvironSound("HeartBeat");

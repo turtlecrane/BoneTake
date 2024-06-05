@@ -682,12 +682,18 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e93d2b72dd1358b428941351c716fbf1, type: 3}
     - {fileID: 8300000, guid: 53971acda4d80ec4d9c7b445784c6113, type: 3}
     - {fileID: 8300000, guid: e20e5a7eb1264404db1fae79c5bbf2f7, type: 3}
+  - Name: WaterEnter
+    Clip:
+    - {fileID: 8300000, guid: 3056ba7e86f6c3441892c7e969b582c2, type: 3}
   - Name: WaterWalk
     Clip:
     - {fileID: 8300000, guid: c83bc3b2f2d90f14e8da862b0935eae6, type: 3}
     - {fileID: 8300000, guid: 75d93e4de272bc84384ce458a446dd76, type: 3}
     - {fileID: 8300000, guid: b1ad82d14c82a3d4e88fc79594a80e82, type: 3}
     - {fileID: 8300000, guid: 3a3a3986bcfafe349b1eeed40cc42b04, type: 3}
+  - Name: WaterExit
+    Clip:
+    - {fileID: 8300000, guid: 349c856213f6c124fae80a479a1d7c63, type: 3}
   - Name: Dash
     Clip:
     - {fileID: 8300000, guid: d3aa041fc3f838044971e3ee99a6f6bd, type: 3}
@@ -737,6 +743,9 @@ MonoBehaviour:
   - Name: ButtonHover
     Clip:
     - {fileID: 8300000, guid: 8a22512d7c838844f8ecbc4b9eb3f4d6, type: 3}
+  - Name: HPRecovery
+    Clip:
+    - {fileID: 8300000, guid: b520ce2a52a4ec74e9472c1064e4ae68, type: 3}
   environmentSounds:
   - Name: Dark
     Clip:

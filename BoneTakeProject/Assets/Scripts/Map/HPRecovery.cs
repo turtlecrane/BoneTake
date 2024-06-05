@@ -15,6 +15,7 @@ public class HPRecovery : MonoBehaviour
             {
                 AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
             }
+            AudioManager.instance.PlaySFX("HPRecovery");
             playerData.playerHP += recoveryValue;
             Debug.Log( $"{recoveryValue} 만큼 회복됨.");
         }
