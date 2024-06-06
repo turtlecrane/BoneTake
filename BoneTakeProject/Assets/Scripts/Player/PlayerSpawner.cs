@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,10 @@ public class PlayerSpawner : MonoBehaviour
     public Image fadePanel;
     public Transform SpawnPoint;
     public GameObject playerSystemPrefab;
+    public string changeBGMName; //배경음을 바꿀건지 + 바꿀거면 무슨 배경음으로 바꿀건지
+    
     private GameObject player;
+    
 
     private void Awake()
     {
@@ -23,6 +27,48 @@ public class PlayerSpawner : MonoBehaviour
         {
             return;
         }
+    }
+
+    private void OnEnable()
+    {
+        //바꿀 브금 이름이 적혀있으면 브금을 바꿀거라고 판단
+        if (changeBGMName.Length != 0)
+        {
+            if (changeBGMName == "Stop")
+            {
+                StartCoroutine(AudioManager.instance.FadeOut(1f)); 
+            }
+            
+            if (AudioManager.instance.bgmSource.clip != null)
+            {
+                if (changeBGMName == AudioManager.instance.bgmSource.clip.name)
+                {
+                    return;
+                }
+                Debug.Log(changeBGMName.Length);
+                StartCoroutine(ChangeBGM());
+            }
+            else
+            {
+                Debug.Log(changeBGMName.Length);
+                StartCoroutine(ChangeBGM());
+            }
+        }
+    }
+
+    private IEnumerator ChangeBGM()
+    {
+        if (AudioManager.instance.isBGMChanging)
+        { 
+            yield return new WaitUntil(()=>!AudioManager.instance.isBGMChanging);
+        }
+        else
+        { 
+            StartCoroutine(AudioManager.instance.FadeOut(1f)); 
+            yield return new WaitUntil(()=>!AudioManager.instance.isBGMChanging);
+        }
+        
+        StartCoroutine(AudioManager.instance.PlayBGM(changeBGMName));
     }
 
     public IEnumerator FadeIn()

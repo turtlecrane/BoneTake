@@ -50,6 +50,8 @@ public class PlayerHitHandler : MonoBehaviour
         charCon2D.playerdata.playerHP -= damage;
         if (charCon2D.playerdata.playerHP <= 0)
         {
+            AudioManager.instance.bgmSource.Stop();
+            AudioManager.instance.bgmSource.clip = null; //TODO 죽을때의 배경음으로 바꿔야함.
             AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
             StartCoroutine(DeathCameraEffect());
             isDead = true;

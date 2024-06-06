@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class Sound
@@ -14,13 +15,18 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] bgmSounds, sfxSounds, environmentSounds;
 
+    [Space(10f)] 
     public AudioSource bgmSource;
     public AudioSource sfxSource;
     public Transform environSourceList;
 
+    [Space(10f)] 
+    public AudioMixerGroup environMixerGroup;
     public List<AudioSource> environSource;
+
+    [Space(10f)] 
+    public List<AudioMixerSnapshot> snapshots;
     
-    //public AudioSource environSource;
 
     public static AudioManager instance;
 
@@ -119,11 +125,15 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
+                //이미 있는 환경음이면 추가 안함
+                foreach (AudioSource es in environSource) if (name == es.name) return;
+                
                 // 오브젝트 생성 및 AudioSource 컴포넌트 추가
                 GameObject newAudioObject = new GameObject(name);
                 newAudioObject.transform.SetParent(environSourceList);
                 AudioSource newAudioSource = newAudioObject.AddComponent<AudioSource>();
                 newAudioSource.loop = true;
+                newAudioSource.outputAudioMixerGroup = environMixerGroup;
                 newAudioSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
 
                 // 리스트에 추가
@@ -168,6 +178,11 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(s.Clip[0]);
         }
+    }
+
+    public void ChangeAudioMixerSnapShot(int arrayNum)
+    {
+        snapshots[arrayNum].TransitionTo(0.001f);
     }
 
     public void BgmFadeOut(float duration)

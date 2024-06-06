@@ -59,6 +59,12 @@ public class PlayerEventKey : MonoBehaviour
                         .SendMessage(methodName, damage);
                 }
             }
+            else if (collider.gameObject != null && collider.CompareTag("BreakableObj"))
+            {
+                AudioManager.instance.PlaySFX("Hit");
+                string methodName = "Obj_ApplyDamage";
+                collider.gameObject.SendMessage(methodName, damage);
+            }
         }
     }
 

@@ -13,6 +13,11 @@ public class PauseMenu : MonoBehaviour
     public bool isPaused = false; // 일시정지 상태를 추적
     public Image fade;
 
+    private void OnEnable()
+    {
+        AudioManager.instance.ChangeAudioMixerSnapShot(1);
+    }
+
     public void PauseM_ContinueBtn()
     {
         isPaused = false;
@@ -77,5 +82,10 @@ public class PauseMenu : MonoBehaviour
     public void PlayButtonHoverAudio()
     {
         AudioManager.instance.PlayButtonSound("ButtonHover");
+    }
+
+    private void OnDisable()
+    {
+        AudioManager.instance.ChangeAudioMixerSnapShot(0);
     }
 }
