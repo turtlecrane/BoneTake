@@ -37,6 +37,7 @@ public class PlayerSpawner : MonoBehaviour
             if (changeBGMName == "Stop")
             {
                 StartCoroutine(AudioManager.instance.FadeOut(1f)); 
+                return;
             }
             
             if (AudioManager.instance.bgmSource.clip != null)

@@ -672,9 +672,6 @@ MonoBehaviour:
   - Name: boss_1
     Clip:
     - {fileID: 8300000, guid: f6344351ba84afd47982ab034102faec, type: 3}
-  - Name: boss_2
-    Clip:
-    - {fileID: 8300000, guid: 94d40b05317572d4a8b18179ac42aae8, type: 3}
   sfxSounds:
   - Name: BasicWalk
     Clip:

@@ -28,9 +28,18 @@ public class BossDirection : MonoBehaviour
         door.transform.DOLocalMoveY(0f, 1).SetEase(Ease.InExpo);
         StartDirection();
         yield return TransitionScreen(0.9f);
+        PlayBossBGM();
         ActivateBossUI();
         yield return new WaitForSeconds(3.6f);
         EndWakeDirection();
+    }
+
+    public void PlayBossBGM()
+    {
+        StartCoroutine(AudioManager.instance.PlayBGM("boss_1",0, () =>
+        {
+            AudioManager.instance.bgmSource.loop = true;
+        }));
     }
 
     public IEnumerator DeadDirection()
@@ -50,6 +59,7 @@ public class BossDirection : MonoBehaviour
         CharacterController2D.instance.isBossDirecting = true;
         CharacterController2D.instance.playerHitHandler.isInvincible = true;
         bossCamera.gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     private IEnumerator TransitionScreen(float waitTime)
@@ -75,6 +85,7 @@ public class BossDirection : MonoBehaviour
     {
         hpSlider.GetComponent<Animator>().SetBool("IsEnd", true);
         bossGFX.SetBool("IsDead", true);
+        if (gameObject.activeSelf) StartCoroutine(AudioManager.instance.FadeOut(1f));
     }
 
     private void DeactivateBossUI()

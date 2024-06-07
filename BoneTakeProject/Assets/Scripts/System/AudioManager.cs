@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -53,9 +54,12 @@ public class AudioManager : MonoBehaviour
         sfxSource.mute = PlayerPrefs.GetInt("SFXMute", 0) == 1;
     }
     
-    public IEnumerator PlayBGM(string bgmName, int arrayNum = 0)
+    public IEnumerator PlayBGM(string bgmName, int arrayNum = 0, Action action = null)
     {
         yield return new WaitUntil(()=>!isBGMChanging);
+        
+        bgmSource.Stop();
+        bgmSource.clip = null;
         
         bgmSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
         
@@ -63,6 +67,7 @@ public class AudioManager : MonoBehaviour
         { 
             ChangeBGM(bgmName, arrayNum); 
             bgmSource.loop = false;
+            action?.Invoke();
         }
     }
 
@@ -193,6 +198,7 @@ public class AudioManager : MonoBehaviour
     public IEnumerator FadeOut(float duration)
     {
         isBGMChanging = true;
+        bgmSource.loop = false;
         float startVolume = bgmSource.volume;
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
