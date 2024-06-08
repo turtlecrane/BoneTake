@@ -19,6 +19,7 @@ public class CharacterController2D : MonoBehaviour
     public Rigidbody2D m_Rigidbody2D; //플레이어 리지드바디
     public Animator animator; //플레이어 애니메이터
     public ParticleSystem dustParticle;
+    public PauseMenu pauseMenu;
     
     [Header("점프 관련")]
     public bool isJumping; //점프중인지
@@ -134,10 +135,10 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // isPaused 값을 반전시킴
-            GameManager.Instance.GetPauseMenu().isPaused = !GameManager.Instance.GetPauseMenu().isPaused;
+            pauseMenu.isPaused = !pauseMenu.isPaused;
             
             // GameManager를 통해 일시정지 메뉴의 활성화 상태 설정
-            GameManager.Instance.GetPauseMenu().gameObject.SetActive(GameManager.Instance.GetPauseMenu().isPaused);
+            pauseMenu.gameObject.SetActive(pauseMenu.isPaused);
         }
 
         UpdateClimbingState();

@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerData
 {
-    public string playerName;
+    public string playerName = "";
     public float playTime;
     
     //저장된 위치(씬 이름 저장)
@@ -22,7 +22,6 @@ public class PlayerData
     
     //플레이어 조작
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함
-    //public float playerWaterSpeed = 40f; //물속에서의 움직임 속도
     public float playerMaxJumpForce = 90f; //높아질수록 더 높이 올라감 (올라가는 힘은 변하지않음)
     public float playerDashForce = 100f; //높아질수록 파워가 세짐 (더 멀리감)
     

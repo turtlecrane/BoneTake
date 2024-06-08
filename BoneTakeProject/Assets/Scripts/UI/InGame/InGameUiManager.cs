@@ -222,11 +222,13 @@ public class InGameUiManager : MonoBehaviour
     
     public bool CheckForActiveUILayer(LayerMask layer)
     {
+        //Debug.Log("CheckForActiveUILayer");
         return CheckTransformForActiveUILayer(canvas.transform, layer);
     }
     
-    private bool CheckTransformForActiveUILayer(Transform parent, LayerMask layers)
+    public bool CheckTransformForActiveUILayer(Transform parent, LayerMask layers)
     {
+        //Debug.Log("CheckTransformForActiveUILayer");
         foreach (Transform child in parent)
         {
             // child.gameObject가 활성화되어 있고, 주어진 layers에 속하는지 확인

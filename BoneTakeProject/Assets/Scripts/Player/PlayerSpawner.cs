@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerSpawner : MonoBehaviour
@@ -22,6 +23,7 @@ public class PlayerSpawner : MonoBehaviour
         if (!GameObject.FindWithTag("Player"))
         {
             player = Instantiate(playerSystemPrefab, SpawnPoint.position, SpawnPoint.rotation);
+            //SceneManager.LoadScene(PlayerDataManager.instance.nowPlayer.mapName);
         }
         else
         {

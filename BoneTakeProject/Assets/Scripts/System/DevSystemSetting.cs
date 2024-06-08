@@ -6,12 +6,12 @@ using UnityEngine;
 public class DevSystemSetting : MonoBehaviour
 {
     [Range(0.0f, 1.0f)] public float Dev_WorldTime;
-    private InGameUiManager inGameUiManager;
+    public InGameUiManager inGameUiManager;
 
-    private void Awake()
+    /*private void Awake()
     {
         inGameUiManager = GameManager.Instance.GetInGameUiManager();
-    }
+    }*/
 
     void Update()
     {

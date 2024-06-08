@@ -17,7 +17,6 @@ public class DataSlotManager : MonoBehaviour
     public DataSlot[] slots;
     public GameObject lifePoint_Prefab;
     
-    public TMP_Text newPlayerName;	// 새로 입력된 플레이어의 닉네임
     public bool[] savefile = new bool[3];	// 세이브파일 존재유무 저장
     
     void Start()
@@ -66,8 +65,9 @@ public class DataSlotManager : MonoBehaviour
     {
         if (AudioManager.instance.bgmSource.clip == null)
         {
-            StartCoroutine(AudioManager.instance.PlayBGM("MainTitle"));
+            InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
         }
+        
         //버튼에 효과음 설정
         foreach (var slot in slots)
         {
@@ -84,6 +84,11 @@ public class DataSlotManager : MonoBehaviour
 
             trigger.triggers.Add(entry);
         }
+    }
+    
+    private void InvokePlayMainTitleBGM()
+    {
+        StartCoroutine(AudioManager.instance.PlayBGM("MainTitle"));
     }
 
     /// <summary>
@@ -146,7 +151,7 @@ public class DataSlotManager : MonoBehaviour
         
         if (savefile[number])	// bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
         {
-            if (entryType == 0)
+            if (entryType == 0) //새로하기 버튼으로 데이터 있는 슬롯을 선택
             {
                 popupManager.SetPopup("이미 데이터가 존재하는 데이터 슬롯입니다.\n정말 새롭게 시작하시겠습니까?\n<size=70%>이미 존재하는 데이터는 삭제됩니다.</size>",false,
                     () =>
@@ -154,10 +159,11 @@ public class DataSlotManager : MonoBehaviour
                         popupManager.ClosePopup(); //팝업 닫기
                         PlayerDataManager.instance.DeleteData(); //데이터파일 삭제
                         savefile[number] = false;
-                        NamePopupCreate();
+                        SceneChange("DataSlot");
+                        GoGame();
                     }, () => { });
             }
-            else if(entryType == 1)
+            else if(entryType == 1) // 이어하기 버튼으로 데이터 있는 슬롯을 선택
             {
                 PlayerDataManager.instance.LoadData();	// 데이터를 로드하고
                 GoGame();	//게임씬으로 이동
@@ -174,18 +180,19 @@ public class DataSlotManager : MonoBehaviour
         }
         else	// bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
         {
-            if (entryType == 0)
+            if (entryType == 0) //새로운게임 버튼으로 데이터 없는 슬롯을 선택
             {
-                NamePopupCreate();	// 플레이어 닉네임 입력 UI 활성화
+                GoGame();
             }
-            else if (entryType == 1)
+            else if (entryType == 1) //이어하기 버튼으로 데이터 없는 슬롯을 선택
             {
                 popupManager.SetPopup("새로운 게임을 시작하겠습니까?",false,
                     () =>
                     {
                         Debug.Log("이어하기로 데이터가 없는 슬롯을 선택함");
                         popupManager.ClosePopup(); //팝업 닫기
-                        NamePopupCreate();	// 플레이어 닉네임 입력 UI 활성화
+                        //NamePopupCreate();	// 플레이어 닉네임 입력 UI 활성화
+                        GoGame();
                     },()=>{});
             }
             else
@@ -201,14 +208,6 @@ public class DataSlotManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어 닉네임 입력 UI를 활성화하는 메소드
-    /// </summary>
-    public void NamePopupCreate()
-    {
-        nameInputPopup.gameObject.SetActive(true);
-    }
-
-    /// <summary>
     /// 게임씬으로 이동
     /// </summary>
     public void GoGame()
@@ -216,7 +215,7 @@ public class DataSlotManager : MonoBehaviour
         if (!savefile[PlayerDataManager.instance.nowSlot])	// 현재 슬롯번호의 데이터가 없다면
         {
             Debug.Log("현재 슬롯번호의 데이터가 없다");
-            PlayerDataManager.instance.nowPlayer.playerName = newPlayerName.text; // 입력한 이름을 복사해옴
+            PlayerDataManager.instance.nowPlayer.playerName = "";
             PlayerDataManager.instance.SaveData(); // 현재 정보를 저장함.
         }
         LoadingSceneController.LoadScene(PlayerDataManager.instance.nowPlayer.mapName);// 게임씬으로 이동

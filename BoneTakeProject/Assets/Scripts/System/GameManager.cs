@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance
+    public static GameManager Instance;
+    /*public static GameManager Instance
     {
         get
         {
@@ -26,8 +27,24 @@ public class GameManager : MonoBehaviour
 
             return _instance;
         }
+    }*/
+
+    private void Awake()
+    {
+        #region 싱글톤
+        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(Instance.gameObject);
+        }
+        
+        #endregion
     }
-    
+
     public PlayerFollowCameraController GetPlayerFollowCameraController() => GameObject.Find("PlayerFollowCameraController").GetComponent<PlayerFollowCameraController>();
     public DevSystemSetting GetDevSetting() => GameObject.Find("DevSetting").GetComponent<DevSystemSetting>();
     //public CharacterController2D GetCharacterController2D() => GameObject.Find("Player").GetComponent<CharacterController2D>();

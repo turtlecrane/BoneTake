@@ -7,22 +7,27 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Weapon_Type weapon_type; //현재 착용중인 무기
-    public Weapon_Name weapon_name;
+    [Header("Component")]
     public Animator weaponAnimator;
     public WeaponManager weaponManager;
+    public ParticleSystem attackParticle;
+    public InGameUiManager inGameUiManager;
+    
+    [Header("Value")]
+    public Weapon_Type weapon_type; //현재 착용중인 무기
+    public Weapon_Name weapon_name;
+    [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 히트박스의 크기 조절
+    [HideInInspector] public float playerOffset_X;//공격 X축 반경을 조절
+    [HideInInspector] public float playerOffset_Y; //공격 Y축 반경을 조절
+    public float multiAtk_maxTime;
+    
+    [Header("State")]
     public bool canAttack = true; //공격을 할 수 있는 상태인지
     public bool isAbleMultipleAttack; //다중타수가 가능한 상태인지 판별
     public bool isAttacking; //공격중인지
     public bool isJumpAttacking; //공격중인지
     public bool isAiming; //조준중인지 (활 무기 착용시)
     public int count = 0; //현재 공격이 몇타째 인지
-    public float multiAtk_maxTime;
-    public ParticleSystem attackParticle;
-    
-    [HideInInspector] public Vector2 hitBoxSize; //공격이 맞는 히트박스의 크기 조절
-    [HideInInspector] public float playerOffset_X;//공격 X축 반경을 조절
-    [HideInInspector] public float playerOffset_Y; //공격 Y축 반경을 조절
     
     private float AbleMultipleAttack_Time;
     private float comparisonTimer;
@@ -55,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
             !charCon2D.playerHitHandler.isDead &&
             !charCon2D.playerHitHandler.isBigKnockBack &&
             !charCon2D.playerHitHandler.isSmallKnockBack &&
-            !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(LayerMask.GetMask("UI")); //&&
+            !inGameUiManager.CheckForActiveUILayer(LayerMask.GetMask("UI")); //&&
             
         if (isAttacking) charCon2D.m_Rigidbody2D.velocity = new Vector2(0, charCon2D.m_Rigidbody2D.velocity.y);
         

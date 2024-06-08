@@ -9,7 +9,10 @@ using Random = UnityEngine.Random;
 
 public class PlayerHitHandler : MonoBehaviour
 {
+    [Header("Component")]
     public Image gameOverPanel;
+    public DevSystemSetting devSetting;
+    
     [Header("전투 관련 상태")] 
     public bool isDead; //사망상태 인지
     public bool isInvincible; //무적상태 인지
@@ -173,7 +176,7 @@ public class PlayerHitHandler : MonoBehaviour
         float startTime = Time.unscaledTime;
         float duration = 3f; // 줌인과 시간 느려지는 효과에 걸리는 시간 (초)
         float targetOrthographicSize = 5f; // 목표 OrthographicSize
-        GameManager.Instance.GetDevSetting().Dev_WorldTime = 0.5f; // 시간 느려지게 함
+        devSetting.Dev_WorldTime = 0.5f; // 시간 느려지게 함
 
         while (Time.unscaledTime - startTime < duration)
         {
@@ -186,7 +189,7 @@ public class PlayerHitHandler : MonoBehaviour
         followCameraController.virtualCamera.m_Lens.OrthographicSize = targetOrthographicSize;
 
         // 추가 대기 시간 없이 바로 원래 시간 속도로 복구
-        GameManager.Instance.GetDevSetting().Dev_WorldTime = 1f;
+        devSetting.Dev_WorldTime = 1f;
         gameOverPanel.gameObject.SetActive(true);
     }
     

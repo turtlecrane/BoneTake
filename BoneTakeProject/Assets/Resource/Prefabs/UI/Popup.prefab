@@ -310,6 +310,7 @@ MonoBehaviour:
   popupContent: {fileID: 1422644434600232403}
   Button_Yes: {fileID: 1422644433812898101}
   Button_No: {fileID: 1422644433850255468}
+  namePopup: {fileID: 0}
 --- !u!114 &2148077569662671868
 MonoBehaviour:
   m_ObjectHideFlags: 0

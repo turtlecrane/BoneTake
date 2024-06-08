@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6701474633982011083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 3fc08aee-4b4a-4aa3-a2d9-299eab0e5aa8
+  rect:
+    serializedVersion: 2
+    x: 50614
+    y: 50164
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: -1492952013106631252}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uAE30\uBAA8\uB760"
+--- !u!114 &-1492952013106631252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 5b5bd48d-3191-4c19-b1b8-2a16fd778aa3
+  rect:
+    serializedVersion: 2
+    x: 50934
+    y: 50163
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uC800\uC7A5\uD558\uB824\uBA74 \uC800\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC5B4\uC8FC\uC138\uC694."
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: NameConfirm_Dialouge
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 4512215573158424169}
+  - {fileID: 624743453428973484}
+  - {fileID: -6701474633982011083}
+  - {fileID: -1492952013106631252}
+  root: {fileID: 4512215573158424169}
+  scrollPosition: {x: 50052.5, y: 49904}
+--- !u!114 &624743453428973484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: d8d6837b-2702-4878-9253-f14082cfc400
+  rect:
+    serializedVersion: 2
+    x: 50306
+    y: 50163
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: -6701474633982011083}
+  conditions: []
+  enterActions: []
+  exitActions:
+  - {fileID: 1697886031137328276}
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "{playerName}.. \uC88B\uC740 \uC774\uB984\uC774\uB124\uC694."
+--- !u!114 &1697886031137328276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: MakeName
+  _uniqueId: 198311f6-73de-4305-9084-c970864ff1f1
+  _gameObjectName: SaveNPC_01
+  _methodName: MakeName
+  _options: 0
+--- !u!114 &4512215573158424169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: eb3341fb-badc-4717-b376-674a9744e7c9
+  rect:
+    serializedVersion: 2
+    x: 50108
+    y: 50205
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: 624743453428973484}
+  conditions: []
+  enterActions: []
+  exitActions: []

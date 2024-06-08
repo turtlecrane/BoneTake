@@ -8,10 +8,30 @@ using UnityEngine.UI;
 
 public class PopupManager : MonoBehaviour
 {
+    public static PopupManager instance;
+
+    [Header("BasicPopup")] 
+    public GameObject basicPopup;
     public TMP_Text popupContent;
     public Button Button_Yes;
     public Button Button_No;
-    
+
+    private void Awake()
+    {
+        #region 싱글톤
+        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+        
+        #endregion
+    }
+
     /// <summary>
     /// 팝업창을 띄우는 함수
     /// </summary>
@@ -23,7 +43,8 @@ public class PopupManager : MonoBehaviour
     public void SetPopup(string _content, bool _isSingle, Action _yesButtonAction, [CanBeNull] Action _noButtonAction)
     {
         popupContent.text = _content;
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        basicPopup.SetActive(true);
         
         if (gameObject.activeSelf)
         {
