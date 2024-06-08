@@ -29,7 +29,10 @@ public class MainTitle : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
+        if (AudioManager.instance.bgmSource.clip == null)
+        {
+            InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
+        }
         
         bool dataExists = false;
         
