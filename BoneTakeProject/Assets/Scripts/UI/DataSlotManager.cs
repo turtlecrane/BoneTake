@@ -17,7 +17,7 @@ public class DataSlotManager : MonoBehaviour
     public DataSlot[] slots;
     public GameObject lifePoint_Prefab;
     
-    public TMP_Text newPlayerName;	// 새로 입력된 플레이어의 닉네임
+    //public TMP_Text newPlayerName;	// 새로 입력된 플레이어의 닉네임
     public bool[] savefile = new bool[3];	// 세이브파일 존재유무 저장
     
     void Start()
@@ -154,7 +154,7 @@ public class DataSlotManager : MonoBehaviour
                         popupManager.ClosePopup(); //팝업 닫기
                         PlayerDataManager.instance.DeleteData(); //데이터파일 삭제
                         savefile[number] = false;
-                        NamePopupCreate();
+                        GoGame();
                     }, () => { });
             }
             else if(entryType == 1)
@@ -176,7 +176,7 @@ public class DataSlotManager : MonoBehaviour
         {
             if (entryType == 0)
             {
-                NamePopupCreate();	// 플레이어 닉네임 입력 UI 활성화
+                GoGame();
             }
             else if (entryType == 1)
             {
@@ -185,7 +185,7 @@ public class DataSlotManager : MonoBehaviour
                     {
                         Debug.Log("이어하기로 데이터가 없는 슬롯을 선택함");
                         popupManager.ClosePopup(); //팝업 닫기
-                        NamePopupCreate();	// 플레이어 닉네임 입력 UI 활성화
+                        GoGame();
                     },()=>{});
             }
             else
@@ -201,14 +201,6 @@ public class DataSlotManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어 닉네임 입력 UI를 활성화하는 메소드
-    /// </summary>
-    public void NamePopupCreate()
-    {
-        nameInputPopup.gameObject.SetActive(true);
-    }
-
-    /// <summary>
     /// 게임씬으로 이동
     /// </summary>
     public void GoGame()
@@ -216,7 +208,7 @@ public class DataSlotManager : MonoBehaviour
         if (!savefile[PlayerDataManager.instance.nowSlot])	// 현재 슬롯번호의 데이터가 없다면
         {
             Debug.Log("현재 슬롯번호의 데이터가 없다");
-            PlayerDataManager.instance.nowPlayer.playerName = newPlayerName.text; // 입력한 이름을 복사해옴
+            PlayerDataManager.instance.nowPlayer.playerName = ""; // 입력한 이름을 복사해옴
             PlayerDataManager.instance.SaveData(); // 현재 정보를 저장함.
         }
         LoadingSceneController.LoadScene(PlayerDataManager.instance.nowPlayer.mapName);// 게임씬으로 이동

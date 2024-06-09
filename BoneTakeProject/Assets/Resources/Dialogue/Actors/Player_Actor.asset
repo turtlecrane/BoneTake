@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_Actor
   m_EditorClassIdentifier: 
   _displayName: Player
-  _portrait: {fileID: -1324895177, guid: 309462c9e4163b04ea70d756086f5c2f, type: 3}
+  _portrait: {fileID: -1344639763, guid: 8c813633eae2f294689ec55fc5cc8cbb, type: 3}

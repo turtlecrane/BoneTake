@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BreakableObject : MonoBehaviour
 {
@@ -12,18 +13,46 @@ public class BreakableObject : MonoBehaviour
     
     public ParticleSystem damageParticles; //파편 파티클
     public ParticleSystem brokenParticles; //부서지는 파티클
-    public ParticleSystem dustParticles; 
+    public ParticleSystem dustParticles;
+
+    public string sceneName;
     
     private float shakeValue;
     private Collider2D collider;
 
+    public bool isRemembered;
+    public bool isDestroy = false;
+    
     private void Awake()
     {
         collider = GetComponent<Collider2D>();
+        sceneName = SceneManager.GetActiveScene().name;
+    }
+
+    private void Start()
+    {
+        foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
+        {
+            if (sceneData.sceneName == sceneName)
+            {
+                foreach (var obj in sceneData.breakableObjects)
+                {
+                    if (obj.name == gameObject.name)
+                    {
+                        //obj.isDestroy = true;
+                        gameObject.SetActive(!obj.isDestroy);
+                        break;
+                    }
+                }
+                break;
+            }
+        }
     }
 
     public void Obj_ApplyDamage(float damage)
     {
+        if(isDestroy) return;
+        
         PlayerAttack charCon2D = CharacterController2D.instance.playerAttack;
         
         shakeValue = 0.25f;
@@ -56,6 +85,23 @@ public class BreakableObject : MonoBehaviour
 
     public IEnumerator BreakingEffect()
     {
+        isDestroy = true;
+        foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
+        {
+            if (sceneData.sceneName == sceneName)
+            {
+                foreach (var obj in sceneData.breakableObjects)
+                {
+                    if (obj.name == gameObject.name)
+                    {
+                        obj.isDestroy = true;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        //PlayerDataManager.instance.nowPlayer.mapData
         //통과 가능하게 전환
         collider.isTrigger = true;
         objGFX.GetComponent<SpriteRenderer>().DOFade(0f, 0.5f)

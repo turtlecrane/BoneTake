@@ -17,6 +17,7 @@ TagManager:
   - GrassGround
   - HardGround
   - BreakableObj
+  - SaveNPC
   layers:
   - Default
   - TransparentFX

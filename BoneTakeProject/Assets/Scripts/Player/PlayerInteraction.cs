@@ -264,7 +264,7 @@ public class PlayerInteraction : MonoBehaviour
             canExtractBones = bossHitHandler.isCorpseState;
             m_boneExtractionTime = bossHitHandler.boneExtractionTime;
         }
-        else if (collision.CompareTag("NPC"))
+        else if (collision.CompareTag("NPC") || collision.CompareTag("SaveNPC"))
         {
             npcCollision = collision;
             canTalkToNPC = true;
@@ -292,7 +292,7 @@ public class PlayerInteraction : MonoBehaviour
             canExtractBones = false;
             m_boneExtractionTime = 0;
         }
-        else if (collision.CompareTag("NPC"))
+        else if (collision.CompareTag("NPC") || collision.CompareTag("SaveNPC"))
         {
             canTalkToNPC = false;
         }

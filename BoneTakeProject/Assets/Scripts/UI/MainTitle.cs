@@ -18,6 +18,7 @@ public class MainTitle : MonoBehaviour
     public Image fade;
 
     private AudioManager audioManager;
+    public bool isAudioNull;
     
     private void OnEnable()
     {
@@ -29,10 +30,7 @@ public class MainTitle : MonoBehaviour
 
     private void Start()
     {
-        if (AudioManager.instance.bgmSource.clip == null)
-        {
-            InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
-        }
+        StartCoroutine(PlayMainTitleBGM());
         
         bool dataExists = false;
         
@@ -78,9 +76,16 @@ public class MainTitle : MonoBehaviour
         PlayerPrefs.SetInt("DataSlotEntryType", buttonType);
         SceneManager.LoadScene("DataSlot");
     }
+
+    private IEnumerator PlayMainTitleBGM()
+    {
+        yield return new WaitUntil(() =>  !AudioManager.instance.isBGMChanging);
+        InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
+    }
     
     private void InvokePlayMainTitleBGM()
     {
+        Debug.Log("메인 타이틀 BGM 재생");
         StartCoroutine(AudioManager.instance.PlayBGM("MainTitle"));
     }
     

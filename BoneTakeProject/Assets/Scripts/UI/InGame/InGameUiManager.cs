@@ -222,10 +222,11 @@ public class InGameUiManager : MonoBehaviour
     
     public bool CheckForActiveUILayer(LayerMask layer)
     {
-        return CheckTransformForActiveUILayer(canvas.transform, layer);
+        //return CheckTransformForActiveUILayer(canvas.transform, layer);
+        return CheckTransformForActiveUILayer(layer);
     }
     
-    private bool CheckTransformForActiveUILayer(Transform parent, LayerMask layers)
+    /*private bool CheckTransformForActiveUILayer(Transform parent, LayerMask layers)
     {
         foreach (Transform child in parent)
         {
@@ -237,6 +238,23 @@ public class InGameUiManager : MonoBehaviour
         
             // 재귀적으로 하위 오브젝트 검사
             if (CheckTransformForActiveUILayer(child, layers))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }*/
+    
+    private bool CheckTransformForActiveUILayer(LayerMask layers)
+    {
+        // 씬의 모든 Transform을 가져옴
+        Transform[] allTransforms = GameObject.FindObjectsOfType<Transform>();
+    
+        foreach (Transform t in allTransforms)
+        {
+            // 활성화된 오브젝트이고, 주어진 layers에 속하는지 확인
+            if (t.gameObject.activeInHierarchy && ((1 << t.gameObject.layer) & layers) != 0)
             {
                 return true;
             }

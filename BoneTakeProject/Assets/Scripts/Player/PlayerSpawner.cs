@@ -69,6 +69,12 @@ public class PlayerSpawner : MonoBehaviour
             yield return new WaitUntil(()=>!AudioManager.instance.isBGMChanging);
         }
         
+        InvokeRepeating("InvokePlayInGameBGM", 1f, 300f);
+    }
+    
+    private void InvokePlayInGameBGM()
+    {
+        Debug.Log("인게임 BGM 재생");
         StartCoroutine(AudioManager.instance.PlayBGM(changeBGMName));
     }
 

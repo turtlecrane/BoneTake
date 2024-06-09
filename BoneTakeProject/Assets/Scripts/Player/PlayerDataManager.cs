@@ -42,7 +42,25 @@ public class PlayerData
 
     //처치한 보스의 종류
     public List<string> killedTypeOfBosses = new List<string>();
+    
+    //맵데이터
+    public List<SceneData> mapData = new List<SceneData>();
 }
+
+[System.Serializable]
+public class SceneData
+{
+    public string sceneName;
+    public List<BreakableObjectData> breakableObjects = new List<BreakableObjectData>();
+}
+
+[System.Serializable]
+public class BreakableObjectData
+{
+    public string name;
+    public bool isDestroy;
+}
+
 
 
 public class PlayerDataManager : MonoBehaviour

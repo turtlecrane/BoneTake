@@ -36,8 +36,9 @@ public class DialoguePlayback : MonoBehaviour {
 
         // @NOTE 오디오가 필요하지 않은 경우 이것 대신 _ctrl.Events.Speak((actor, text) => {})를 호출하세요.
         _ctrl.Events.SpeakWithAudio.AddListener((actor, text, audioClip) => {
-            HandleDialogue(actor, text, audioClip);
-            StartCoroutine(NextDialogue(text, () =>
+            string processedText = ProcessDialogueText(text);
+            HandleDialogue(actor, processedText, audioClip);
+            StartCoroutine(NextDialogue(processedText, () =>
             {
                 isDialogueChanged = true;
                 _ctrl.Next();
@@ -45,8 +46,9 @@ public class DialoguePlayback : MonoBehaviour {
         });
 
         _ctrl.Events.Choice.AddListener((actor, text, choices) => {
-            HandleDialogue(actor, text, null);
-            StartCoroutine(NextDialogue(text, () =>
+            string processedText = ProcessDialogueText(text);
+            HandleDialogue(actor, processedText, null);
+            StartCoroutine(NextDialogue(processedText, () =>
             {
                 isDialogueChanged = true;
                 DisplayChoices(choices);
@@ -223,5 +225,15 @@ public class DialoguePlayback : MonoBehaviour {
             
             if (i == strTypingLength) isAllTyped = true;
         }
+    }
+    
+    private string ProcessDialogueText(string originalText) {
+        // 플레이어 이름 가져오기
+        string playerName = PlayerDataManager.instance.nowPlayer.playerName;
+
+        // 플레이스홀더를 실제 플레이어 이름으로 교체
+        string processedText = originalText.Replace("{playerName}", playerName);
+
+        return processedText;
     }
 }

@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5349705769237466982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: MakeName
+  _uniqueId: 31e1e38c-d25c-4091-bd3c-a72b8f167374
+  _gameObjectName: SaveNPC
+  _methodName: MakeName
+  _options: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: FirstTalk_SaveNPC
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 1813792612888725102}
+  - {fileID: 4585999507810456561}
+  root: {fileID: 1813792612888725102}
+  scrollPosition: {x: 49522.5, y: 49941}
+--- !u!114 &1813792612888725102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: 0748b489-72c9-44be-9cb4-f8ccf27dc909
+  rect:
+    serializedVersion: 2
+    x: 49698
+    y: 50203
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: 4585999507810456561}
+  conditions: []
+  enterActions: []
+  exitActions: []
+--- !u!114 &4585999507810456561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 19734eb2-e9a2-4110-bbe9-2446f665e985
+  rect:
+    serializedVersion: 2
+    x: 49883
+    y: 50161
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions:
+  - {fileID: -5349705769237466982}
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uCC98\uC74C\uBCF4\uB294 \uC5BC\uAD74\uC778\uB370 \xB7\xB7\xB7\n\uB204\uAD6C\uC2ED\uB2C8\uAE4C?"
