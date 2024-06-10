@@ -290,12 +290,13 @@ MonoBehaviour:
   _uniqueId: 97fc00a5-8668-470f-815a-b2e1fe3a2fe9
   rect:
     serializedVersion: 2
-    x: 50513
-    y: 50623
+    x: 50503
+    y: 50622
     width: 100
     height: 57
   nodeTitle: Save
-  children: []
+  children:
+  - {fileID: -3323845720370000586}
   conditions: []
   enterActions:
   - {fileID: -5846103509194833538}
@@ -376,6 +377,34 @@ MonoBehaviour:
   children:
   - {fileID: 7108903336610702039}
   _uniqueId: a81d6641-16ae-49d5-9de0-66167b94d337
+--- !u!114 &-3323845720370000586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 77d325e2-9878-46e4-8fd9-daafa5ca5012
+  rect:
+    serializedVersion: 2
+    x: 50697
+    y: 50580
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uB300\uB098\uBB34\uB85C \uBC25\uC744 \uC9C0\uC5B4\uBCF8 \uC801 \uC788\uB098\uC694?"
 --- !u!114 &-2290191590798582242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,8 +590,9 @@ MonoBehaviour:
   - {fileID: -5370878494047795168}
   - {fileID: 7108903336610702039}
   - {fileID: -8046760179729835979}
+  - {fileID: -3323845720370000586}
   root: {fileID: -6096672064785672316}
-  scrollPosition: {x: 49591.25, y: 49765.5}
+  scrollPosition: {x: 50081.25, y: 50289.5}
 --- !u!114 &2006116997301369411
 MonoBehaviour:
   m_ObjectHideFlags: 1
