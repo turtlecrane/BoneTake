@@ -192,11 +192,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - {fileID: 11400000, guid: 95312b960b763ef4ba352bfa3ce5cac2, type: 2}
+  - {fileID: 11400000, guid: 825a51d8b15fe314bb1cc3b869bf8f01, type: 2}
+  - {fileID: 11400000, guid: 3469e70e4b0a0a542b961a7031de1f6e, type: 2}
+  talkEnable: 1
+  firstSaveDialogue:
   - {fileID: 11400000, guid: 6b680729845b1dc42b9163e46c015863, type: 2}
   - {fileID: 11400000, guid: 603009a366248024fb72003cfa668880, type: 2}
-  talkEnable: 1
   namePopup: {fileID: 3858996495890367394}
-  playback: {fileID: 0}
 --- !u!1 &8045677680526529854
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,13 @@ public class PlayerInteraction : MonoBehaviour
     {
         testInteractionText.SetActive(canInteraction);
         HandleInteractionInput();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            TakeOffWeapon();
+            charCon2D.playerAttack.weapon_type = Weapon_Type.Basic;
+            charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
+            charCon2D.playerAttack.weaponManager.weaponLife = -1;
+        }
     }
 
     private void HandleInteractionInput()
@@ -163,7 +170,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void TakeOffWeapon()
+    public void TakeOffWeapon()
     {
         //현재 플레이어가 착용중인 무기가 basic이나 etc가 아니라면
         if (PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.Basic && PlayerDataManager.instance.nowPlayer.weaponType != Weapon_Type.etc)
@@ -192,6 +199,8 @@ public class PlayerInteraction : MonoBehaviour
                     
             Vector2 forceDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;
             wpscript.rb.AddForce(forceDirection * Random.Range(500f, 1000f));//힘의 정도
+            float randomTorque = Random.Range(-500f, 500f); // 랜덤한 회전값 추가
+            wpscript.rb.AddTorque(randomTorque);
         }
     }
 

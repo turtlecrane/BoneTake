@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class HPRecovery : MonoBehaviour
 {
-    public int recoveryValue;
+    //public int recoveryValue;
     
     public void NpcInteraction()
     {
         PlayerData playerData = CharacterController2D.instance.playerdata;
         if (playerData.playerMaxHP != playerData.playerHP)
         {
-            if (playerData.playerHP <= 1)
-            {
-                AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
-            }
+            if (playerData.playerHP <= 1) AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
             AudioManager.instance.PlaySFX("HPRecovery");
-            playerData.playerHP += recoveryValue;
-            Debug.Log( $"{recoveryValue} 만큼 회복됨.");
+            playerData.playerHP = playerData.playerMaxHP;
+            Debug.Log( $"최대치만큼 모두 회복됨.");
         }
         else
         {
-            Debug.Log("모두 회복된 상태");
+            Debug.Log("이미 모두 회복된 상태");
         }
         
     }

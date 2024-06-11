@@ -25,7 +25,7 @@ public class DumpedWeapon : MonoBehaviour
 
     private IEnumerator ChangeState()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;

@@ -130,7 +130,7 @@ public class CharacterController2D : MonoBehaviour
 
         #endregion
         
-        // 사용자가 ESC 키를 눌렀는지 확인
+        //일시정지 화면 노출
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // isPaused 값을 반전시킴

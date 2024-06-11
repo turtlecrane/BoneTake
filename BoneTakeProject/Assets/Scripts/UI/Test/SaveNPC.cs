@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using CleverCrow.Fluid.Dialogues.Graphs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class SaveNPC : InteractableObject
 {
+    public DialogueGraph[] firstSaveDialogue;
     public NamePopup namePopup;
-    public DialoguePlayback playback;
     
+    private DialoguePlayback playback;
     private string nowMapName;
     private Animator animator;
     private Collider2D collider2D;
-    //public bool isDead;
 
     private void Awake()
     {
@@ -34,11 +35,11 @@ public class SaveNPC : InteractableObject
             _dialoguePlayback.gameObject.SetActive(true);
             if (string.IsNullOrEmpty(PlayerDataManager.instance.nowPlayer.playerName))
             {
-                _dialoguePlayback.PlayDialogue(dialogue[1]);
+                _dialoguePlayback.PlayDialogue(firstSaveDialogue[0]);
             }
             else
             {
-                _dialoguePlayback.PlayDialogue(dialogue[0]);
+                _dialoguePlayback.PlayDialogue(dialogue[Random.Range(0,3)]);
             }
         }
     }
@@ -81,7 +82,7 @@ public class SaveNPC : InteractableObject
                 
                 //이름 완료 다이얼로그 재생
                 playback.gameObject.SetActive(true);
-                playback.PlayDialogue(dialogue[2]);
+                playback.PlayDialogue(firstSaveDialogue[1]);
             }
         });
     }

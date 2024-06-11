@@ -15828,7 +15828,7 @@ MonoBehaviour:
   brokenParticles: {fileID: 591447749}
   dustParticles: {fileID: 200808754}
   sceneName: 
-  isRemembered: 0
+  isRemembered: 1
   isDestroy: 0
 --- !u!70 &1917548549
 CapsuleCollider2D:
