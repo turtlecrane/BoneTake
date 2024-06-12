@@ -1,0 +1,586 @@
+fileFormatVersion: 2
+guid: 4b59ff8b7931daa4fbffb1d39ff9b9f9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_Bonetake_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd8519822ec6fd43afd1a313ae9f29e
+      internalID: -1202725839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_1
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5a9c28f394fb048ac41825acb0776a
+      internalID: -1024821707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_2
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5707dd7787ae3734a8dcb90571c54491
+      internalID: -1340349980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_3
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f789aadaedbcf034db161c4aa42c64ee
+      internalID: -47107410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_4
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5040b960f7318af4fbc2a792732c9ce2
+      internalID: -2015067406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_5
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321c861c161ff23448d1f9e2f3450a45
+      internalID: -1700709027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_6
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b056e61f37a5445ab74d98ac7ef7f6
+      internalID: -1913754818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_7
+      rect:
+        serializedVersion: 2
+        x: 3094
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab5625e9e2c5cc4695cad82673d24fd
+      internalID: 817571898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_8
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464877f654998154d9e5475c9301726b
+      internalID: 1253626169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_9
+      rect:
+        serializedVersion: 2
+        x: 3978
+        y: 574
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79014b6dec6aa54f9e0931173bdbebb
+      internalID: 1418929853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a860ffbe7147e9541b23e8a8f6ccca46
+      internalID: -1115650097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_12
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b972f8ceb3eb26942937853be798ea96
+      internalID: 449702832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_13
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84649aabb47f860448099d9b3f645d34
+      internalID: -1518636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_14
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2167df117c8624e88d05eb3760f1b5
+      internalID: -1433488874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_15
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4aadb4d21ca5e847a1ae4e8208ad332
+      internalID: -1824883639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_16
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4c9c88afde346408cb15a692c4b8f5
+      internalID: 1362343270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_17
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1063dbc4056bbc54b89318d592c50940
+      internalID: -19903581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_18
+      rect:
+        serializedVersion: 2
+        x: 3094
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcd9fb1474c06d47acbd9b4bbaf9262
+      internalID: -907283809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_19
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5ede5243bd4d249b52c1003c90de11
+      internalID: -1095115451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_20
+      rect:
+        serializedVersion: 2
+        x: 3978
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59057eed73341041b2c78d831de7904
+      internalID: -1459882200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Bonetake_21
+      rect:
+        serializedVersion: 2
+        x: 4420
+        y: 0
+        width: 442
+        height: 574
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73cb9f79afdd2b14b9c1043b34e8b0b8
+      internalID: -1960840979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2397b99c2adb56d4393fede057652485
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Player_Bonetake_5: -1700709027
+      Player_Bonetake_7: 817571898
+      Player_Bonetake_16: 1362343270
+      Player_Bonetake_19: -1095115451
+      Player_Bonetake_1: -1024821707
+      Player_Bonetake_8: 1253626169
+      Player_Bonetake_3: -47107410
+      Player_Bonetake_14: -1433488874
+      Player_Bonetake_12: 449702832
+      Player_Bonetake_10: 1595889075
+      Player_Bonetake_13: -1518636
+      Player_Bonetake_17: -19903581
+      Player_Bonetake_20: -1459882200
+      Player_Bonetake_9: 1418929853
+      Player_Bonetake_2: -1340349980
+      Player_Bonetake_21: -1960840979
+      Player_Bonetake_0: -1202725839
+      Player_Bonetake_11: -1115650097
+      Player_Bonetake_4: -2015067406
+      Player_Bonetake_15: -1824883639
+      Player_Bonetake_6: -1913754818
+      Player_Bonetake_18: -907283809
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -322,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86864977}
   - component: {fileID: 86864976}
+  - component: {fileID: 86864978}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -406,6 +407,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &86864978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86864975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &214222091
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +573,7 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   playerHitHandler: {fileID: 0}
   playerInteraction: {fileID: 0}
+  playerEventKey: {fileID: 0}
   m_Rigidbody2D: {fileID: 286930617}
   animator: {fileID: 286930615}
   dustParticle: {fileID: 0}
@@ -573,6 +595,10 @@ MonoBehaviour:
   isDashing: 0
   isDashAttacking: 0
   canDashAttack: 0
+  inWater: 0
+  inDefaultGround: 0
+  inGrassGround: 0
+  inHardGround: 0
   bigFallCantMoveCoolTime: 1
   isClimbing: 0
   wallLayer:
@@ -592,6 +618,7 @@ MonoBehaviour:
     playerATK: 0
     playerMaxHP: 0
     playerHP: 0
+    killedTypeOfBosses: []
   m_MovementSmoothing: 0.05
   climbingDirect: 0
   m_AirControl: 1
@@ -1119,7 +1146,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.49, y: 3.43}
+  m_Size: {x: 2.61, y: 3.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
