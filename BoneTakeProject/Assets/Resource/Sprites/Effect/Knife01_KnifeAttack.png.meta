@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b59ff8b7931daa4fbffb1d39ff9b9f9
+guid: 3fd64458fbe79124dbef7d889aaec15b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Bonetake_0
+      name: Knife01_KnifeAttack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 574
-        width: 442
-        height: 574
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfd8519822ec6fd43afd1a313ae9f29e
-      internalID: -1202725839
+      spriteID: 135288b19f4d7a9418c0993a74ec7493
+      internalID: -281162506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_1
+      name: Knife01_KnifeAttack_1
       rect:
         serializedVersion: 2
-        x: 442
-        y: 574
-        width: 442
-        height: 574
+        x: 1138
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a5a9c28f394fb048ac41825acb0776a
-      internalID: -1024821707
+      spriteID: 3f3a9419e1f5aa247a13b3936610f2f7
+      internalID: 1102317708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_2
+      name: Knife01_KnifeAttack_2
       rect:
         serializedVersion: 2
-        x: 884
-        y: 574
-        width: 442
-        height: 574
+        x: 2276
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5707dd7787ae3734a8dcb90571c54491
-      internalID: -1340349980
+      spriteID: 0627ec233bdedd94791955f707aa23f2
+      internalID: -1753590320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_3
+      name: Knife01_KnifeAttack_3
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 574
-        width: 442
-        height: 574
+        x: 3414
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f789aadaedbcf034db161c4aa42c64ee
-      internalID: -47107410
+      spriteID: 395c0382984afe04082d5fe915811eac
+      internalID: 290200063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_4
+      name: Knife01_KnifeAttack_4
       rect:
         serializedVersion: 2
-        x: 1768
-        y: 574
-        width: 442
-        height: 574
+        x: 4552
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5040b960f7318af4fbc2a792732c9ce2
-      internalID: -2015067406
+      spriteID: 997d74dc55f268f4fbb21d9fde16f48c
+      internalID: -644155954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_5
+      name: Knife01_KnifeAttack_5
       rect:
         serializedVersion: 2
-        x: 2210
-        y: 574
-        width: 442
-        height: 574
+        x: 5690
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 321c861c161ff23448d1f9e2f3450a45
-      internalID: -1700709027
+      spriteID: ad42d735d2b6b2f40833cfa03a58a14b
+      internalID: 725152180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_6
+      name: Knife01_KnifeAttack_6
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 574
-        width: 442
-        height: 574
+        x: 6828
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b056e61f37a5445ab74d98ac7ef7f6
-      internalID: -1913754818
+      spriteID: c58f81bd8e582d04e9d719a21e896884
+      internalID: -472429821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_7
+      name: Knife01_KnifeAttack_7
       rect:
         serializedVersion: 2
-        x: 3094
-        y: 574
-        width: 442
-        height: 574
+        x: 7966
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ab5625e9e2c5cc4695cad82673d24fd
-      internalID: 817571898
+      spriteID: 7bdf99e48dd4e9e4fa2c9140bfacbb6e
+      internalID: -417709053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_8
+      name: Knife01_KnifeAttack_8
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 574
-        width: 442
-        height: 574
+        x: 9104
+        y: 644
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,41 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 464877f654998154d9e5475c9301726b
-      internalID: 1253626169
+      spriteID: 6bd32bf6444873e42bfe31372a2d439b
+      internalID: 899601186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_9
-      rect:
-        serializedVersion: 2
-        x: 3978
-        y: 574
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c79014b6dec6aa54f9e0931173bdbebb
-      internalID: 1418929853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_11
+      name: Knife01_KnifeAttack_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 442
-        height: 574
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a860ffbe7147e9541b23e8a8f6ccca46
-      internalID: -1115650097
+      spriteID: 794d80d364af772488ca4bb3264ecc07
+      internalID: 1962242415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_12
+      name: Knife01_KnifeAttack_10
       rect:
         serializedVersion: 2
-        x: 442
+        x: 1138
         y: 0
-        width: 442
-        height: 574
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b972f8ceb3eb26942937853be798ea96
-      internalID: 449702832
+      spriteID: a4f666cef014f5d4ea4e614b8ddfc175
+      internalID: 2109764291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_13
+      name: Knife01_KnifeAttack_11
       rect:
         serializedVersion: 2
-        x: 884
+        x: 2276
         y: 0
-        width: 442
-        height: 574
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84649aabb47f860448099d9b3f645d34
-      internalID: -1518636
+      spriteID: 061e41ed4108ca443bd6f5dd6b10094d
+      internalID: -324227363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_14
+      name: Knife01_KnifeAttack_12
       rect:
         serializedVersion: 2
-        x: 1326
+        x: 3414
         y: 0
-        width: 442
-        height: 574
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac2167df117c8624e88d05eb3760f1b5
-      internalID: -1433488874
+      spriteID: fbe262887746dc548a7c035f591456cb
+      internalID: -1446387527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_15
+      name: Knife01_KnifeAttack_13
       rect:
         serializedVersion: 2
-        x: 1768
+        x: 4552
         y: 0
-        width: 442
-        height: 574
+        width: 1138
+        height: 644
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,134 +392,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4aadb4d21ca5e847a1ae4e8208ad332
-      internalID: -1824883639
+      spriteID: 66a2c941e1826984299bafc03f14060d
+      internalID: -1511797623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Bonetake_16
+      name: Knife01_KnifeAttack_14
       rect:
         serializedVersion: 2
-        x: 2210
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 9581
+        y: 182
+        width: 312
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4c9c88afde346408cb15a692c4b8f5
-      internalID: 1362343270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_17
-      rect:
-        serializedVersion: 2
-        x: 2652
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1063dbc4056bbc54b89318d592c50940
-      internalID: -19903581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_18
-      rect:
-        serializedVersion: 2
-        x: 3094
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dcd9fb1474c06d47acbd9b4bbaf9262
-      internalID: -907283809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_19
-      rect:
-        serializedVersion: 2
-        x: 3536
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d5ede5243bd4d249b52c1003c90de11
-      internalID: -1095115451
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_20
-      rect:
-        serializedVersion: 2
-        x: 3978
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f59057eed73341041b2c78d831de7904
-      internalID: -1459882200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Bonetake_21
-      rect:
-        serializedVersion: 2
-        x: 4420
-        y: 0
-        width: 442
-        height: 574
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73cb9f79afdd2b14b9c1043b34e8b0b8
-      internalID: -1960840979
+      spriteID: 6591f7d46ae13d8438ee12afe4a59c92
+      internalID: 986648977
       vertices: []
       indices: 
       edges: []
@@ -548,7 +422,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2397b99c2adb56d4393fede057652485
+    spriteID: bd610875abbcaa142b4ffc0c3721e2f9
     internalID: 0
     vertices: []
     indices: 
@@ -556,28 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Bonetake_5: -1700709027
-      Player_Bonetake_7: 817571898
-      Player_Bonetake_16: 1362343270
-      Player_Bonetake_19: -1095115451
-      Player_Bonetake_1: -1024821707
-      Player_Bonetake_8: 1253626169
-      Player_Bonetake_3: -47107410
-      Player_Bonetake_14: -1433488874
-      Player_Bonetake_12: 449702832
-      Player_Bonetake_10: 1595889075
-      Player_Bonetake_13: -1518636
-      Player_Bonetake_17: -19903581
-      Player_Bonetake_20: -1459882200
-      Player_Bonetake_9: 1418929853
-      Player_Bonetake_2: -1340349980
-      Player_Bonetake_21: -1960840979
-      Player_Bonetake_0: -1202725839
-      Player_Bonetake_11: -1115650097
-      Player_Bonetake_4: -2015067406
-      Player_Bonetake_15: -1824883639
-      Player_Bonetake_6: -1913754818
-      Player_Bonetake_18: -907283809
+      Knife01_KnifeAttack_4: -644155954
+      Knife01_KnifeAttack_10: 2109764291
+      Knife01_KnifeAttack_1: 1102317708
+      Knife01_KnifeAttack_11: -324227363
+      Knife01_KnifeAttack_7: -417709053
+      Knife01_KnifeAttack_9: 1962242415
+      Knife01_KnifeAttack_3: 290200063
+      Knife01_KnifeAttack_8: 899601186
+      Knife01_KnifeAttack_13: -1511797623
+      Knife01_KnifeAttack_0: -281162506
+      Knife01_KnifeAttack_6: -472429821
+      Knife01_KnifeAttack_12: -1446387527
+      Knife01_KnifeAttack_5: 725152180
+      Knife01_KnifeAttack_14: 986648977
+      Knife01_KnifeAttack_2: -1753590320
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
