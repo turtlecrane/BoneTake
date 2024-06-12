@@ -1,0 +1,541 @@
+fileFormatVersion: 2
+guid: f9854acb9fba57349832119f7659749f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_KnifeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca9e1f27add7bf4180cd1ff5d718c5d
+      internalID: -1967010734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabdf1d9556cf0347aa0bb0b663a37fe
+      internalID: -512188253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442319d8e6681204dbcd1d121f350b24
+      internalID: -1471340462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 3414
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb28f545ef61e914aa8ac9fb59006ca3
+      internalID: 2085190770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 4552
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0fee7b980137ab4785c353f7334b930
+      internalID: 1450960246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 5690
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726ad0f8e05369b448260efc2a82799e
+      internalID: -1268861613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_6
+      rect:
+        serializedVersion: 2
+        x: 6828
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f22b3aaf75da9c458210123d7a1695e
+      internalID: -1285245680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_7
+      rect:
+        serializedVersion: 2
+        x: 7966
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5312f97260bfb79429f43c584dcd957c
+      internalID: -1768488367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_8
+      rect:
+        serializedVersion: 2
+        x: 9104
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5ad234337aa5e42a8db29401bd610a
+      internalID: 157848277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d6f55ce00df714597c2fe99cc4a750
+      internalID: -1268771359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d12df41a4843e499b76febbe1d52fe
+      internalID: -1823012046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_11
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402c2462f6368d04a84830dbb192a45a
+      internalID: 1308589578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_12
+      rect:
+        serializedVersion: 2
+        x: 3414
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff64c9d801117df4295fac89c67f54c0
+      internalID: 58946557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_13
+      rect:
+        serializedVersion: 2
+        x: 4552
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5afcb79e3959704cbfe9214d1bda77a
+      internalID: -1265146339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_14
+      rect:
+        serializedVersion: 2
+        x: 5690
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0784b46fcde73ba4f81411ae78ef6f9a
+      internalID: 376298832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_15
+      rect:
+        serializedVersion: 2
+        x: 6828
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c1d546ebbc91a4d960a1236daf751e
+      internalID: -2053069734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_16
+      rect:
+        serializedVersion: 2
+        x: 7966
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea8715e40013ec438a8266785097f23
+      internalID: 25699364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_17
+      rect:
+        serializedVersion: 2
+        x: 9104
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c5ea8325623314ba6eb51ac05f6c30
+      internalID: 304361127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_KnifeAttack_18
+      rect:
+        serializedVersion: 2
+        x: 10242
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ef233ca2492b941839727d79e8a598
+      internalID: -1114768410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3b6da760bbe92d140b9ebd02ee613985
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Player_KnifeAttack_4: 1450960246
+      Player_KnifeAttack_9: -1268771359
+      Player_KnifeAttack_16: 25699364
+      Player_KnifeAttack_17: 304361127
+      Player_KnifeAttack_5: -1268861613
+      Player_KnifeAttack_15: -2053069734
+      Player_KnifeAttack_1: -512188253
+      Player_KnifeAttack_10: -1823012046
+      Player_KnifeAttack_2: -1471340462
+      Player_KnifeAttack_0: -1967010734
+      Player_KnifeAttack_8: 157848277
+      Player_KnifeAttack_18: -1114768410
+      Player_KnifeAttack_11: 1308589578
+      Player_KnifeAttack_3: 2085190770
+      Player_KnifeAttack_14: 376298832
+      Player_KnifeAttack_13: -1265146339
+      Player_KnifeAttack_6: -1285245680
+      Player_KnifeAttack_7: -1768488367
+      Player_KnifeAttack_12: 58946557
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
