@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc3cd704451f5cf4f8dd42f642be4620
+guid: f64a793863cb34d458b561348e96a2aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,76 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Hanging-WallJumping_0
+      name: Player_BowAttack_0
       rect:
         serializedVersion: 2
-        x: 78
+        x: 0
         y: 0
-        width: 268
-        height: 362
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 294974e77f24f4a4cb5702b997864693
-      internalID: 2024756216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Hanging-WallJumping_1
-      rect:
-        serializedVersion: 2
-        x: 506
-        y: 0
-        width: 261
-        height: 355
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83e179aecbf88624abb9142e25f3f3a6
-      internalID: 685047172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Hanging-WallJumping_2
-      rect:
-        serializedVersion: 2
-        x: 904
-        y: 0
-        width: 312
-        height: 343
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae894b9478479c340a9c97ba22427965
-      internalID: -1978385233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Hanging-WallJumping_3
-      rect:
-        serializedVersion: 2
-        x: 1272
-        y: 0
-        width: 424
-        height: 344
+        width: 418
+        height: 378
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f37b1763deb50429bed9a373cfed5d
-      internalID: 1548929335
+      spriteID: fb72cfb424daaa24892dc7365cc8de40
+      internalID: 86263332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Hanging-WallJumping_4
+      name: Player_BowAttack_1
       rect:
         serializedVersion: 2
-        x: 1707
+        x: 418
         y: 0
-        width: 402
-        height: 353
+        width: 418
+        height: 378
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +140,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d82a11be537b244f8ae780c71bc65e6
-      internalID: 99542392
+      spriteID: 1d49d939bbaceaf47be0e01c08b54265
+      internalID: -16729595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_BowAttack_2
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 0
+        width: 418
+        height: 378
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aba22c784588d84a811f31d1025bc64
+      internalID: -1082573605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_BowAttack_3
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 0
+        width: 418
+        height: 378
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27c0d987b7b1a84cb399a3b9900e505
+      internalID: 2117266315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_BowAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 0
+        width: 418
+        height: 378
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07e105425babe8429d5ae0761134630
+      internalID: 2046386306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_BowAttack_5
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 0
+        width: 418
+        height: 378
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f1e7e5d16520341899ece6a756d761
+      internalID: 667854747
       vertices: []
       indices: 
       edges: []
@@ -212,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 887ac323abad519439fd50d62d301e7c
+    spriteID: e9fe5cb38c53866499f6692ae7c3a04b
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Hanging-WallJumping_1: 685047172
-      Player_Hanging-WallJumping_4: 99542392
-      Player_Hanging-WallJumping_0: 2024756216
-      Player_Hanging-WallJumping_3: 1548929335
-      Player_Hanging-WallJumping_2: -1978385233
+      Player_BowAttack_5: 667854747
+      Player_BowAttack_0: 86263332
+      Player_BowAttack_2: -1082573605
+      Player_BowAttack_1: -16729595
+      Player_BowAttack_3: 2117266315
+      Player_BowAttack_4: 2046386306
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
