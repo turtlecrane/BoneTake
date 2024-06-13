@@ -5,7 +5,8 @@ using UnityEngine;
 public class Grass : MonoBehaviour
 {
     //잘림효과
-    //public ParticleSystem leafParticle;
+    public ParticleSystem leafParticle;
+    public bool isBreakable;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -20,9 +21,13 @@ public class Grass : MonoBehaviour
     }
 
     //잘림효과
-    /*public void ApplyDamage(float damage)
+    public void Obj_ApplyDamage(float damage)
     {
-        Instantiate(leafParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }*/
+        if (isBreakable)
+        {
+            AudioManager.instance.PlaySFX("BushAttack", Random.Range(0,2));
+            Instantiate(leafParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
 }

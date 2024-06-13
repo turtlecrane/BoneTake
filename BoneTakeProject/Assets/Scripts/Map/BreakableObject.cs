@@ -21,6 +21,7 @@ public class BreakableObject : MonoBehaviour
     private Collider2D collider;
 
     public bool isRemembered;
+    public bool isShakable;
     public bool isDestroy = false;
     
     private void Awake()
@@ -59,18 +60,20 @@ public class BreakableObject : MonoBehaviour
         if (charCon2D.weapon_type == breakableWeapon)
         {
             shakeValue = 0.6f;
-            
-            //파편 파티클 재생
-            damageParticles.Play();
-            
-            //데미지 입기
-            hp -= damage;
-            
-            if (charCon2D.weapon_type != Weapon_Type.Basic && charCon2D.weapon_type != Weapon_Type.etc)
+
+            if (hp > 0)
             {
-                charCon2D.weaponManager.weaponLife -= 1;
-            }
+                //파편 파티클 재생
+                damageParticles.Play();
             
+                //데미지 입기
+                hp -= damage;
+            
+                if (charCon2D.weapon_type != Weapon_Type.Basic && charCon2D.weapon_type != Weapon_Type.etc)
+                {
+                    charCon2D.weaponManager.weaponLife -= 1;
+                }
+            }
             //부서지기
             if (hp <= 0)
             {
@@ -78,9 +81,12 @@ public class BreakableObject : MonoBehaviour
                 StartCoroutine(BreakingEffect());
             }
         }
-        
-        //흔들리기
-        objGFX.DOShakePosition(0.25f, shakeValue, 100);
+
+        if (isShakable)
+        {
+            //흔들리기
+            objGFX.DOShakePosition(0.25f, shakeValue, 100);
+        }
     }
 
     public IEnumerator BreakingEffect()

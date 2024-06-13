@@ -80,7 +80,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 0
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-6124436817516803701
 AnimatorState:
   serializedVersion: 6
@@ -206,7 +206,7 @@ AnimatorStateMachine:
     m_Position: {x: 1220, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4287863775538222337}
-    m_Position: {x: 1510, y: -300, z: 0}
+    m_Position: {x: 1470, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9193366741385918208}
     m_Position: {x: 1770, y: -300, z: 0}
@@ -232,6 +232,19 @@ AnimatorStateMachine:
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 3963269108152266}
 --- !u!114 &-4392657328316744912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4c7be07ce59254391335f799b76c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter: Wp02_attack_Aiming_End
+--- !u!114 &-2600873294997146783
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -641,6 +654,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &3527385358138465638
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Wp02_attack_Aiming
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -9193366741385918208}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &4287863775538222337
 AnimatorState:
   serializedVersion: 6
@@ -653,7 +691,9 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 438251604970978789}
-  m_StateMachineBehaviours: []
+  - {fileID: 3527385358138465638}
+  m_StateMachineBehaviours:
+  - {fileID: -2600873294997146783}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

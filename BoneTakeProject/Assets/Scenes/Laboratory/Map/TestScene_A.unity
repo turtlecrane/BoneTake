@@ -1048,6 +1048,7 @@ MonoBehaviour:
   dustParticles: {fileID: 2099019969}
   sceneName: 
   isRemembered: 1
+  isShakable: 1
   isDestroy: 0
 --- !u!70 &1179435074
 CapsuleCollider2D:
@@ -5991,6 +5992,7 @@ MonoBehaviour:
   dustParticles: {fileID: 1472959828}
   sceneName: 
   isRemembered: 1
+  isShakable: 1
   isDestroy: 0
 --- !u!70 &1298496389
 CapsuleCollider2D:

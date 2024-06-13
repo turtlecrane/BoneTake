@@ -576,6 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &204022165
 Animator:
   serializedVersion: 5
@@ -837,6 +839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &304640968
 Animator:
   serializedVersion: 5
@@ -1222,7 +1226,7 @@ GameObject:
   - component: {fileID: 385035949}
   m_Layer: 0
   m_Name: Grass (3)
-  m_TagString: Untagged
+  m_TagString: BreakableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,6 +1274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 849201126915187544, guid: af7d2ada9f13dde41af73e8a245e79ee, type: 3}
+  isBreakable: 1
 --- !u!95 &385035951
 Animator:
   serializedVersion: 5
@@ -1481,6 +1487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &577952757
 Animator:
   serializedVersion: 5
@@ -6623,7 +6631,7 @@ GameObject:
   - component: {fileID: 635846988}
   m_Layer: 0
   m_Name: Grass
-  m_TagString: Untagged
+  m_TagString: BreakableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6727,6 +6735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 849201126915187544, guid: af7d2ada9f13dde41af73e8a245e79ee, type: 3}
+  isBreakable: 1
 --- !u!70 &635846988
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6806,6 +6816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &677346937
 Animator:
   serializedVersion: 5
@@ -7262,7 +7274,7 @@ GameObject:
   - component: {fileID: 726703758}
   m_Layer: 0
   m_Name: Grass (2)
-  m_TagString: Untagged
+  m_TagString: BreakableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7310,6 +7322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 849201126915187544, guid: af7d2ada9f13dde41af73e8a245e79ee, type: 3}
+  isBreakable: 1
 --- !u!95 &726703760
 Animator:
   serializedVersion: 5
@@ -7445,6 +7459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &893658220
 Animator:
   serializedVersion: 5
@@ -8027,6 +8043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &976634961
 Animator:
   serializedVersion: 5
@@ -13463,6 +13481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &1136393858
 Animator:
   serializedVersion: 5
@@ -14284,6 +14304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &1472783625
 Animator:
   serializedVersion: 5
@@ -15128,6 +15150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &1703140982
 Animator:
   serializedVersion: 5
@@ -15547,6 +15571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &1774756904
 Animator:
   serializedVersion: 5
@@ -15829,6 +15855,7 @@ MonoBehaviour:
   dustParticles: {fileID: 200808754}
   sceneName: 
   isRemembered: 1
+  isShakable: 0
   isDestroy: 0
 --- !u!70 &1917548549
 CapsuleCollider2D:
@@ -16276,6 +16303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &1973218539
 Animator:
   serializedVersion: 5
@@ -16411,6 +16440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &2007109164
 Animator:
   serializedVersion: 5
@@ -16498,7 +16529,7 @@ GameObject:
   - component: {fileID: 2024792391}
   m_Layer: 0
   m_Name: Grass (1)
-  m_TagString: Untagged
+  m_TagString: BreakableObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16546,6 +16577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 849201126915187544, guid: af7d2ada9f13dde41af73e8a245e79ee, type: 3}
+  isBreakable: 1
 --- !u!95 &2024792393
 Animator:
   serializedVersion: 5
@@ -16681,6 +16714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &2042135769
 Animator:
   serializedVersion: 5
@@ -16959,6 +16994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962b12fb270228949b01160189df1370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafParticle: {fileID: 0}
+  isBreakable: 0
 --- !u!95 &2129192842
 Animator:
   serializedVersion: 5

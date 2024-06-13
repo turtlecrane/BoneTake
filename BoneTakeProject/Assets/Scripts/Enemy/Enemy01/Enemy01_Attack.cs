@@ -63,4 +63,9 @@ public class Enemy01_Attack : EnemyAttack
             }
         }
     }
+
+    public void Play_AttackAudio_Enemy(string audioName)
+    {
+        AudioManager.instance.PlaySFX(audioName);
+    }
 }

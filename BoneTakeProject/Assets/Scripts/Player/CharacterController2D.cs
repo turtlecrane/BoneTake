@@ -230,7 +230,7 @@ public class CharacterController2D : MonoBehaviour
         if (!m_Grounded)//플레이어가 접지중이 아니라면
         {
             //벽타기 관련
-            float xOffset = m_FacingRight ? 1f : -1f;
+            float xOffset = m_FacingRight ? 1.2f : -1.2f;
             climbingDirect = m_FacingRight ? 1 : -1;
             Collider2D[] collidersWall = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f), 0f, wallLayer);
             CheckWallHangingIsPossible(collidersWall);
@@ -363,7 +363,7 @@ public class CharacterController2D : MonoBehaviour
         
         //플레이어가 바라보는 방향의 박스 (벽검사 등)
         Gizmos.color = Color.blue;
-        float xOffset = m_FacingRight ? 1f : -1f;
+        float xOffset = m_FacingRight ? 1.2f : -1.2f;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + xOffset, transform.position.y + 1f), new Vector2(0.01f, 2f));
     }
     

@@ -670,6 +670,21 @@ MonoBehaviour:
   - Name: bgm_2
     Clip:
     - {fileID: 8300000, guid: d46ce6ee3505dcd4ca68c8c5768c0c4c, type: 3}
+  - Name: bgm_3
+    Clip:
+    - {fileID: 8300000, guid: 8662800a56ce79d4cb20106a548ec11d, type: 3}
+  - Name: bgm_4
+    Clip:
+    - {fileID: 8300000, guid: f410696001964ef47ac8593a7551016c, type: 3}
+  - Name: bgm_5
+    Clip:
+    - {fileID: 8300000, guid: f87eae1ad8d2c424283e88ce2407774a, type: 3}
+  - Name: bgm_6
+    Clip:
+    - {fileID: 8300000, guid: 15d4e37edc3000b4eb9e88ea50b930a3, type: 3}
+  - Name: bgm_7
+    Clip:
+    - {fileID: 8300000, guid: d75c2fc3c1b2d294bba5d590355a40b5, type: 3}
   - Name: boss_1
     Clip:
     - {fileID: 8300000, guid: f6344351ba84afd47982ab034102faec, type: 3}
@@ -741,6 +756,7 @@ MonoBehaviour:
     Clip:
     - {fileID: 8300000, guid: e2a9fdd380b696a48b51daa61e566e49, type: 3}
     - {fileID: 8300000, guid: 67cdaa73efa41a1479ff4d99f07f0f1a, type: 3}
+    - {fileID: 8300000, guid: a4024f1df72483a4d839e06b25237d1d, type: 3}
   - Name: WeaponRepair
     Clip:
     - {fileID: 8300000, guid: bff0054626518d745a0524ca1c6c5028, type: 3}
@@ -756,10 +772,35 @@ MonoBehaviour:
   - Name: HPRecovery
     Clip:
     - {fileID: 8300000, guid: b520ce2a52a4ec74e9472c1064e4ae68, type: 3}
+  - Name: WoodDoor
+    Clip:
+    - {fileID: 8300000, guid: f0ae6b01a8d99654abe0ecc278c67726, type: 3}
+  - Name: GlassBreak
+    Clip:
+    - {fileID: 8300000, guid: 924f7f23402e9d444a67d95058da85d6, type: 3}
+  - Name: BushAttack
+    Clip:
+    - {fileID: 8300000, guid: 46c61c351e904a24584ec4a8fc83633a, type: 3}
+    - {fileID: 8300000, guid: 4c36b17c762800d47a283c7151b5e873, type: 3}
+  - Name: Dead
+    Clip:
+    - {fileID: 8300000, guid: f6cbf0e0c0b1de3408c76ddcadcf8fe0, type: 3}
+  - Name: Enemy00_Attack
+    Clip:
+    - {fileID: 8300000, guid: bb31939bdfe45614ab48f91f3b622fb6, type: 3}
   environmentSounds:
-  - Name: Dark
+  - Name: Dark_1
     Clip:
     - {fileID: 8300000, guid: 9481b68ac145fa044995e0ddd24c1a76, type: 3}
+  - Name: Dark_2
+    Clip:
+    - {fileID: 8300000, guid: 54a584a233730ed41a03dc09e220af57, type: 3}
+  - Name: Dark_3
+    Clip:
+    - {fileID: 8300000, guid: d3db5b450f1c01d47b50678dc01370fa, type: 3}
+  - Name: Dark_4
+    Clip:
+    - {fileID: 8300000, guid: 7bb175b15e64aa64ab1a4f8fed33de02, type: 3}
   - Name: Fireplace
     Clip:
     - {fileID: 8300000, guid: d22cee1a0f1ddf94ead4a6dd2cbe8809, type: 3}
@@ -781,6 +822,9 @@ MonoBehaviour:
   - Name: BoneTaking
     Clip:
     - {fileID: 8300000, guid: 66607e61bcdb61845b26459e034dfff8, type: 3}
+  - Name: Clock
+    Clip:
+    - {fileID: 8300000, guid: 7bb175b15e64aa64ab1a4f8fed33de02, type: 3}
   bgmSource: {fileID: 993456504}
   sfxSource: {fileID: 1151751716}
   environSourceList: {fileID: 1477202546}
