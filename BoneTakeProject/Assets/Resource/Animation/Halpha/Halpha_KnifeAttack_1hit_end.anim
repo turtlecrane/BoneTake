@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Halpha_Knife01_JumpAttack
+  m_Name: Halpha_KnifeAttack_1hit_end
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -834957441, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
-    - time: 0.083333336
-      value: {fileID: -105327879, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
-    - time: 0.41666666
-      value: {fileID: 192064995, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
+      value: {fileID: -1285245680, guid: f9854acb9fba57349832119f7659749f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,15 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -834957441, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
-    - {fileID: -105327879, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
-    - {fileID: 192064995, guid: b6f4f6ffa1d12d74aa78cb3ffffbd8ef, type: 3}
+    - {fileID: -1285245680, guid: f9854acb9fba57349832119f7659749f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.05
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

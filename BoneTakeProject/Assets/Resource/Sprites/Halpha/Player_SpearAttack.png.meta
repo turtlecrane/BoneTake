@@ -1,0 +1,435 @@
+fileFormatVersion: 2
+guid: 8676a89958bde32468d8ee10ab253ba1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_SpearAttack_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 675
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da79b07f443b9c54a91c4e95161e4a21
+      internalID: 558820342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_1
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 675
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3733e85d2268708448483d977d5c6121
+      internalID: 203801126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_2
+      rect:
+        serializedVersion: 2
+        x: 3112
+        y: 675
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef2781da221d564e8dc340a1ffc8214
+      internalID: -176069434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_3
+      rect:
+        serializedVersion: 2
+        x: 4668
+        y: 675
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac8184320ac7eb48b999a744f1afbe6
+      internalID: 1735430932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_4
+      rect:
+        serializedVersion: 2
+        x: 6224
+        y: 675
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdfe7bf3229a7448b274b9e48e8c9d8
+      internalID: -1053139277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cc9e17db6143a4a8c9a173e63d76d9
+      internalID: -1027928582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662a2366137b8094b921bf392aa27acd
+      internalID: 2107422026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_11
+      rect:
+        serializedVersion: 2
+        x: 3112
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674656acf51da5342b302a8636756bb9
+      internalID: 1689491568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_12
+      rect:
+        serializedVersion: 2
+        x: 4668
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60dc022dc53d90e44bfaf4eb6a0bc2e0
+      internalID: -1265468320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_13
+      rect:
+        serializedVersion: 2
+        x: 6224
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0774c6304848a4dac4778f27d7bcaf
+      internalID: 1974681145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_14
+      rect:
+        serializedVersion: 2
+        x: 7780
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f375e1b5296ebb34ebce0f1f103d84cf
+      internalID: 910334966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_15
+      rect:
+        serializedVersion: 2
+        x: 9336
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a96b03a768ce7c41b2476f6cac8aff0
+      internalID: -1045065067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_16
+      rect:
+        serializedVersion: 2
+        x: 10892
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21732907c1cdf264f88c68428770ba50
+      internalID: -85723195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearAttack_17
+      rect:
+        serializedVersion: 2
+        x: 12448
+        y: 0
+        width: 1556
+        height: 675
+      alignment: 9
+      pivot: {x: 0.3452405, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05dc15b9ccaf40d44935c65fc11ba8ec
+      internalID: -1692684988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 579b775988e919e4cbdd094589390f8b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Player_SpearAttack_10: 2107422026
+      Player_SpearAttack_9: -1027928582
+      Player_SpearAttack_16: -85723195
+      Player_SpearAttack_6: -380290040
+      Player_SpearAttack_11: 1689491568
+      Player_SpearAttack_13: 1974681145
+      Player_SpearAttack_2: -176069434
+      Player_SpearAttack_5: 1003581877
+      Player_SpearAttack_3: 1735430932
+      Player_SpearAttack_1: 203801126
+      Player_SpearAttack_4: -1053139277
+      Player_SpearAttack_8: 210156823
+      Player_SpearAttack_14: 910334966
+      Player_SpearAttack_17: -1692684988
+      Player_SpearAttack_0: 558820342
+      Player_SpearAttack_7: 463838984
+      Player_SpearAttack_15: -1045065067
+      Player_SpearAttack_12: -1265468320
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
