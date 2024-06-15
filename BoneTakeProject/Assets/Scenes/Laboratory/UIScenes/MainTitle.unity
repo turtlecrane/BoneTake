@@ -755,7 +755,6 @@ MonoBehaviour:
   - Name: WeaponShort
     Clip:
     - {fileID: 8300000, guid: e2a9fdd380b696a48b51daa61e566e49, type: 3}
-    - {fileID: 8300000, guid: 67cdaa73efa41a1479ff4d99f07f0f1a, type: 3}
     - {fileID: 8300000, guid: a4024f1df72483a4d839e06b25237d1d, type: 3}
   - Name: WeaponRepair
     Clip:

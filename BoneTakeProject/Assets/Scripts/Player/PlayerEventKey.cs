@@ -13,7 +13,7 @@ public class PlayerEventKey : MonoBehaviour
     public void Player_DoBasicDamege()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
-        charCon2D.playerAttack.attackParticle.Play();
+        //charCon2D.playerAttack.attackParticle.Play();
         float damage = charCon2D.playerdata.playerATK;
         Vector2 hitBoxPosition =
             new Vector2(
@@ -25,11 +25,11 @@ public class PlayerEventKey : MonoBehaviour
     /// <summary>
     /// 단검류 무기로 데미지를 주는 함수
     /// </summary>
-    public void Player_DoKnifeDamage()
+    public void Player_DoMeleeWeaponDamage()
     {
         CharacterController2D charCon2D = CharacterController2D.instance;
         WeaponData weaponDataScript = WeaponData.instance;
-        charCon2D.playerAttack.attackParticle.Play();
+        //charCon2D.playerAttack.attackParticle.Play();
         float damage = weaponDataScript.GetName_DamageCount(charCon2D.playerAttack.weapon_name) +
                        charCon2D.playerdata.playerATK;
         Vector2 hitBoxPosition =
@@ -42,6 +42,7 @@ public class PlayerEventKey : MonoBehaviour
     
     private void ApplyDamage(Vector2 hitBoxPosition, Vector2 hitBoxSize, float damage)
     {
+        CharacterController2D charCon2D = CharacterController2D.instance;
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitBoxPosition, hitBoxSize, 0f);
         foreach (Collider2D collider in hitColliders)
         {
@@ -51,10 +52,12 @@ public class PlayerEventKey : MonoBehaviour
                 string methodName = "Enemy_ApplyDamage";
                 if (collider.CompareTag("Enemy"))
                 {
+                    charCon2D.playerAttack.attackParticle.Play();
                     collider.gameObject.SendMessage(methodName, damage);
                 }
                 else if (collider.CompareTag("Boss"))
                 {
+                    charCon2D.playerAttack.attackParticle.Play();
                     collider.gameObject.GetComponentInParent<BossHitHandler>().gameObject
                         .SendMessage(methodName, damage);
                 }

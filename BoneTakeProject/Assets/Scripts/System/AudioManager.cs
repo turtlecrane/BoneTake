@@ -171,6 +171,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void AllRemoveEnvironSound()
+    {
+        if (environSource.Count > 0)
+        {
+            foreach (var enAudio in environSource)
+            {
+                enAudio.Stop();
+                Destroy(enAudio);
+                environSource.Remove(enAudio);
+            }
+        }
+    }
+
     public void PlayButtonSound(string name)
     {
         Sound s = Array.Find(sfxSounds, x => x.Name == name);

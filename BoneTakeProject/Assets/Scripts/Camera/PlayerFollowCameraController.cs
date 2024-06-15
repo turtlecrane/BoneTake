@@ -88,9 +88,9 @@ public class PlayerFollowCameraController : MonoBehaviour
         }
         
         //카메라 줌 제한
-        if (virtualCamera.m_Lens.OrthographicSize < 4)
+        if (virtualCamera.m_Lens.OrthographicSize < 7.5)
         {
-            virtualCamera.m_Lens.OrthographicSize = 4f;
+            virtualCamera.m_Lens.OrthographicSize = 7.5f;
         }
     }
 

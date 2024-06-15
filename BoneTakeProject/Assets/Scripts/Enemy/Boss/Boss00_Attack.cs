@@ -80,10 +80,13 @@ public class Boss00_Attack : BossAttack
     
         while (dashTime < dashDuration)
         {
-            rb.MovePosition(rb.position + dashVector * Time.deltaTime);
-            dashTime += Time.deltaTime;
-            yield return null;
+            rb.MovePosition(rb.position + dashVector * Time.fixedDeltaTime);
+            dashTime += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate(); // FixedUpdate가 호출될 때까지 대기
         }
+
+        // 돌진이 끝난 후 위치 보정
+        rb.velocity = Vector2.zero;
     }
 
 

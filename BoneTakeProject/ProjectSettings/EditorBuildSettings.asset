@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Laboratory/Map/TestScene_B.unity
     guid: 048ec2e01c08c584d835b0680b834f2d
   - enabled: 1
+    path: Assets/Scenes/Laboratory/Map/TestScene_C.unity
+    guid: 26ffe742208c1de4fb983384cbc43cf0
+  - enabled: 1
     path: Assets/Scenes/Laboratory/Map/Boss_00.unity
     guid: 61782eff99f9a4646b0ef54d2ca2ae49
   m_configObjects: {}

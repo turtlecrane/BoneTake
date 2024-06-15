@@ -239,7 +239,7 @@ public class PlayerInteraction : MonoBehaviour
         isCompleteBones = true;
         m_boneExtractionTime = 0f;
         charCon2D.animator.SetBool("IsBoneTakeComplete", true);
-        StartCoroutine(followCameraController.CameraTargetTimeZoomIn(0.5f, 5.5f));
+        //StartCoroutine(followCameraController.CameraTargetTimeZoomIn(0.5f, 5.5f));
         yield return new WaitForSeconds(time);
         charCon2D.animator.SetBool("IsBoneTakeComplete", false);
         isCompleteBones = false;
@@ -249,7 +249,7 @@ public class PlayerInteraction : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged")) return;
+        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged") || collision.CompareTag("BreakableObj")) return;
         
         if (collision.CompareTag("Enemy"))
         {
@@ -288,7 +288,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged")) return;
+        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged") || collision.CompareTag("BreakableObj")) return;
 
         canInteraction = false;
         enemyAIscript = null;

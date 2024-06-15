@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) charCon2D.m_Rigidbody2D.velocity = new Vector2(0, charCon2D.m_Rigidbody2D.velocity.y);
         
         // 좌클릭 감지
-        if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
+        if (Input.GetMouseButtonDown(0) && canAttack && !isAttacking && !isJumpAttacking && !charCon2D.isBossDirecting && !charCon2D.isBigLanding && !charCon2D.playerHitHandler.isDead && !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(LayerMask.GetMask("UI"))) //&& charCon2D.canMove
         {
             //타격 시 카운팅 시작
             count = Mathf.Min(count + 1, weaponDataScript.GetType_AttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
@@ -82,6 +82,10 @@ public class PlayerAttack : MonoBehaviour
                     if (!isAiming) Player_BowBasicAttack();
                 }
             }  
+            else if (weapon_type == Weapon_Type.Spear)
+            {
+                Player_SpearAttack();
+            }
             else
             {
                 Debug.Log("제작중인 무기 혹은 존재하지 않는 무기 종류입니다.");
@@ -181,6 +185,19 @@ public class PlayerAttack : MonoBehaviour
     {
         // 단검 공격 모션으로 전환
         charCon2D.animator.SetTrigger("IsKnifeAttacking");
+        charCon2D.m_Rigidbody2D.gravityScale = 5;
+    
+        // count가 2 이상일 때만 Num of Hits 설정
+        if (count == weaponDataScript.GetType_AttackCount(weapon_type))
+        {
+            charCon2D.animator.SetInteger("Num of Hits", count);
+        }
+    }
+
+    public void Player_SpearAttack()
+    {
+        // 단검 공격 모션으로 전환
+        charCon2D.animator.SetTrigger("IsSpearAttack");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정

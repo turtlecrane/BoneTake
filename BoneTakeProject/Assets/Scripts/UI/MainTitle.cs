@@ -79,6 +79,7 @@ public class MainTitle : MonoBehaviour
 
     private IEnumerator PlayMainTitleBGM()
     {
+        AudioManager.instance.AllRemoveEnvironSound();
         yield return new WaitUntil(() =>  !AudioManager.instance.isBGMChanging);
         InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
     }

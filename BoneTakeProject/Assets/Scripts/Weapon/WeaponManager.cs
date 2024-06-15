@@ -50,6 +50,7 @@ public class WeaponManager : MonoBehaviour
         
         weaponAnimator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
         weaponAnimator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
+        weaponAnimator.SetBool("IsWp05", weaponName == Weapon_Name.Wp05);
 
         if (charCon2D.playerAttack.isAiming)
         {

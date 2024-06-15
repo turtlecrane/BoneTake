@@ -569,7 +569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB370\uC774\uD130 \uC2AC\uB86F\uC5D0\uC11C \nBoss_01\uC52C\uC5D0 \uB3C4\uCC29 "
+  m_text: "\uB370\uC774\uD130 \uC2AC\uB86F\uC5D0\uC11C \nBoss_00\uC52C\uC5D0 \uB3C4\uCC29 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe61dce9d6b208745b7b43bb581817bb, type: 2}
   m_sharedMaterial: {fileID: -1396213927552675392, guid: fe61dce9d6b208745b7b43bb581817bb, type: 2}
@@ -2138,7 +2138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1572125863, guid: a693c8ae6f6b1a6479e76f303bad3830, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   bossDirection: {fileID: 1074270814}
   bossHitHandler: {fileID: 1424685843}
   damage: 1
-  dashSpeed: 200
+  dashSpeed: 20
   closeAttackDistance: 8
   farAttackDistance: 30
   isAttacking: 0

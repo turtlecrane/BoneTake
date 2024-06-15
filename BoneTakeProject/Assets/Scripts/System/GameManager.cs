@@ -54,6 +54,45 @@ public class GameManager : MonoBehaviour
     
     public void OnPlayerEnterScene(string sceneName)
     {
+        // 맵 데이터에 이미 있는 씬 데이터인지 확인
+        SceneData existingSceneData = PlayerDataManager.instance.nowPlayer.mapData.Find(sceneData => sceneData.sceneName == sceneName);
+
+        if (existingSceneData != null)
+        {
+            // SceneData가 이미 존재할 경우, BreakableObjectData 추가
+            AddBreakableObjects(existingSceneData);
+        }
+        else
+        {
+            // SceneData가 존재하지 않을 경우, 새로운 SceneData 객체 생성 후 추가
+            SceneData newSceneData = new SceneData { sceneName = sceneName };
+            PlayerDataManager.instance.nowPlayer.mapData.Add(newSceneData);
+            AddBreakableObjects(newSceneData);
+        }
+    }
+
+    private void AddBreakableObjects(SceneData sceneData)
+    {
+        BreakableObject[] breakableObjects = FindObjectsOfType<BreakableObject>();
+
+        foreach (var obj in breakableObjects)
+        {
+            if (obj.isRemembered && !sceneData.breakableObjects
+                    .Exists(data => data.name == obj.gameObject.name))
+            {
+                BreakableObjectData newData = new BreakableObjectData
+                {
+                    name = obj.gameObject.name,
+                    isDestroy = obj.isDestroy
+                };
+                sceneData.breakableObjects.Add(newData);
+            }
+        }
+    }
+    
+    /*public void OnPlayerEnterScene(string sceneName)
+    {
+        //맵 데이터에 이미 있는 씬 데이터인지 확인
         foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
         {
             if(sceneData.sceneName == sceneName) return;
@@ -71,12 +110,12 @@ public class GameManager : MonoBehaviour
         {
             if (obj.isRemembered)
             {
-                // BreakableObjectData 객체 생성 후, SceneData에 추가
+                //BreakableObjectData 객체 생성 후, SceneData에 추가
                 BreakableObjectData data = new BreakableObjectData();
                 data.name = obj.gameObject.name;
                 data.isDestroy = obj.isDestroy;
                 newSceneData.breakableObjects.Add(data);
             }
         }
-    }
+    }*/
 }

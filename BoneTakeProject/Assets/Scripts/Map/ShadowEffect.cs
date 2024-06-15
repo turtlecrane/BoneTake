@@ -21,7 +21,7 @@ public class ShadowEffect : MonoBehaviour
         {
             DOTween.To(()=> GameManager.Instance.GetPlayerFollowCameraController().shadowVolume.weight,
                 x=> GameManager.Instance.GetPlayerFollowCameraController().shadowVolume.weight = x,
-                0f, 1f);
+                0f, 2f);
         }
     }
 }

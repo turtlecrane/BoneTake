@@ -14,15 +14,18 @@ public class BreakableObject : MonoBehaviour
     public ParticleSystem damageParticles; //파편 파티클
     public ParticleSystem brokenParticles; //부서지는 파티클
     public ParticleSystem dustParticles;
-
-    public string sceneName;
     
-    private float shakeValue;
-    private Collider2D collider;
-
+    public string sceneName;
     public bool isRemembered;
     public bool isShakable;
-    public bool isDestroy = false;
+    
+    public bool isShortCut;
+    [DrawIf("isShortCut", true)]
+    public string shortCutSceneName;
+    
+    [HideInInspector]public bool isDestroy = false;
+    private float shakeValue;
+    private Collider2D collider;
     
     private void Awake()
     {
@@ -77,14 +80,12 @@ public class BreakableObject : MonoBehaviour
             //부서지기
             if (hp <= 0)
             {
-                Debug.Log("부서졌습니다.");
                 StartCoroutine(BreakingEffect());
             }
         }
 
         if (isShakable)
         {
-            //흔들리기
             objGFX.DOShakePosition(0.25f, shakeValue, 100);
         }
     }
@@ -92,6 +93,43 @@ public class BreakableObject : MonoBehaviour
     public IEnumerator BreakingEffect()
     {
         isDestroy = true;
+        if (isShortCut)
+        {
+            bool sceneFound = false;
+
+            foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
+            {
+                if (sceneData.sceneName == shortCutSceneName)
+                {
+                    Debug.Log("숏컷과 연결된 씬을 데이터상에서 발견했습니다.");
+                    sceneFound = true;
+
+                    foreach (var obj in sceneData.breakableObjects)
+                    {
+                        if (obj.name == gameObject.name)
+                        {
+                            obj.isDestroy = true;
+                        }
+                    }
+                    break; // 씬을 찾았으므로 루프를 종료합니다.
+                }
+            }
+
+            if (!sceneFound)
+            {
+                Debug.Log("숏컷과 연결된 이름의 씬이 데이터상에 없습니다.");
+                SceneData newSceneData = new SceneData();
+                newSceneData.sceneName = shortCutSceneName;
+                PlayerDataManager.instance.nowPlayer.mapData.Add(newSceneData);
+             
+                BreakableObjectData data = new BreakableObjectData();
+                data.name = gameObject.name;
+                data.isDestroy = true;
+                newSceneData.breakableObjects.Add(data);
+            }
+        }
+        
+        //맵 데이터에 저장 (이 스크립트를 가지고있는 오브젝트 정보)
         foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
         {
             if (sceneData.sceneName == sceneName)
@@ -104,10 +142,12 @@ public class BreakableObject : MonoBehaviour
                         break;
                     }
                 }
-                break;
+                //break;
             }
         }
-        //PlayerDataManager.instance.nowPlayer.mapData
+
+        
+        
         //통과 가능하게 전환
         collider.isTrigger = true;
         objGFX.GetComponent<SpriteRenderer>().DOFade(0f, 0.5f)

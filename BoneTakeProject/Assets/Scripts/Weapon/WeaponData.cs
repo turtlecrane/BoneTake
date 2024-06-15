@@ -8,6 +8,8 @@ public enum Weapon_Type
     Basic,
     Knife,
     Bow,
+    Spear,
+    Whip,
     etc
 }
 
@@ -19,8 +21,8 @@ public enum Weapon_Name
     Wp02,  //BowowBow
     Wp03, //보스무기 1
     Wp04, //보스무기 2
-    Wp05, //Enemy02 무기
-    Wp06, //Enemy03 무기
+    Wp05, //Enemy02 무기 (창)
+    Wp06, //Enemy03 무기 (채찍)
 }
 
 [System.Serializable]
@@ -55,8 +57,8 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, Weapon_Type.Bow },
         { Weapon_Name.Wp03, Weapon_Type.Knife },
         { Weapon_Name.Wp04, Weapon_Type.Bow },
-        { Weapon_Name.Wp05, Weapon_Type.etc },
-        { Weapon_Name.Wp06, Weapon_Type.etc }
+        { Weapon_Name.Wp05, Weapon_Type.Spear },
+        { Weapon_Name.Wp06, Weapon_Type.Whip }
     };
     
     // 무기 형식에 따라 최대 타수 부여
@@ -65,6 +67,8 @@ public class WeaponData : MonoBehaviour
         { Weapon_Type.Basic, 2 },
         { Weapon_Type.Knife, 2 },
         { Weapon_Type.Bow, 1 },
+        { Weapon_Type.Spear, 2 },
+        { Weapon_Type.Whip, 2 },
         { Weapon_Type.etc, 0 }
     };
     
@@ -76,8 +80,8 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 5 },
         { Weapon_Name.Wp03, 7 },
         { Weapon_Name.Wp04, 7 },
-        { Weapon_Name.Wp05, 5 },
-        { Weapon_Name.Wp06, 5 }
+        { Weapon_Name.Wp05, 6 },
+        { Weapon_Name.Wp06, 6 }
     };
     
     //무기마다의 무기HP 부여
@@ -88,7 +92,7 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 15 },
         { Weapon_Name.Wp03, 10 },
         { Weapon_Name.Wp04, 17 },
-        { Weapon_Name.Wp05, 8 },
+        { Weapon_Name.Wp05, 80000 },
         { Weapon_Name.Wp06, 8 }
     };
     
