@@ -46,12 +46,10 @@ public class PlayerSpawner : MonoBehaviour
                 {
                     return;
                 }
-                Debug.Log(changeBGMName.Length);
                 StartCoroutine(ChangeBGM());
             }
             else
             {
-                Debug.Log(changeBGMName.Length);
                 StartCoroutine(ChangeBGM());
             }
         }

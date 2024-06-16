@@ -27,13 +27,13 @@ TagManager:
   - UI
   - Ground
   - Wall
-  - Enemy
+  - Enemy_Standing
   - Player
   - Map
   - PostProcessing
   - NonCollidingPlayer
   - Cursor
-  - 
+  - Enemy_Flight
   - 
   - 
   - 

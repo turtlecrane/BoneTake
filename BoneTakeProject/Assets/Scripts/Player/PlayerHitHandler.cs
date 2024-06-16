@@ -76,6 +76,8 @@ public class PlayerHitHandler : MonoBehaviour
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         
+        AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
+        
         //무기 애니메이터에게 Hit상태 알리기
         charCon2D.playerAttack.weaponAnimator.SetTrigger("Hit");
         
@@ -196,10 +198,22 @@ public class PlayerHitHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collisionCount = 0f;
-            EnemyAI enemyScript = collision.gameObject.GetComponent<EnemyAI>();
-            if (!enemyScript.enemyHitHandler.isCorpseState && !charCon2D.isDashAttacking)
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Standing"))
             {
-                Player_ApplyDamage(enemyScript.enemyAttack.damage, false, !charCon2D.m_FacingRight);
+                EnemyAI enemyScript = collision.gameObject.GetComponent<EnemyAI>();
+                if (!enemyScript.enemyHitHandler.isCorpseState && !charCon2D.isDashAttacking)
+                {
+                    Player_ApplyDamage(enemyScript.enemyAttack.damage, false, !charCon2D.m_FacingRight);
+                }
+
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Flight"))
+            {
+                EnemyAI_Flight enemyScript = collision.gameObject.GetComponent<EnemyAI_Flight>();
+                if (!enemyScript.enemyHitHandler.isCorpseState && !charCon2D.isDashAttacking)
+                {
+                    Player_ApplyDamage(enemyScript.enemyAttack.damage, false, !charCon2D.m_FacingRight);
+                }
             }
         }
         if (collision.gameObject.CompareTag("Boss"))

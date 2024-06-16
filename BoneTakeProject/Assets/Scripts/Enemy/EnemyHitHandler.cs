@@ -10,7 +10,15 @@ public class EnemyHitHandler : MonoBehaviour
     public ParticleSystem attackParticle;
     public ParticleSystem bloodParticle;
     
+    [Header("Component")] 
+    public bool isFlightingEnemy;
+    
+    [DrawIf("isFlightingEnemy", false)]
     public EnemyAI enemyAIScript;
+    
+    [DrawIf("isFlightingEnemy", true)] 
+    public EnemyAI_Flight enemyAIScript_F;
+    
     public Animator animator;
     public float life; //현재 남은 HP
     public float knockbackBasicForce; //피격시 넉백의 강도
@@ -113,22 +121,29 @@ public class EnemyHitHandler : MonoBehaviour
     
     IEnumerator EnemyKnockdown()
     {
-        //Enemy 상태 초기화
-        enemyAIScript.canMove = false;
-        enemyAIScript.canRotation = false;
-        enemyAIScript.canTracking = false;
-        enemyAIScript.canAttack = false;
-        enemyAIScript.isRunning = false;
+        IEnemyAI enemyScript = isFlightingEnemy ? (IEnemyAI)enemyAIScript_F : enemyAIScript;
         
-        //공중에서 사망한경우
-        if (!enemyAIScript.isGrounded)
+        // Enemy 상태 일괄 초기화
+        enemyScript.canMove = false;
+        enemyScript.canRotation = false;
+        enemyScript.canAttack = false;
+        enemyScript.canTracking = false;
+
+        if (!isFlightingEnemy)
         {
-            // enemyAIScript.isGrounded가 true가 될 때까지 기다리기
-            yield return new WaitUntil(() => enemyAIScript.isGrounded == true);
+            enemyAIScript.isRunning = false;
         }
-        
-        animator.SetBool("Dead", true);
-        isInvincible = true;
+        else
+        {
+            rb.gravityScale = 5f; //추락
+        }
+
+        // 공중에서 사망한 경우
+        if (!enemyScript.isGrounded)
+        {
+            // isGrounded가 true가 될 때까지 기다리기
+            yield return new WaitUntil(() => enemyScript.isGrounded == true);
+        }
         
         Collider2D[] colliders = GetComponents<Collider2D>();//몬스터에게 붙어있는 콜라이더 컴포넌트 모두 가져오기
         rb.velocity = Vector2.zero;
@@ -139,6 +154,9 @@ public class EnemyHitHandler : MonoBehaviour
         {
             collider.isTrigger = true;
         }
+        
+        animator.SetBool("Dead", true);
+        isInvincible = true;
         
         yield return new WaitForSeconds(1f);
         
@@ -169,8 +187,9 @@ public class EnemyHitHandler : MonoBehaviour
     
     IEnumerator HitPauseMovemen()
     {
-        enemyAIScript.canMove = false;
+        IEnemyAI enemyScript = isFlightingEnemy ? (IEnemyAI)enemyAIScript_F : enemyAIScript;
+        enemyScript.canMove = false;
         yield return new WaitUntil(() => !animator.GetBool("Hit"));
-        enemyAIScript.canMove = true;
+        enemyScript.canMove = true;
     }
 }

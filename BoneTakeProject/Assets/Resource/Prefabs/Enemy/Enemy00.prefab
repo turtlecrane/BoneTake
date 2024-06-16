@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226845539}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,8 +323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b20bf2f414b1574692f54e6048239c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlightingEnemy: 0
   enemyAIScript: {fileID: 7658005861607967075}
+  enemyAIScript_F: {fileID: 0}
   animator: {fileID: 0}
+  playerPosition: {x: 0, y: 0, z: 0}
   damage: 0
   isCritDamage: 0
   attackCoolTime: 2
@@ -546,17 +549,11 @@ MonoBehaviour:
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
   boneExtractionTime: 5
-  canMove: 0
-  canAttack: 0
-  canRotation: 0
-  canTracking: 0
   isRunning: 0
   isAttacking: 0
-  isGrounded: 1
   isLanding: 0
   isJumpCoolDown: 0
   jumpEnabled: 0
-  facingRight: 1
   movingCount: 0
   animator: {fileID: 0}
   nextWaypointDistance: 1
@@ -583,7 +580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackParticle: {fileID: 4474709472649958672}
   bloodParticle: {fileID: 2238483926711466295}
+  isFlightingEnemy: 0
   enemyAIScript: {fileID: 7658005861607967075}
+  enemyAIScript_F: {fileID: 0}
   animator: {fileID: 7658005861426598815}
   life: 10
   knockbackBasicForce: 2000

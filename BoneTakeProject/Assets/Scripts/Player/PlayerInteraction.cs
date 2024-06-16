@@ -15,6 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     public DialoguePlayback dialoguePlayback;
     public ItemSelectUI itemSelectPanel;
     [HideInInspector] public EnemyAI enemyAIscript;
+    [HideInInspector] public EnemyAI_Flight enemyAIscript_F;
     [HideInInspector] public BossHitHandler bossHitHandler;
     public DumpedWeapon dumpedWeapon_Prefabs;
     
@@ -109,46 +110,63 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ContinueBoneExtraction()
     {
-        if (bossHitHandler == null && enemyAIscript != null && canExtractBones)
+        if (canExtractBones)
         {
-            PerformBoneExtraction(
-                !enemyAIscript.enemyHitHandler.isExtracted,
-                () =>
-                {
-                    AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
-                    charCon2D.playerAttack.weapon_type = enemyAIscript.weaponType;
-                    charCon2D.playerAttack.weapon_name = enemyAIscript.weaponName;
-                    charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(enemyAIscript.weaponName);
-                    enemyAIscript.enemyHitHandler.isExtracted = true;
-                }
-            );
+            if (enemyAIscript != null)
+            {
+                ExtractBones(enemyAIscript.enemyHitHandler, enemyAIscript.weaponType, enemyAIscript.weaponName);
+            }
+            else if (enemyAIscript_F != null)
+            {
+                ExtractBones(enemyAIscript_F.enemyHitHandler, enemyAIscript_F.weaponType, enemyAIscript_F.weaponName);
+            }
+            else if (bossHitHandler != null)
+            {
+                ExtractBossBones();
+            }
         }
-        else if (bossHitHandler != null && enemyAIscript == null && canExtractBones)
-        {
-            PerformBoneExtraction( 
-                !bossHitHandler.isExtracted,
-                () =>
+    }
+    
+    private void ExtractBones(EnemyHitHandler hitHandler, Weapon_Type weaponType, Weapon_Name weaponName)
+    {
+        PerformBoneExtraction(
+            !hitHandler.isExtracted,
+            () =>
+            {
+                AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
+                charCon2D.playerAttack.weapon_type = weaponType;
+                charCon2D.playerAttack.weapon_name = weaponName;
+                charCon2D.playerAttack.weaponManager.weaponLife = weaponDataScript.GetName_WeaponLifeCount(weaponName);
+                hitHandler.isExtracted = true;
+            }
+        );
+    }
+
+    private void ExtractBossBones()
+    {
+        PerformBoneExtraction(
+            !bossHitHandler.isExtracted,
+            () =>
+            {
+                AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
+                foreach (var weapon in bossHitHandler.weaponName)
                 {
-                    AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
-                    foreach (var weapon in bossHitHandler.weaponName)
+                    itemSelectPanel.CreateItemSelection(weapon, () =>
                     {
-                        itemSelectPanel.CreateItemSelection(weapon, () =>
+                        StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
+                    });
+                    itemSelectPanel.gameObject.SetActive(true);
+                    itemSelectPanel.gameObject.GetComponent<Image>()
+                        .DOFade(0.8f, 1f)
+                        .SetUpdate(UpdateType.Normal, true)
+                        .OnComplete(() =>
                         {
-                            StartCoroutine(CompleteBoneTake(boneTakeCompleteDuration));
+                            itemSelectPanel.SortSelectedItems();
                         });
-                        itemSelectPanel.gameObject.SetActive(true);
-                        itemSelectPanel.gameObject.GetComponent<Image>()
-                            .DOFade(0.8f, 1f)
-                            .SetUpdate(UpdateType.Normal, true)
-                            .OnComplete(() =>
-                            {
-                                itemSelectPanel.SortSelectedItems();
-                            });
-                    }
-                    bossHitHandler.isExtracted = true;
                 }
-            );
-        }
+                bossHitHandler.isExtracted = true;
+            }
+        );
     }
 
     private void PerformBoneExtraction(bool condition, Action onComplete)
@@ -216,6 +234,7 @@ public class PlayerInteraction : MonoBehaviour
     public void SendBloodParticlePlay()
     {
         if(enemyAIscript != null) enemyAIscript.SendMessage("PlayBloodParticle");
+        if(enemyAIscript_F != null) enemyAIscript_F.SendMessage("PlayBloodParticle");
         if(bossHitHandler != null) bossHitHandler.SendMessage("PlayBloodParticle");
     }
 
@@ -253,14 +272,28 @@ public class PlayerInteraction : MonoBehaviour
         
         if (collision.CompareTag("Enemy"))
         {
-            enemyAIscript = collision.GetComponent<EnemyAI>();
-            if (enemyAIscript.enemyHitHandler.isExtracted || !enemyAIscript.enemyHitHandler.isCorpseState)
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Standing"))
             {
-                canInteraction = false;
-                return;
+                enemyAIscript = collision.GetComponent<EnemyAI>();
+                if (enemyAIscript.enemyHitHandler.isExtracted || !enemyAIscript.enemyHitHandler.isCorpseState)
+                {
+                    canInteraction = false;
+                    return;
+                }
+                canExtractBones = enemyAIscript.enemyHitHandler.isCorpseState;
+                m_boneExtractionTime = enemyAIscript.boneExtractionTime;
             }
-            canExtractBones = enemyAIscript.enemyHitHandler.isCorpseState;
-            m_boneExtractionTime = enemyAIscript.boneExtractionTime;
+            else if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Flight"))
+            {
+                enemyAIscript_F = collision.GetComponent<EnemyAI_Flight>();
+                if (enemyAIscript_F.enemyHitHandler.isExtracted || !enemyAIscript_F.enemyHitHandler.isCorpseState)
+                {
+                    canInteraction = false;
+                    return;
+                }
+                canExtractBones = enemyAIscript_F.enemyHitHandler.isCorpseState;
+                m_boneExtractionTime = enemyAIscript_F.boneExtractionTime;
+            }
         }
         else if (collision.CompareTag("Boss"))
         {
@@ -292,6 +325,7 @@ public class PlayerInteraction : MonoBehaviour
 
         canInteraction = false;
         enemyAIscript = null;
+        enemyAIscript_F = null;
         npcCollision = null;
         bossHitHandler = null;
         dumpedWeapon_Item = null;

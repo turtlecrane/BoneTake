@@ -6,7 +6,7 @@ using UnityEngine;
 using Pathfinding;
 using Random = UnityEngine.Random;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IEnemyAI
 {
     [Header("Component")]
     [HideInInspector] public CharacterController2D charCon2D;
@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     [HideInInspector] public Transform target;
     public Transform enemyGFX;
     public Transform enemyTrackingPosition;
+    
     [Header("SettingValue")] 
     public Weapon_Type weaponType;
     public Weapon_Name weaponName;
@@ -31,17 +32,17 @@ public class EnemyAI : MonoBehaviour
     public float boneExtractionTime;
 
     [Header("State")]
-    public bool canMove;
-    public bool canAttack;
-    public bool canRotation;
-    public bool canTracking;
     public bool isRunning;
+    public bool canAttack { get; set; }
+    public bool canMove { get; set; }
+    public bool canRotation { get; set; }
     public bool isAttacking = false;
-    public bool isGrounded;
+    public bool canTracking { get; set; }
+    public bool isGrounded { get; set; }
     public bool isLanding;
     public bool isJumpCoolDown;
     public bool jumpEnabled;
-    public bool facingRight = true;
+    public bool facingRight { get; set; }
     public float movingCount;
     
     [HideInInspector] public Animator animator;
@@ -71,7 +72,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        //경로찾기를 0.1초마다 리프래쉬 한다.
+        //경로찾기를 0.2초마다 리프래쉬 한다.
         InvokeRepeating("UpdatePath", 0f, .2f);
         Invoke("AutoMoveRandomValue", 3);
         charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
@@ -273,7 +274,7 @@ public class EnemyAI : MonoBehaviour
     // 플레이어가 추적 범위에 들어왔을 때
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.CompareTag("Enemy"))
         {
             collidersInTrigger.Add(collision);
         }
@@ -281,7 +282,7 @@ public class EnemyAI : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.CompareTag("Enemy"))
         {
             sortedColliders = collidersInTrigger.OrderBy(collider => (collider.transform.position - transform.position).sqrMagnitude).ToList();
             if(!sortedColliders[0].gameObject.CompareTag("Player")) return;
