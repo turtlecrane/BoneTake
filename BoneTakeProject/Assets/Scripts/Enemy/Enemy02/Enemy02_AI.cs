@@ -8,11 +8,6 @@ public class Enemy02_AI : EnemyAI_Flight
 {
     public float upwardForce; // 위로 가할 힘의 크기
 
-    private void Update()
-    {
-        //isAttacking = IsCurrentAnimationTag("attack");
-    }
-
     private void FixedUpdate()
     {
         if (!isAttacking && enemyHitHandler.life > 0 && canMove) //평시

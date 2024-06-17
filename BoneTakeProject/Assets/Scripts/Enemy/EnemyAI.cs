@@ -9,16 +9,15 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour, IEnemyAI
 {
     [Header("Component")]
-    [HideInInspector] public CharacterController2D charCon2D;
     public EnemyHitHandler enemyHitHandler;
     public EnemyAttack enemyAttack;
-    [HideInInspector] public Transform target;
     public Transform enemyGFX;
     public Transform enemyTrackingPosition;
     
     [Header("SettingValue")] 
     public Weapon_Type weaponType;
     public Weapon_Name weaponName;
+    public LayerMask playerLayer;
     
     public float speed;
     public float maxSpeed;
@@ -26,25 +25,27 @@ public class EnemyAI : MonoBehaviour, IEnemyAI
     public float jumpCoolTime;
     public float groundedCheckDistance;
     public float landingCheckDistance;
-    public LayerMask playerLayer;
     public float randomMovingValue_MIN;
     public float randomMovingValue_MAX;
     public float boneExtractionTime;
 
     [Header("State")]
     public bool isRunning;
-    public bool canAttack { get; set; }
-    public bool canMove { get; set; }
-    public bool canRotation { get; set; }
     public bool isAttacking = false;
-    public bool canTracking { get; set; }
-    public bool isGrounded { get; set; }
     public bool isLanding;
     public bool isJumpCoolDown;
     public bool jumpEnabled;
-    public bool facingRight { get; set; }
     public float movingCount;
     
+    public bool canAttack { get; set; }
+    public bool canMove { get; set; }
+    public bool canRotation { get; set; }
+    public bool canTracking { get; set; }
+    public bool isGrounded { get; set; }
+    public bool facingRight { get; set; }
+    
+    [HideInInspector] public CharacterController2D charCon2D;
+    [HideInInspector] public Transform target;
     [HideInInspector] public Animator animator;
     [HideInInspector] public float nextWaypointDistance = 1f;
     [HideInInspector] public Vector3 startOffset;
@@ -75,7 +76,7 @@ public class EnemyAI : MonoBehaviour, IEnemyAI
         //경로찾기를 0.2초마다 리프래쉬 한다.
         InvokeRepeating("UpdatePath", 0f, .2f);
         Invoke("AutoMoveRandomValue", 3);
-        charCon2D = CharacterController2D.instance;//GameManager.Instance.GetCharacterController2D();
+        charCon2D = CharacterController2D.instance;
         target = GameObject.FindWithTag("Player").transform;
     }
     
@@ -102,15 +103,21 @@ public class EnemyAI : MonoBehaviour, IEnemyAI
 
     public void NonTrackingAutoMove()
     {
-        if (enemyHitHandler.isCorpseState) return;
+        if (enemyHitHandler.isCorpseState || enemyHitHandler.life <= 0) return;
         AddForceDirection(randomMove);
         if (randomMove < 0)
         {
             facingRight = false;
+            canMove = true;
         }
         else if (randomMove > 0)
         {
             facingRight = true;
+            canMove = true;
+        }
+        else if (randomMove == 0)
+        {
+            canMove = false;
         }
 
         if (rb.velocity.x == 0)

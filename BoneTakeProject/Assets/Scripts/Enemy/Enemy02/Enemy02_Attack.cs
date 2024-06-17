@@ -49,7 +49,17 @@ public class Enemy02_Attack : EnemyAttack
             Vector3 direction = (playerPosition - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             enemyAIScript_F.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
+            
+            // localScale 조정
+            if (angle > 90 || angle < -90)
+            {
+                enemyAIScript_F.gameObject.transform.localScale = new Vector3(1, -1, 1); // 상하 반전
+            }
+            else
+            {
+                enemyAIScript_F.gameObject.transform.localScale = new Vector3(1, 1, 1); // 원래 방향
+            }
+            
             if (enemyAIScript_F.canAttack)
             {
                 StartCoroutine(Enemy02_Attacking());

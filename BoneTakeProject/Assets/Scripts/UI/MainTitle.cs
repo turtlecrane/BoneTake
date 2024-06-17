@@ -81,7 +81,10 @@ public class MainTitle : MonoBehaviour
     {
         AudioManager.instance.AllRemoveEnvironSound();
         yield return new WaitUntil(() =>  !AudioManager.instance.isBGMChanging);
-        InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
+        if (AudioManager.instance.bgmSource.clip == null)
+        {
+            InvokeRepeating("InvokePlayMainTitleBGM", 1f, 300f);
+        }
     }
     
     private void InvokePlayMainTitleBGM()

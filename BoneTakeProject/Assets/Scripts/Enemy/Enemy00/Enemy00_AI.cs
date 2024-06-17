@@ -50,7 +50,7 @@ public class Enemy00_AI : EnemyAI
         if(!isGrounded && isLanding) CheckisLanding();
         Flip();
         
-        if (path == null && !canTracking)
+        if (path == null && !canTracking && enemyHitHandler.life > 0)
         {
             //무작위 이동
             NonTrackingAutoMove();
@@ -76,21 +76,25 @@ public class Enemy00_AI : EnemyAI
                     canTracking = false;
                 }
             }
+            
             CalculatePathDirection();
+            
+            if (canTracking && canMove && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0)
+            {
+                EnemyMoving();
+                EnemyJumping();
+            }
+            else if (!canTracking && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0)
+            {
+                NonTrackingAutoMove();
+            }
+
             //점프 가능 상태라고 알림
             if (((Vector2)path.vectorPath[currentWaypoint] - rb.position).y >= 0.5f)
             {
                 jumpEnabled = true;
             }
-            if (canMove && !charCon2D.playerHitHandler.isDead && canTracking)
-            {
-                EnemyMoving();
-                EnemyJumping();
-            }
-            else if (!canTracking && !charCon2D.playerHitHandler.isDead)
-            {
-                NonTrackingAutoMove();
-            }
+
             if (isAttacking) StartCoroutine(EnemyAttackCoolDown());
         }
     }

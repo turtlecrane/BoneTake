@@ -65,12 +65,15 @@ public class Enemy01_AI : EnemyAI
                     currentWaypoint++;
                 }
             }
+            
             CalculatePathDirection();
+            
             if (canTracking && canMove && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0) EnemyMoving();
             else if (!canTracking && !charCon2D.playerHitHandler.isDead && enemyHitHandler.life > 0)
             {
                 NonTrackingAutoMove();
             }
+            
             if (isAttacking) StartCoroutine(EnemyAttackCoolDown());
         }
     }
