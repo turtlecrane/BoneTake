@@ -19,19 +19,20 @@ public class AudioManager : MonoBehaviour
     [Space(10f)] 
     public AudioSource bgmSource;
     public AudioSource sfxSource;
-    public Transform environSourceList;
+    public List<AudioSource> environSource;
 
     [Space(10f)] 
     public AudioMixerGroup environMixerGroup;
-    public List<AudioSource> environSource;
+    public Transform environSourceList;
 
     [Space(10f)] 
     public List<AudioMixerSnapshot> snapshots;
     
-
+    [Space(10f)] 
     public static AudioManager instance;
-
-    public bool isBGMChanging;
+    [HideInInspector]public bool isBGMChanging;
+    public bool isEnvMute;
+    //public float envVolume;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.mute = PlayerPrefs.GetInt("BGMMute", 0) == 1;
         sfxSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         sfxSource.mute = PlayerPrefs.GetInt("SFXMute", 0) == 1;
+        isEnvMute = PlayerPrefs.GetInt("EnvMute", 0) == 1;
     }
     
     public IEnumerator PlayBGM(string bgmName, int arrayNum = 0, Action action = null)
@@ -139,7 +141,9 @@ public class AudioManager : MonoBehaviour
                 AudioSource newAudioSource = newAudioObject.AddComponent<AudioSource>();
                 newAudioSource.loop = true;
                 newAudioSource.outputAudioMixerGroup = environMixerGroup;
-                newAudioSource.volume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+
+                newAudioSource.mute = isEnvMute;
+                newAudioSource.volume = PlayerPrefs.GetFloat("EnvVolume", 1f);
 
                 // 리스트에 추가
                 environSource.Add(newAudioSource);
@@ -237,6 +241,21 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetInt("SFXMute", sfxSource.mute ? 1 : 0);
         PlayerPrefs.Save();
     }
+    
+    public void ToggleEnv()
+    {
+        isEnvMute = !isEnvMute;
+        //<<여기에 환경음이 존재한다면 모두 음소거하는 로직 작성
+        if (environSource.Count > 0)
+        {
+            foreach (var enSource in environSource)
+            {
+                enSource.mute = isEnvMute;
+            }
+        }
+        PlayerPrefs.SetInt("EnvMute", isEnvMute ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 
     public void BGMVolume(float volume)
     {
@@ -249,6 +268,21 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.volume = volume;
         PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
+    }
+    
+    public void EnvVolume(float volume)
+    {
+        //envVolume = volume;
+        //<<여기에 환경음이 존재한다면 모두 envVolume으로 조절하는 로직 작성
+        if (environSource.Count > 0)
+        {
+            foreach (var enSource in environSource)
+            {
+                enSource.volume = volume;
+            }
+        }
+        PlayerPrefs.SetFloat("EnvVolume", volume);
         PlayerPrefs.Save();
     }
 }

@@ -22,8 +22,10 @@ public class OptionManager : MonoBehaviour
     [Header("음향 설정 관련")] 
     public Toggle bgmMute;
     public Toggle sfxMute;
+    public Toggle envMute;
     public Slider bgmSlider;
     public Slider sfxSlider;
+    public Slider envSlider;
     
     void Start()
     {
@@ -82,11 +84,15 @@ public class OptionManager : MonoBehaviour
     {
         bgmSlider.value = PlayerPrefs.GetFloat("BGMVolume", 1f);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        envSlider.value = PlayerPrefs.GetFloat("EnvVolume", 1f);
+        
         bgmMute.isOn = PlayerPrefs.GetInt("BGMMute", 0) == 1;
         sfxMute.isOn = PlayerPrefs.GetInt("SFXMute", 0) == 1;
+        envMute.isOn = PlayerPrefs.GetInt("EnvMute", 0) == 1;
         
         bgmMute.onValueChanged.AddListener(delegate {ToggleBGM();});
         sfxMute.onValueChanged.AddListener(delegate {ToggleSFX();});
+        envMute.onValueChanged.AddListener(delegate {ToggleEnv();});
     }
 
     // Toggle 상태 변화시 호출될 메서드
@@ -128,6 +134,11 @@ public class OptionManager : MonoBehaviour
     {
         AudioManager.instance.ToggleSFX();
     }
+    
+    public void ToggleEnv()
+    {
+        AudioManager.instance.ToggleEnv();
+    }
 
     public void BGMVolume()
     {
@@ -137,5 +148,10 @@ public class OptionManager : MonoBehaviour
     public void SFXVolume()
     {
         AudioManager.instance.SFXVolume(sfxSlider.value);
+    }
+    
+    public void EnvVolume()
+    {
+        AudioManager.instance.EnvVolume(envSlider.value);
     }
 }
