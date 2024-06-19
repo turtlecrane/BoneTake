@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b86cf93a1ccdf734db62376ad5f24bab
+guid: c61241004a1afa44393dd975bfe534a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,106 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_0
+      name: stage1_02_0
       rect:
         serializedVersion: 2
-        x: 1057
-        y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 034a7e7526b9d7c47ad610338f68fae1
-      internalID: -185896303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_KnifeJumpAttack_1
-      rect:
-        serializedVersion: 2
-        x: 2114
-        y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96e6b4ce8e2481747ae94c5cf10642b0
-      internalID: -1865845191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_KnifeJumpAttack_2
-      rect:
-        serializedVersion: 2
-        x: 3171
-        y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46d8f426699fc8740a3769ca80d715c7
-      internalID: -1430828038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_KnifeJumpAttack_3
-      rect:
-        serializedVersion: 2
-        x: 4228
-        y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f4dd975d776c1f44825fa877f9efe3f
-      internalID: 1485667862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_KnifeJumpAttack_4
-      rect:
-        serializedVersion: 2
-        x: 577
-        y: 175
-        width: 202
-        height: 132
+        x: 137
+        y: 2556
+        width: 1675
+        height: 2054
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d02cb63ca5d3524d9f106101bbf707b
-      internalID: 286084576
+      spriteID: 35a12955d516442459a246a20c6b98a5
+      internalID: 1923731787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_1
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 2556
+        width: 1428
+        height: 2018
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531ee1564af6c684b83942a408f941c0
+      internalID: 1517264210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_2
+      rect:
+        serializedVersion: 2
+        x: 3783
+        y: 2556
+        width: 358
+        height: 1445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda79b69c6203514f9a4f717012172a8
+      internalID: -1532532820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_3
+      rect:
+        serializedVersion: 2
+        x: 4295
+        y: 3652
+        width: 306
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae0dab16339011419f1c5bda80a9a8e
+      internalID: 2050492865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_4
+      rect:
+        serializedVersion: 2
+        x: 4377
+        y: 2556
+        width: 141
+        height: 929
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1416c12d87a9b54fbd9208b008bf15d
+      internalID: -798777220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_5
+      rect:
+        serializedVersion: 2
+        x: 2485
+        y: 161
+        width: 2350
+        height: 2265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d71e1e7a75cc04197b37ad97cf669c
+      internalID: 1210264030
       vertices: []
       indices: 
       edges: []
@@ -212,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d818efcb7cc04f842bf8335aaeacba22
+    spriteID: deb545d427410824bb3f9c90ab6b3bf9
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_KnifeJumpAttack_0: -185896303
-      Player_KnifeJumpAttack_3: 1485667862
-      Player_KnifeJumpAttack_2: -1430828038
-      Player_KnifeJumpAttack_4: 286084576
-      Player_KnifeJumpAttack_1: -1865845191
+      stage1_02_4: -798777220
+      stage1_02_3: 2050492865
+      stage1_02_0: 1923731787
+      stage1_02_2: -1532532820
+      stage1_02_1: 1517264210
+      stage1_02_5: 1210264030
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
