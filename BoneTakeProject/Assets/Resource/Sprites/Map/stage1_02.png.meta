@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -108,10 +108,10 @@ TextureImporter:
       name: stage1_02_0
       rect:
         serializedVersion: 2
-        x: 137
-        y: 2556
-        width: 1675
-        height: 2054
+        x: 123
+        y: 129
+        width: 1676
+        height: 2057
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35a12955d516442459a246a20c6b98a5
-      internalID: 1923731787
+      spriteID: b26d72b52be84034e80d863cf5f68634
+      internalID: 2018971092
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: stage1_02_1
       rect:
         serializedVersion: 2
-        x: 2041
-        y: 2556
-        width: 1428
-        height: 2018
+        x: 1951
+        y: 129
+        width: 360
+        height: 1448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 531ee1564af6c684b83942a408f941c0
-      internalID: 1517264210
+      spriteID: 28d78b725cc03f8459babc584e5eb69c
+      internalID: -690099990
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: stage1_02_2
       rect:
         serializedVersion: 2
-        x: 3783
-        y: 2556
-        width: 358
-        height: 1445
+        x: 2463
+        y: 1225
+        width: 308
+        height: 497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda79b69c6203514f9a4f717012172a8
-      internalID: -1532532820
+      spriteID: a1c6603a91c7bc94b847707cef30f080
+      internalID: 369058826
       vertices: []
       indices: 
       edges: []
@@ -171,51 +171,9 @@ TextureImporter:
       name: stage1_02_3
       rect:
         serializedVersion: 2
-        x: 4295
-        y: 3652
-        width: 306
-        height: 494
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ae0dab16339011419f1c5bda80a9a8e
-      internalID: 2050492865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_02_4
-      rect:
-        serializedVersion: 2
-        x: 4377
-        y: 2556
-        width: 141
-        height: 929
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1416c12d87a9b54fbd9208b008bf15d
-      internalID: -798777220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_02_5
-      rect:
-        serializedVersion: 2
-        x: 2485
-        y: 161
-        width: 2350
+        x: 3005
+        y: 121
+        width: 2352
         height: 2265
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,8 +182,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d71e1e7a75cc04197b37ad97cf669c
-      internalID: 1210264030
+      spriteID: f1378a12bc2f02745b5e4d0139e901a7
+      internalID: 766023674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1_02_4
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 129
+        width: 145
+        height: 932
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0381cf9d509e41a4eb8d79dfea6076cd
+      internalID: -1179219027
       vertices: []
       indices: 
       edges: []
@@ -233,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: deb545d427410824bb3f9c90ab6b3bf9
+    spriteID: be3e962bf303fb74ca869b9d2942be84
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stage1_02_4: -798777220
-      stage1_02_3: 2050492865
-      stage1_02_0: 1923731787
-      stage1_02_2: -1532532820
-      stage1_02_1: 1517264210
-      stage1_02_5: 1210264030
+      stage1_02_4: -1179219027
+      stage1_02_3: 766023674
+      stage1_02_0: 2018971092
+      stage1_02_2: 369058826
+      stage1_02_1: -690099990
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
