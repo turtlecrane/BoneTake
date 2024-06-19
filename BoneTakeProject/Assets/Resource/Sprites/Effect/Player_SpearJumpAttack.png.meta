@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b86cf93a1ccdf734db62376ad5f24bab
+guid: 91b092d0ee4119e4690150ad87b93949
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,106 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_0
+      name: Player_SpearJumpAttack_0
       rect:
         serializedVersion: 2
-        x: 1057
-        y: 0
-        width: 1057
-        height: 387
+        x: 0
+        y: 1775
+        width: 1659
+        height: 355
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.293399, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 034a7e7526b9d7c47ad610338f68fae1
-      internalID: -185896303
+      spriteID: de0254629814d604987ee93a136ddfec
+      internalID: -1830820028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_1
+      name: Player_SpearJumpAttack_1
       rect:
         serializedVersion: 2
-        x: 2114
-        y: 0
-        width: 1057
-        height: 387
+        x: 0
+        y: 1420
+        width: 1659
+        height: 355
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.293399, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e6b4ce8e2481747ae94c5cf10642b0
-      internalID: -1865845191
+      spriteID: fc99cc7304accc644bd4e456eaaf1ef4
+      internalID: 427412505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_2
+      name: Player_SpearJumpAttack_2
       rect:
         serializedVersion: 2
-        x: 3171
-        y: 0
-        width: 1057
-        height: 387
+        x: 0
+        y: 1065
+        width: 1659
+        height: 355
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.293399, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46d8f426699fc8740a3769ca80d715c7
-      internalID: -1430828038
+      spriteID: 315af59a60c30bf459c5a75dd2a62a9a
+      internalID: -106545243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_3
+      name: Player_SpearJumpAttack_3
       rect:
         serializedVersion: 2
-        x: 4228
-        y: 0
-        width: 1057
-        height: 387
+        x: 0
+        y: 710
+        width: 1659
+        height: 355
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.293399, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f4dd975d776c1f44825fa877f9efe3f
-      internalID: 1485667862
+      spriteID: 754fabcdbe66590419466a52b56e73f6
+      internalID: 1619336838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_KnifeJumpAttack_4
+      name: Player_SpearJumpAttack_4
       rect:
         serializedVersion: 2
-        x: 577
-        y: 175
-        width: 202
-        height: 132
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 355
+        width: 1659
+        height: 355
+      alignment: 9
+      pivot: {x: 0.293399, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d02cb63ca5d3524d9f106101bbf707b
-      internalID: 286084576
+      spriteID: df03057c0d7779c4aa110c05ccea5ebd
+      internalID: -77166305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SpearJumpAttack_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1659
+        height: 355
+      alignment: 9
+      pivot: {x: 0.293399, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2943d5e6ca3291e4b9f7718863baa1e1
+      internalID: -648839897
       vertices: []
       indices: 
       edges: []
@@ -212,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d818efcb7cc04f842bf8335aaeacba22
+    spriteID: 016472fc954f48b45aa052b67bbc3cde
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_KnifeJumpAttack_0: -185896303
-      Player_KnifeJumpAttack_3: 1485667862
-      Player_KnifeJumpAttack_2: -1430828038
-      Player_KnifeJumpAttack_4: 286084576
-      Player_KnifeJumpAttack_1: -1865845191
+      Player_SpearJumpAttack_0: -1830820028
+      Player_SpearJumpAttack_5: -648839897
+      Player_SpearJumpAttack_1: 427412505
+      Player_SpearJumpAttack_2: -106545243
+      Player_SpearJumpAttack_4: -77166305
+      Player_SpearJumpAttack_3: 1619336838
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
