@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
@@ -152,23 +153,44 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.canDash = false;
             charCon2D.canDashAttack = false;
             charCon2D.playerAttack.canAttack = false;
-            isInvincible = true;
-            yield return new WaitUntil(() => isBigKnockBack == false); //넉백 끝날때동안 무적상태 + 움직일수없음 + 공격불가
+            isInvincible = true; //무적상태 시작
+            yield return new WaitUntil(() => isBigKnockBack == false); //넉백 끝날때동안 움직일수없음 + 공격불가
             charCon2D.canMove = true;
             charCon2D.canDash = true;
             charCon2D.canDashAttack = true;
             charCon2D.playerAttack.canAttack = true;
-            isInvincible = false;
+            //isInvincible = false;
         }
         else
         {
             isSmallKnockBack = true;
-            isInvincible = true;
-            yield return new WaitForSeconds(hitInvincibleTime); //1초동안 무적상태
-            isInvincible = false;
+            isInvincible = true; //무적상태 시작
+            yield return new WaitForSeconds(0.25f); //0.25초 동안 조작 불가
+            //isInvincible = false;
             isSmallKnockBack = false;
             charCon2D.animator.SetBool("IsKnockBackEnd", true);
         }
+        //<- 무적상태가 끝날때까지 playerSR를 깜빡깜빡 거리게 만들기 Dotween 플러그인 사용
+        SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
+        
+        // DOTween을 사용하여 깜빡이는 효과 적용
+        float blinkDuration = 0.2f; // 깜빡이는 시간 간격
+        float totalBlinkTime = hitInvincibleTime; // 총 무적 시간
+        int blinkCount = Mathf.CeilToInt(totalBlinkTime / blinkDuration); // 깜빡이는 횟수 계산
+
+        // 원래 색상을 저장하고, 검정색으로 변경하는 루프 설정
+        Color originalColor = playerSR.color;
+        Color blackColor = Color.black;
+        
+        playerSR.DOColor(blackColor, blinkDuration)
+            .SetLoops(blinkCount * 2, LoopType.Yoyo)
+            .SetEase(Ease.Linear);
+
+        
+        yield return new WaitForSeconds(hitInvincibleTime); //1초동안 무적상태
+        isInvincible = false;
+        playerSR.DOKill(); // 깜빡이기 효과 중지
+        playerSR.color = originalColor; // 색상 초기화
     }
     
     IEnumerator DeathCameraEffect()

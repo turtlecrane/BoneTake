@@ -1,41 +1,44 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using HeathenEngineering.PhysKit;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Spear : MonoBehaviour
 {
+    [Header("Component")] 
+    public DumpedWeapon dumpedWeapon;
+    
+    [Header("State")]
     public bool isUsed;
     public bool isTrigger;
+    
     private Rigidbody2D rb;
     private bool isNailed = false;
     private CharacterController2D charCon2D;
-        
-    private void Awake()
+    
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         charCon2D = CharacterController2D.instance;
     }
-
-    private void Start()
-    {
-        isTrigger = charCon2D.playerAttack.isAiming;
-        Invoke("TimeKill", 10); //활은 10초후 자동삭제
-    }
-
+    
     void Update()
     {
         if (!isNailed)
         {
-            transform.up = rb.velocity;
+            transform.right = rb.velocity;
         }
-    }
-    
-    void TimeKill()
-    {
-        Destroy(gameObject);
+        
+        float zRotation = transform.eulerAngles.z;
+        // zRotation이 90도 초과 또는 270도 미만일 경우 반전
+        if (zRotation > 90 && zRotation < 270)
+        {
+            transform.localScale = new Vector3(1, -1, 1); // 반전
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1); // 원래 방향
+        }
+
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,48 +48,37 @@ public class Arrow : MonoBehaviour
 
         if (layerName == "Wall" || layerName == "Ground")
         {
-            HandleWallOrGroundCollision();
+            //dumpedWeapon.gameObject.tag = "DumpedWeapon"; //오브젝트의 태그를 버려진 무기로 바꿈
+            gameObject.tag = "DumpedWeapon"; //오브젝트의 태그를 버려진 무기로 바꿈
+            isNailed = true;
+            rb.isKinematic = true; // 물리적 영향을 받지 않도록 설정
+            rb.velocity = Vector2.zero; // 벽이나 땅에 박힘
+            isUsed = true;
+            
         }
         else if (layerName == "Enemy_Standing" || layerName == "Enemy_Flight" || collision.CompareTag("Boss"))
         {
-            HandleEnemyCollision(collision);
+            if (!isUsed) //땅에 박힌 상태면 데미지를 안줌
+            {
+                DamageEnemy(collision);
+            }
         }
     }
-
-    private void HandleWallOrGroundCollision()
-    {
-        if (!isTrigger)
-        {
-            isNailed = true;
-            rb.isKinematic = true; // 물리적 영향을 받지 않도록 설정
-            rb.velocity = Vector2.zero; // 선택적으로 속도를 0으로 설정
-            isUsed = true;
-        }
-    }
-
-    private void HandleEnemyCollision(Collider2D collision)
-    {
-        if (!isUsed)
-        {
-            DamageEnemy(collision);
-            Destroy(gameObject);
-        }
-    }
-
+    
     private void DamageEnemy(Collider2D collision)
     {
         WeaponData weaponData = WeaponData.instance;
-        int damage = weaponData.GetName_DamageCount(charCon2D.playerAttack.weapon_name) + charCon2D.playerdata.playerATK;
+        int damage = weaponData.GetName_DamageCount(dumpedWeapon.weaponName) + charCon2D.playerdata.playerATK;
 
         Component hitHandler = collision.GetComponent<EnemyHitHandler>() ?? (Component)collision.GetComponentInParent<BossHitHandler>();
 
         if (hitHandler != null && !IsCorpseState(hitHandler))
         {
             AudioManager.instance.PlaySFX("Hit");
-            hitHandler.gameObject.SendMessage("Enemy_ApplyDamage", damage);
+            hitHandler.gameObject.SendMessage("Enemy_ApplyDamage_Throw", damage);
         }
     }
-
+    
     private bool IsCorpseState(Component hitHandler)
     {
         if (hitHandler is EnemyHitHandler enemyHitHandler)

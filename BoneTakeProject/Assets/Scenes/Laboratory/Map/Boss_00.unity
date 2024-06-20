@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 1294278534}
   - component: {fileID: 1294278536}
   - component: {fileID: 1294278537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boss00_GFX
   m_TagString: Boss
   m_Icon: {fileID: 0}

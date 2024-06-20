@@ -377,6 +377,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 612c5e166a121e3449dad067fbdc37a4, type: 3}
     - {fileID: 21300000, guid: 0e80bd0b4a8196f46acf73711b9505ec, type: 3}
     - {fileID: 21300000, guid: 519d97e745e55f041b609f3666cbc037, type: 3}
+  throwSpearPrefabs:
+  - {fileID: 4853334431876830048, guid: c546b6c157fed80459a229111e813454, type: 3}
 --- !u!114 &390627876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,13 +828,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7bb175b15e64aa64ab1a4f8fed33de02, type: 3}
   bgmSource: {fileID: 993456504}
   sfxSource: {fileID: 1151751716}
-  environSourceList: {fileID: 1477202546}
-  environMixerGroup: {fileID: -9146192976347380015, guid: f27b3aaf4aa00a64fa1b5eb2a5d4e216, type: 2}
   environSource: []
+  environMixerGroup: {fileID: -9146192976347380015, guid: f27b3aaf4aa00a64fa1b5eb2a5d4e216, type: 2}
+  environSourceList: {fileID: 1477202546}
   snapshots:
   - {fileID: 24500006, guid: f27b3aaf4aa00a64fa1b5eb2a5d4e216, type: 2}
   - {fileID: -3779938710171377877, guid: f27b3aaf4aa00a64fa1b5eb2a5d4e216, type: 2}
   isBGMChanging: 0
+  isEnvMute: 0
 --- !u!1 &806495418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4345992237480488242, guid: f0278402ced5daf4c913ab3f8a6334eb, type: 3}

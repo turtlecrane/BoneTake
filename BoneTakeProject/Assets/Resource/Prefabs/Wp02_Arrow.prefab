@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4853334431876830053}
   - component: {fileID: 4996710135380689451}
   m_Layer: 0
-  m_Name: WowBowArrow
+  m_Name: Wp02_Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

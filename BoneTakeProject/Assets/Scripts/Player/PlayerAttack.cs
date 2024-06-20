@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) charCon2D.m_Rigidbody2D.velocity = new Vector2(0, charCon2D.m_Rigidbody2D.velocity.y);
         
         // 좌클릭 감지
-        if (Input.GetMouseButtonDown(0) && canAttack && !isAttacking && !isJumpAttacking && !charCon2D.isBossDirecting && !charCon2D.isBigLanding && !charCon2D.playerHitHandler.isDead && !GameManager.Instance.GetInGameUiManager().CheckForActiveUILayer(LayerMask.GetMask("UI"))) //&& charCon2D.canMove
+        if (Input.GetMouseButtonDown(0) && canAttack && charCon2D.canMove)
         {
             //타격 시 카운팅 시작
             count = Mathf.Min(count + 1, weaponDataScript.GetType_AttackCount(weapon_type)); // count를 1 증가시키되, 무기 최대 타수를 초과하지 않도록 함
@@ -94,16 +94,22 @@ public class PlayerAttack : MonoBehaviour
             canAttack = false;
             StartCoroutine(AttackCooldown());
         }
+
+        if (Input.GetMouseButtonDown(1)) // 우클릭을 감지 (무기의 특수공격)
+        {
+            //활의 조준
+            if (charCon2D.m_Grounded && weapon_type == Weapon_Type.Bow)
+            {
+                isAiming = !isAiming; // isAiming 값을 반전
+            }
+            else if (charCon2D.m_Grounded && weapon_type == Weapon_Type.Spear && !isAttacking)
+            {
+                charCon2D.animator.SetTrigger("IsSpearThrow");
+                charCon2D.m_Rigidbody2D.gravityScale = 5;
+            }
+        }
+
         
-        // 조준중인지 확인
-        if (charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") < 0  && weapon_type == Weapon_Type.Bow)
-        {
-            isAiming = true;
-        }
-        else if(charCon2D.m_Grounded && Input.GetAxis("Mouse ScrollWheel") > 0  && weapon_type == Weapon_Type.Bow)
-        {
-            isAiming = false;
-        }
         
         // 다중 공격 가능 상태 업데이트
         UpdateMultiAttackState(ref isAbleMultipleAttack, ref AbleMultipleAttack_Time, multiAtk_maxTime);
@@ -197,7 +203,7 @@ public class PlayerAttack : MonoBehaviour
     public void Player_SpearAttack()
     {
         // 단검 공격 모션으로 전환
-        charCon2D.animator.SetTrigger("IsSpearAttack");
+        charCon2D.animator.SetTrigger("IsSpearAttacking");
         charCon2D.m_Rigidbody2D.gravityScale = 5;
     
         // count가 2 이상일 때만 Num of Hits 설정

@@ -19,13 +19,12 @@ public class DumpedWeapon : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            StartCoroutine(ChangeState());
+            ChangeState();
         }
     }
 
-    private IEnumerator ChangeState()
+    private void ChangeState()
     {
-        yield return new WaitForSeconds(0f);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;

@@ -9,7 +9,7 @@ public class BreakableObject : MonoBehaviour
 {
     public float hp;
     public Transform objGFX;
-    public Weapon_Type breakableWeapon; //부서질수 있는 무기의 종류
+    //public Weapon_Type breakableWeapon; //부서질수 있는 무기의 종류 -> "무기"면 모두 부서지도록 변경 (24.06.19)
     
     public ParticleSystem damageParticles; //파편 파티클
     public ParticleSystem brokenParticles; //부서지는 파티클
@@ -60,7 +60,7 @@ public class BreakableObject : MonoBehaviour
         PlayerAttack charCon2D = CharacterController2D.instance.playerAttack;
         
         shakeValue = 0.25f;
-        if (charCon2D.weapon_type == breakableWeapon)
+        if (charCon2D.weapon_type != Weapon_Type.Basic)
         {
             shakeValue = 0.6f;
 

@@ -73,26 +73,48 @@ public class BossHitHandler : MonoBehaviour
 
     public void Enemy_ApplyDamage(float damage)
     {
-        if (isCorpseState || isInvincible) return;
-
+        ApplyDamageEffects(damage);
         CharacterController2D charCon2D = CharacterController2D.instance;
-        Debug.Log($"보스가 공격당함. \n 데미지 : {damage} \n 플레이어의 무기 hp : {charCon2D.playerAttack.weaponManager.weaponLife}");
-
-        hpText.gameObject.transform.DOShakePosition(0.3f, 50f, 50);
-        damageParticle.Play();
-        Blink();
-        nowLife -= damage;
-
-        if (nowLife <= 0)
-        {
-            PlayerDataManager.instance.nowPlayer.killedTypeOfBosses.Add(gameObject.name);
-        }
-
         if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic && 
             charCon2D.playerAttack.weapon_type != Weapon_Type.etc)
         {
             charCon2D.playerAttack.weaponManager.weaponLife -= 1;
         }
+    }
+    
+    public void Enemy_ApplyDamage_Throw(float damage) {
+        ApplyDamageEffects(damage);
+        /*CharacterController2D charCon2D = CharacterController2D.instance;
+        if (charCon2D.playerAttack.weapon_type == Weapon_Type.Spear) {
+            charCon2D.playerAttack.weaponManager.weaponLife -= 3; // 무기 HP를 3 줄임
+        }*/
+        // 추후 다른 투척물 무기가 생기면 이곳에 추가
+    }
+
+    private void ApplyDamageEffects(float damage)
+    {
+        if (isCorpseState || isInvincible) return;
+
+        CharacterController2D charCon2D = CharacterController2D.instance;
+        hpText.gameObject.transform.DOShakePosition(0.3f, 50f, 50);
+        damageParticle.Play();
+        Blink();
+        nowLife -= damage;
+        Debug.Log($"보스가 공격당함. \n 데미지 : {damage} \n 플레이어의 무기 hp : {charCon2D.playerAttack.weaponManager.weaponLife}");
+
+        
+        if (nowLife <= 0)
+        {
+            PlayerDataManager.instance.nowPlayer.killedTypeOfBosses.Add(gameObject.name);
+        }
+        StartCoroutine(HitTime()); //중복 피격 방지
+    }
+    
+    IEnumerator HitTime()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(0.1f); //0.1초동안 무적상태
+        isInvincible = false;
     }
 
     private void Blink()

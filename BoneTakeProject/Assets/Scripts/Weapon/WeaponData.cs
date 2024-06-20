@@ -36,6 +36,7 @@ public class WeaponData : MonoBehaviour
 {
     public static WeaponData instance;
     public WeaponGFXSource weaponGFXSource;
+    public List<GameObject> throwSpearPrefabs;
     
     // 무기 이름에 따라 무기 ID 부여
     public Dictionary<Weapon_Name, int> weaponName_ID = new Dictionary<Weapon_Name, int>
@@ -80,7 +81,7 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 5 },
         { Weapon_Name.Wp03, 7 },
         { Weapon_Name.Wp04, 7 },
-        { Weapon_Name.Wp05, 6 },
+        { Weapon_Name.Wp05, 3 },
         { Weapon_Name.Wp06, 6 }
     };
     
@@ -101,6 +102,14 @@ public class WeaponData : MonoBehaviour
     {
         { Weapon_Name.Wp02, 0.5f },
         { Weapon_Name.Wp04, 0.2f }
+        //여기에 추가 활의 쿨타임 데이터를 입력
+    };
+    
+    //창 무기마다 창 무기 프리팹의 번호 부여
+    public Dictionary<Weapon_Name, int> spearID = new Dictionary<Weapon_Name, int>
+    {
+        { Weapon_Name.Wp05, 0}
+        //{ Weapon_Name.Wp04, 0.2f }
         //여기에 추가 활의 쿨타임 데이터를 입력
     };
     
@@ -208,6 +217,22 @@ public class WeaponData : MonoBehaviour
         if (bowAimCoolTime.TryGetValue(weaponName, out float aimAttackCool))
         {
             return aimAttackCool;
+        }
+        else
+        {
+            Debug.LogError("정의되어 있지 않은 WeaponName");
+            return 0;
+        }
+    }
+    
+    /// <summary>
+    /// 창 이름에 따른 던질 창 프리팹의 번호 찾기
+    /// </summary>
+    public int GetName_ThrowSpearID(Weapon_Name weaponName)
+    {
+        if (spearID.TryGetValue(weaponName, out int id))
+        {
+            return id;
         }
         else
         {

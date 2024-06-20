@@ -3015,7 +3015,7 @@ MonoBehaviour:
   hitBoxSize: {x: 0, y: 0}
   hitBoxOffset_X: 0
   hitBoxOffset_Y: 0
-  dashForce: 35
+  dashForce: 55
   refreshTime: 1
 --- !u!1 &556098166
 GameObject:
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 46372201}
   sceneName: TestScene_C
-  switchPosition: {x: -5.36, y: 0.05, z: 0}
+  switchPosition: {x: -2.86, y: -8.77, z: 0}
 --- !u!61 &868384236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11161,21 +11161,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3784949372239093026, guid: 5aacc4f9386836f499dde37a87ed6af3, type: 3}
-      propertyPath: isFlightingEnemy
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3784949372239093031, guid: 5aacc4f9386836f499dde37a87ed6af3, type: 3}
       propertyPath: m_Name
       value: Enemy01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784949374225316591, guid: 5aacc4f9386836f499dde37a87ed6af3, type: 3}
-      propertyPath: isStandingEnemy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784949374225316591, guid: 5aacc4f9386836f499dde37a87ed6af3, type: 3}
-      propertyPath: isFlightingEnemy
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aacc4f9386836f499dde37a87ed6af3, type: 3}
@@ -11809,17 +11797,17 @@ PrefabInstance:
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
       objectReference: {fileID: 676915591}
-    - target: {fileID: 7658005861426598808, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-      propertyPath: isStandingEnemy
+    - target: {fileID: 7658005861426598810, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658005861607967073, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658005861607967079, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7658005861607967074, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-      propertyPath: life
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7658005861607967075, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
-      propertyPath: boneExtractionTime
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7658005861607967100, guid: bb7b75d37ef09a64f910b2120e341e76, type: 3}
       propertyPath: m_RootOrder

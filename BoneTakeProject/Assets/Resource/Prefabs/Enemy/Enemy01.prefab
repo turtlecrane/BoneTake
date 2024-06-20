@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &3784949372239093052
 CircleCollider2D:
@@ -177,38 +177,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39390b0e05052947bd76719225f811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charCon2D: {fileID: 0}
   enemyHitHandler: {fileID: 3784949372239093026}
   enemyAttack: {fileID: 3784949374225316591}
-  target: {fileID: 0}
   enemyGFX: {fileID: 4865727482507877136}
   enemyTrackingPosition: {fileID: 3784949372276965213}
   weaponType: 2
   weaponName: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 13000
   maxSpeed: 4
   jumpForce: 110
   jumpCoolTime: 1
   groundedCheckDistance: 1
   landingCheckDistance: 1.5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
   boneExtractionTime: 5
-  canMove: 0
-  canAttack: 0
-  canRotation: 0
-  canTracking: 0
   isRunning: 0
   isAttacking: 0
-  isGrounded: 1
   isLanding: 0
   isJumpCoolDown: 0
   jumpEnabled: 0
-  facingRight: 1
   movingCount: 0
+  charCon2D: {fileID: 0}
+  target: {fileID: 0}
   animator: {fileID: 0}
   nextWaypointDistance: 1
   startOffset: {x: 0, y: 0, z: 0}
@@ -238,7 +232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackParticle: {fileID: 6978670849862845182}
   bloodParticle: {fileID: 4742525574691140142}
+  isFlightingEnemy: 0
   enemyAIScript: {fileID: 3784949372239093055}
+  enemyAIScript_F: {fileID: 0}
   animator: {fileID: 3784949374225316584}
   life: 10
   knockbackBasicForce: 2000
@@ -619,8 +615,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b20bf2f414b1574692f54e6048239c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlightingEnemy: 0
   enemyAIScript: {fileID: 3784949372239093055}
+  enemyAIScript_F: {fileID: 0}
   animator: {fileID: 0}
+  playerPosition: {x: 0, y: 0, z: 0}
   damage: 2
   isCritDamage: 0
   attackCoolTime: 2

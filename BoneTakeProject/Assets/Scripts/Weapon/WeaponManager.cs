@@ -27,7 +27,9 @@ public class WeaponManager : MonoBehaviour
     //TESTCODE
     public Transform projector;
     public Transform emitter;
-    public TrickShot2D trickShot;
+    public TrickShot2D trickShot; //발사되는 화살 (프리팹)
+
+    public Transform spearShotPoint;
     
     private void Start()
     {
@@ -106,6 +108,33 @@ public class WeaponManager : MonoBehaviour
     public void Shot_BasicArrow()
     {
         trickShot.Shoot();
+    }
+
+    public void Shot_Spear()
+    {
+        // 발사 방향은 (bool 변수)charCon2D.m_FacingRight가 true이면 1, charCon2D.m_FacingRight가 false이면 -1 방향으로 발사
+        int direction = charCon2D.m_FacingRight ? 1 : -1;
+
+        // 창 오브젝트 생성 및 위치 설정
+        var shotObj = Instantiate(WeaponData.instance.throwSpearPrefabs[WeaponData.instance.GetName_ThrowSpearID(weaponName)], spearShotPoint.position, spearShotPoint.rotation);
+        
+        charCon2D.playerAttack.weaponManager.weaponLife -= 3;
+        
+        DumpedWeapon dw = shotObj.GetComponent<DumpedWeapon>();
+        dw.weaponHP = charCon2D.playerAttack.weaponManager.weaponLife;
+        
+        // 발사 방향 설정
+        Rigidbody2D rb = shotObj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            // 원하는 속도로 발사
+            float spearSpeed = 100f; //발사속도
+            rb.velocity = new Vector2(direction * spearSpeed, rb.velocity.y);
+        }
+        
+        charCon2D.playerAttack.weapon_type = Weapon_Type.Basic; //기본 공격으로 바뀜
+        charCon2D.playerAttack.weapon_name = Weapon_Name.Basic;
+        charCon2D.playerAttack.weaponManager.weaponLife = -1;
     }
 
     /// <summary>

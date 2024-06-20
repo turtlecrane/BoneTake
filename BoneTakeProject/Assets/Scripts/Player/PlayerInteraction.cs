@@ -242,12 +242,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         charCon2D.animator.SetBool("IsBoneTakeIntro", false);
         charCon2D.animator.SetBool("IsBoneTaking", false);
+        AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");
         boneExtractCount = 0f;
         isExtractingBones = false;
         //카메라 복구
-        if (!(charCon2D.m_Rigidbody2D.velocity.y < -31.0f) &&
-            !charCon2D.playerHitHandler.isDead
-            )
+        if (!(charCon2D.m_Rigidbody2D.velocity.y < -31.0f) && !charCon2D.playerHitHandler.isDead)
         {
             followCameraController.virtualCamera.m_Lens.OrthographicSize = followCameraController.lensOrtho_InitSize;
         }

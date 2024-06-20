@@ -169,10 +169,10 @@ public class AudioManager : MonoBehaviour
             // 오브젝트 파괴
             Destroy(targetSource.gameObject);
         }
-        else
+        /*else
         {
             Debug.Log("해당 이름의 소리를 재생중인 오브젝트가 없습니다.");
-        }
+        }*/
     }
 
     public void AllRemoveEnvironSound()

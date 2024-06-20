@@ -35,7 +35,15 @@ public class Enemy02_AI : EnemyAI_Flight
             }
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

@@ -473,7 +473,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &7658005861607967072
 CircleCollider2D:
@@ -529,32 +529,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cbe92caed8752479fea667bd06ccb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charCon2D: {fileID: 0}
   enemyHitHandler: {fileID: 7658005861607967074}
   enemyAttack: {fileID: 7658005861426598808}
-  target: {fileID: 0}
   enemyGFX: {fileID: 7658005861426598809}
   enemyTrackingPosition: {fileID: 7658005861932091744}
   weaponType: 1
   weaponName: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 13000
   maxSpeed: 7
   jumpForce: 110
   jumpCoolTime: 1
   groundedCheckDistance: 1
   landingCheckDistance: 1.5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
   randomMovingValue_MIN: 1
   randomMovingValue_MAX: 2
-  boneExtractionTime: 5
+  boneExtractionTime: 3
   isRunning: 0
   isAttacking: 0
   isLanding: 0
   isJumpCoolDown: 0
   jumpEnabled: 0
   movingCount: 0
+  charCon2D: {fileID: 0}
+  target: {fileID: 0}
   animator: {fileID: 0}
   nextWaypointDistance: 1
   startOffset: {x: 0, y: 0, z: 0}
@@ -584,7 +584,7 @@ MonoBehaviour:
   enemyAIScript: {fileID: 7658005861607967075}
   enemyAIScript_F: {fileID: 0}
   animator: {fileID: 7658005861426598815}
-  life: 10
+  life: 30
   knockbackBasicForce: 2000
   isCorpseState: 0
   isExtracted: 0
@@ -597,7 +597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7658005861932091744}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy_TrackingPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
