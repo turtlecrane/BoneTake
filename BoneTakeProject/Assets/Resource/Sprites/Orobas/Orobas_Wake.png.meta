@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: dc1e6886047a1a347a138861805c9dbb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orobas_Wake_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2520e539c081a49a195846e855e685
+      internalID: 731251003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_1
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29481dae8ad92e247b3ad4c35f62a6c0
+      internalID: -832747524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_2
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b14c19e5f298943bbd07cae5ff0831
+      internalID: 403462675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_3
+      rect:
+        serializedVersion: 2
+        x: 3957
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6821fb8096a4145a8c38a0eb640503
+      internalID: -705456732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_4
+      rect:
+        serializedVersion: 2
+        x: 5276
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec8a9612a02c93428eb3d297e2ca445
+      internalID: -1174446177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_5
+      rect:
+        serializedVersion: 2
+        x: 6595
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2fadfa45d24eb54ab3bb98d10b21c8c
+      internalID: 822621052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_6
+      rect:
+        serializedVersion: 2
+        x: 7914
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cdd6cb6979b94409ba096bbec20d51
+      internalID: -1395707666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_7
+      rect:
+        serializedVersion: 2
+        x: 9233
+        y: 1143
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9df721d218abc49a89710c7fef9dff
+      internalID: -1821053558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb828ac4c47b054dbe47b121e6a6100
+      internalID: 215619911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_9
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077b2c0b3b95ce541a333b887b68116e
+      internalID: -1110399495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_10
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86df7098722aa414dbbcedb656d3756f
+      internalID: -328948381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_11
+      rect:
+        serializedVersion: 2
+        x: 3957
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5948ca026b11424eb90597fdc3e6761
+      internalID: -284224214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_12
+      rect:
+        serializedVersion: 2
+        x: 5276
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf52c1c330f918545ae3d0cb224ffa90
+      internalID: 1387284556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_13
+      rect:
+        serializedVersion: 2
+        x: 6595
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff6a5627a02536428ab7e0fd585bdab
+      internalID: -1026038660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_14
+      rect:
+        serializedVersion: 2
+        x: 7914
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd47c83676e85540811a00a765ced51
+      internalID: -1000871626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Wake_15
+      rect:
+        serializedVersion: 2
+        x: 9233
+        y: 0
+        width: 1319
+        height: 1143
+      alignment: 9
+      pivot: {x: 0.5788631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c97ae67478eb040af6f28da480e1fb
+      internalID: -1833250546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 24c71c483704ddc4a9101e8e34f80b28
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Orobas_Wake_3: -705456732
+      Orobas_Wake_14: -1000871626
+      Orobas_Wake_9: -1110399495
+      Orobas_Wake_12: 1387284556
+      Orobas_Wake_15: -1833250546
+      Orobas_Wake_5: 822621052
+      Orobas_Wake_2: 403462675
+      Orobas_Wake_8: 215619911
+      Orobas_Wake_10: -328948381
+      Orobas_Wake_11: -284224214
+      Orobas_Wake_1: -832747524
+      Orobas_Wake_6: -1395707666
+      Orobas_Wake_4: -1174446177
+      Orobas_Wake_7: -1821053558
+      Orobas_Wake_13: -1026038660
+      Orobas_Wake_0: 731251003
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

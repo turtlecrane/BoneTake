@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: 74e1be08f7d3fb0468da40e25905ff82
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orobas_Stun_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5552c56944cae954da8662e20e1ea1aa
+      internalID: 726056812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_1
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8fc519150067e47baa5e714a0e8d05
+      internalID: -191668318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_2
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5bb3ef3c2f34b41b47ae4d8145cccb
+      internalID: -92776030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_3
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe887f27dc65e94eacd0fd5081c12e8
+      internalID: 2135582066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_4
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29729b34bf06bb43ba7ddf5626989cb
+      internalID: -1881159100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_5
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918609ac74cbdba49aaba86ab321ba47
+      internalID: -1318382036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_6
+      rect:
+        serializedVersion: 2
+        x: 7320
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5af64764c382545a7bbf9cf100b56d
+      internalID: -876435699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_7
+      rect:
+        serializedVersion: 2
+        x: 8540
+        y: 1426
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66eedb77688aeef48b76dabf62595dfc
+      internalID: 1853448278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb88731520c52843adcfd76bb5d73af
+      internalID: 1051804592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_9
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39aad9ad6ebd10a46aab2b851605c9fc
+      internalID: -204978338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_10
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfe99284028a6f4191e9d80a0660b76
+      internalID: -598512692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_11
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d39c0a1a9223a43ad92c8c04e0b52f
+      internalID: 1454803667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_12
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67589c9379d62a847a4f44def23e63e9
+      internalID: 1326044133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_13
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7609ac3421a5f547aca34a94114e8be
+      internalID: -1943351156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_14
+      rect:
+        serializedVersion: 2
+        x: 7320
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee38c52b1206b147bb5246ee2367366
+      internalID: -7903684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Stun_15
+      rect:
+        serializedVersion: 2
+        x: 8540
+        y: 0
+        width: 1220
+        height: 1426
+      alignment: 9
+      pivot: {x: 0.5872749, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445a15ae81d69f748bfec46bddea348b
+      internalID: -159664599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4860fe3fa56bae14da590a3424229c3e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Orobas_Stun_13: -1943351156
+      Orobas_Stun_12: 1326044133
+      Orobas_Stun_11: 1454803667
+      Orobas_Stun_2: -92776030
+      Orobas_Stun_4: -1881159100
+      Orobas_Stun_0: 726056812
+      Orobas_Stun_5: -1318382036
+      Orobas_Stun_15: -159664599
+      Orobas_Stun_14: -7903684
+      Orobas_Stun_7: 1853448278
+      Orobas_Stun_10: -598512692
+      Orobas_Stun_3: 2135582066
+      Orobas_Stun_8: 1051804592
+      Orobas_Stun_6: -876435699
+      Orobas_Stun_9: -204978338
+      Orobas_Stun_1: -191668318
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
