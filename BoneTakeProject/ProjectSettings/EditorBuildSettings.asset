@@ -30,9 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Laboratory/Map/Boss_00.unity
     guid: 61782eff99f9a4646b0ef54d2ca2ae49
   - enabled: 1
-    path: Assets/Scenes/Official/NewGame.unity
+    path: Assets/Scenes/Official/1F/NewGame.unity
     guid: 51f18667d9a290f47b408862d1038c78
   - enabled: 1
-    path: Assets/Scenes/Official/Tutorial.unity
+    path: Assets/Scenes/Official/1F/Tutorial.unity
     guid: 775d73cc34f334a409cdf26c67aac917
+  - enabled: 1
+    path: Assets/Scenes/Official/1F/WayToTown.unity
+    guid: 0d6c8ad970673f845bd9332737d8b2b1
+  - enabled: 1
+    path: Assets/Scenes/Official/1F/Town.unity
+    guid: 13c9fd502d7108243bcc1f0b6008b33e
   m_configObjects: {}

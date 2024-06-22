@@ -25,7 +25,7 @@ public class Narration : MonoBehaviour
         {
             text.text = narration;
             text.DOFade(1f, 1f);
-            yield return new WaitForSeconds(1.0f);//3-4초
+            yield return new WaitForSeconds(0.1f);//3-4초
             text.DOFade(0f, 1f);
             yield return new WaitForSeconds(1.0f);
         }

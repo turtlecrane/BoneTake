@@ -1,8 +1,15 @@
-using CleverCrow.Fluid.Dialogues.Graphs;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour
+public class TalkableObject : InteractableObject
 {
-    public DialogueGraph[] dialogue;
-    public bool talkEnable;
+    public void NpcInteraction(DialoguePlayback _dialoguePlayback)
+    {
+        if (talkEnable)
+        {
+            _dialoguePlayback.gameObject.SetActive(true);
+            _dialoguePlayback.PlayDialogue(dialogue[0]);
+        }
+    }
 }

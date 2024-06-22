@@ -274,8 +274,8 @@ TextureImporter:
         y: 4528
         width: 126
         height: 191
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1486,11 +1486,11 @@ TextureImporter:
       stage1_01_8: 805640970
       stage1_01_46: -393923321
       stage1_01_7: 712704296
-      stage1_01_38: -1052448187
+      stage1_01_41: 1894649121
       stage1_01_1: 713434185
       stage1_01_37: -1881355597
       stage1_01_16: -795133794
-      stage1_01_41: 1894649121
+      stage1_01_38: -1052448187
       stage1_01_6: 1126553747
       stage1_01_11: -1888592701
       stage1_01_3: -1204401769

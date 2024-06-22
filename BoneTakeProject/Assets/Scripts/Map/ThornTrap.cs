@@ -10,7 +10,7 @@ public class ThornTrap : MonoBehaviour
     public bool isWide = false;
     [DrawIf("isWide", true)] 
     public Image fadePanel;
-    [DrawIf("isWide", true)] 
+    
     public Vector3 switchPosition;
     
     private Transform player;

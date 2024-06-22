@@ -215,7 +215,7 @@ public class DialoguePlayback : MonoBehaviour {
             textMesh.text = typingText;                       // TextMesh에 타이핑된 텍스트 설정
 
             // 마지막 문자가 공백인지 확인
-            if (typingText.EndsWith(" ")) {
+            if (typingText.EndsWith(" ") || typingText.EndsWith("\u200b") ) {
                 AudioManager.instance.PlaySFX("TextTyping", 1); // 공백일 때 사운드 효과
             } else {
                 AudioManager.instance.PlaySFX("TextTyping", 0); // 공백이 아닐 때 사운드 효과
