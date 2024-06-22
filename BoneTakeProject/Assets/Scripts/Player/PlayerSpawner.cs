@@ -18,7 +18,6 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(FadeIn());
         if (!GameObject.FindWithTag("Player"))
         {
             player = Instantiate(playerSystemPrefab, SpawnPoint.position, SpawnPoint.rotation);
@@ -27,6 +26,11 @@ public class PlayerSpawner : MonoBehaviour
         {
             return;
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(FadeIn());
     }
 
     private void OnEnable()
@@ -78,13 +82,14 @@ public class PlayerSpawner : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
-        fadePanel.gameObject.SetActive(true);
-        
         Color color = fadePanel.color;
         color.a = 1f;
         fadePanel.color = color;
+        
+        fadePanel.gameObject.SetActive(true);
 
         fadePanel.DOFade(0, 1f);
+        Debug.Log(fadePanel.color.a);
         yield return new WaitForSeconds(1.1f);
         fadePanel.gameObject.SetActive(false);
     }

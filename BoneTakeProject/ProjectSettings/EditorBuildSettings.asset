@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratory/Map/Boss_00.unity
     guid: 61782eff99f9a4646b0ef54d2ca2ae49
+  - enabled: 1
+    path: Assets/Scenes/Official/NewGame.unity
+    guid: 51f18667d9a290f47b408862d1038c78
+  - enabled: 1
+    path: Assets/Scenes/Official/Tutorial.unity
+    guid: 775d73cc34f334a409cdf26c67aac917
   m_configObjects: {}
