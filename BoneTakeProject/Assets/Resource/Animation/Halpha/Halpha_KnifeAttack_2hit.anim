@@ -23,23 +23,23 @@ AnimationClip:
       value: {fileID: -1768488367, guid: f9854acb9fba57349832119f7659749f, type: 3}
     - time: 0.05
       value: {fileID: 157848277, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.15
+    - time: 0.1
       value: {fileID: -1268771359, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.25
+    - time: 0.2
       value: {fileID: -1823012046, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.35
+    - time: 0.3
       value: {fileID: 1308589578, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.55
+    - time: 0.5
       value: {fileID: 376298832, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.6
+    - time: 0.55
       value: {fileID: -2053069734, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.65
+    - time: 0.6
       value: {fileID: 25699364, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.7
+    - time: 0.65
       value: {fileID: 304361127, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.8
+    - time: 0.75
       value: {fileID: -1114768410, guid: f9854acb9fba57349832119f7659749f, type: 3}
-    - time: 0.85
+    - time: 0.8
       value: {fileID: -1285245680, guid: f9854acb9fba57349832119f7659749f, type: 3}
     attribute: m_Sprite
     path: 
@@ -76,7 +76,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.90000004
+    m_StopTime: 0.85
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,7 +96,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.15
+  - time: 0.2
     functionName: PlayWeaponLongAudio
     data: 
     objectReferenceParameter: {fileID: 0}

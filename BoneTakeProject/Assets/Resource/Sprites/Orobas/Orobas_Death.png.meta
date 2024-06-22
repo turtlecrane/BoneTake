@@ -1,0 +1,651 @@
+fileFormatVersion: 2
+guid: acfbdad4bdf931944b1f9969087491de
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orobas_Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a78240df6e90042aab33a21c9c4d71
+      internalID: 165811297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_1
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a23edaf3fa24494099d3e9ba9ff8835
+      internalID: -21067836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_2
+      rect:
+        serializedVersion: 2
+        x: 3898
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c186e30bbd927b34f85107a46027dc41
+      internalID: -1925926030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_3
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0316e8616fd974543959bb89e68c4ac4
+      internalID: 1546546263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_4
+      rect:
+        serializedVersion: 2
+        x: 7796
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb51886dfdc77f42bae380728d9b41e
+      internalID: 1683292115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_5
+      rect:
+        serializedVersion: 2
+        x: 9745
+        y: 4893
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bef3d4de8a54584bb37b655b101081f
+      internalID: 1708778599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affbd5fb324fd794e8fe1401dfaac7e4
+      internalID: 1605729098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_7
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6bbdee299334a4eaae3aa225e65d16
+      internalID: -373210650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_8
+      rect:
+        serializedVersion: 2
+        x: 3898
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bb0bf4a1a53054098bbb89e53c6155
+      internalID: 16709507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_9
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4add013b926420b4a8b0308ca78f0748
+      internalID: -1727460915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_10
+      rect:
+        serializedVersion: 2
+        x: 7796
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3079c587265424585d93e3b6f554f2
+      internalID: 1850866140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_11
+      rect:
+        serializedVersion: 2
+        x: 9745
+        y: 3262
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844520d46f4f5a145b106141e264a38f
+      internalID: -1682457223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0316a2bfd98d1ab44934137c4d0ab549
+      internalID: -227481299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_13
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb42c91d38fce83418c634cf7851c8dd
+      internalID: -397982115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_14
+      rect:
+        serializedVersion: 2
+        x: 3898
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e523656efd8ef4e9d02c714bf7ab79
+      internalID: -1528710806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_15
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ccbe2e1245a49842bd9cb5cee8dd748
+      internalID: 293645030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_16
+      rect:
+        serializedVersion: 2
+        x: 7796
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7afb3d30cad024aaa56b42f43474eb
+      internalID: 1260762393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_17
+      rect:
+        serializedVersion: 2
+        x: 9745
+        y: 1631
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9249e4f225b109048acea3e1bb2171e8
+      internalID: -98820692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220f37dda025f464484068784e349d65
+      internalID: 1941353984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_19
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185e407768f912d41b0e342923a2ca9d
+      internalID: -734217452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_20
+      rect:
+        serializedVersion: 2
+        x: 3898
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e94ad7d9f80bf419e40248df2b9b6a
+      internalID: -1969899234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_21
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f225c3c69aa19bd48a93007fd8858f7a
+      internalID: 58889199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_22
+      rect:
+        serializedVersion: 2
+        x: 7796
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57aa45e9ec0afa8429654a2bef3d1fd0
+      internalID: -1357559469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Death_23
+      rect:
+        serializedVersion: 2
+        x: 9745
+        y: 0
+        width: 1949
+        height: 1631
+      alignment: 9
+      pivot: {x: 0.3156231, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9af89279664f494ba9698a19a33b516
+      internalID: -427389162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 37270b3dd5a272746afbf1d93d2233c2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Orobas_Death_1: -21067836
+      Orobas_Death_11: -1682457223
+      Orobas_Death_22: -1357559469
+      Orobas_Death_0: 165811297
+      Orobas_Death_8: 16709507
+      Orobas_Death_13: -397982115
+      Orobas_Death_23: -427389162
+      Orobas_Death_14: -1528710806
+      Orobas_Death_21: 58889199
+      Orobas_Death_12: -227481299
+      Orobas_Death_17: -98820692
+      Orobas_Death_2: -1925926030
+      Orobas_Death_6: 1605729098
+      Orobas_Death_7: -373210650
+      Orobas_Death_15: 293645030
+      Orobas_Death_20: -1969899234
+      Orobas_Death_5: 1708778599
+      Orobas_Death_9: -1727460915
+      Orobas_Death_16: 1260762393
+      Orobas_Death_4: 1683292115
+      Orobas_Death_10: 1850866140
+      Orobas_Death_18: 1941353984
+      Orobas_Death_3: 1546546263
+      Orobas_Death_19: -734217452
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

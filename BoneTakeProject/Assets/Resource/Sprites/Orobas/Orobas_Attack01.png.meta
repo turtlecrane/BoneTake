@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81c1ad2191a2e1742b74abc58c8c5bab
+guid: 11d4a6624990b4d419ec8ac00bc23a5f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,253 +105,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orobas_Attack02_0
+      name: Orobas_Attack01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1396
-        width: 2444
-        height: 1396
+        y: 2986
+        width: 1808
+        height: 1493
       alignment: 9
-      pivot: {x: 0.5109748, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 778639acb414a9345a557ef006369114
-      internalID: -1015742271
+      spriteID: b524a8db84e594d4b885a72c2cec5c51
+      internalID: 97019170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_1
+      name: Orobas_Attack01_1
       rect:
         serializedVersion: 2
-        x: 2440
-        y: 1396
-        width: 2444
-        height: 1396
+        x: 1808
+        y: 2986
+        width: 1808
+        height: 1493
       alignment: 9
-      pivot: {x: 0.5109748, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37ae39e27e1a48d489161ac9aeada9e0
-      internalID: 1707645858
+      spriteID: 6e396cae9dd60df4da1460887b8a691e
+      internalID: -765973159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_2
+      name: Orobas_Attack01_2
       rect:
         serializedVersion: 2
-        x: 4888
-        y: 1396
-        width: 2444
-        height: 1396
+        x: 3616
+        y: 2986
+        width: 1808
+        height: 1493
       alignment: 9
-      pivot: {x: 0.5109748, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe2e3623ff4363345bf1393e8afcab4a
-      internalID: -881613715
+      spriteID: e9c60655c68dc99499231e79d23224df
+      internalID: 201996050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_3
+      name: Orobas_Attack01_3
       rect:
         serializedVersion: 2
-        x: 7332
-        y: 1396
-        width: 2444
-        height: 1396
+        x: 5424
+        y: 2986
+        width: 1808
+        height: 1493
       alignment: 9
-      pivot: {x: 0.5422439, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0fe9ac042e0feb4c8b31f15ddd9c720
-      internalID: 1676271219
+      spriteID: 714fc652b84792a4180f344d58dbd516
+      internalID: -677480792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_4
+      name: Orobas_Attack01_4
       rect:
         serializedVersion: 2
-        x: 9776
-        y: 1396
-        width: 2444
-        height: 1396
+        x: 7232
+        y: 2986
+        width: 1808
+        height: 1493
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 926fdc9c3fabd324faf192c3ee8e5c45
-      internalID: 1149247203
+      spriteID: 1269e064303ef474a91f2b03634521d3
+      internalID: 859342954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_5
+      name: Orobas_Attack01_5
       rect:
         serializedVersion: 2
-        x: 12220
-        y: 1396
-        width: 2444
-        height: 1396
+        x: 0
+        y: 1493
+        width: 1808
+        height: 1491
       alignment: 9
-      pivot: {x: 0.3297413, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ffe46fcbbcb32244aa4c509f3db6275
-      internalID: 1264391685
+      spriteID: f4669b2f0d3811645ab3277ac0111708
+      internalID: -746385690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_6
+      name: Orobas_Attack01_6
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 1493
+        width: 1808
+        height: 1491
+      alignment: 9
+      pivot: {x: 0.4612312, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66068148b5ecd1143930487d4a81859a
+      internalID: -549727010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Attack01_7
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 1493
+        width: 1808
+        height: 1493
+      alignment: 9
+      pivot: {x: 0.4612312, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606d62d9914a9654488a13762586e0be
+      internalID: -1435941519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Attack01_8
+      rect:
+        serializedVersion: 2
+        x: 5424
+        y: 1493
+        width: 1808
+        height: 1493
+      alignment: 9
+      pivot: {x: 0.4612312, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5694af9ca7ba03546b736109be66a4b5
+      internalID: -1307496578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Attack01_9
+      rect:
+        serializedVersion: 2
+        x: 7232
+        y: 1493
+        width: 1808
+        height: 1489
+      alignment: 9
+      pivot: {x: 0.4612312, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39a595d11febfa4f87aecd17d848c8c
+      internalID: -85924061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orobas_Attack01_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2444
-        height: 1396
+        width: 1808
+        height: 1491
       alignment: 9
-      pivot: {x: 0.3297413, y: 0}
+      pivot: {x: 0.47987348, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbb46284cf521a94cbf64dd68475d5d2
-      internalID: 2037205716
+      spriteID: b3fe90be81148f94095a7b91336a6196
+      internalID: 1531079580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orobas_Attack02_7
+      name: Orobas_Attack01_11
       rect:
         serializedVersion: 2
-        x: 2444
+        x: 1808
         y: 0
-        width: 2444
-        height: 1396
+        width: 1808
+        height: 1491
       alignment: 9
-      pivot: {x: 0.3297413, y: 0}
+      pivot: {x: 0.4612312, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a0a8ae5c2f49134e82a17080fb82ca2
-      internalID: -1781209830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orobas_Attack02_8
-      rect:
-        serializedVersion: 2
-        x: 4888
-        y: 0
-        width: 2444
-        height: 1396
-      alignment: 9
-      pivot: {x: 0.3297413, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60515ab6b32459444984edee2ce163f0
-      internalID: 1539021539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orobas_Attack02_9
-      rect:
-        serializedVersion: 2
-        x: 7332
-        y: 0
-        width: 2444
-        height: 1396
-      alignment: 9
-      pivot: {x: 0.3297413, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b60f6dbba0513f3499091d1668a33d08
-      internalID: 1004048094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orobas_Attack02_10
-      rect:
-        serializedVersion: 2
-        x: 9776
-        y: 0
-        width: 2444
-        height: 1396
-      alignment: 9
-      pivot: {x: 0.5422439, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f59c5042b1563aa44a3df525b9fa80ca
-      internalID: 1036987911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orobas_Attack02_11
-      rect:
-        serializedVersion: 2
-        x: 12220
-        y: 0
-        width: 2444
-        height: 1396
-      alignment: 9
-      pivot: {x: 0.5422439, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58ebb64db044b4940a6ceef4ef838645
-      internalID: 1042895620
+      spriteID: 93d465eb239a88445a1118f2d10a609e
+      internalID: -1820333077
       vertices: []
       indices: 
       edges: []
@@ -359,7 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 55189b615b1d8a94eacb2f133bf5ff61
+    spriteID: 9ad0612a1d298fa4885fc5adfb34e253
     internalID: 0
     vertices: []
     indices: 
@@ -367,18 +367,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Orobas_Attack02_5: 1264391685
-      Orobas_Attack02_6: 2037205716
-      Orobas_Attack02_9: 1004048094
-      Orobas_Attack02_0: -1015742271
-      Orobas_Attack02_11: 1042895620
-      Orobas_Attack02_2: -881613715
-      Orobas_Attack02_4: 1149247203
-      Orobas_Attack02_3: 1676271219
-      Orobas_Attack02_10: 1036987911
-      Orobas_Attack02_1: 1707645858
-      Orobas_Attack02_7: -1781209830
-      Orobas_Attack02_8: 1539021539
+      Orobas_Attack01_3: -677480792
+      Orobas_Attack01_14: -500562289
+      Orobas_Attack01_11: -1820333077
+      Orobas_Attack01_1: -765973159
+      Orobas_Attack01_0: 97019170
+      Orobas_Attack01_9: -85924061
+      Orobas_Attack01_2: 201996050
+      Orobas_Attack01_6: -549727010
+      Orobas_Attack01_13: 2082778594
+      Orobas_Attack01_12: 446280809
+      Orobas_Attack01_8: -1307496578
+      Orobas_Attack01_5: -746385690
+      Orobas_Attack01_10: 1531079580
+      Orobas_Attack01_4: 859342954
+      Orobas_Attack01_7: -1435941519
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
