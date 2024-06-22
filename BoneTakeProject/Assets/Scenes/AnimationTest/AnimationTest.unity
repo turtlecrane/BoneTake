@@ -2272,6 +2272,7 @@ MonoBehaviour:
   projector: {fileID: 0}
   emitter: {fileID: 0}
   trickShot: {fileID: 0}
+  spearShotPoint: {fileID: 0}
 --- !u!114 &1796149020
 MonoBehaviour:
   m_ObjectHideFlags: 0
