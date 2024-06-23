@@ -482,7 +482,7 @@ TextureImporter:
         serializedVersion: 2
         x: 67
         y: 4053
-        width: 238
+        width: 310
         height: 263
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -493,48 +493,6 @@ TextureImporter:
       bones: []
       spriteID: 7389cf663b3ca114bb748ed49db87ec7
       internalID: -795133794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_01_17
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 4053
-        width: 214
-        height: 193
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b71680e7f8e4e942837af3b8a3b0761
-      internalID: 529631570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_01_18
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 4053
-        width: 143
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a4cbde2f7704564d8bbe31b5e7ec55e
-      internalID: -340806038
       vertices: []
       indices: 
       edges: []
@@ -1486,11 +1444,11 @@ TextureImporter:
       stage1_01_8: 805640970
       stage1_01_46: -393923321
       stage1_01_7: 712704296
-      stage1_01_41: 1894649121
+      stage1_01_38: -1052448187
       stage1_01_1: 713434185
       stage1_01_37: -1881355597
       stage1_01_16: -795133794
-      stage1_01_38: -1052448187
+      stage1_01_41: 1894649121
       stage1_01_6: 1126553747
       stage1_01_11: -1888592701
       stage1_01_3: -1204401769

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Boss00_Attack : BossAttack
@@ -11,6 +12,9 @@ public class Boss00_Attack : BossAttack
     public Transform shootPoint;
     public EnemyBullet bullet;
     public float shootSpeed;
+    public float fallSpeed = 1000f; // 낙하할 때 부여할 힘의 크기
+    public Transform jumpPosition;
+    public float jumpMoveDuration = 1.0f;
     
     private Transform player;
     
@@ -52,18 +56,46 @@ public class Boss00_Attack : BossAttack
 
     private void PerformAttackOnDistance(float distanceToPlayer)
     {
+        if(isAttacking) return;
+        
         if (distanceToPlayer <= closeAttackDistance) 
         {
-            animator.SetBool("Attack01", true);
+            //animator.SetBool("Attack01", true);
+            //StartCoroutine(Boss00_Attack01());
+            //애니메이션 변경
+            animator.SetBool("Attack01_Jump", true);
         }
-        else if (distanceToPlayer < farAttackDistance)
+        else if (distanceToPlayer < farAttackDistance && !animator.GetBool("Attack01_Jump"))
         {
             animator.SetBool("Attack02", true);
         }
-        else
+        else if (distanceToPlayer > farAttackDistance && !animator.GetBool("Attack01_Jump"))
         {
             animator.SetBool("Attack03", true);
         }
+    }
+
+    public IEnumerator Boss00_Attack01()
+    {
+        rb.gravityScale = 0f;
+        
+        // 지정된 시간 동안 위치로 이동
+        // Dotween을 사용하여 폭발적으로 이동
+        rb.gameObject.transform.DOMove(jumpPosition.position, jumpMoveDuration)
+            .SetEase(Ease.OutExpo); // SetEase를 통해 폭발적 이동 효과 적용
+
+        // 이동 시간 동안 대기
+        yield return new WaitForSeconds(jumpMoveDuration);
+
+        // 4. 위치에서 1초간 대기
+        yield return new WaitForSeconds(1.0f);
+
+        // 5. 중력을 원래대로 되돌리기
+        rb.gravityScale = 5f;
+
+        // 6. Attack 애니메이션 트리거
+        animator.SetTrigger("Attack01");
+        rb.AddForce(Vector2.down * fallSpeed, ForceMode2D.Impulse);
     }
     
     /// <summary>

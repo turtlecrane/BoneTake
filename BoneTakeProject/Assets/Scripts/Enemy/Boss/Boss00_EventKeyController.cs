@@ -10,6 +10,11 @@ public class Boss00_EventKeyController : MonoBehaviour
     public float hitBoxOffset_X;//공격 X축 반경을 조절
     public float hitBoxOffset_Y; //공격 Y축 반경을 조절
 
+    public void Boss00_CloseAttack()
+    {
+        StartCoroutine(bossAttack.Boss00_Attack01());
+    }
+    
     public void Boss00_DashAttack()
     {
         StartCoroutine(bossAttack.DashAttack());

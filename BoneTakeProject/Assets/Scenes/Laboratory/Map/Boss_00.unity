@@ -511,6 +511,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &192202574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192202575}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &192202575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192202574}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -101.25, y: 23.7, z: -0.24946333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1424685842}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328824413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1796,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1294278532}
   m_Lens:
     FieldOfView: 70
-    OrthographicSize: 7
+    OrthographicSize: 15
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2249,8 +2280,8 @@ BoxCollider2D:
   m_Offset: {x: -0.8519952, y: 0.59014106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5872749, y: 0}
-    oldSize: {x: 16.404022, y: 11.47}
+    pivot: {x: 0.5788631, y: 0}
+    oldSize: {x: 13.19, y: 11.431762}
     newSize: {x: 5.29, y: 6.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2717,6 +2748,7 @@ Transform:
   - {fileID: 1294278532}
   - {fileID: 1127886831}
   - {fileID: 1074270812}
+  - {fileID: 192202575}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2764,7 +2796,7 @@ MonoBehaviour:
   bossHitHandler: {fileID: 1424685843}
   damage: 1
   dashSpeed: 20
-  closeAttackDistance: 8
+  closeAttackDistance: 7
   farAttackDistance: 30
   isAttacking: 0
   facingRight: 0
@@ -2773,6 +2805,9 @@ MonoBehaviour:
   shootPoint: {fileID: 636215754}
   bullet: {fileID: 6321537649245255256, guid: 4dc1706678da1d3458b036027d1538cd, type: 3}
   shootSpeed: 60
+  fallSpeed: 1000
+  jumpPosition: {fileID: 192202575}
+  jumpMoveDuration: 1
 --- !u!1 &1465629308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,9 +3465,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Oxmox '
+  m_text: "\uC624\uB85C\uBC14\uC2A4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e21dd543c3c22ce46b9c6ae360aad9f0, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3496,7 +3531,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2031038314

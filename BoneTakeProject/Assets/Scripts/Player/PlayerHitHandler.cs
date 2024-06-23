@@ -74,6 +74,8 @@ public class PlayerHitHandler : MonoBehaviour
             charCon2D.playerAttack.weaponAnimator.SetBool("Wp02_attack_Aiming_End", true);
         }
         
+        charCon2D.isClimbing = false;
+        
         //카메라 흔들기
         hitShakeScript.HitScreenShake();
         
