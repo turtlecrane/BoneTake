@@ -44,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Official/1F/WayToDungeon.unity
     guid: c3072099a263e38488e14d4b1fb090f1
+  - enabled: 1
+    path: Assets/Scenes/Official/1F/Map1.unity
+    guid: 8bd16c8c5719b9a4b961622076b2ec88
+  - enabled: 1
+    path: Assets/Scenes/Official/1F/Map2.unity
+    guid: 7d3b5b0551043cf48938ff6f9bb2281a
   m_configObjects: {}

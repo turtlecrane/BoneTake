@@ -10,13 +10,16 @@ public class Grass : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (transform.position.x - col.transform.position.x > 0) 
+        if (col.gameObject.CompareTag("Player"))
         {
-            GetComponent<Animator>().Play("GrassMoving_L");
-        }
-        else 
-        {
-            GetComponent<Animator>().Play("GrassMoving_R");
+            if (transform.position.x - col.transform.position.x > 0) 
+            {
+                GetComponent<Animator>().Play("GrassMoving_L");
+            }
+            else 
+            {
+                GetComponent<Animator>().Play("GrassMoving_R");
+            }
         }
     }
 
