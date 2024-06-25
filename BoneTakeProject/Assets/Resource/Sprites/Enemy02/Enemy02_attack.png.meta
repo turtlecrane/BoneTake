@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c1ecb178ff952d4f8393da649ae3568
+guid: 738719fe05a59004ca1b1d29cf2b4a4f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy02_attack_0
+      name: Shir_Attack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 290.33334
-        height: 265
+        y: 1187
+        width: 573
+        height: 293
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9eeba72e200de4286ba00abbdb372a
-      internalID: 1183593192
+      spriteID: 18acf40c0a5b97b4c876cb617f7803ab
+      internalID: -1090113930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_1
+      name: Shir_Attack_1
       rect:
         serializedVersion: 2
-        x: 290
-        y: 0
-        width: 290.33334
-        height: 265
+        x: 20
+        y: 843
+        width: 502
+        height: 321
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25f96b0b395c3b64091b67173f388a90
-      internalID: -99545470
+      spriteID: e11108e272d8a624292a640a58f34317
+      internalID: -493109962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_2
+      name: Shir_Attack_2
       rect:
         serializedVersion: 2
-        x: 580
-        y: 0
-        width: 290.33334
-        height: 265
+        x: 16
+        y: 500
+        width: 404
+        height: 304
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 754a9c625d93fa74799eb9eada4945c9
-      internalID: 1318902992
+      spriteID: 0fc1759a407872d4e863fd45de583850
+      internalID: 1222795215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_3
+      name: Shir_Attack_3
       rect:
         serializedVersion: 2
-        x: 870
-        y: 0
-        width: 290.33334
-        height: 265
+        x: 18
+        y: 381
+        width: 875
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4ccb8f2eb4d57448b08f91eaa16f0c
-      internalID: -1851865963
+      spriteID: 1692128bfb12c7e4981e5b86daa8481a
+      internalID: -2018005270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy02_attack_4
+      name: Shir_Attack_4
       rect:
         serializedVersion: 2
-        x: 1160
+        x: 40
         y: 0
-        width: 290.33334
-        height: 265
+        width: 729
+        height: 239
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1796ea62be5c5f43b48dbd63647802b
-      internalID: 682392495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy02_attack_5
-      rect:
-        serializedVersion: 2
-        x: 1450
-        y: 0
-        width: 290.33334
-        height: 265
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8765a4b6c2c40aa4db642721bb70884b
-      internalID: -426387586
+      spriteID: b4acb7ef762698147bde58ebf30babec
+      internalID: 1990228748
       vertices: []
       indices: 
       edges: []
@@ -233,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 223751ddffe1e0340b790ddb105a230e
+    spriteID: 300dab61c4b85054f93ebd0b414be220
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy02_attack_2: 1318902992
-      Enemy02_attack_0: 1183593192
-      Enemy02_attack_3: -1851865963
-      Enemy02_attack_1: -99545470
-      Enemy02_attack_4: 682392495
-      Enemy02_attack_5: -426387586
+      Shir_Attack_0: -1090113930
+      Shir_Attack_1: -493109962
+      Shir_Attack_2: 1222795215
+      Shir_Attack_3: -2018005270
+      Shir_Attack_4: 1990228748
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
