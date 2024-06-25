@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: a0387ad78281cf64ca646966ba016376
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rabbi_Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251047b81947d5e4594413913b0440a6
+      internalID: -1185595951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958d5bfa385484e41a65c4ad6d0e8f91
+      internalID: 63068405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_2
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e2ab672d79b2f44b079d1177b73863
+      internalID: 1646515788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e04b56133c4c34ea693267ce9324af
+      internalID: 1736176182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_4
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f90a81ca8769b40852efaf1fb8bd8c
+      internalID: -623508172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_5
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 801
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65777fdce1d705444826cd047b327a3a
+      internalID: -864762301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7836a0d5d15893a498c0042ac6dbbc2f
+      internalID: -1793318217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d932fc928516f92419cf2c854397bdfd
+      internalID: -401506120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b9907fe7368af4f91787063d35543c
+      internalID: 2142201420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_9
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b7b3c26cee12e42a15df509b83783e
+      internalID: 421192642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_10
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6042c94ab52904a924b02a7a890c47
+      internalID: 1469318456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_11
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 402
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949a1ab613ce7a94eb6b622982ad9c4c
+      internalID: -498678230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d0b489b0f141a489aabe250c16ed0f
+      internalID: 571032463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6f5b808d09b68409ab5f24fb948f62
+      internalID: -1640353173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47446580444e66b4097b0074b46a1852
+      internalID: -559382853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_15
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386879e50d6be694698ff18ebbaf23fe
+      internalID: 290537410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rabbi_Death_16
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3
+        width: 600
+        height: 396
+      alignment: 9
+      pivot: {x: 0.8184719, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2139c769215be44394db9866b2f8d3f
+      internalID: 1014769068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 35831ee961a898e49b86d2f88caa877a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Rabbi_Death_8: 2142201420
+      Rabbi_Death_2: 1646515788
+      Rabbi_Death_4: -623508172
+      Rabbi_Death_5: -864762301
+      Rabbi_Death_1: 63068405
+      Rabbi_Death_15: 290537410
+      Rabbi_Death_12: 571032463
+      Rabbi_Death_13: -1640353173
+      Rabbi_Death_10: 1469318456
+      Rabbi_Death_6: -1793318217
+      Rabbi_Death_14: -559382853
+      Rabbi_Death_7: -401506120
+      Rabbi_Death_0: -1185595951
+      Rabbi_Death_3: 1736176182
+      Rabbi_Death_9: 421192642
+      Rabbi_Death_11: -498678230
+      Rabbi_Death_16: 1014769068
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

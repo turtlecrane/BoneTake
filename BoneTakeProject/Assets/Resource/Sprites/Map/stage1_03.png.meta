@@ -357,27 +357,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_03_13
-      rect:
-        serializedVersion: 2
-        x: 365
-        y: 3149
-        width: 160
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dc315a270ce66245ab910785f6b8a01
-      internalID: 395182448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: stage1_03_14
       rect:
         serializedVersion: 2
