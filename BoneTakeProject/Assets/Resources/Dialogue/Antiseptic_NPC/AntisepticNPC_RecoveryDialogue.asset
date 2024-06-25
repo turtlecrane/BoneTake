@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3325505257504283929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: b275197f-80de-43b7-9c82-2677bdba12c5
+  rect:
+    serializedVersion: 2
+    x: 49662
+    y: 50190
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: 1958414918038503825}
+  conditions: []
+  enterActions: []
+  exitActions: []
+--- !u!114 &-2055212486370980218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 3a93c63b-6321-409f-8b59-386a960213e5
+  rect:
+    serializedVersion: 2
+    x: 50329
+    y: 50248
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uD55C\uB3D9\uC548\uC740 \uAC71\uC815 \uC5C6\uC744 \uAC70\uC57C."
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: AntisepticNPC_RecoveryDialogue
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -3325505257504283929}
+  - {fileID: 5384620150121241522}
+  - {fileID: 1958414918038503825}
+  - {fileID: -2055212486370980218}
+  root: {fileID: -3325505257504283929}
+  scrollPosition: {x: 49602.5, y: 50026}
+--- !u!114 &1615147154720227749
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: RecoveryWeapon
+  _uniqueId: 7c111d58-318f-456b-bf70-9e20027a0d61
+  _gameObjectName: WeaponRecoveryNPC
+  _methodName: FullRecoveryWeapon
+  _options: 0
+--- !u!114 &1958414918038503825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 124f0af7-f659-4fdc-9711-ea2f77f8cf6c
+  rect:
+    serializedVersion: 2
+    x: 49901
+    y: 50248
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: 5384620150121241522}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uC369\uC740 \uB0B4\uAC00 \uC9C4\uB3D9\uC744 \uD558\uB294\uAD70."
+--- !u!114 &5384620150121241522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5bb286b3994795a7780dbfc28d37fd, type: 3}
+  m_Name: Hub
+  m_EditorClassIdentifier: 
+  _uniqueId: dc848bc3-8378-4eaf-a1a0-b1e139f96eed
+  rect:
+    serializedVersion: 2
+    x: 50164
+    y: 50289
+    width: 100
+    height: 57
+  nodeTitle: Recovery
+  children:
+  - {fileID: -2055212486370980218}
+  conditions: []
+  enterActions:
+  - {fileID: 1615147154720227749}
+  exitActions: []

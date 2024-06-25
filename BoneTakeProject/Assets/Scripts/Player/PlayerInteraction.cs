@@ -11,7 +11,6 @@ using Random = UnityEngine.Random;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Component")]
-    public GameObject testInteractionText;
     public DialoguePlayback dialoguePlayback;
     public ItemSelectUI itemSelectPanel;
     [HideInInspector] public EnemyAI enemyAIscript;
@@ -47,7 +46,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        testInteractionText.SetActive(canInteraction);
         HandleInteractionInput();
         if (Input.GetKeyDown(KeyCode.G))
         {

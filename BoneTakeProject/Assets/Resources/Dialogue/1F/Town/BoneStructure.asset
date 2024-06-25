@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-257006396984583330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 9efd2ed6-5314-4f40-a85a-b9ff95c650c4
+  rect:
+    serializedVersion: 2
+    x: 49924
+    y: 50145
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 7e089ccb80791744db2607b341e39021, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uC798\u200B\u200B \uAD00\uB9AC\uB418\uC5B4\u200B\u200B \uAE54\uB054\uD55C\u200B\u200B
+    \uAD6C\uC870\uBB3C\uC774\uB2E4.\u200B\u200B\u200B \uC545\uCDE8\uAC00\u200B\u200B
+    \uC77C\uB801\uC778\uB2E4."
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: BoneStructure
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 5464198253673893231}
+  - {fileID: -257006396984583330}
+  root: {fileID: 5464198253673893231}
+  scrollPosition: {x: 49522.5, y: 49821}
+--- !u!114 &5464198253673893231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: 1f62c739-b276-41e1-bbd2-662ad6302713
+  rect:
+    serializedVersion: 2
+    x: 49705
+    y: 50191
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: -257006396984583330}
+  conditions: []
+  enterActions: []
+  exitActions: []

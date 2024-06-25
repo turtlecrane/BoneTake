@@ -191,9 +191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - {fileID: 11400000, guid: 95312b960b763ef4ba352bfa3ce5cac2, type: 2}
+  - {fileID: 11400000, guid: f7427b2ab0415eb40b157cd636e93e14, type: 2}
   - {fileID: 11400000, guid: 825a51d8b15fe314bb1cc3b869bf8f01, type: 2}
   - {fileID: 11400000, guid: 3469e70e4b0a0a542b961a7031de1f6e, type: 2}
+  - {fileID: 11400000, guid: ff7d53826e34f974f960c57fe741921c, type: 2}
+  - {fileID: 11400000, guid: 7d42f9cf6ee7d7c47bdd89577804b0e1, type: 2}
   talkEnable: 1
   firstSaveDialogue:
   - {fileID: 11400000, guid: 6b680729845b1dc42b9163e46c015863, type: 2}

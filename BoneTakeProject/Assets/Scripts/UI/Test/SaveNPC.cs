@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class SaveNPC : InteractableObject
 {
+    [Header("SaveNPC Value ---- ")]
     public DialogueGraph[] firstSaveDialogue;
     public NamePopup namePopup;
     
@@ -39,7 +40,7 @@ public class SaveNPC : InteractableObject
             }
             else
             {
-                _dialoguePlayback.PlayDialogue(dialogue[Random.Range(0,3)]);
+                _dialoguePlayback.PlayDialogue(dialogue[Random.Range(0,dialogue.Length)]);
             }
         }
     }

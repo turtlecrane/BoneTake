@@ -40,6 +40,8 @@ public class PlayerData
     //현재 체력
     public int playerHP = 3;
 
+    public bool wpRecovryTuto = false;
+
     //처치한 보스의 종류
     public List<string> killedTypeOfBosses = new List<string>();
     
