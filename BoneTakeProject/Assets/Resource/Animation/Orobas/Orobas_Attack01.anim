@@ -1531,13 +1531,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.05
-    functionName: Boss00_ActiveDamage
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.05
     functionName: HitScreenShake
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -1546,6 +1539,20 @@ AnimationClip:
     messageOptions: 0
   - time: 0.05
     functionName: Boss00_PlayDustParticle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: Boss00_ActiveDamage
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: SetCollidingLayer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

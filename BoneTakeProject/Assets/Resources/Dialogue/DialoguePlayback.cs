@@ -55,7 +55,9 @@ public class DialoguePlayback : MonoBehaviour {
             }));
         });
 
-        _ctrl.Events.End.AddListener(() => {
+        _ctrl.Events.End.AddListener(() =>
+        {
+            CharacterController2D.instance.playerInteraction.isDialoguing = false; //대화가 종료되면 플레이어의 대화중 상태를 종료
             speakerContainer.SetActive(false);
         });
 
@@ -80,7 +82,7 @@ public class DialoguePlayback : MonoBehaviour {
         float textDuration = PlayerPrefs.GetFloat("textSpeedSelected", 0.5f);
 
         if (audioClip) Debug.Log($"Audio Clip Detected ${audioClip.name}");
-
+        CharacterController2D.instance.playerInteraction.isDialoguing = true; //플레이어의 상태를 대화중 상태로 변경 
         ClearChoices();
         
         if (actor.DisplayName == "Player") 

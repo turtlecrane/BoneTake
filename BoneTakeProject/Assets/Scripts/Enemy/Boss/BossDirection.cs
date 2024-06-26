@@ -14,6 +14,8 @@ public class BossDirection : MonoBehaviour
     public GameObject door;
     public CinemachineVirtualCamera bossCamera;
     public bool isDirecting;
+    
+    private float player_lensOrtho_InitSize;//플레이어 화면 줌 초기값 저장
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +28,8 @@ public class BossDirection : MonoBehaviour
     public IEnumerator WakeDirection()
     {
         door.transform.DOLocalMoveY(0f, 1).SetEase(Ease.InExpo);
+        //플레이어의 원래 줌 초기값을 저장해놓음 (보스가 사망하면 원래대로 되돌리기 위함)
+        player_lensOrtho_InitSize = GameManager.Instance.GetPlayerFollowCameraController().lensOrtho_InitSize;
         StartDirection();
         yield return TransitionScreen(0.9f);
         PlayBossBGM();
@@ -78,13 +82,20 @@ public class BossDirection : MonoBehaviour
     {
         bossGFX.GetComponentInParent<BossHitHandler>().isInvincible = false;
         bossGFX.SetBool("IsWake", false);
+        
+        GameManager.Instance.GetPlayerFollowCameraController().lensOrtho_InitSize = 19f;
+        StartCoroutine(GameManager.Instance.GetPlayerFollowCameraController().CameraTargetTimeZoomIn(1f, 19f));
+        
         InitDirection();
     }
 
     private void EndBossLife()
     {
         hpSlider.GetComponent<Animator>().SetBool("IsEnd", true);
-        bossGFX.SetBool("IsDead", true);
+        
+        GameManager.Instance.GetPlayerFollowCameraController().lensOrtho_InitSize = player_lensOrtho_InitSize;
+        GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.m_Lens.OrthographicSize = player_lensOrtho_InitSize;
+        
         if (gameObject.activeSelf) StartCoroutine(AudioManager.instance.FadeOut(1f));
     }
 

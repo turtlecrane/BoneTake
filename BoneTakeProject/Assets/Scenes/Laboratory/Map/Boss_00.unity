@@ -291,8 +291,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 91, y: 20}
-      - {x: 12, y: 20}
+    - - {x: 91, y: 40}
+      - {x: 12, y: 40}
       - {x: 12, y: 65}
       - {x: -52, y: 65}
       - {x: -52, y: -2.5}
@@ -328,7 +328,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1573369257}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &27933360
 BoxCollider2D:
@@ -573,7 +573,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1573369257}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -966,7 +966,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1573369257}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2800,12 +2800,13 @@ MonoBehaviour:
   farAttackDistance: 30
   isAttacking: 0
   facingRight: 0
+  isGrounded: 0
   dustParticle: {fileID: 1386221246}
   eventKeyController: {fileID: 1294278537}
   shootPoint: {fileID: 636215754}
   bullet: {fileID: 6321537649245255256, guid: 4dc1706678da1d3458b036027d1538cd, type: 3}
   shootSpeed: 60
-  fallSpeed: 1000
+  fallSpeed: 1200
   jumpPosition: {fileID: 192202575}
   jumpMoveDuration: 1
 --- !u!1 &1465629308
@@ -3040,9 +3041,9 @@ Transform:
   - {fileID: 384376461}
   - {fileID: 1339483355}
   - {fileID: 1465629309}
-  - {fileID: 27933359}
   - {fileID: 328824414}
   - {fileID: 493498459}
+  - {fileID: 27933359}
   - {fileID: 1305020308}
   - {fileID: 23926417}
   - {fileID: 1997738174}

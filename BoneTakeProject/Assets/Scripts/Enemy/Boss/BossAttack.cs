@@ -21,6 +21,7 @@ public class BossAttack : MonoBehaviour
     [Header("State")]
     public bool isAttacking; //공격중인지
     public bool facingRight; //어느방향을 보고있는지 (기본값 true)
+    public bool isGrounded;
 
     private void Start()
     {

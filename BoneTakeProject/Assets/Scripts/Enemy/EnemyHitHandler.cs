@@ -12,6 +12,8 @@ public class EnemyHitHandler : MonoBehaviour
     
     [Header("Component")] 
     public bool isFlightingEnemy;
+    public Collider2D[] colliders;
+    public Rigidbody2D rb;
     
     [DrawIf("isFlightingEnemy", false)]
     public EnemyAI enemyAIScript;
@@ -26,13 +28,12 @@ public class EnemyHitHandler : MonoBehaviour
     public bool isExtracted; //발골완료된 상태인지
 
     private SpriteRenderer enemySprite;
-    private Rigidbody2D rb;
     private bool isInvincible = false; //무적상태인지
     private bool isFading = false; // fade 중인지 상태 확인
     
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
         enemySprite = animator.GetComponent<SpriteRenderer>();
     }
 
@@ -42,13 +43,6 @@ public class EnemyHitHandler : MonoBehaviour
         if (life <= 0)
         {
             StartCoroutine(EnemyKnockdown());
-        }
-
-        //...TEST CODE
-        if (isCorpseState)
-        {
-            var b = this.GetComponentInChildren<TextMeshPro>();
-            b.text = "[시체 상태]";
         }
 
         //발골됐으면
@@ -149,19 +143,18 @@ public class EnemyHitHandler : MonoBehaviour
         {
             enemyAIScript.isRunning = false;
         }
-        else
-        {
-            rb.gravityScale = 5f; //추락
-        }
 
         // 공중에서 사망한 경우
         if (!enemyScript.isGrounded)
         {
+            if(isFlightingEnemy)
+            {
+                rb.gravityScale = 5f; //추락
+            }
             // isGrounded가 true가 될 때까지 기다리기
-            yield return new WaitUntil(() => enemyScript.isGrounded == true);
+            yield return new WaitUntil(() => enemyScript.isGrounded);
         }
         
-        Collider2D[] colliders = GetComponents<Collider2D>();//몬스터에게 붙어있는 콜라이더 컴포넌트 모두 가져오기
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
         

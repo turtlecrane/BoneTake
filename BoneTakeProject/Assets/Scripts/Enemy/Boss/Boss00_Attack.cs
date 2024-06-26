@@ -56,7 +56,7 @@ public class Boss00_Attack : BossAttack
 
     private void PerformAttackOnDistance(float distanceToPlayer)
     {
-        if(isAttacking) return;
+        if(isAttacking || bossHitHandler.isInvincible) return;
         
         if (distanceToPlayer <= closeAttackDistance) 
         {

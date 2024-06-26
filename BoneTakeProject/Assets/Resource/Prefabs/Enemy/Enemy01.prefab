@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 3784949372239093024}
   - component: {fileID: 3784949372239093054}
   - component: {fileID: 3784949372239093053}
-  - component: {fileID: 3784949372239093052}
   - component: {fileID: 3784949372239093027}
   - component: {fileID: 3784949372239093055}
   - component: {fileID: 3784949372239093026}
@@ -123,22 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &3784949372239093052
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3784949372239093031}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.2249279, y: 0.5373535}
-  serializedVersion: 2
-  m_Radius: 0.7135563
 --- !u!61 &3784949372239093027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -233,6 +216,9 @@ MonoBehaviour:
   attackParticle: {fileID: 6978670849862845182}
   bloodParticle: {fileID: 4742525574691140142}
   isFlightingEnemy: 0
+  colliders:
+  - {fileID: 3784949372239093027}
+  rb: {fileID: 3784949372239093053}
   enemyAIScript: {fileID: 3784949372239093055}
   enemyAIScript_F: {fileID: 0}
   animator: {fileID: 3784949374225316584}

@@ -19,15 +19,18 @@ public class CinemachineImpulseData
 public class PlayerFollowCameraController : MonoBehaviour
 {
     public GameObject mainCamera;
+    [Space (10f)]
     public GameObject m_playerFollowCamera; //플레이어 추적중인 카메라 오브젝트
     public CinemachineVirtualCamera virtualCamera; //target이 플레이어로 되어있는 가상 시네머신 카메라
+    [Space (10f)]
     public Volume hitVolume;
     public Volume shadowVolume;
     public CinemachineCollisionImpulseSource bigLandingShakeSource; 
+    [Space (10f)]
     private CharacterController2D player_CharacterController; //플레이어 스크립트
     private Collider2D mapSection;
     public float lensOrtho_InitSize;//화면 줌 초기값 저장
-    
+    [Space (10f)]
     [Range (0.0f, 0.5f)]
     public float LensOrtho_ZoomValue;//낙하시 줌 되는 정도
 

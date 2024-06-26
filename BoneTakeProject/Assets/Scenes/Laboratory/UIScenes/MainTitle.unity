@@ -406,6 +406,7 @@ MonoBehaviour:
     playerATK: 10
     playerMaxHP: 3
     playerHP: 3
+    wpRecovryTuto: 0
     killedTypeOfBosses: []
     mapData: []
 --- !u!4 &390627877

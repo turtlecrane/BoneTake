@@ -554,6 +554,7 @@ MonoBehaviour:
   mainCamera: {fileID: 335108039006358588}
   m_playerFollowCamera: {fileID: 335108038405815134}
   virtualCamera: {fileID: 335108038405815135}
+  boss_VirtualCamera: {fileID: 0}
   hitVolume: {fileID: 3862929970847010201}
   shadowVolume: {fileID: 1019112910559144633}
   bigLandingShakeSource: {fileID: 335108037655253578}
@@ -3256,6 +3257,7 @@ MonoBehaviour:
     playerATK: 0
     playerMaxHP: 0
     playerHP: 0
+    wpRecovryTuto: 0
     killedTypeOfBosses: []
     mapData: []
   m_MovementSmoothing: 0.05
@@ -3343,7 +3345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c1a04a01b2b44f80591a714ba75b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testInteractionText: {fileID: 0}
   dialoguePlayback: {fileID: 8681889781831265550}
   itemSelectPanel: {fileID: 6375106547095084390}
   enemyAIscript: {fileID: 0}
@@ -3434,7 +3435,7 @@ Camera:
   far clip plane: 1000
   field of view: 70
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 12
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

@@ -1080,6 +1080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: []
   talkEnable: 0
+  firstSaveDialogue: {fileID: 0}
+  checkDialogue: {fileID: 0}
 --- !u!1 &187504041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3266,9 @@ MonoBehaviour:
   attackParticle: {fileID: 2124734405}
   bloodParticle: {fileID: 1853462663}
   isFlightingEnemy: 1
+  colliders:
+  - {fileID: 566767400}
+  rb: {fileID: 566767396}
   enemyAIScript: {fileID: 0}
   enemyAIScript_F: {fileID: 566767399}
   animator: {fileID: 544513693}
@@ -9640,6 +9645,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bf21ad78743723a4a9693b00c4e4db0f, type: 2}
   - {fileID: 11400000, guid: 01df0e502934a8f42a939103402f2a28, type: 2}
   talkEnable: 1
+  firstSaveDialogue: {fileID: 0}
+  checkDialogue: {fileID: 0}
 --- !u!1 &1718088346
 GameObject:
   m_ObjectHideFlags: 0

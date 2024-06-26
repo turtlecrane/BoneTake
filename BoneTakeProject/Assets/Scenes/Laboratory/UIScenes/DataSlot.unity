@@ -320,6 +320,7 @@ MonoBehaviour:
     - {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
     - {fileID: 21300000, guid: 17a12f8f7ac3f12419f54787975c363d, type: 3}
     - {fileID: 21300000, guid: 0235a7c0ddb28f541bc53aea0198a6bb, type: 3}
+  throwSpearPrefabs: []
 --- !u!114 &68731243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +348,7 @@ MonoBehaviour:
     playerATK: 10
     playerMaxHP: 3
     playerHP: 3
+    wpRecovryTuto: 0
     killedTypeOfBosses: []
     mapData: []
 --- !u!4 &68731244
@@ -740,7 +742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 1753531901}
-  mapName: {fileID: 906631884}
   playTime: {fileID: 595147314}
   LifePointTransform: {fileID: 1541499058}
   weaponIcon: {fileID: 1937746626}
@@ -1537,7 +1538,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 654265492}
-  mapName: {fileID: 1495681620}
   playTime: {fileID: 1650175507}
   LifePointTransform: {fileID: 1647109232}
   weaponIcon: {fileID: 831902402}
@@ -1561,7 +1561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &906631883
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2274,7 +2274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1209555229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2558,7 +2558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1495681619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4346,7 +4346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDataExists: 0
   playerName: {fileID: 1179664206}
-  mapName: {fileID: 1209555230}
   playTime: {fileID: 1593451526}
   LifePointTransform: {fileID: 1029430251}
   weaponIcon: {fileID: 1995452127}

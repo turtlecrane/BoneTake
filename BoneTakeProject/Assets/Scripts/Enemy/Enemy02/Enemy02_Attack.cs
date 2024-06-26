@@ -31,6 +31,7 @@ public class Enemy02_Attack : EnemyAttack
         animator.SetTrigger("IsAttacking");
         
         yield return new WaitForSeconds(2.0f);
+        animator.SetBool("IsAttackingEnd", true);
         StartCoroutine(enemyAIScript_F.DecelerateToZero(enemyAIScript_F.rb,0.5f)); //브레이크 밟기
         enemyAIScript_F.isAttacking = false;
     }
@@ -53,7 +54,7 @@ public class Enemy02_Attack : EnemyAttack
             // localScale 조정
             if (angle > 90 || angle < -90)
             {
-                enemyAIScript_F.gameObject.transform.localScale = new Vector3(1, -1, 1); // 상하 반전
+                enemyAIScript_F.gameObject.transform.localScale = new Vector3(-1, -1, 1); // 상하 반전
             }
             else
             {

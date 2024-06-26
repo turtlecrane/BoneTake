@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Boss00_EventKeyController : MonoBehaviour
 {
@@ -56,4 +58,29 @@ public class Boss00_EventKeyController : MonoBehaviour
         Gizmos.DrawWireCube(hitboxCenter, hitBoxSize);
     }
 
+    public void SetNonCollidingLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("NonCollidingEnemy");
+    }
+
+    public void SetCollidingLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Enemy_Standing");
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            bossAttack.isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            bossAttack.isGrounded = false;
+        }
+    }
 }

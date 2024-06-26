@@ -63,4 +63,9 @@ public class Enemy02_AI : EnemyAI_Flight
             enemyAttack.playerPosition = Vector3.zero;
         }
     }
+
+    public void PlayBloodParticle()
+    {
+        enemyHitHandler.PlayBloodParticle();
+    }
 }

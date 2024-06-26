@@ -34,7 +34,7 @@ TagManager:
   - NonCollidingPlayer
   - Cursor
   - Enemy_Flight
-  - 
+  - NonCollidingEnemy
   - 
   - 
   - 

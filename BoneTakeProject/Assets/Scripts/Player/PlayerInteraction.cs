@@ -26,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private bool canGetWeapon = false;
     [SerializeField] private bool isExtractingBones = false;
     [SerializeField] private bool isCompleteBones = false;
+    public bool isDialoguing = false;
     [SerializeField] private float boneExtractCount = 0f;
     [SerializeField] private float m_boneExtractionTime;
 
@@ -58,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void HandleInteractionInput()
     {
-        if (canInteraction)
+        if (canInteraction && !isDialoguing)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -265,7 +266,11 @@ public class PlayerInteraction : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map") || collision.CompareTag("MapSection") || collision.CompareTag("Untagged") || collision.CompareTag("BreakableObj")) return;
+        if (collision.CompareTag("Map") || 
+            collision.CompareTag("MapSection") || 
+            collision.CompareTag("Untagged") || 
+            collision.CompareTag("BreakableObj") ||
+            isDialoguing) return;
         
         if (collision.CompareTag("Enemy"))
         {
@@ -282,7 +287,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Flight"))
             {
-                enemyAIscript_F = collision.GetComponent<EnemyAI_Flight>();
+                enemyAIscript_F = collision.GetComponentInParent<EnemyAI_Flight>();
                 if (enemyAIscript_F.enemyHitHandler.isExtracted || !enemyAIscript_F.enemyHitHandler.isCorpseState)
                 {
                     canInteraction = false;

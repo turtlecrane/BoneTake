@@ -51,7 +51,7 @@ public class BossHitHandler : MonoBehaviour
 
     private void CheckBossLife()
     {
-        if (nowLife <= 0 && !isCorpseState)
+        if (nowLife <= 0 && !isCorpseState && !bossAttack.isAttacking && bossAttack.isGrounded)
         {
             nowLife = 0;
             StartCoroutine(BossKnockdown());
@@ -130,6 +130,11 @@ public class BossHitHandler : MonoBehaviour
 
     private IEnumerator BossKnockdown()
     {
+        if (!bossAttack.isGrounded) yield return new WaitUntil(() => bossAttack.isGrounded);
+        if (bossAttack.isAttacking) yield return new WaitUntil(() => !bossAttack.isAttacking);
+        
+        
+        bossAttack.animator.SetBool("IsDead", true);
         isInvincible = true;
         StartCoroutine(bossAttack.bossDirection.DeadDirection());
 
