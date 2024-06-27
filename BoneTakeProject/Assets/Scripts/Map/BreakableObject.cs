@@ -18,6 +18,7 @@ public class BreakableObject : MonoBehaviour
     public string sceneName;
     public bool isRemembered;
     public bool isShakable;
+    public bool dontDestroy;
     
     public bool isShortCut;
     [DrawIf("isShortCut", true)]
@@ -55,7 +56,7 @@ public class BreakableObject : MonoBehaviour
 
     public void Obj_ApplyDamage(float damage)
     {
-        if(isDestroy) return;
+        if(isDestroy || dontDestroy) return;
         
         PlayerAttack charCon2D = CharacterController2D.instance.playerAttack;
         

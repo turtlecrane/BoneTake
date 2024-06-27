@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-257006396984583330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 9efd2ed6-5314-4f40-a85a-b9ff95c650c4
+  rect:
+    serializedVersion: 2
+    x: 49924
+    y: 50145
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 80a752a2d770c4748854f3f8ce66cb41, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\"\uC545\uB9C8\uB97C\u200B\u200B \uBD09\uC778\uD558\uB294\u200B\u200B
+    7\uB2E8\uACC4\uC758\u200B\u200B \uC758\uC2DD\""
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: SkullWall
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 5464198253673893231}
+  - {fileID: -257006396984583330}
+  root: {fileID: 5464198253673893231}
+  scrollPosition: {x: 49522.5, y: 49881}
+--- !u!114 &5464198253673893231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: 1f62c739-b276-41e1-bbd2-662ad6302713
+  rect:
+    serializedVersion: 2
+    x: 49702
+    y: 50185
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: -257006396984583330}
+  conditions: []
+  enterActions: []
+  exitActions: []

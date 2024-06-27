@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-257006396984583330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 9efd2ed6-5314-4f40-a85a-b9ff95c650c4
+  rect:
+    serializedVersion: 2
+    x: 49924
+    y: 50145
+    width: 200
+    height: 142
+  nodeTitle: 
+  children:
+  - {fileID: 4750836025713249921}
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\uC6C3\uB294\u200B \uD574\uACE8,\u200B\u200B \uC6B0\uB294\u200B \uC720\uB839,\u200B\u200B
+    \uD558\uC580\u200B \uAE4C\uB9C8\uADC0 \xB7\xB7\xB7"
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35851dfd8754a74b333944d50d05bbd, type: 3}
+  m_Name: Notice
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 5464198253673893231}
+  - {fileID: -257006396984583330}
+  - {fileID: 4750836025713249921}
+  root: {fileID: 5464198253673893231}
+  scrollPosition: {x: 49522.5, y: 49881}
+--- !u!114 &4750836025713249921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 3022008f-25ea-4a00-9dbb-ab10cb940010
+  rect:
+    serializedVersion: 2
+    x: 50235
+    y: 50148
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
+  audio: {fileID: 0}
+  dialogue: "\xB7\u200B\xB7\u200B\xB7\u200B \uADF8\u200B \uB4A4\uB85C\uB294\u200B\u200B
+    \uC77D\uC744\u200B \uC218\u200B \uC5C6\uC744\u200B \uC815\uB3C4\uB85C\u200B\u200B
+    \uAE01\uD600\uC788\uB2E4."
+--- !u!114 &5464198253673893231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8d0566afe4d5fa9596c80df966df6, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _uniqueId: 1f62c739-b276-41e1-bbd2-662ad6302713
+  rect:
+    serializedVersion: 2
+    x: 49705
+    y: 50191
+    width: 100
+    height: 57
+  nodeTitle: 
+  children:
+  - {fileID: -257006396984583330}
+  conditions: []
+  enterActions: []
+  exitActions: []

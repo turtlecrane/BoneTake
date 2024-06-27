@@ -70,6 +70,7 @@ public class SaveNPC : InteractableObject
     public void MakeName()
     {
         namePopup.gameObject.SetActive(true);
+        CharacterController2D.instance.playerInteraction.isDialoguing = true;
         namePopup.confirmButton.onClick.AddListener(() =>
         {
             //인풋필드가 공백인지 확인하고 공백이 아니면 수행

@@ -31,8 +31,8 @@ public class Enemy02_Attack : EnemyAttack
         animator.SetTrigger("IsAttacking");
         
         yield return new WaitForSeconds(2.0f);
-        animator.SetBool("IsAttackingEnd", true);
-        StartCoroutine(enemyAIScript_F.DecelerateToZero(enemyAIScript_F.rb,0.5f)); //브레이크 밟기
+        //animator.SetTrigger("IsAttackingEnd");
+        //StartCoroutine(enemyAIScript_F.DecelerateToZero(enemyAIScript_F.rb,0.5f)); //브레이크 밟기
         enemyAIScript_F.isAttacking = false;
     }
     

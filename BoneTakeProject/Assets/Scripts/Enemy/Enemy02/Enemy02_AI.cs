@@ -19,7 +19,8 @@ public class Enemy02_AI : EnemyAI_Flight
             }
             if (rb.velocity.y >= 10f)
             {
-                StartCoroutine(DecelerateToZero(rb,1f));
+                //StartCoroutine(DecelerateToZero(rb,1f));
+                rb.velocity = Vector2.zero;
             }
             
             if (closeToGround)
@@ -27,18 +28,18 @@ public class Enemy02_AI : EnemyAI_Flight
                 rb.AddForce(Vector2.up * upwardForce, ForceMode2D.Impulse);
             }
         }
-        else if(isAttacking) //공격중일때
+        /*else if(isAttacking) //공격중일때
         {
             if (isGrounded)
             {
-                StartCoroutine(DecelerateToZero(rb,0.5f));
+                //StartCoroutine(DecelerateToZero(rb,0.5f));
             }
-        }
+        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             rb.velocity = Vector2.zero;
         }
