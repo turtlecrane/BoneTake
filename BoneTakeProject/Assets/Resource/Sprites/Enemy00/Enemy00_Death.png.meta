@@ -105,358 +105,358 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rabbi_Death_0
+      name: Enemy00_Death_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 801
+        x: 2
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.8148431, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 251047b81947d5e4594413913b0440a6
-      internalID: -1185595951
+      spriteID: 4f4979b0d6dc74249b301515ebd916a3
+      internalID: -1721143966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_1
+      name: Enemy00_Death_1
       rect:
         serializedVersion: 2
         x: 600
-        y: 801
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.6968826, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 958d5bfa385484e41a65c4ad6d0e8f91
-      internalID: 63068405
+      spriteID: c45a1d710f3d98a439bd7a6510939495
+      internalID: 1808460898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_2
+      name: Enemy00_Death_2
       rect:
         serializedVersion: 2
         x: 1200
-        y: 801
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.5236157, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10e2ab672d79b2f44b079d1177b73863
-      internalID: 1646515788
+      spriteID: 775ca2ff9793cba43a6a79215db97e4a
+      internalID: 535567744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_3
+      name: Enemy00_Death_3
       rect:
         serializedVersion: 2
         x: 1800
-        y: 801
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12e04b56133c4c34ea693267ce9324af
-      internalID: 1736176182
+      spriteID: 8c86e26f3ccbf3a48a1506851835aa0f
+      internalID: -694973414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_4
+      name: Enemy00_Death_4
       rect:
         serializedVersion: 2
         x: 2400
-        y: 801
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51f90a81ca8769b40852efaf1fb8bd8c
-      internalID: -623508172
+      spriteID: fc486b74f78937b44b3cad752880ae74
+      internalID: 1511655962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_5
+      name: Enemy00_Death_5
       rect:
         serializedVersion: 2
         x: 3000
-        y: 801
+        y: 798
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65777fdce1d705444826cd047b327a3a
-      internalID: -864762301
+      spriteID: 4ac39978acc7daf4cbec7da69061c0e1
+      internalID: 1641918331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_6
+      name: Enemy00_Death_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7836a0d5d15893a498c0042ac6dbbc2f
-      internalID: -1793318217
+      spriteID: f8e0c76d9ffd94c49bca71141b7e167a
+      internalID: -1391042818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_7
+      name: Enemy00_Death_7
       rect:
         serializedVersion: 2
         x: 600
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d932fc928516f92419cf2c854397bdfd
-      internalID: -401506120
+      spriteID: 1804bd8af00186d44b9f199912008d38
+      internalID: -1565071369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_8
+      name: Enemy00_Death_8
       rect:
         serializedVersion: 2
         x: 1200
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b9907fe7368af4f91787063d35543c
-      internalID: 2142201420
+      spriteID: 18058b6c6e3dd834f9ed743438558444
+      internalID: 509149363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_9
+      name: Enemy00_Death_9
       rect:
         serializedVersion: 2
         x: 1800
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5b7b3c26cee12e42a15df509b83783e
-      internalID: 421192642
+      spriteID: f1bd496ec462a494fabe86052c5f8f4b
+      internalID: -1678714866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_10
+      name: Enemy00_Death_10
       rect:
         serializedVersion: 2
         x: 2400
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6042c94ab52904a924b02a7a890c47
-      internalID: 1469318456
+      spriteID: c7ee7ce988fbfc341a72af49dd432861
+      internalID: -1519256052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_11
+      name: Enemy00_Death_11
       rect:
         serializedVersion: 2
         x: 3000
-        y: 402
+        y: 399
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 949a1ab613ce7a94eb6b622982ad9c4c
-      internalID: -498678230
+      spriteID: a7dbbf81953b30c4b89cfd8aa423bdb7
+      internalID: 1474456670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_12
+      name: Enemy00_Death_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
+        y: 0
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42d0b489b0f141a489aabe250c16ed0f
-      internalID: 571032463
+      spriteID: 4088d7f5ea9c630458f6c6f0eb136630
+      internalID: 578676053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_13
+      name: Enemy00_Death_13
       rect:
         serializedVersion: 2
         x: 600
-        y: 3
+        y: 0
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc6f5b808d09b68409ab5f24fb948f62
-      internalID: -1640353173
+      spriteID: 24c79b997e7cb2e4c89001fe5d79dda2
+      internalID: -836833852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_14
+      name: Enemy00_Death_14
       rect:
         serializedVersion: 2
         x: 1200
-        y: 3
+        y: 0
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47446580444e66b4097b0074b46a1852
-      internalID: -559382853
+      spriteID: 8cb51f80c425b1f4382bedaf3dd7ae44
+      internalID: -1118067720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_15
+      name: Enemy00_Death_15
       rect:
         serializedVersion: 2
         x: 1800
-        y: 3
+        y: 0
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 386879e50d6be694698ff18ebbaf23fe
-      internalID: 290537410
+      spriteID: dcd4d0fba660e1d47868453e924be43e
+      internalID: -1898728183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rabbi_Death_16
+      name: Enemy00_Death_16
       rect:
         serializedVersion: 2
         x: 2400
-        y: 3
+        y: 0
         width: 600
-        height: 396
+        height: 399
       alignment: 9
-      pivot: {x: 0.8184719, y: 0}
+      pivot: {x: 0.4284863, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2139c769215be44394db9866b2f8d3f
-      internalID: 1014769068
+      spriteID: bd2c395dbaef0d348aacde6c16e51229
+      internalID: -1058462211
       vertices: []
       indices: 
       edges: []
@@ -472,23 +472,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rabbi_Death_8: 2142201420
-      Rabbi_Death_2: 1646515788
-      Rabbi_Death_4: -623508172
-      Rabbi_Death_5: -864762301
-      Rabbi_Death_1: 63068405
-      Rabbi_Death_15: 290537410
-      Rabbi_Death_12: 571032463
-      Rabbi_Death_13: -1640353173
-      Rabbi_Death_10: 1469318456
-      Rabbi_Death_6: -1793318217
-      Rabbi_Death_14: -559382853
-      Rabbi_Death_7: -401506120
-      Rabbi_Death_0: -1185595951
-      Rabbi_Death_3: 1736176182
-      Rabbi_Death_9: 421192642
-      Rabbi_Death_11: -498678230
-      Rabbi_Death_16: 1014769068
+      Enemy00_Death_16: -1058462211
+      Enemy00_Death_3: -694973414
+      Enemy00_Death_10: -1519256052
+      Enemy00_Death_9: -1678714866
+      Enemy00_Death_11: 1474456670
+      Enemy00_Death_2: 535567744
+      Enemy00_Death_0: -1721143966
+      Enemy00_Death_13: -836833852
+      Enemy00_Death_5: 1641918331
+      Enemy00_Death_12: 578676053
+      Enemy00_Death_1: 1808460898
+      Enemy00_Death_4: 1511655962
+      Enemy00_Death_7: -1565071369
+      Enemy00_Death_15: -1898728183
+      Enemy00_Death_6: -1391042818
+      Enemy00_Death_14: -1118067720
+      Enemy00_Death_8: 509149363
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
