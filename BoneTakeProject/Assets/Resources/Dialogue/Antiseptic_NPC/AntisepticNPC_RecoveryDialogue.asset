@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4867308931590473799
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: RecoveryWeapon
+  _uniqueId: b779b59c-6db0-4a43-b9be-fcdd09bb150f
+  _gameObjectName: Habi(Clone)
+  _methodName: FullRecoveryWeapon
+  _options: 0
 --- !u!114 &-3325505257504283929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: RecoveryWeapon
   _uniqueId: 7c111d58-318f-456b-bf70-9e20027a0d61
-  _gameObjectName: WeaponRecoveryNPC
+  _gameObjectName: Habi
   _methodName: FullRecoveryWeapon
   _options: 0
 --- !u!114 &1958414918038503825
@@ -143,4 +160,5 @@ MonoBehaviour:
   conditions: []
   enterActions:
   - {fileID: 1615147154720227749}
+  - {fileID: -4867308931590473799}
   exitActions: []

@@ -65,8 +65,8 @@ public class Enemy02_AI : EnemyAI_Flight
         }
     }
 
-    public void PlayBloodParticle()
+    /*public void PlayBloodParticle()
     {
         enemyHitHandler.PlayBloodParticle();
-    }
+    }*/
 }

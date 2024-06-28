@@ -120,6 +120,23 @@ MonoBehaviour:
   audio: {fileID: 0}
   dialogue: "(\uBB34\uAE30\uAC00 \uB180\uB77C\uC6B8\uC815\uB3C4\uB85C \uC0C8\uAC83\uAC19\uC774
     \uAE54\uB054\uD574\uC84C\uB2E4)"
+--- !u!114 &-5066106850240306590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: RecoveryWeapon
+  _uniqueId: 2347d4e5-d5d5-4e48-b266-884b512c4be2
+  _gameObjectName: Habi(Clone)
+  _methodName: FullRecoveryWeapon
+  _options: 0
 --- !u!114 &-3609889435628732803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +298,7 @@ MonoBehaviour:
   - {fileID: 4329129713687907734}
   - {fileID: 9031631267917984818}
   root: {fileID: -3325505257504283929}
-  scrollPosition: {x: 51252.055, y: 50023}
+  scrollPosition: {x: 50829.055, y: 49962}
 --- !u!114 &594218742298211885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +324,7 @@ MonoBehaviour:
   conditions: []
   enterActions:
   - {fileID: 7313490721732016520}
+  - {fileID: -5066106850240306590}
   exitActions: []
   choices: []
   actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
@@ -417,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: RecoveryWeapon
   _uniqueId: d2652bca-a3f1-4a98-a056-c0db92438a9b
-  _gameObjectName: WeaponRecoveryNPC
+  _gameObjectName: Habi
   _methodName: FullRecoveryWeapon
   _options: 0
 --- !u!114 &7894167851798859478

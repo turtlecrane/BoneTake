@@ -554,7 +554,6 @@ MonoBehaviour:
   mainCamera: {fileID: 335108039006358588}
   m_playerFollowCamera: {fileID: 335108038405815134}
   virtualCamera: {fileID: 335108038405815135}
-  boss_VirtualCamera: {fileID: 0}
   hitVolume: {fileID: 3862929970847010201}
   shadowVolume: {fileID: 1019112910559144633}
   bigLandingShakeSource: {fileID: 335108037655253578}
@@ -3238,7 +3237,7 @@ MonoBehaviour:
   inDefaultGround: 0
   inGrassGround: 0
   inHardGround: 0
-  bigFallCantMoveCoolTime: 1.833
+  bigFallCantMoveCoolTime: 1
   isClimbing: 0
   wallLayer:
     serializedVersion: 2
@@ -3351,6 +3350,7 @@ MonoBehaviour:
   enemyAIscript_F: {fileID: 0}
   bossHitHandler: {fileID: 0}
   dumpedWeapon_Prefabs: {fileID: 138789933321409497, guid: 2ce3fcc767f9e99419b3d4b18e317772, type: 3}
+  bloodParticlePrefabs: {fileID: 8454948119490926780, guid: 0179145982e319c4f88a388daa67f7bf, type: 3}
   isInteractiveCamera: 0
   canInteraction: 0
   canExtractBones: 0
@@ -3358,6 +3358,7 @@ MonoBehaviour:
   canGetWeapon: 0
   isExtractingBones: 0
   isCompleteBones: 0
+  isDialoguing: 0
   boneExtractCount: 0
   m_boneExtractionTime: 0
   boneTakeCompleteDuration: 1.5
@@ -5520,7 +5521,7 @@ RectTransform:
   m_GameObject: {fileID: 5971964453227021932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: -0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2664971238406687440}
@@ -5528,8 +5529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 600, y: 800}
+  m_AnchoredPosition: {x: -170, y: 50}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6466161040476057160
 CanvasRenderer:
@@ -5703,8 +5704,8 @@ RectTransform:
   m_GameObject: {fileID: 6975379038034420049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6093272016550970463}
   - {fileID: 4329308390729288979}
@@ -5714,7 +5715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: -307, y: 375}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1547392596745142089
@@ -5966,7 +5967,7 @@ RectTransform:
   m_GameObject: {fileID: 8309415653576458874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2664971238406687440}
@@ -5974,7 +5975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 170, y: 50}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6609760884705456798

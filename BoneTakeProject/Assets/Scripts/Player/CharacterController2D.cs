@@ -159,7 +159,7 @@ public class CharacterController2D : MonoBehaviour
             isLanding = true;
             isFalling = true;
         }
-        else if (m_Rigidbody2D.velocity.y <= -39.0f) //절대좌표로 약 Y:15-16에서 플레이어가 떨어졌을때의 속도
+        else if (m_Rigidbody2D.velocity.y <= -45.0f)//이 속도를 넘어가면 큰착지라고 판단
         {
             //기본착지 -> 큰착지로 전환
             isLanding = false;

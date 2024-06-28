@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,12 @@ public class NamePopup : MonoBehaviour
 {
     public TMP_InputField inputField;
     public Button confirmButton;
-    
+
+    private void Start()
+    {
+        CharacterController2D.instance.playerInteraction.isDialoguing = true;
+    }
+
     public bool NameMakeCheck()
     {
         return !string.IsNullOrWhiteSpace(inputField.text);

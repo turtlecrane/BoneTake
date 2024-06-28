@@ -43,7 +43,7 @@ public class WeaponRecoveryInteract : InteractableObject
             }
             
             //TestCode...
-            gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.black;
         }
         else
         {

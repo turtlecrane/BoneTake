@@ -80,16 +80,17 @@ public class Boss00_Attack : BossAttack
         rb.gravityScale = 0f;
         
         // 지정된 시간 동안 위치로 이동
-        // Dotween을 사용하여 폭발적으로 이동
         rb.gameObject.transform.DOMove(jumpPosition.position, jumpMoveDuration)
-            .SetEase(Ease.OutExpo); // SetEase를 통해 폭발적 이동 효과 적용
+            .SetEase(Ease.OutExpo);
 
         // 이동 시간 동안 대기
         yield return new WaitForSeconds(jumpMoveDuration);
 
-        // 4. 위치에서 1초간 대기
+        rb.AddForce(Vector2.up * 60f, ForceMode2D.Impulse);
+        
+        //위치에서 1초간 대기
         yield return new WaitForSeconds(1.0f);
-
+        
         // 5. 중력을 원래대로 되돌리기
         rb.gravityScale = 5f;
 

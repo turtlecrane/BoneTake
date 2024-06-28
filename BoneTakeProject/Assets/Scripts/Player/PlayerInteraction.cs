@@ -18,6 +18,10 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] public BossHitHandler bossHitHandler;
     public DumpedWeapon dumpedWeapon_Prefabs;
     
+    //public Transform particleTransform;
+    public ParticleSystem bloodParticlePrefabs;
+    private ParticleSystem bloodParticle;
+    
     [Header("State")]
     public bool isInteractiveCamera;
     [SerializeField] private bool canInteraction = false;
@@ -230,15 +234,27 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void SendBloodParticlePlay()
+    public void BloodParticleCreate()
     {
-        if(enemyAIscript != null) enemyAIscript.SendMessage("PlayBloodParticle");
-        if(enemyAIscript_F != null) enemyAIscript_F.SendMessage("PlayBloodParticle");
-        if(bossHitHandler != null) bossHitHandler.SendMessage("PlayBloodParticle");
+        // x 축을 -90도로 회전하는 회전값을 생성
+        Quaternion spawnRotation = Quaternion.Euler(-90f, 0f, 0f);
+        GameObject particle = Instantiate(bloodParticlePrefabs.gameObject, new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z), spawnRotation);
+        bloodParticle = particle.GetComponent<ParticleSystem>();
+    }
+
+    public void BloodParticlePlay()
+    {
+        if (bloodParticle != null) bloodParticle.Play();
+    }
+
+    public void BloodParticleDestroy()
+    {
+        if (bloodParticle != null) Destroy(bloodParticle.gameObject);
     }
 
     private void ResetBoneTake()
     {
+        BloodParticleDestroy();
         charCon2D.animator.SetBool("IsBoneTakeIntro", false);
         charCon2D.animator.SetBool("IsBoneTaking", false);
         AudioManager.instance.StopAndRemoveEnvironSound("BoneTaking");

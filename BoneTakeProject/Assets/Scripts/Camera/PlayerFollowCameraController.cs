@@ -81,7 +81,7 @@ public class PlayerFollowCameraController : MonoBehaviour
 
     void Update()
     {
-        if (player_CharacterController.m_Rigidbody2D.velocity.y < -31.0f) //어느정도 속도부터 낙하시 줌이 되는지 조절 
+        if (player_CharacterController.m_Rigidbody2D.velocity.y < -40.0f) //어느정도 속도부터 낙하시 줌이 되는지 조절 
         {
             virtualCamera.m_Lens.OrthographicSize -= LensOrtho_ZoomValue;
         }

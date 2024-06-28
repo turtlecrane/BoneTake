@@ -117,10 +117,10 @@ public class EnemyHitHandler : MonoBehaviour
     /// <summary>
     /// 발골될때 피가 뿜어져나오는 파티클 (애니메이션 키에서 호출됨)
     /// </summary>
-    public void PlayBloodParticle()
+    /*public void PlayBloodParticle()
     {
         bloodParticle.Play();
-    }
+    }*/
     
     IEnumerator HitTime()
     {
