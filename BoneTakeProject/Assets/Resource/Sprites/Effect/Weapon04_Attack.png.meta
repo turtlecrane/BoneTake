@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e01c286ac4409064194d69ae101fca19
+guid: 634c30c47d9908340a4e542c0d47de21
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,106 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_0
+      name: Weapon04_Attack_0
       rect:
         serializedVersion: 2
-        x: 1057
+        x: 0
         y: 0
-        width: 1057
-        height: 387
+        width: 418
+        height: 378
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.5417807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975c4fe9720a0f94db14df7617c27a61
-      internalID: 1855228938
+      spriteID: 0e7c3c4fae72ffd43a8e5888e489677b
+      internalID: 1985364195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_1
+      name: Weapon04_Attack_1
       rect:
         serializedVersion: 2
-        x: 2114
+        x: 418
         y: 0
-        width: 1057
-        height: 387
+        width: 418
+        height: 378
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.5417807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c866fb44ceb83940a92dd7681bf7c5f
-      internalID: -611263608
+      spriteID: 2059351db3ee4ef449581f48793e3951
+      internalID: -1466294926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_2
+      name: Weapon04_Attack_2
       rect:
         serializedVersion: 2
-        x: 3171
+        x: 836
         y: 0
-        width: 1057
-        height: 387
+        width: 418
+        height: 378
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.5417807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187f5bc394ecebc43acf967bb35479c8
-      internalID: 166663760
+      spriteID: b7e8350f9f02fb94f9e0b2cfefcb8675
+      internalID: 1818164387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_3
+      name: Weapon04_Attack_3
       rect:
         serializedVersion: 2
-        x: 4228
+        x: 1254
         y: 0
-        width: 1057
-        height: 387
+        width: 418
+        height: 378
       alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+      pivot: {x: 0.5417807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b176caa9b79efb428957b42751b7457
-      internalID: 834248040
+      spriteID: 058fdd17ec7698547be3fac76448f006
+      internalID: 369940219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_4
+      name: Weapon04_Attack_4
       rect:
         serializedVersion: 2
-        x: 650
-        y: 164
-        width: 119
-        height: 151
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1672
+        y: 0
+        width: 418
+        height: 378
+      alignment: 9
+      pivot: {x: 0.5417807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57074dd649447ea4b8e282bf0cf73cd9
-      internalID: -1544301982
+      spriteID: 0d3f72edee13a7b41892973574f87c76
+      internalID: -340758660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon04_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 0
+        width: 418
+        height: 378
+      alignment: 9
+      pivot: {x: 0.5417807, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c587a2107d64247999a9e48b347e25
+      internalID: 73334029
       vertices: []
       indices: 
       edges: []
@@ -212,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2e2c2cd0ca95e4145b31ee8894357cb7
+    spriteID: 652ada9e693442249b152f1ae8efc1a8
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Weapon03_JumpAttack_4: -1544301982
-      Weapon03_JumpAttack_1: -611263608
-      Weapon03_JumpAttack_3: 834248040
-      Weapon03_JumpAttack_2: 166663760
-      Weapon03_JumpAttack_0: 1855228938
+      Weapon04_Attack_2: 1818164387
+      Weapon04_Attack_3: 369940219
+      Weapon04_Attack_5: 73334029
+      Weapon04_Attack_1: -1466294926
+      Weapon04_Attack_4: -340758660
+      Weapon04_Attack_0: 1985364195
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
