@@ -2806,9 +2806,9 @@ MonoBehaviour:
   shootPoint: {fileID: 636215754}
   bullet: {fileID: 6321537649245255256, guid: 4dc1706678da1d3458b036027d1538cd, type: 3}
   shootSpeed: 60
-  fallSpeed: 1200
+  fallSpeed: 2000
   jumpPosition: {fileID: 192202575}
-  jumpMoveDuration: 1
+  jumpMoveDuration: 0.5
 --- !u!1 &1465629308
 GameObject:
   m_ObjectHideFlags: 0

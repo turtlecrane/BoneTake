@@ -362,21 +362,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponGFXSource:
     freshIcon:
-    - {fileID: 21300000, guid: 6300fd537ec12b34a8117a3ef0121579, type: 3}
-    - {fileID: 21300000, guid: 4aaca45312989c240a8652de91e76a47, type: 3}
-    - {fileID: 21300000, guid: 73384e8408239954698ec823b78baa42, type: 3}
-    - {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
-    - {fileID: 21300000, guid: 874d8401331ede14087e8d8d486ddda6, type: 3}
-    - {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
+    - {fileID: 21300000, guid: 97fca831315570146ba199ab931128ee, type: 3}
+    - {fileID: 21300000, guid: 06b6df9435a041544b7e2a9d6fecf44a, type: 3}
+    - {fileID: 21300000, guid: 55e2aee834f9c494e929b8b3882d4c55, type: 3}
+    - {fileID: 21300000, guid: 1cf00c8a615bb474e9706da9fe1e1313, type: 3}
+    - {fileID: 21300000, guid: 230001c59c196ab43ad08269a00d9578, type: 3}
+    - {fileID: 21300000, guid: 13ec758baa477024dabcc62bc33fe1a5, type: 3}
     - {fileID: 21300000, guid: 3168140d6f409d0448447f18568d9482, type: 3}
     rottenIcon:
-    - {fileID: 21300000, guid: 6300fd537ec12b34a8117a3ef0121579, type: 3}
-    - {fileID: 21300000, guid: 17a12f8f7ac3f12419f54787975c363d, type: 3}
-    - {fileID: 21300000, guid: 0235a7c0ddb28f541bc53aea0198a6bb, type: 3}
-    - {fileID: 21300000, guid: 73d124bf77e463c45942d14136745d9f, type: 3}
-    - {fileID: 21300000, guid: 612c5e166a121e3449dad067fbdc37a4, type: 3}
-    - {fileID: 21300000, guid: 0e80bd0b4a8196f46acf73711b9505ec, type: 3}
+    - {fileID: 21300000, guid: 97fca831315570146ba199ab931128ee, type: 3}
+    - {fileID: 21300000, guid: cdcb8d06a293a2f42aeb87155c40174a, type: 3}
+    - {fileID: 21300000, guid: b0cb047d0d510f14abccebea942032b0, type: 3}
+    - {fileID: 21300000, guid: 118940190798f9c4e92cd1f50c8c57c5, type: 3}
+    - {fileID: 21300000, guid: 944371d0e38e47740b140fd72f01ec4a, type: 3}
+    - {fileID: 21300000, guid: c2d82001e19e878469a4496e714058ef, type: 3}
     - {fileID: 21300000, guid: 519d97e745e55f041b609f3666cbc037, type: 3}
+    freshItem:
+    - {fileID: 21300000, guid: 63ff2e6efec008342b5d3d691dc7643a, type: 3}
+    - {fileID: 21300000, guid: f20352ddbe95fad459c0b325bfafbd33, type: 3}
+    - {fileID: 21300000, guid: ad9227e8359bfac4bb93268070c75b17, type: 3}
+    - {fileID: 21300000, guid: 03b01b9d0b6e8ce48b924701f8c150ec, type: 3}
+    - {fileID: 21300000, guid: 664047d5e1243c7428a720ceb402b2cd, type: 3}
+    - {fileID: 21300000, guid: 1feaec33843c323459a30ae89c7a8b15, type: 3}
+    rottenItem:
+    - {fileID: 21300000, guid: 63ff2e6efec008342b5d3d691dc7643a, type: 3}
+    - {fileID: 21300000, guid: 0ca8c99cea2edf645821e46b758a5023, type: 3}
+    - {fileID: 21300000, guid: 4d91fff6689035947a4825a522c964d3, type: 3}
+    - {fileID: 21300000, guid: d031ad4132da3c64fbca678a9117c466, type: 3}
+    - {fileID: 21300000, guid: 2846d937d5d96744795c0dbcffa58677, type: 3}
+    - {fileID: 21300000, guid: 02816878848e55346bb593b95ee42d9e, type: 3}
   throwSpearPrefabs:
   - {fileID: 4853334431876830048, guid: c546b6c157fed80459a229111e813454, type: 3}
 --- !u!114 &390627876

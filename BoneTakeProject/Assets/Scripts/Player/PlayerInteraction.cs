@@ -210,12 +210,12 @@ public class PlayerInteraction : MonoBehaviour
             if (hpPercentage > 0.35f)
             {
                 wpscript.spriteRenderer.sprite = weaponDataScript.weaponGFXSource
-                    .freshIcon[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
+                    .freshItem[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
             }
             else
             {
                 wpscript.spriteRenderer.sprite = weaponDataScript.weaponGFXSource
-                    .rottenIcon[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
+                    .rottenItem[weaponDataScript.GetName_WeaponID(charCon2D.playerAttack.weapon_name)];
             }
                     
             Vector2 forceDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;

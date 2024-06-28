@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using CleverCrow.Fluid.Dialogues.Graphs;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class WeaponRecoveryInteract : InteractableObject
 {
@@ -11,6 +13,7 @@ public class WeaponRecoveryInteract : InteractableObject
     
     private bool isRecovered = false;
     private DialoguePlayback playback;
+    public Light2D spotlight;
 
     public void NpcInteraction(DialoguePlayback _dialoguePlayback)
     {
@@ -18,7 +21,11 @@ public class WeaponRecoveryInteract : InteractableObject
         {
             if (!talkEnable) //RecoveryStatue 로직
             {
-                RecoveryStatue();
+                if (CharacterController2D.instance.playerAttack.weapon_type != Weapon_Type.Basic ||
+                    CharacterController2D.instance.playerAttack.weaponManager.weaponLife != WeaponData.instance.GetName_WeaponLifeCount(PlayerDataManager.instance.nowPlayer.weaponName))
+                {
+                    RecoveryStatue();
+                }
             }
             else //방부업자 로직
             {
@@ -100,5 +107,7 @@ public class WeaponRecoveryInteract : InteractableObject
             
         CharacterController2D.instance.playerAttack.weaponManager.weaponLife += recoveryValue;
         isRecovered = true;
+        if(spotlight != null) DOTween.To(()=> spotlight.intensity , x=> spotlight.intensity  = x, 0f, 1f);
+        Destroy(gameObject.GetComponent<Collider2D>());
     }
 }

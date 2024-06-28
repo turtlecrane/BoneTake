@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 138789933321409499}
   - component: {fileID: 138789933321409498}
-  - component: {fileID: 138789933321409501}
+  - component: {fileID: 433792335122303897}
   - component: {fileID: 138789933321409496}
   - component: {fileID: 138789933321409497}
   - component: {fileID: 7437567}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 138789933321409500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5591497593150646899}
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.33}
+  m_Size: {x: 6.53, y: 6.53}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &138789933321409501
+--- !u!58 &433792335122303897
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 1.445
 --- !u!50 &138789933321409496
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +143,7 @@ MonoBehaviour:
   weaponHP: 0
   spriteRenderer: {fileID: 138789933321409498}
   rb: {fileID: 138789933321409496}
-  collider: {fileID: 138789933321409501}
+  collider: {fileID: 433792335122303897}
 --- !u!114 &7437567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,15 +210,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 11
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -267,6 +267,10 @@ PrefabInstance:
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}

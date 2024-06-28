@@ -30,6 +30,8 @@ public class WeaponGFXSource
 {
     public List<Sprite> freshIcon;
     public List<Sprite> rottenIcon;
+    public List<Sprite> freshItem;
+    public List<Sprite> rottenItem;
 }
 
 public class WeaponData : MonoBehaviour

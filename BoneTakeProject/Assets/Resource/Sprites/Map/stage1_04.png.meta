@@ -101,6 +101,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -109,9 +145,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 161
-        y: 3110
-        width: 126
-        height: 184
+        y: 3111
+        width: 125
+        height: 182
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +165,10 @@ TextureImporter:
       name: stage1_04_1
       rect:
         serializedVersion: 2
-        x: 334
-        y: 3110
-        width: 250
-        height: 184
+        x: 335
+        y: 3111
+        width: 248
+        height: 182
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -451,7 +487,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stage1_04_18: -690443466
+      stage1_04_5: -264571805
       stage1_04_17: -679858527
       stage1_04_12: 625659528
       stage1_04_20: -380212624
@@ -467,10 +503,10 @@ TextureImporter:
       stage1_04_19: -1168858514
       stage1_04_0: 1451117342
       stage1_04_3: 1185500027
-      stage1_04_4: 1498925349
       stage1_04_13: -180640879
-      stage1_04_5: -264571805
+      stage1_04_18: -690443466
       stage1_04_11: 225510654
+      stage1_04_4: 1498925349
       stage1_04_1: 364038346
   spritePackingTag: 
   pSDRemoveMatte: 0

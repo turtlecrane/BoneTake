@@ -148,7 +148,7 @@ public class DataSlotManager : MonoBehaviour
         {
             if (entryType == 0)
             {
-                popupManager.SetPopup("이미 데이터가 존재하는 데이터 슬롯입니다.\n정말 새롭게 시작하시겠습니까?\n<size=70%>이미 존재하는 데이터는 삭제됩니다.</size>",false,
+                popupManager.SetPopup("이미 데이터가 존재하는 데이터 슬롯입니다.\n정말 새롭게 시작하시겠습니까?\n\n<size=70%>이미 존재하는 데이터는</size> <color=red>삭제</color><size=70%>됩니다.</size>",false,
                     () =>
                     {
                         popupManager.ClosePopup(); //팝업 닫기

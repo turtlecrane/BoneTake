@@ -12,7 +12,7 @@ public class Boss00_Attack : BossAttack
     public Transform shootPoint;
     public EnemyBullet bullet;
     public float shootSpeed;
-    public float fallSpeed = 1000f; // 낙하할 때 부여할 힘의 크기
+    public float fallSpeed; // 낙하할 때 부여할 힘의 크기
     public Transform jumpPosition;
     public float jumpMoveDuration = 1.0f;
     
@@ -86,10 +86,10 @@ public class Boss00_Attack : BossAttack
         // 이동 시간 동안 대기
         yield return new WaitForSeconds(jumpMoveDuration);
 
-        rb.AddForce(Vector2.up * 60f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * 100f, ForceMode2D.Impulse);
         
         //위치에서 1초간 대기
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.1f);
         
         // 5. 중력을 원래대로 되돌리기
         rb.gravityScale = 5f;
