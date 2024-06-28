@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: a8055713397154049899254d46245f48
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Weapon03_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406ae3c3599ee7e499fe537d92d12c33
+      internalID: -1198664563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874d8c9069b82e145bf0596b63720340
+      internalID: -638877167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ba2f7e63ae18544b51c90d928c3e9e
+      internalID: 699095977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 3414
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ff6dee8ce39cc4cb605b5d45c66f08
+      internalID: -1021627869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 4552
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01df2c6ea873a1c40be2dffb9089104f
+      internalID: -1620252749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 5690
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13aa649f107c7594283431bab6620dda
+      internalID: 2122301853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 6828
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cca99730fc68134fbbb7984a3c72821
+      internalID: 1559497017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 7966
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792fa2e6b1e1002489da495b214c5c34
+      internalID: -180195110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 9104
+        y: 644
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e968c662105ad47818532854705930
+      internalID: -583313384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88cd98b1b3f5b024ea0b53f033e5ee23
+      internalID: -1596309642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0841bf03187a4546a2fd158cd7deb94
+      internalID: -248124258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940180896dcdb4644bd45f24ed363bd6
+      internalID: -1593902519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 3414
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c735c297df2b7f54fa7e5c65b3511d3d
+      internalID: 576928913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon03_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 4552
+        y: 0
+        width: 1138
+        height: 644
+      alignment: 9
+      pivot: {x: 0.3734791, y: 0.01916409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee37866cdde386542bf5ad3994d2d7f9
+      internalID: -877342320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 90d028fa52250544896ab08e519d6cf3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Weapon03_Attack_5: 2122301853
+      Weapon03_Attack_10: -248124258
+      Weapon03_Attack_2: 699095977
+      Weapon03_Attack_0: -1198664563
+      Weapon03_Attack_13: -877342320
+      Weapon03_Attack_3: -1021627869
+      Weapon03_Attack_4: -1620252749
+      Weapon03_Attack_11: -1593902519
+      Weapon03_Attack_12: 576928913
+      Weapon03_Attack_9: -1596309642
+      Weapon03_Attack_1: -638877167
+      Weapon03_Attack_6: 1559497017
+      Weapon03_Attack_7: -180195110
+      Weapon03_Attack_8: -583313384
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
