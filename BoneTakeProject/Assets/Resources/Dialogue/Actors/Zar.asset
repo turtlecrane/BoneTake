@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Zar
   m_EditorClassIdentifier: 
   _displayName: "\uC790\uB974"
-  _portrait: {fileID: 236752585, guid: 404290049b9fd174788cc29c8b459057, type: 3}
+  _portrait: {fileID: -393329140, guid: 61fe4e30800e6794fbfbe5ba1268ca89, type: 3}

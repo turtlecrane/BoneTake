@@ -52,6 +52,8 @@ public class WeaponManager : MonoBehaviour
         
         weaponAnimator.SetBool("IsWp01", weaponName == Weapon_Name.Wp01);
         weaponAnimator.SetBool("IsWp02", weaponName == Weapon_Name.Wp02);
+        weaponAnimator.SetBool("IsWp03", weaponName == Weapon_Name.Wp03);
+        weaponAnimator.SetBool("IsWp04", weaponName == Weapon_Name.Wp04);
         weaponAnimator.SetBool("IsWp05", weaponName == Weapon_Name.Wp05);
 
         if (charCon2D.playerAttack.isAiming)
@@ -73,9 +75,9 @@ public class WeaponManager : MonoBehaviour
 
     private IEnumerator AimingShotCoolDown()
     {
-        weaponAnimator.SetBool("Wp02_attack_Aiming_Shot", true);
+        weaponAnimator.SetBool($"{weaponName}_attack_Aiming_Shot", true);
         yield return new WaitForSeconds(weaponDataScript.GetName_BowAimCoolTime(weaponName));
-        weaponAnimator.SetBool("Wp02_attack_Aiming_Shot", false);
+        weaponAnimator.SetBool($"{weaponName}_attack_Aiming_Shot", false);
     }
     
     private void Aim()
@@ -102,7 +104,7 @@ public class WeaponManager : MonoBehaviour
         projector.rotation = Quaternion.Euler(0, 0, rotationZ);
         projector.localScale = new Vector3(Mathf.Abs(projector.localScale.x), projector.localScale.y, projector.localScale.z);
         charCon2D.playerAttack.isAiming = false;
-        weaponAnimator.SetBool("Wp02_attack_Aiming_End", true);
+        weaponAnimator.SetBool($"{weaponName}_attack_Aiming_End", true);
     }
 
     public void Shot_BasicArrow()

@@ -374,14 +374,27 @@ public class CharacterController2D : MonoBehaviour
         inHardGround = other.gameObject.CompareTag("HardGround");
     }
 
-    /*private void OnCollisionExit2D(Collision2D other)
+    /// <summary>
+    /// 속도를 점진적으로 0 으로 만듬
+    /// </summary>
+    /// <param name="decelerationTime">0이 되는데 까지의 시간</param>
+    /// <returns></returns>
+    public IEnumerator DecelerateToZero(Rigidbody2D rb, float decelerationTime)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        float elapsedTime = 0f;
+        Vector2 initialVelocity = rb.velocity;
+
+        while (elapsedTime < decelerationTime)
         {
-            Debug.Log("물에서 나옴");
-            /*AudioManager.instance.PlaySFX("WaterExit");#1#
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / decelerationTime;
+            rb.velocity = Vector2.Lerp(initialVelocity, Vector2.zero, t);
+            yield return null;
         }
-    }*/
+
+        // 속도를 완전히 0으로 설정
+        rb.velocity = Vector2.zero;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

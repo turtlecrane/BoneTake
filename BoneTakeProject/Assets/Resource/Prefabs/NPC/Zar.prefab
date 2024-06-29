@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4551400472823405598}
   - component: {fileID: 4551400472823405597}
-  - component: {fileID: 4551400472823405586}
   - component: {fileID: 4551400472823405595}
   - component: {fileID: 4551400472823405594}
   - component: {fileID: 3378502747074890789}
+  - component: {fileID: 7302208954726539426}
   m_Layer: 0
   m_Name: Zar
   m_TagString: NPC
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 236752585, guid: 404290049b9fd174788cc29c8b459057, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: -393329140, guid: 61fe4e30800e6794fbfbe5ba1268ca89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4551400472823405586
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4551400472823405599}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.03}
-  serializedVersion: 2
-  m_Radius: 1.03
 --- !u!114 &4551400472823405595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +127,7 @@ Animator:
   m_GameObject: {fileID: 4551400472823405599}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2460c8f49bce5ef4db0e83502f8ac173, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4455dd0c018ee2c468e74cf29768191b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,6 +137,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &7302208954726539426
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551400472823405599}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.505}
+  serializedVersion: 2
+  m_Radius: 1.615
 --- !u!1001 &9025258767800320328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593420, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_Pivot.x
@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.04
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -11,7 +11,7 @@ public class BossDirection : MonoBehaviour
     public Slider hpSlider;
     public GameObject bossTitle;
     public Animator bossGFX;
-    public GameObject door;
+    public GameObject[] doors;
     public CinemachineVirtualCamera bossCamera;
     public bool isDirecting;
     
@@ -27,7 +27,12 @@ public class BossDirection : MonoBehaviour
 
     public IEnumerator WakeDirection()
     {
-        door.transform.DOLocalMoveY(0f, 1).SetEase(Ease.InExpo);
+        foreach (var door in doors)
+        {
+            // 현재 위치의 y 값을 가져와서 10만큼 내린 위치로 이동
+            float newY = door.transform.localPosition.y - 10f;
+            door.transform.DOLocalMoveY(newY, 1).SetEase(Ease.InExpo);
+        }
         //플레이어의 원래 줌 초기값을 저장해놓음 (보스가 사망하면 원래대로 되돌리기 위함)
         player_lensOrtho_InitSize = GameManager.Instance.GetPlayerFollowCameraController().lensOrtho_InitSize;
         StartDirection();
@@ -48,7 +53,13 @@ public class BossDirection : MonoBehaviour
 
     public IEnumerator DeadDirection()
     {
-        door.transform.DOLocalMoveY(10f, 1).SetEase(Ease.InExpo);
+        foreach (var door in doors)
+        {
+            // 현재 위치의 y 값을 가져와서 10만큼 내린 위치로 이동
+            float newY = door.transform.localPosition.y - 10f;
+            door.transform.DOLocalMoveY(newY, 1).SetEase(Ease.InExpo);
+        }
+        
         StartDirection();
         yield return TransitionScreen(0.9f);
         EndBossLife();
@@ -94,7 +105,9 @@ public class BossDirection : MonoBehaviour
         hpSlider.GetComponent<Animator>().SetBool("IsEnd", true);
         
         GameManager.Instance.GetPlayerFollowCameraController().lensOrtho_InitSize = player_lensOrtho_InitSize;
-        GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.m_Lens.OrthographicSize = player_lensOrtho_InitSize;
+        //점진적으로 늘려야함.
+        GameManager.Instance.GetPlayerFollowCameraController().CameraTargetTimeZoomIn(1f, player_lensOrtho_InitSize);
+        //GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.m_Lens.OrthographicSize = player_lensOrtho_InitSize;
         
         if (gameObject.activeSelf) StartCoroutine(AudioManager.instance.FadeOut(1f));
     }

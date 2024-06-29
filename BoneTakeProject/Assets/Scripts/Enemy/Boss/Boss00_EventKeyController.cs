@@ -46,6 +46,10 @@ public class Boss00_EventKeyController : MonoBehaviour
     {
         AudioManager.instance.PlaySFX("Bomb", Random.Range(0, 3));
     }
+    public void Boss00_PlayAttackAudio()
+    {
+        AudioManager.instance.PlaySFX("Orobas_Attack");
+    }
     
     private void OnDrawGizmosSelected()
     {

@@ -127,27 +127,4 @@ public class EnemyAI_Flight : MonoBehaviour, IEnemyAI
             canMove = false;
         }
     }
-    
-    /// <summary>
-    /// 속도를 점진적으로 0 으로 만듬
-    /// </summary>
-    /// <param name="rb"></param>
-    /// <param name="decelerationTime"></param>
-    /// <returns></returns>
-    public IEnumerator DecelerateToZero(Rigidbody2D rb, float decelerationTime)
-    {
-        float elapsedTime = 0f;
-        Vector2 initialVelocity = rb.velocity;
-
-        while (elapsedTime < decelerationTime)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / decelerationTime;
-            rb.velocity = Vector2.Lerp(initialVelocity, Vector2.zero, t);
-            yield return null;
-        }
-
-        // 속도를 완전히 0으로 설정
-        rb.velocity = Vector2.zero;
-    }
 }

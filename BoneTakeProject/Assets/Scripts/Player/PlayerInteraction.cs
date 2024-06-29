@@ -168,6 +168,12 @@ public class PlayerInteraction : MonoBehaviour
                         });
                 }
                 bossHitHandler.isExtracted = true;
+                var colliders = bossHitHandler.gameObject.GetComponentsInChildren<Collider2D>();
+                foreach (var collider in colliders)
+                {
+                    Destroy(collider);
+                }
+                
             }
         );
     }

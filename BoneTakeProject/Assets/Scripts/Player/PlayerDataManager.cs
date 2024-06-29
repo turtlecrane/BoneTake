@@ -24,7 +24,7 @@ public class PlayerData
     public float playerSpeed = 80f; //높아질수록 이동속도가 증가함
     //public float playerWaterSpeed = 40f; //물속에서의 움직임 속도
     public float playerMaxJumpForce = 90f; //높아질수록 더 높이 올라감 (올라가는 힘은 변하지않음)
-    public float playerDashForce = 100f; //높아질수록 파워가 세짐 (더 멀리감)
+    public float playerDashForce = 150f; //높아질수록 파워가 세짐 (더 멀리감)
     
     //현재 장착중인 무기가 무엇인지
     public Weapon_Type weaponType;
@@ -35,10 +35,10 @@ public class PlayerData
     public int playerATK = 10;
 
     //플레이어 최대체력 (제한)
-    public int playerMaxHP = 3;
+    public int playerMaxHP = 5;
     
     //현재 체력
-    public int playerHP = 3;
+    public int playerHP = 5;
 
     public bool wpRecovryTuto = false;
 
