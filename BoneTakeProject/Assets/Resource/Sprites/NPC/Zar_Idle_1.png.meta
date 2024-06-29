@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e01c286ac4409064194d69ae101fca19
+guid: 61fe4e30800e6794fbfbe5ba1268ca89
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,106 +105,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_0
+      name: Zar_Idle_1_0
       rect:
         serializedVersion: 2
-        x: 1057
+        x: 0
         y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+        width: 323
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975c4fe9720a0f94db14df7617c27a61
-      internalID: 1855228938
+      spriteID: 2f9e3728d51098b44852eafefeb9964e
+      internalID: -393329140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_1
+      name: Zar_Idle_1_1
       rect:
         serializedVersion: 2
-        x: 2114
+        x: 323
         y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+        width: 323
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c866fb44ceb83940a92dd7681bf7c5f
-      internalID: -611263608
+      spriteID: ae6e9b9901e378745a6e72518bd3536a
+      internalID: -1983208421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_2
+      name: Zar_Idle_1_2
       rect:
         serializedVersion: 2
-        x: 3171
+        x: 646
         y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+        width: 323
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187f5bc394ecebc43acf967bb35479c8
-      internalID: 166663760
+      spriteID: 62df406676405b749b8c1f399464e405
+      internalID: -958217963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_3
+      name: Zar_Idle_1_3
       rect:
         serializedVersion: 2
-        x: 4228
+        x: 969
         y: 0
-        width: 1057
-        height: 387
-      alignment: 9
-      pivot: {x: 0.4274094, y: 0}
+        width: 323
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b176caa9b79efb428957b42751b7457
-      internalID: 834248040
+      spriteID: 68da5fbfa640ce94aaa59eba12df962d
+      internalID: -1495857977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon03_JumpAttack_4
+      name: Zar_Idle_1_4
       rect:
         serializedVersion: 2
-        x: 650
-        y: 164
-        width: 119
-        height: 151
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1292
+        y: 0
+        width: 323
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57074dd649447ea4b8e282bf0cf73cd9
-      internalID: -1544301982
+      spriteID: 097088e4b523bb144aec37fae60ed760
+      internalID: -701057983
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2e2c2cd0ca95e4145b31ee8894357cb7
+    spriteID: 65e746784f63adf4e8a0101d11404f67
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Weapon03_JumpAttack_4: -1544301982
-      Weapon03_JumpAttack_1: -611263608
-      Weapon03_JumpAttack_3: 834248040
-      Weapon03_JumpAttack_2: 166663760
-      Weapon03_JumpAttack_0: 1855228938
+      Zar_Idle_1_1: -1983208421
+      Zar_Idle_1_4: -701057983
+      Zar_Idle_1_3: -1495857977
+      Zar_Idle_1_0: -393329140
+      Zar_Idle_1_2: -958217963
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
