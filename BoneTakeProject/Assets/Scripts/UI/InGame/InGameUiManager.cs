@@ -198,7 +198,7 @@ public class InGameUiManager : MonoBehaviour
     {
         if (!isInteractiveCamera)
         {
-            m_playerFollowCamera.gameObject.SetActive(!isAiming);
+            //m_playerFollowCamera.gameObject.SetActive(!isAiming);
             m_cursorFollowCamera.gameObject.SetActive(isAiming);
         }
     }

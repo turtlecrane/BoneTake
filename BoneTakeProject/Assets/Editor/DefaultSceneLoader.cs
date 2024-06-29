@@ -16,7 +16,7 @@ public class DefaultSceneLoader
         if (state == PlayModeStateChange.ExitingEditMode)
         {
             // 여기에 시작하고자 하는 씬의 경로를 설정하세요.
-            string defaultScenePath = "Assets/Scenes/Laboratory/UIScenes/MainTitle.unity";
+            string defaultScenePath = "Assets/Scenes/Official/MainTitle.unity";
 
             if (EditorSceneManager.GetActiveScene().path != defaultScenePath)
             {

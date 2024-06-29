@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,6 +61,14 @@ public class DataSlotManager : MonoBehaviour
         }
 
         SetAudio();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneChange("MainTitle");
+        }
     }
 
     public void SetAudio()
@@ -132,7 +141,7 @@ public class DataSlotManager : MonoBehaviour
             playTimeText = $"{seconds}초";
         }
 
-        slots[_index].playTime.text = $"플레이 타임 : {playTimeText}";
+        slots[_index].playTime.text = $"{playTimeText}";
     }
     
     /// <summary>

@@ -54,6 +54,7 @@ public class SceneData
 {
     public string sceneName;
     public List<BreakableObjectData> breakableObjects = new List<BreakableObjectData>();
+    public List<ImageChangeObjectData> imageChangeObjects = new List<ImageChangeObjectData>();
 }
 
 [System.Serializable]
@@ -61,6 +62,14 @@ public class BreakableObjectData
 {
     public string name;
     public bool isDestroy;
+}
+
+[System.Serializable]
+public class ImageChangeObjectData
+{
+    public string name;
+    public bool isChanged;
+    public Sprite changeSprite;
 }
 
 

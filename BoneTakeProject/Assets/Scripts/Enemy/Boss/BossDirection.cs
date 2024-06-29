@@ -29,8 +29,7 @@ public class BossDirection : MonoBehaviour
     {
         foreach (var door in doors)
         {
-            // 현재 위치의 y 값을 가져와서 10만큼 내린 위치로 이동
-            float newY = door.transform.localPosition.y - 10f;
+            float newY = door.transform.localPosition.y - 4.65f;
             door.transform.DOLocalMoveY(newY, 1).SetEase(Ease.InExpo);
         }
         //플레이어의 원래 줌 초기값을 저장해놓음 (보스가 사망하면 원래대로 되돌리기 위함)
@@ -55,8 +54,7 @@ public class BossDirection : MonoBehaviour
     {
         foreach (var door in doors)
         {
-            // 현재 위치의 y 값을 가져와서 10만큼 내린 위치로 이동
-            float newY = door.transform.localPosition.y - 10f;
+            float newY = door.transform.localPosition.y + 2.65f;
             door.transform.DOLocalMoveY(newY, 1).SetEase(Ease.InExpo);
         }
         

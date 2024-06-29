@@ -80,10 +80,12 @@ MonoBehaviour:
     width: 200
     height: 142
   nodeTitle: 
-  children: []
+  children:
+  - {fileID: 5980114412888524916}
   conditions: []
   enterActions: []
-  exitActions: []
+  exitActions:
+  - {fileID: 8585873136779898811}
   choices: []
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
@@ -107,7 +109,7 @@ MonoBehaviour:
     x: 50218
     y: 50144
     width: 200
-    height: 178
+    height: 182
   nodeTitle: 
   children: []
   conditions: []
@@ -194,8 +196,9 @@ MonoBehaviour:
   - {fileID: 5899267364150278192}
   - {fileID: -4196641048772541939}
   - {fileID: -3129399268858541033}
+  - {fileID: 5980114412888524916}
   root: {fileID: 5464198253673893231}
-  scrollPosition: {x: 50368.633, y: 50211}
+  scrollPosition: {x: 50729.633, y: 50244}
 --- !u!114 &369767218022961454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,7 +233,7 @@ MonoBehaviour:
     x: 50532
     y: 50312
     width: 200
-    height: 178
+    height: 182
   nodeTitle: 
   children: []
   conditions: []
@@ -327,6 +330,35 @@ MonoBehaviour:
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
   dialogue: "\uB09C\u200B\u200B \uC55E\uC73C\uB85C\u200B \uAC08 \uC0DD\uAC01\uC774\uC57C."
+--- !u!114 &5980114412888524916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f157564dbc846468ec0ac2b6f7d545e, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  _uniqueId: 9371971e-df8b-477d-aad2-0c1f748b1903
+  rect:
+    serializedVersion: 2
+    x: 51446
+    y: 50490
+    width: 200
+    height: 142
+  nodeTitle: 
+  children: []
+  conditions: []
+  enterActions: []
+  exitActions: []
+  choices: []
+  actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
+  audio: {fileID: 0}
+  dialogue: "(\uBCF4\uD504\uB808\uAC00\u200B\u200B \uC544\uB798\uCABD\uC758\u200B\u200B
+    \uBB38\uC744\u200B \uC5F4\uC5B4\uC8FC\uC5C8\uB2E4.)"
 --- !u!114 &8533716955854240316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,3 +388,20 @@ MonoBehaviour:
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
   dialogue: "\uADF8\uB798"
+--- !u!114 &8585873136779898811
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a5f32d02a4826a57d4ca1997744f8, type: 3}
+  m_Name: ActionSendMessage
+  m_EditorClassIdentifier: 
+  _title: OpenDoor
+  _uniqueId: 7c70619f-c5e4-4608-83d3-7026ba5c5bcf
+  _gameObjectName: Boreph
+  _methodName: OpenDoor
+  _options: 0

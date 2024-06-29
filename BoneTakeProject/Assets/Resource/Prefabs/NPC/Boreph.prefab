@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3524587190923847780}
   - component: {fileID: 3524587190923847789}
   - component: {fileID: 3524587190923847788}
+  - component: {fileID: 2072918677}
   m_Layer: 0
   m_Name: Boreph
   m_TagString: NPC
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3524587190923847785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 191.36, y: -0.07, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4546629677902679667}
@@ -132,6 +133,19 @@ MonoBehaviour:
   dialogue:
   - {fileID: 11400000, guid: 0cb87afb89a950847aa74dae872c9ebd, type: 2}
   talkEnable: 1
+--- !u!114 &2072918677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524587190923847785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0170042c831c0d429882c9252e256d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageChangeObject: {fileID: 0}
 --- !u!1001 &8250632956619568446
 PrefabInstance:
   m_ObjectHideFlags: 0

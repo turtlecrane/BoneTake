@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             // SceneData가 이미 존재할 경우, BreakableObjectData 추가
             AddBreakableObjects(existingSceneData);
+            AddImageChangeObjects(existingSceneData);
         }
         else
         {
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
             SceneData newSceneData = new SceneData { sceneName = sceneName };
             PlayerDataManager.instance.nowPlayer.mapData.Add(newSceneData);
             AddBreakableObjects(newSceneData);
+            AddImageChangeObjects(newSceneData);
         }
     }
 
@@ -90,32 +92,23 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    /*public void OnPlayerEnterScene(string sceneName)
+    private void AddImageChangeObjects(SceneData sceneData)
     {
-        //맵 데이터에 이미 있는 씬 데이터인지 확인
-        foreach (var sceneData in PlayerDataManager.instance.nowPlayer.mapData)
-        {
-            if(sceneData.sceneName == sceneName) return;
-        }
-        
-        // SceneData 객체 생성 후, 맵 데이터 리스트에 추가
-        SceneData newSceneData = new SceneData();
-        newSceneData.sceneName = sceneName;
-        PlayerDataManager.instance.nowPlayer.mapData.Add(newSceneData);
-
-        // 현재 씬의 모든 오브젝트를 탐색하여 BreakableObject 스크립트를 가진 오브젝트를 찾음
-        BreakableObject[] breakableObjects = FindObjectsOfType<BreakableObject>();
+        ImageChangeObject[] breakableObjects = FindObjectsOfType<ImageChangeObject>();
 
         foreach (var obj in breakableObjects)
         {
-            if (obj.isRemembered)
+            if (obj.isRemembered && !sceneData.imageChangeObjects
+                    .Exists(data => data.name == obj.gameObject.name))
             {
-                //BreakableObjectData 객체 생성 후, SceneData에 추가
-                BreakableObjectData data = new BreakableObjectData();
-                data.name = obj.gameObject.name;
-                data.isDestroy = obj.isDestroy;
-                newSceneData.breakableObjects.Add(data);
+                ImageChangeObjectData newData = new ImageChangeObjectData
+                {
+                    name = obj.gameObject.name,
+                    isChanged = obj.isChanged,
+                    changeSprite = obj.changedSprite
+                };
+                sceneData.imageChangeObjects.Add(newData);
             }
         }
-    }*/
+    }
 }

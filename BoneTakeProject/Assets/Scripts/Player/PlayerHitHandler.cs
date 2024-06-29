@@ -71,7 +71,7 @@ public class PlayerHitHandler : MonoBehaviour
         {
             charCon2D.playerAttack.isAiming = false;
             charCon2D.animator.SetBool("IsBowAiming", false);
-            charCon2D.playerAttack.weaponAnimator.SetBool("Wp02_attack_Aiming_End", true);
+            charCon2D.playerAttack.weaponAnimator.SetBool($"{charCon2D.playerAttack.weapon_name}_attack_Aiming_End", true);
         }
         
         charCon2D.isClimbing = false;

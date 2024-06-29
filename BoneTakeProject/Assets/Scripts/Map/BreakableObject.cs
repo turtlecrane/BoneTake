@@ -102,7 +102,7 @@ public class BreakableObject : MonoBehaviour
             {
                 if (sceneData.sceneName == shortCutSceneName)
                 {
-                    Debug.Log("숏컷과 연결된 씬을 데이터상에서 발견했습니다.");
+                    Debug.Log("숏컷과 연결된 씬을 데이터상에서 발견");
                     sceneFound = true;
 
                     foreach (var obj in sceneData.breakableObjects)
@@ -112,13 +112,13 @@ public class BreakableObject : MonoBehaviour
                             obj.isDestroy = true;
                         }
                     }
-                    break; // 씬을 찾았으므로 루프를 종료합니다.
+                    break;
                 }
             }
 
             if (!sceneFound)
             {
-                Debug.Log("숏컷과 연결된 이름의 씬이 데이터상에 없습니다.");
+                Debug.Log("숏컷과 연결된 이름의 씬이 데이터상에 없음");
                 SceneData newSceneData = new SceneData();
                 newSceneData.sceneName = shortCutSceneName;
                 PlayerDataManager.instance.nowPlayer.mapData.Add(newSceneData);
