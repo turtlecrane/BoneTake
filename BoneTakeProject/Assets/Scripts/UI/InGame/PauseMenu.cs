@@ -15,6 +15,9 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        if (CharacterController2D.instance.playerAttack.isAiming)
+            CharacterController2D.instance.playerAttack.isAiming = false;
+        
         AudioManager.instance.ChangeAudioMixerSnapShot(1);
     }
 

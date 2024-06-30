@@ -206,17 +206,19 @@ public class InGameUiManager : MonoBehaviour
     void SetCursorState(bool isAiming, WeaponManager weaponManager)
     {
         bool uiLayerActive = CheckForActiveUILayer(LayerMask.GetMask("UI", "Cursor"));
-        //Cursor.visible = isAiming || uiLayerActive;
-        //Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isAiming || uiLayerActive;
+        Cursor.lockState = isAiming || uiLayerActive ? CursorLockMode.None : CursorLockMode.Locked;
 
         if (isAiming)
         {
-            Vector2 hotSpot = new Vector2(weaponManager.aimingCursor.width / 2, weaponManager.aimingCursor.height / 2);
-            Cursor.SetCursor(weaponManager.aimingCursor, hotSpot, CursorMode.Auto);
+            Texture2D aimingCursor = GameManager.Instance.cursor[1];
+            Vector2 hotSpot = new Vector2(aimingCursor.width / 2, aimingCursor.height / 2);
+            Cursor.SetCursor(aimingCursor, hotSpot, CursorMode.Auto);
         }
         else
         {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            Texture2D basicCursor = GameManager.Instance.cursor[0];
+            Cursor.SetCursor(basicCursor, Vector2.zero, CursorMode.Auto);
         }
     }
     

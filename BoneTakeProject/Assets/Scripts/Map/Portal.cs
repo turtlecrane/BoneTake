@@ -26,7 +26,16 @@ public class Portal : MonoBehaviour
         fadePanel.gameObject.SetActive(true);
         fadePanel.DOFade(1f, 1f);
         yield return new WaitForSeconds(1f);
+        
         other.transform.position = switchPosition;
+        
+        // other의 하위 오브젝트 중 PlayerFoot을 찾아서 위치 초기화
+        Transform playerFoot = other.transform.Find("PlayerFoot");
+        if (playerFoot != null)
+        {
+            playerFoot.localPosition = Vector3.zero; // 위치를 (0, 0, 0)으로 초기화
+        }
+        
         SceneManager.LoadScene(sceneName);
     }
 }

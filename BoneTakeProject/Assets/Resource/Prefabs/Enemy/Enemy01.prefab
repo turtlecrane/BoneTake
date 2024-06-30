@@ -221,7 +221,7 @@ MonoBehaviour:
   enemyAIScript: {fileID: 3784949372239093055}
   enemyAIScript_F: {fileID: 0}
   animator: {fileID: 3784949374225316584}
-  life: 10
+  life: 40
   knockbackBasicForce: 2000
   isCorpseState: 0
   isExtracted: 0
@@ -303,7 +303,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 28.605888, y: 7.8758683}
+  m_Size: {x: 49.32, y: 7.8758683}
   m_Direction: 1
 --- !u!1 &3784949374225316589
 GameObject:

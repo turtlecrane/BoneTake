@@ -16,9 +16,14 @@ public class MainTitle : MonoBehaviour
 {
     public Button[] buttons;
     public Image fade;
-
+    public Texture2D basicCursor;
     private AudioManager audioManager;
     public bool isAudioNull;
+    
+    void Awake()
+    {
+        Cursor.SetCursor(basicCursor, Vector2.zero, CursorMode.Auto);
+    }
     
     private void OnEnable()
     {

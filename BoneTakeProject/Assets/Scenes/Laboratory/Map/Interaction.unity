@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 76027457}
   - component: {fileID: 76027456}
   - component: {fileID: 76027458}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: Layer-16
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 201426489}
   - component: {fileID: 201426488}
   - component: {fileID: 201426490}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: Layer-17
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -2141,6 +2141,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 756313974}
     - target: {fileID: 7886141889721615754, guid: d58837c1ce1b43648b4232e998379a91, type: 3}
+      propertyPath: spawnPoint.x
+      value: 2.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886141889721615754, guid: d58837c1ce1b43648b4232e998379a91, type: 3}
+      propertyPath: spawnPoint.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886141889721615754, guid: d58837c1ce1b43648b4232e998379a91, type: 3}
       propertyPath: changeBGMName
       value: bgm_1
       objectReference: {fileID: 0}
@@ -2460,7 +2468,7 @@ GameObject:
   - component: {fileID: 477258889}
   - component: {fileID: 477258888}
   - component: {fileID: 477258890}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: Layer-4
   m_TagString: Map
   m_Icon: {fileID: 0}

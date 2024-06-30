@@ -66,7 +66,7 @@ public class EnemyHitHandler : MonoBehaviour
         ApplyDamageEffects(damage);
 
         CharacterController2D charCon2D = CharacterController2D.instance;
-        if (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic && charCon2D.playerAttack.weapon_type != Weapon_Type.etc) 
+        if (!isCorpseState && (charCon2D.playerAttack.weapon_type != Weapon_Type.Basic && charCon2D.playerAttack.weapon_type != Weapon_Type.etc)) 
         {
             charCon2D.playerAttack.weaponManager.weaponLife -= 1; // 무기 HP를 1 줄임
         }

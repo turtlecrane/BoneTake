@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Follow: {fileID: 335108039242837351}
   m_Lens:
     FieldOfView: 70
-    OrthographicSize: 9
+    OrthographicSize: 11
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC635\uC158"
+  m_text: "\uC124\uC815"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e21dd543c3c22ce46b9c6ae360aad9f0, type: 2}
   m_sharedMaterial: {fileID: -1955606056003134209, guid: e21dd543c3c22ce46b9c6ae360aad9f0, type: 2}
@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 335108038241944703}
   m_Layer: 0
   m_Name: PlayerSystem
-  m_TagString: Untagged
+  m_TagString: PlayerSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1733,7 +1733,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponLife: 0
-  aimingCursor: {fileID: 2800000, guid: d84f7eb154b674f46b833c51f844277e, type: 3}
   weaponGetEffectAnimator: {fileID: 7587657219227387057}
   weaponGetEffectSprite: {fileID: 587594201151590161}
   hitBoxSize: {x: 0.01, y: 2}
@@ -2098,6 +2097,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d66d85881f40f419ac4b3021407df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursor:
+  - {fileID: 2800000, guid: 1a9cd54ff8accd948a699e395a51ebe4, type: 3}
+  - {fileID: 2800000, guid: 712a0a39d7709b045ad4b0d6056f7d09, type: 3}
 --- !u!1 &335108038365607215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,7 +2250,7 @@ MonoBehaviour:
   m_Follow: {fileID: 335108038952000259}
   m_Lens:
     FieldOfView: 70
-    OrthographicSize: 12
+    OrthographicSize: 12.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3477,7 +3479,7 @@ Camera:
   far clip plane: 1000
   field of view: 70
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 12.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4520,7 +4522,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 6441615619032755673}

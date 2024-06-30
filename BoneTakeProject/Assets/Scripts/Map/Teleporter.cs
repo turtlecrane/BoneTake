@@ -7,6 +7,9 @@ public class Teleporter : MonoBehaviour
     public Transform tpPosition;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.transform.position = tpPosition.position;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.transform.position = tpPosition.position;
+        }
     }
 }

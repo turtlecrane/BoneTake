@@ -49,22 +49,6 @@ public class SaveNPC : InteractableObject
     {
         PlayerDataManager.instance.nowPlayer.mapName = nowMapName;
         PlayerDataManager.instance.SaveData();
-        
-        /*PopupManager popup = GameManager.Instance.GetPopupManager();
-        popup.SetPopup("저장하시겠습니까?", false, () => 
-            {
-                PlayerDataManager.instance.nowPlayer.mapName = nowMapName;
-                PlayerDataManager.instance.SaveData();
-                popup.ClosePopup();
-                popup.SetPopup("저장되었습니다.", true, () =>
-                {
-                    popup.gameObject.SetActive(false);
-                },null);
-            },
-            () =>
-            {
-                Debug.Log("취소 버튼을 누름");
-            });*/
     }
 
     public void MakeName()

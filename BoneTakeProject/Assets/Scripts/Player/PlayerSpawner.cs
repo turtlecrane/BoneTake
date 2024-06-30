@@ -2,25 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerSpawner : MonoBehaviour
 {
     public Image fadePanel;
-    public Transform SpawnPoint;
+    public Vector3 spawnPoint;
     public GameObject playerSystemPrefab;
     public string changeBGMName; //배경음을 바꿀건지 + 바꿀거면 무슨 배경음으로 바꿀건지
     
-    private GameObject player;
+    //private GameObject player;
     
 
     private void Awake()
     {
         if (!GameObject.FindWithTag("Player"))
         {
-            player = Instantiate(playerSystemPrefab, SpawnPoint.position, SpawnPoint.rotation);
+            GameObject playerSystemInstance = Instantiate(playerSystemPrefab);
+            Transform player = playerSystemInstance.transform.Find("Player");
+            if (player != null)
+            {
+                player.transform.position = spawnPoint;
+            }
+            else
+            {
+                Debug.Log("인스턴스화된 프리팹에서 플레이어 개체를 찾지못함.");
+            }
         }
         else
         {

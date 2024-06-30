@@ -79,7 +79,7 @@ public class DialoguePlayback : MonoBehaviour {
     /// <param name="text">대화 내용</param>
     private void HandleDialogue(IActor actor, string text, AudioClip audioClip) {
         // 설정된 텍스트 속도 가져오기
-        float textDuration = PlayerPrefs.GetFloat("textSpeedSelected", 0.5f);
+        float textDuration = PlayerPrefs.GetFloat("textSpeedSelected", 0.03f);
 
         if (audioClip) Debug.Log($"Audio Clip Detected ${audioClip.name}");
         CharacterController2D.instance.playerInteraction.isDialoguing = true; //플레이어의 상태를 대화중 상태로 변경 

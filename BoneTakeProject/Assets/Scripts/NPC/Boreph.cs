@@ -9,7 +9,7 @@ public class Boreph : MonoBehaviour
     public void OpenDoor()
     {
         //문열리는 오디오 재생
-        
+        AudioManager.instance.PlaySFX("WoodDoor");
         //이미지 변화시키기
         imageChangeObject.ChangeImage();
     }

@@ -54,7 +54,7 @@ public class BossDirection : MonoBehaviour
     {
         foreach (var door in doors)
         {
-            float newY = door.transform.localPosition.y + 2.65f;
+            float newY = door.transform.localPosition.y + 4.65f;
             door.transform.DOLocalMoveY(newY, 1).SetEase(Ease.InExpo);
         }
         
@@ -108,6 +108,8 @@ public class BossDirection : MonoBehaviour
         //GameManager.Instance.GetPlayerFollowCameraController().virtualCamera.m_Lens.OrthographicSize = player_lensOrtho_InitSize;
         
         if (gameObject.activeSelf) StartCoroutine(AudioManager.instance.FadeOut(1f));
+        /*nextFloorDoor.tag = "NPC";
+        nextFloorDoor.AddComponent<BoxCollider2D>().isTrigger = true;*/
     }
 
     private void DeactivateBossUI()

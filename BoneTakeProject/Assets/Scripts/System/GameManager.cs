@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    public Texture2D[] cursor;
     private static GameManager _instance;
     public static GameManager Instance
     {

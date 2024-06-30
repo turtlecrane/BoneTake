@@ -167,13 +167,18 @@ public class PlayerInteraction : MonoBehaviour
                             itemSelectPanel.SortSelectedItems();
                         });
                 }
+                
+                bossHitHandler.nextFloorDoor.tag = "NPC";
+                bossHitHandler.nextFloorDoor.AddComponent<BoxCollider2D>().isTrigger = true;
+                bossHitHandler.signText.SetActive(false);
+                
                 bossHitHandler.isExtracted = true;
+                CancelBoneTake();
                 var colliders = bossHitHandler.gameObject.GetComponentsInChildren<Collider2D>();
                 foreach (var collider in colliders)
                 {
                     Destroy(collider);
                 }
-                
             }
         );
     }

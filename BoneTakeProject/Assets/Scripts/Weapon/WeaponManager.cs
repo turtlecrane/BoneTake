@@ -8,7 +8,7 @@ using HeathenEngineering.PhysKit.API;
 public class WeaponManager : MonoBehaviour
 {
     public int weaponLife;
-    public Texture2D aimingCursor;
+    
     public Animator weaponGetEffectAnimator;
     public SpriteRenderer weaponGetEffectSprite;
     

@@ -13,6 +13,8 @@ public class BossHitHandler : MonoBehaviour
     public SpriteRenderer bossSprite;
     public BossAttack bossAttack;
     public Slider hpBar;
+    public GameObject signText;
+    public GameObject nextFloorDoor;
 
     [Header("State")]
     public bool isCorpseState;
@@ -26,14 +28,14 @@ public class BossHitHandler : MonoBehaviour
     public float nowLife;
     public float boneExtractionTime;
 
-    private TMP_Text hpText;
+    //private TMP_Text hpText;
     private float lastCheckedLife;
 
     private void Awake()
     {
         nowLife = maxLife;
         hpBar.maxValue = maxLife;
-        hpText = hpBar.GetComponentInChildren<TMP_Text>();
+        //hpText = hpBar.GetComponentInChildren<TMP_Text>();
     }
 
     private void Update()
@@ -46,7 +48,7 @@ public class BossHitHandler : MonoBehaviour
     private void UpdateHealthBar()
     {
         hpBar.value = nowLife;
-        hpText.text = $"{nowLife} / {maxLife}";
+        //hpText.text = $"{nowLife} / {maxLife}";
     }
 
     private void CheckBossLife()
@@ -96,7 +98,7 @@ public class BossHitHandler : MonoBehaviour
         if (isCorpseState || isInvincible) return;
 
         CharacterController2D charCon2D = CharacterController2D.instance;
-        hpText.gameObject.transform.DOShakePosition(0.3f, 50f, 50);
+        //hpText.gameObject.transform.DOShakePosition(0.3f, 50f, 50);
         damageParticle.Play();
         Blink();
         nowLife -= damage;
@@ -133,7 +135,7 @@ public class BossHitHandler : MonoBehaviour
         if (!bossAttack.isGrounded) yield return new WaitUntil(() => bossAttack.isGrounded);
         if (bossAttack.isAttacking) yield return new WaitUntil(() => !bossAttack.isAttacking);
         //CharacterController2D.instance.m_Rigidbody2D.velocity = Vector2.zero;
-        StartCoroutine(CharacterController2D.instance.DecelerateToZero(CharacterController2D.instance.m_Rigidbody2D, 0.1f));
+        StartCoroutine(CharacterController2D.instance.DecelerateToZero(CharacterController2D.instance.m_Rigidbody2D, 0.5f));
         
         bossAttack.animator.SetBool("IsDead", true);
         isInvincible = true;
@@ -141,7 +143,7 @@ public class BossHitHandler : MonoBehaviour
 
         SetCollidersTrigger(true);
         yield return new WaitForSeconds(3.2f);
-
+        signText.SetActive(true);
         isCorpseState = true;
     }
 

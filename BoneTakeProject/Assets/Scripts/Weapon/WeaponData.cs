@@ -95,7 +95,7 @@ public class WeaponData : MonoBehaviour
         { Weapon_Name.Wp02, 15 },
         { Weapon_Name.Wp03, 10 },
         { Weapon_Name.Wp04, 17 },
-        { Weapon_Name.Wp05, 80000 },
+        { Weapon_Name.Wp05, 15 },
         { Weapon_Name.Wp06, 8 }
     };
     
