@@ -297,9 +297,9 @@ TextureImporter:
       name: Weapon03_Attack_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 1138
+        width: 1130
         height: 644
       alignment: 9
       pivot: {x: 0.3734791, y: 0.01916409}
@@ -342,7 +342,7 @@ TextureImporter:
         x: 2276
         y: 0
         width: 1138
-        height: 644
+        height: 640
       alignment: 9
       pivot: {x: 0.3734791, y: 0.01916409}
       border: {x: 0, y: 0, z: 0, w: 0}
