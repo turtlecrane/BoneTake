@@ -360,9 +360,9 @@ TextureImporter:
       name: Player_Running_12
       rect:
         serializedVersion: 2
-        x: 1347
+        x: 1348
         y: 0
-        width: 449
+        width: 448
         height: 343
       alignment: 9
       pivot: {x: 0.5417807, y: 0}

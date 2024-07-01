@@ -213,9 +213,9 @@ TextureImporter:
       name: Orobas_Attack02_5
       rect:
         serializedVersion: 2
-        x: 12220
+        x: 12222
         y: 1396
-        width: 2444
+        width: 2442
         height: 1396
       alignment: 9
       pivot: {x: 0.3297413, y: 0}
@@ -234,9 +234,9 @@ TextureImporter:
       name: Orobas_Attack02_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 2444
+        width: 2442
         height: 1396
       alignment: 9
       pivot: {x: 0.3297413, y: 0}
@@ -255,9 +255,9 @@ TextureImporter:
       name: Orobas_Attack02_7
       rect:
         serializedVersion: 2
-        x: 2444
+        x: 2446
         y: 0
-        width: 2444
+        width: 2442
         height: 1396
       alignment: 9
       pivot: {x: 0.3297413, y: 0}
@@ -276,9 +276,9 @@ TextureImporter:
       name: Orobas_Attack02_8
       rect:
         serializedVersion: 2
-        x: 4888
+        x: 4890
         y: 0
-        width: 2444
+        width: 2442
         height: 1396
       alignment: 9
       pivot: {x: 0.3297413, y: 0}
@@ -297,9 +297,9 @@ TextureImporter:
       name: Orobas_Attack02_9
       rect:
         serializedVersion: 2
-        x: 7332
+        x: 7334
         y: 0
-        width: 2444
+        width: 2442
         height: 1396
       alignment: 9
       pivot: {x: 0.3297413, y: 0}
