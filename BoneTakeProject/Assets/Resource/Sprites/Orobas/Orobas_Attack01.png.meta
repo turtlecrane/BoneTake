@@ -215,7 +215,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1493
-        width: 1808
+        width: 1804
         height: 1491
       alignment: 9
       pivot: {x: 0.4612312, y: 0}
@@ -236,7 +236,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1808
         y: 1493
-        width: 1808
+        width: 1804
         height: 1491
       alignment: 9
       pivot: {x: 0.4612312, y: 0}
@@ -257,7 +257,7 @@ TextureImporter:
         serializedVersion: 2
         x: 3616
         y: 1493
-        width: 1808
+        width: 1804
         height: 1493
       alignment: 9
       pivot: {x: 0.4612312, y: 0}
@@ -276,12 +276,12 @@ TextureImporter:
       name: Orobas_Attack01_8
       rect:
         serializedVersion: 2
-        x: 5424
-        y: 1493
-        width: 1808
+        x: 5553
+        y: 1496
+        width: 1675
         height: 1493
       alignment: 9
-      pivot: {x: 0.4612312, y: 0}
+      pivot: {x: 0.4215278, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

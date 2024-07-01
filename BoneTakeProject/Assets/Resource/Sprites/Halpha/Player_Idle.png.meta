@@ -108,9 +108,9 @@ TextureImporter:
       name: Player_Idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -129,9 +129,9 @@ TextureImporter:
       name: Player_Idle_1
       rect:
         serializedVersion: 2
-        x: 301
+        x: 303
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       name: Player_Idle_2
       rect:
         serializedVersion: 2
-        x: 602
+        x: 604
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -171,9 +171,9 @@ TextureImporter:
       name: Player_Idle_3
       rect:
         serializedVersion: 2
-        x: 903
+        x: 905
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -192,9 +192,9 @@ TextureImporter:
       name: Player_Idle_4
       rect:
         serializedVersion: 2
-        x: 1204
+        x: 1206
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -213,9 +213,9 @@ TextureImporter:
       name: Player_Idle_5
       rect:
         serializedVersion: 2
-        x: 1505
+        x: 1507
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -234,9 +234,9 @@ TextureImporter:
       name: Player_Idle_6
       rect:
         serializedVersion: 2
-        x: 1806
+        x: 1808
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -255,9 +255,9 @@ TextureImporter:
       name: Player_Idle_7
       rect:
         serializedVersion: 2
-        x: 2107
+        x: 2109
         y: 0
-        width: 301
+        width: 299
         height: 360
       alignment: 7
       pivot: {x: 0.5, y: 0}
