@@ -134,8 +134,12 @@ public class BossHitHandler : MonoBehaviour
     {
         if (!bossAttack.isGrounded) yield return new WaitUntil(() => bossAttack.isGrounded);
         if (bossAttack.isAttacking) yield return new WaitUntil(() => !bossAttack.isAttacking);
-        //CharacterController2D.instance.m_Rigidbody2D.velocity = Vector2.zero;
-        StartCoroutine(CharacterController2D.instance.DecelerateToZero(CharacterController2D.instance.m_Rigidbody2D, 0.5f));
+
+        else if (CharacterController2D.instance.isDashAttacking)
+        {
+            Debug.Log("대쉬공격으로 주금?");
+            StartCoroutine(CharacterController2D.instance.DecelerateToZero(CharacterController2D.instance.m_Rigidbody2D, 0.5f));
+        }
         
         bossAttack.animator.SetBool("IsDead", true);
         isInvincible = true;

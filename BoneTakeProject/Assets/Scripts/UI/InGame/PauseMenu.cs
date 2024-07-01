@@ -16,10 +16,14 @@ public class PauseMenu : MonoBehaviour
     private void OnEnable()
     {
         if (CharacterController2D.instance.playerAttack.isAiming)
+        {
             CharacterController2D.instance.playerAttack.isAiming = false;
+            GameManager.Instance.GetInGameUiManager().cursorObj.SetActive(false);
+        }
         
         AudioManager.instance.ChangeAudioMixerSnapShot(1);
     }
+
 
     public void PauseM_ContinueBtn()
     {

@@ -95,7 +95,7 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(AttackCooldown());
         }
 
-        if (Input.GetMouseButtonDown(1)) // 우클릭을 감지 (무기의 특수공격)
+        if (Input.GetMouseButtonDown(1) && !GameManager.Instance.GetPauseMenu().isPaused) // 우클릭을 감지 (무기의 특수공격)
         {
             //활의 조준
             if (charCon2D.m_Grounded && weapon_type == Weapon_Type.Bow)

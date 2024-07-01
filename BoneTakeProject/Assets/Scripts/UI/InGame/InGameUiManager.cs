@@ -15,6 +15,7 @@ public class InGameUiManager : MonoBehaviour
     public CinemachineVirtualCamera m_playerFollowCamera;
     public CinemachineVirtualCamera m_cursorFollowCamera;
     public List<GameObject> lifePoints = new List<GameObject>();
+    public GameObject cursorObj;
     
     private CharacterController2D charCon2D;
     private PlayerDataManager playerGameData;
@@ -199,6 +200,7 @@ public class InGameUiManager : MonoBehaviour
         if (!isInteractiveCamera)
         {
             //m_playerFollowCamera.gameObject.SetActive(!isAiming);
+            if(!cursorObj.activeSelf) cursorObj.SetActive(isAiming);
             m_cursorFollowCamera.gameObject.SetActive(isAiming);
         }
     }

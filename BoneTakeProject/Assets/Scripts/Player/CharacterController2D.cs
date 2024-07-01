@@ -135,6 +135,12 @@ public class CharacterController2D : MonoBehaviour
         {
             // isPaused 값을 반전시킴
             GameManager.Instance.GetPauseMenu().isPaused = !GameManager.Instance.GetPauseMenu().isPaused;
+
+            /*if (GameManager.Instance.GetInGameUiManager().cursorObj.activeSelf)
+            {
+                GameManager.Instance.GetInGameUiManager().cursorObj.SetActive(false);
+            }*/
+            
             
             // GameManager를 통해 일시정지 메뉴의 활성화 상태 설정
             GameManager.Instance.GetPauseMenu().gameObject.SetActive(GameManager.Instance.GetPauseMenu().isPaused);
