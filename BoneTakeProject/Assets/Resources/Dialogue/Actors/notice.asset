@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: notice
   m_EditorClassIdentifier: 
   _displayName: "\uD45C\uC9C0\uD310"
-  _portrait: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
+  _portrait: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}

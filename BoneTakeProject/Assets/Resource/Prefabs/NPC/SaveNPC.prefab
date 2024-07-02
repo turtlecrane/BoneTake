@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}
   playerSystemPrefab: {fileID: 335108038241944701, guid: bc4525055b6296141ab1c8197ff52868, type: 3}
   changeBGMName: Stop
 --- !u!1 &7886141890970740928
@@ -441,6 +441,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 845071394412155763}
     m_Modifications:
+    - target: {fileID: 6320461798269202347, guid: f427a45f07ec67b48b338c01307244d4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6320461798269202347, guid: f427a45f07ec67b48b338c01307244d4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6320461798280899523, guid: f427a45f07ec67b48b338c01307244d4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6320461798280899523, guid: f427a45f07ec67b48b338c01307244d4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6320461798578730176, guid: f427a45f07ec67b48b338c01307244d4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

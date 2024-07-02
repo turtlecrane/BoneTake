@@ -3209,7 +3209,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.01, y: 3.6}
+    oldSize: {x: 2.99, y: 3.6}
     newSize: {x: 2.91, y: 1.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3313,7 +3313,6 @@ MonoBehaviour:
   m_Grounded: 0
   isBossDirecting: 0
   playTimeCount: 0
-  isPause: 0
 --- !u!114 &335108038952000285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5488,7 +5487,7 @@ MonoBehaviour:
   contentText: {fileID: 8850521869398226403}
   choiceList: {fileID: 2688453249636549749}
   choicePrefab: {fileID: 6392792010350618602, guid: 529aa2ea5cf6c4c408958eaeb468c7ed, type: 3}
-  blank: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
+  blank: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}
 --- !u!1 &5790239406529243361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5718,7 +5717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
+  m_Sprite: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6164,7 +6163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
+  m_Sprite: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -48221,8 +48221,8 @@ MonoBehaviour:
   isInvincible: 1
   isStun: 0
   weaponName: 0300000004000000
-  maxLife: 200
-  nowLife: 200
+  maxLife: 250
+  nowLife: 250
   boneExtractionTime: 5
 --- !u!114 &988081565
 MonoBehaviour:

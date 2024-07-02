@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WallPaint
   m_EditorClassIdentifier: 
   _displayName: "\uBCBD\uD654"
-  _portrait: {fileID: -86008053, guid: fbe7a9f1379e1de45bafe30d23d72155, type: 3}
+  _portrait: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}

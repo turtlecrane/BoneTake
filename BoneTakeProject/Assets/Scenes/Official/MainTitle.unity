@@ -906,9 +906,6 @@ MonoBehaviour:
   - Name: bgm_1
     Clip:
     - {fileID: 8300000, guid: fff028473deef6e4181e1b06e4e42996, type: 3}
-  - Name: bgm_2
-    Clip:
-    - {fileID: 8300000, guid: d46ce6ee3505dcd4ca68c8c5768c0c4c, type: 3}
   - Name: bgm_3
     Clip:
     - {fileID: 8300000, guid: 8662800a56ce79d4cb20106a548ec11d, type: 3}
@@ -918,9 +915,6 @@ MonoBehaviour:
   - Name: bgm_5
     Clip:
     - {fileID: 8300000, guid: f87eae1ad8d2c424283e88ce2407774a, type: 3}
-  - Name: bgm_6
-    Clip:
-    - {fileID: 8300000, guid: 15d4e37edc3000b4eb9e88ea50b930a3, type: 3}
   - Name: bgm_7
     Clip:
     - {fileID: 8300000, guid: d75c2fc3c1b2d294bba5d590355a40b5, type: 3}
@@ -1039,12 +1033,6 @@ MonoBehaviour:
   - Name: Dark_2
     Clip:
     - {fileID: 8300000, guid: 54a584a233730ed41a03dc09e220af57, type: 3}
-  - Name: Dark_3
-    Clip:
-    - {fileID: 8300000, guid: d3db5b450f1c01d47b50678dc01370fa, type: 3}
-  - Name: Dark_4
-    Clip:
-    - {fileID: 8300000, guid: 7bb175b15e64aa64ab1a4f8fed33de02, type: 3}
   - Name: Fireplace
     Clip:
     - {fileID: 8300000, guid: d22cee1a0f1ddf94ead4a6dd2cbe8809, type: 3}
