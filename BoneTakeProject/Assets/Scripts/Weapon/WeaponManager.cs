@@ -120,7 +120,7 @@ public class WeaponManager : MonoBehaviour
         // 창 오브젝트 생성 및 위치 설정
         var shotObj = Instantiate(WeaponData.instance.throwSpearPrefabs[WeaponData.instance.GetName_ThrowSpearID(weaponName)], spearShotPoint.position, spearShotPoint.rotation);
         
-        charCon2D.playerAttack.weaponManager.weaponLife -= 3;
+        charCon2D.playerAttack.weaponManager.weaponLife -= 2;
         
         DumpedWeapon dw = shotObj.GetComponent<DumpedWeapon>();
         dw.weaponHP = charCon2D.playerAttack.weaponManager.weaponLife;

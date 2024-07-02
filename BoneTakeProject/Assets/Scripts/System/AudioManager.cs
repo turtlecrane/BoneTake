@@ -179,11 +179,12 @@ public class AudioManager : MonoBehaviour
     {
         if (environSource.Count > 0)
         {
-            foreach (var enAudio in environSource)
+            for (int i = environSource.Count - 1; i >= 0; i--)
             {
+                var enAudio = environSource[i];
                 enAudio.Stop();
-                Destroy(enAudio);
-                environSource.Remove(enAudio);
+                Destroy(enAudio.gameObject);
+                environSource.RemoveAt(i);
             }
         }
     }

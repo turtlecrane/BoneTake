@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
 {
     public bool isUsed;
     public bool isTrigger;
+    public SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private bool isNailed = false;
     private CharacterController2D charCon2D;
@@ -21,6 +22,7 @@ public class Arrow : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer.sprite = WeaponData.instance.arrowTextures[WeaponData.instance.GetName_ArrowID(charCon2D.playerAttack.weapon_name)];
         isTrigger = charCon2D.playerAttack.isAiming;
         Invoke("TimeKill", 10); //활은 10초후 자동삭제
     }

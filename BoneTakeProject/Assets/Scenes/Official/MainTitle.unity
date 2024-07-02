@@ -393,6 +393,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 02816878848e55346bb593b95ee42d9e, type: 3}
   throwSpearPrefabs:
   - {fileID: 4853334431876830048, guid: c546b6c157fed80459a229111e813454, type: 3}
+  arrowTextures:
+  - {fileID: 21300000, guid: 2543d85a8fc61ad42a27a76460481ea5, type: 3}
+  - {fileID: 21300000, guid: 50ef43b1d5d89b345966cac2c3399572, type: 3}
 --- !u!114 &390627876
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class EndingCredit : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         StartCoroutine(ChangeBGM());
+        AudioManager.instance.AllRemoveEnvironSound();
     }
 
     void Update()

@@ -333,8 +333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeBGMName: EndingCredit
-  isEnd: 0
   popupManager: {fileID: 953638738}
+  basicCursor: {fileID: 2800000, guid: 1a9cd54ff8accd948a699e395a51ebe4, type: 3}
+  isEnd: 0
 --- !u!1 &223870781
 GameObject:
   m_ObjectHideFlags: 0

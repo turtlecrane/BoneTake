@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.93, y: 0.25}
+  m_Size: {x: 2.27, y: 0.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -210,3 +210,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isUsed: 0
   isTrigger: 0
+  spriteRenderer: {fileID: 1565051078415482762}

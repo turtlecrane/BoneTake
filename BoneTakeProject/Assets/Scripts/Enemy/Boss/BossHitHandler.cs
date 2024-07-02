@@ -137,7 +137,6 @@ public class BossHitHandler : MonoBehaviour
 
         else if (CharacterController2D.instance.isDashAttacking)
         {
-            Debug.Log("대쉬공격으로 주금?");
             StartCoroutine(CharacterController2D.instance.DecelerateToZero(CharacterController2D.instance.m_Rigidbody2D, 0.5f));
         }
         
