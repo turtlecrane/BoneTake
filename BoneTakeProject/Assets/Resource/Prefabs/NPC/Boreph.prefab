@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3524587190923847789}
   - component: {fileID: 3524587190923847788}
   - component: {fileID: 2072918677}
+  - component: {fileID: 7339818938728147593}
   m_Layer: 0
   m_Name: Boreph
   m_TagString: NPC
@@ -146,6 +147,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageChangeObject: {fileID: 0}
+--- !u!95 &7339818938728147593
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524587190923847785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b794cbf364a282e41a34dd59e7f6394b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &8250632956619568446
 PrefabInstance:
   m_ObjectHideFlags: 0

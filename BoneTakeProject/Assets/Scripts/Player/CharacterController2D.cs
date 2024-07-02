@@ -100,7 +100,7 @@ public class CharacterController2D : MonoBehaviour
         //상태에 따라 레이어 변경
         gameObject.layer = isDashAttacking||playerHitHandler.isInvincible ? nonCollidingPlayerLayer : playerLayer;  //Enemy와의 충돌무시
 
-        #region 체력 시스템 ... TESTCODE
+        /*#region 체력 시스템 ... TESTCODE
 
         if (Input.GetKeyDown(KeyCode.O)) //최대 체력 증가 시스템
         {
@@ -128,7 +128,7 @@ public class CharacterController2D : MonoBehaviour
             playerdata.playerHP--;
         }
 
-        #endregion
+        #endregion*/
         
         //일시정지 화면 노출
         if (Input.GetKeyDown(KeyCode.Escape))
