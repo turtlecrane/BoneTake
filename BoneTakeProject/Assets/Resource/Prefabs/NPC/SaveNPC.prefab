@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}
   playerSystemPrefab: {fileID: 335108038241944701, guid: bc4525055b6296141ab1c8197ff52868, type: 3}
   changeBGMName: Stop
 --- !u!1 &7886141890970740928
@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 7886141890970740928}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1462104e7a37a44ca072ded8e3af03e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7c9884d0c7f80ce4ca024abd086ed5f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

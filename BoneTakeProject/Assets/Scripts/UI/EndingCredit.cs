@@ -22,8 +22,8 @@ public class EndingCredit : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        StartCoroutine(ChangeBGM());
         AudioManager.instance.AllRemoveEnvironSound();
+        StartCoroutine(ChangeBGM());
     }
 
     void Update()
@@ -54,7 +54,9 @@ public class EndingCredit : MonoBehaviour
     private IEnumerator ChangeBGM()
     {
         if (AudioManager.instance.isBGMChanging)
-        { 
+        {
+            AudioManager.instance.isBGMChanging = false;
+            StartCoroutine(AudioManager.instance.FadeOut(1f)); 
             yield return new WaitUntil(()=>!AudioManager.instance.isBGMChanging);
         }
         else

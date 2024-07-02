@@ -74199,6 +74199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 7886141890970740984, guid: d58837c1ce1b43648b4232e998379a91, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7c9884d0c7f80ce4ca024abd086ed5f1, type: 2}
     - target: {fileID: 7886141890970740985, guid: d58837c1ce1b43648b4232e998379a91, type: 3}
       propertyPath: m_SortingOrder
       value: -3
