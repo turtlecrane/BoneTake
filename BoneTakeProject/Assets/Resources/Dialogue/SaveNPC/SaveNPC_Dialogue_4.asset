@@ -61,8 +61,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC800\uC5D0\uAC8C\u200B\u200B \uAE30\uC5B5\uC744\u200B\u200B \uB9E1\uAE34\uB2E4\uACE0\u200B\u200B
-    \uC0DD\uAC01\uD574 \uC8FC\uC138\uC694."
+  dialogue: Think of it as entrusting your memories to me.
 --- !u!114 &8681552486301134557
 MonoBehaviour:
   m_ObjectHideFlags: 0

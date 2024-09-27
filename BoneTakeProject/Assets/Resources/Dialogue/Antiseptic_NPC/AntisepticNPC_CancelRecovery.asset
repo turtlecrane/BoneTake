@@ -69,6 +69,4 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC74C?\u200B\u200B \uC644\uC804\uD788\u200B\u200B \uC0C8\uAC83\u200B
-    \uAC19\uC740\u200B \uC0C1\uD0DC\uAD70.\u200B\u200B \uB0B4\uAC00\u200B\u200B \uC190\u200B
-    \uBCFC\u200B \uD544\uC694\uB294\u200B\u200B \uC5C6\uB294\u200B \uAC83\u200B \uAC19\uB2E4."
+  dialogue: Hmm? It looks brand new. I don't think it needs my touch.

@@ -28,8 +28,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC6C3\uB294\u200B \uD574\uACE8,\u200B\u200B \uC6B0\uB294\u200B \uC720\uB839,\u200B\u200B
-    \uD558\uC580\u200B \uAE4C\uB9C8\uADC0 \xB7\xB7\xB7"
+  dialogue: "A smiling skull, a crying ghost, a white raven \xB7\xB7\xB7"
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,9 +74,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\xB7\u200B\xB7\u200B\xB7\u200B \uADF8\u200B \uB4A4\uB85C\uB294\u200B\u200B
-    \uC77D\uC744\u200B \uC218\u200B \uC5C6\uC744\u200B \uC815\uB3C4\uB85C\u200B\u200B
-    \uAE01\uD600\uC788\uB2E4."
+  dialogue: "\xB7\u200B\xB7\u200B\xB7\u200B The rest is scratched beyond legibility."
 --- !u!114 &5464198253673893231
 MonoBehaviour:
   m_ObjectHideFlags: 0

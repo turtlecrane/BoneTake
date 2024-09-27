@@ -27,8 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 80a752a2d770c4748854f3f8ce66cb41, type: 2}
   audio: {fileID: 0}
-  dialogue: "\"\uC545\uB9C8\uB97C\u200B\u200B \uBD09\uC778\uD558\uB294\u200B\u200B
-    7\uB2E8\uACC4\uC758\u200B\u200B \uC758\uC2DD\""
+  dialogue: '"The Seven-Step Ritual for Sealing a Demon"'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

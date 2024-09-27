@@ -61,10 +61,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBAA8\uB4E0 \uC0AC\uAC74\uC740\u200B\u200B \uC774\uC804 \uC0AC\uAC74\uB4E4\uC5D0
-    \uC758\uD574\u200B\u200B \uACB0\uC815\uB429\uB2C8\uB2E4.\u200B\u200B \uC774\u200B\u200B
-    \uAD00\uC810\uC5D0\uC11C\u200B\u200B \uBBF8\uB798\uB97C \uBC14\uAFB8\uB294 \uAC83\uC740\u200B\u200B
-    \uBD88\uAC00\uB2A5\uD558\uB124\uC694."
+  dialogue: Every event is determined by previous events. From this perspective,
+    changing the future is impossible.
 --- !u!114 &8681552486301134557
 MonoBehaviour:
   m_ObjectHideFlags: 0

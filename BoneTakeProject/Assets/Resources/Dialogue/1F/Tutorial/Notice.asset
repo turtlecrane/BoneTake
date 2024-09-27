@@ -27,7 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\u200B\u200B\u200B\"\uB099\uD558 \u200B\u200B\uC8FC\uC758\""
+  dialogue: '"Watch Your Step"'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

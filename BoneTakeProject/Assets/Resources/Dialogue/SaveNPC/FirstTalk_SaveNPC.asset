@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uB0B4 \uC774\uB984\uC740..."
+  text: My name is
   children:
   - {fileID: 2375415071189948211}
   _uniqueId: 80fd8ab6-d385-46a5-a561-1ddb970c191e
@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC5C6\uC5B4"
+  text: None.
   children:
   - {fileID: -2719072948922699827}
   _uniqueId: 7cc310af-4f4e-44d8-b4c2-ce1051f8ff9e
@@ -60,10 +60,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBC18\uAC00\uC6CC\uC694.\u200B\u200B \uC800\uB294\u200B\u200B \uC5BC\uB9C8\u200B\u200B
-    \uB0A8\uC9C0\u200B\u200B \uC54A\uC740 \uC794\uC7AC\uB4E4\uC5D0\uAC8C\u200B\u200B
-    \uC81C\uAC00\u200B\u200B \uBCF4\uACE0\u200B\u200B \uB4E4\uC740\u200B\u200B \uC18C\uC2DD\uC744\u200B\u200B
-    \uAE30\uB85D\uD574\uC11C\u200B\u200B \uC804\uB2EC\uD558\uACE0\u200B\u200B \uC788\uC5B4\uC694."
+  dialogue: Nice to meet you. I record and share the stories I've seen and heard
+    with the few remnants left.
 --- !u!114 &-4567118391685572152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC774 \uACF3\uC740?"
+  text: Here?
   children:
   - {fileID: 8162358019118886036}
   _uniqueId: 162fadfa-f8c7-4cb3-96d4-cf28509b8c66
@@ -137,7 +135,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uADF8\uB7F0 \uAC70\u200B\u200B \uC5C6\uC5B4."
+  dialogue: Don't have that.
 --- !u!114 &-2339477775296451435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +164,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uADF8\uB807\uB2E4\uBA74.."
+  dialogue: Then...
 --- !u!114 &-385948592494819773
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +206,7 @@ MonoBehaviour:
   - {fileID: -2339477775296451435}
   - {fileID: 2375415071189948211}
   root: {fileID: 1813792612888725102}
-  scrollPosition: {x: 51090.812, y: 49956}
+  scrollPosition: {x: 50344.812, y: 50028}
 --- !u!114 &845178270122669052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,9 +235,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBD88\uAE38\uD558\uB124\uC694.\u200B\u200B \uD558\uC9C0\uB9CC\u200B\u200B
-    \uAD1C\uCC2E\uC2B5\uB2C8\uB2E4.\u200B\u200B \uBE5B\uC744\u200B\u200B \uC783\uB354\uB77C\uB3C4\u200B\u200B
-    \uC55E\uC73C\uB85C\u200B\u200B \uB098\uC544\uAC00\uC138\uC694."
+  dialogue: It feels ominous. But don't worry. Even if you lose the light, keep moving
+    forward.
 --- !u!114 &1813792612888725102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,8 +291,8 @@ MonoBehaviour:
   - {fileID: -385948592494819773}
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB2F9\uC2E0\uC740\u200B\u200B \uC774\u200B\u200B \uADFC\uCC98\u200B\u200B
-    \uCD9C\uC2E0\uC774\u200B\u200B \uC544\uB2C8\uAD70\uC694,\u200B\u200B \uADF8\uB807\uC8E0?"
+  dialogue: "You're\u200B\u200B not\u200B\u200B from\u200B\u200B around\u200B\u200B
+    here,\u200B\u200B are\u200B\u200B you?"
 --- !u!114 &2375415071189948211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,8 +364,7 @@ MonoBehaviour:
   - {fileID: -5985632590662739057}
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uADF8\uB7F0\uB370\u200B\u200B \uB2F9\uC2E0\uC744\u200B\u200B \uBB50\uB77C\uACE0\u200B\u200B
-    \uBD80\uB974\uBA74\u200B\u200B \uB420\uAE4C\uC694?"
+  dialogue: By the way, what should I call you?
 --- !u!114 &6176092519062708817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,10 +393,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBD89\uC740\u200B\u200B \uC2DC\uCCB4\u200B\u200B \uC18D\uC5D0\uC11C\u200B\u200B
-    \uAE38\uC744\u200B\u200B \uC783\uC5C8\uB098\uC694?\u200B\u200B \uD76C\uB9DD\uACFC\u200B
-    \uC808\uB9DD\uC774\u200B\u200B \uAD50\uCC28\uD558\uB294\u200B\u200B \uAC10\uC815\uC740\u200B\u200B
-    \uBD88\uD3B8\uD558\uACE0\u200B\u200B \uACE0\uD1B5\uC2A4\uB7FD\uC8E0."
+  dialogue: Lost your way among the crimson corpses? The feeling of hope and despair
+    intertwining is uncomfortable and painful, isn't it?
 --- !u!114 &8162358019118886036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +423,4 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB0B4\uAC00\u200B\u200B \uC5B4\uB514\uC5D0\u200B\u200B \uC788\uB294\uC9C0,\u200B\u200B
-    \uC544\uB2C8,\u200B\u200B \uC9C0\uAE08\u200B\u200B \uBB34\uC5C7\uC744\u200B\u200B
-    \uD574\uC57C\u200B\u200B \uD558\uB294\uC9C0\u200B\u200B \uBAA8\uB974\uACA0\uC5B4."
+  dialogue: "I don\u2019t know where I am, or what I\u2019m supposed to do now."

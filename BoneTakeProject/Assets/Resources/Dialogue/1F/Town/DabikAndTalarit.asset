@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC788\uB2E4"
+  text: Yes
   children:
   - {fileID: 8146656821701632909}
   _uniqueId: 5a66f19b-2d89-4b8b-adbd-41134eab6543
@@ -44,7 +44,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC5C6\uC5B4"
+  dialogue: Never done that.
 --- !u!114 &-894266449091703215
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC5C6\uB2E4"
+  text: No
   children:
   - {fileID: -1384159777841459067}
   _uniqueId: 62e49a84-9961-4f0c-81ae-75e36dfbfba0
@@ -114,8 +114,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 27a71d044f631f24496480b1e6066d75, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB098\uB3C4\u200B\u200B \uC5C6\uB294\uB370\u200B\u200B \uC544\uD504\uB2E4\uAE30\uBCF4\uB2E8\u200B\u200B
-    \uAE30\uBD84\u200B \uB098\uC060 \uAC83\u200B\u200B \uAC19\uC544."
+  dialogue: Yeah, I haven't either. I think it would feel more uncomfortable than
+    painful.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   - {fileID: -188972663638453267}
   - {fileID: 9162415010899612616}
   root: {fileID: -443142530125628109}
-  scrollPosition: {x: 50519.5, y: 50010}
+  scrollPosition: {x: 50329.5, y: 50069}
 --- !u!114 &1892517764201768727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +167,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 27a71d044f631f24496480b1e6066d75, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uAE00\uC384.\u200B\u200B \uD479\uC2E0\uD479\uC2E0\uD560\uC9C0\uB3C4\u200B\u200B
-    \uBAB0\uB77C."
+  dialogue: Hmm. Maybe it would be fluffy.
 --- !u!114 &2265386038051737645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,8 +197,7 @@ MonoBehaviour:
   - {fileID: -894266449091703215}
   actor: {fileID: 11400000, guid: 0df983b0e1bd7254083be8ad2334b00a, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB530\uB4EF\uD558\uB2E4.\u200B\u200B \uB108\u200B\u200B \uBD88\uC18D\uC5D0\u200B\u200B
-    \uB4E4\uC5B4\uAC00\u200B \uBCF8 \uC801\u200B \uC788\uC5B4?"
+  dialogue: It feels warm. Have you ever been inside a fire?
 --- !u!114 &8146656821701632909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +226,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC788\uC5B4"
+  dialogue: Been there, done that.
 --- !u!114 &8440033448832803095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,8 +255,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 27a71d044f631f24496480b1e6066d75, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB09C\u200B\u200B \uC5C6\uB294\uB370.\u200B\u200B \uC544\uD504\uB2E4\uAE30\uBCF4\uB2E8\u200B\u200B
-    \uAE30\uBD84\u200B \uB098\uC060\u200B \uAC83\u200B\u200B \uAC19\uC544."
+  dialogue: I haven't. I think it would feel more uncomfortable than painful.
 --- !u!114 &9162415010899612616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,4 +283,4 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 0df983b0e1bd7254083be8ad2334b00a, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uD479\uC2E0\uD479\uC2E0!!!"
+  dialogue: Fluffy Fluffy!!!

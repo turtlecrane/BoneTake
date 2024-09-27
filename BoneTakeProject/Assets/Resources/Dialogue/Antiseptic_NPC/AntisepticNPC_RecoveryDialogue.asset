@@ -69,8 +69,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uD55C\uB3D9\uC548\uC740\u200B\u200B \uAC71\uC815\u200B \uC5C6\uC744\u200B
-    \uAC70\uC57C."
+  dialogue: You shouldn't have to worry for a while.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +134,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: d11d3d581eb9a2c488845b4a0c0cf2d0, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC369\uC740\u200B \uB0B4\uAC00\u200B\u200B \uC9C4\uB3D9\uC744\u200B
-    \uD558\uB294\uAD70."
+  dialogue: There's a strong stench of decay.
 --- !u!114 &5384620150121241522
 MonoBehaviour:
   m_ObjectHideFlags: 0

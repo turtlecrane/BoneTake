@@ -49,15 +49,15 @@ public class DataSlotManager : MonoBehaviour
         int entryType = PlayerPrefs.GetInt("DataSlotEntryType", -1);
         if (entryType == 0)
         {
-            titleText.text = "새롭게 시작할 데이터슬롯을 선택해 주세요.";
+            titleText.text = "Please select an empty save slot to start a new game.";
         }
         else if(entryType == 1)
         {
-            titleText.text = "이어할 데이터슬롯을 선택해 주세요.";
+            titleText.text = "Please select a save slot to continue.";
         }
         else
         {
-            titleText.text = "오류 발생";
+            titleText.text = "Error Occurred";
         }
 
         SetAudio();
@@ -133,12 +133,12 @@ public class DataSlotManager : MonoBehaviour
         string playTimeText = "";
 
         if (hours > 0) {
-            playTimeText = $"{hours}시간";
-            if (minutes > 0) playTimeText += $" {minutes}분";
+            playTimeText = $"{hours}H";
+            if (minutes > 0) playTimeText += $" {minutes}M";
         } else if (minutes > 0) {
-            playTimeText = $"{minutes}분 {seconds}초";
+            playTimeText = $"{minutes}M {seconds}S";
         } else {
-            playTimeText = $"{seconds}초";
+            playTimeText = $"{seconds}S";
         }
 
         slots[_index].playTime.text = $"{playTimeText}";
@@ -157,7 +157,7 @@ public class DataSlotManager : MonoBehaviour
         {
             if (entryType == 0)
             {
-                popupManager.SetPopup("이미 데이터가 존재하는 데이터 슬롯입니다.\n정말 새롭게 시작하시겠습니까?\n\n<size=70%>이미 존재하는 데이터는</size> <color=red>삭제</color><size=70%>됩니다.</size>",false,
+                popupManager.SetPopup("A save already exists in this slot.\nAre you sure you want to start a new game?\n\n<size=70%>Existing data will be</size> <color=red>deleted.</color>",false,
                     () =>
                     {
                         popupManager.ClosePopup(); //팝업 닫기
@@ -173,7 +173,7 @@ public class DataSlotManager : MonoBehaviour
             }
             else
             {
-                popupManager.SetPopup("오류 발생",true,
+                popupManager.SetPopup("Error Occurred",true,
                     () =>
                     {
                         Debug.Log("오류 발생 확인버튼");
@@ -189,7 +189,7 @@ public class DataSlotManager : MonoBehaviour
             }
             else if (entryType == 1)
             {
-                popupManager.SetPopup("새로운 게임을 시작하겠습니까?",false,
+                popupManager.SetPopup("Do you want to start a new game?",false,
                     () =>
                     {
                         Debug.Log("이어하기로 데이터가 없는 슬롯을 선택함");

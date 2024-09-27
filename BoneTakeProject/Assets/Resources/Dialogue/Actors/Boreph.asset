@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Boreph
   m_EditorClassIdentifier: 
-  _displayName: "\uBCF4\uB808\uD504"
+  _displayName: Boreph
   _portrait: {fileID: 818807891, guid: a5227cb39f922eb43810d20ecefb1c2d, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: SaveNPC_Actor
   m_EditorClassIdentifier: 
-  _displayName: "\uB808\uCF54"
+  _displayName: Reko
   _portrait: {fileID: -1902164203, guid: 6204c4525c64b9640b241cf65af5bfb7, type: 3}

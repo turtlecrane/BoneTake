@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Zar
   m_EditorClassIdentifier: 
-  _displayName: "\uC790\uB974"
+  _displayName: Zar
   _portrait: {fileID: -393329140, guid: 61fe4e30800e6794fbfbe5ba1268ca89, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: notice
   m_EditorClassIdentifier: 
-  _displayName: "\uD45C\uC9C0\uD310"
+  _displayName: Notice Plate
   _portrait: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}

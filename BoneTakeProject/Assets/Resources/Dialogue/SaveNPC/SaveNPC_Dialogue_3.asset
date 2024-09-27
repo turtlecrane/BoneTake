@@ -61,9 +61,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB2F9\uC2E0\uC758\u200B\u200B \uC774\uC57C\uAE30\uB294\u200B\u200B
-    \uCC28\uAC11\uC9C0\uB9CC\u200B\u200B \uC5B4\uB518\uAC00\u200B\u200B \uAC08\uAD6C\uD558\uB294
-    \uB290\uB08C\uC774\u200B\u200B \uB4E4\uC5B4\uC694."
+  dialogue: Your story feels cold, yet there's a sense of longing in it.
 --- !u!114 &8681552486301134557
 MonoBehaviour:
   m_ObjectHideFlags: 0

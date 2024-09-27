@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Mazot
   m_EditorClassIdentifier: 
-  _displayName: "\uB9C8\uC870\uD2B8"
+  _displayName: Mazot
   _portrait: {fileID: -968859767, guid: f4fd036d080b2c048a677a8d3a099d78, type: 3}

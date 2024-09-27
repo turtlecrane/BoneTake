@@ -55918,7 +55918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5.36
+      value: 8.38
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593421, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -55974,7 +55974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593422, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_text
-      value: "2\uCE35\uC73C\uB85C \n\uC62C\uB77C\uAC00\uAE30<line-height=150%>\r\n\u25BC</line-height>"
+      value: "Going up to the second floor.<line-height=150%>\r\n\u25BC</line-height>"
       objectReference: {fileID: 0}
     - target: {fileID: 5591497592909593422, guid: f40fe45e5e4cf994fbc95381aa35be9e, type: 3}
       propertyPath: m_lineSpacing
@@ -72897,7 +72897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xB7 \uC624\uB85C\uBC14\uC2A4 \xB7"
+  m_text: "\xB7 Orobas \xB7"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e21dd543c3c22ce46b9c6ae360aad9f0, type: 2}
   m_sharedMaterial: {fileID: -1955606056003134209, guid: e21dd543c3c22ce46b9c6ae360aad9f0, type: 2}

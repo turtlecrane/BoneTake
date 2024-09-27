@@ -44,9 +44,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC5B4\uB460 \uC18D\uC744\u200B\u200B \uC5EC\uD589\uD558\uBA74\uC11C\u200B\u200B
-    \uC800\uB97C\u200B\u200B \uB2E4\uC2DC \uB9CC\uB09C\uB2E4\uBA74\u200B\u200B \uC5B8\uC81C\uB4E0\u200B\u200B
-    \uB2F9\uC2E0\uC758 \u200B\u200B\uAE30\uC5B5\uC744\u200B\u200B \uAE30\uB85D\uD560\uAC8C\uC694."
+  dialogue: If you find me again while traveling through the darkness, I'll record
+    your memories whenever you wish.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,8 +92,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "{playerName}.\u200B\u200B \uB2F9\uC2E0\uC758\u200B\u200B \uC774\uC57C\uAE30\uB97C\u200B\u200B
-    \uC54C\uB824\uC8FC\uC138\uC694."
+  dialogue: "{playerName}.\u200B\u200B Tell me your story."
 --- !u!114 &8681552486301134557
 MonoBehaviour:
   m_ObjectHideFlags: 0

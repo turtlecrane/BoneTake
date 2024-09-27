@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC544\uB2C8\uC624"
+  text: No
   children:
   - {fileID: 1148668077399448384}
   _uniqueId: 2cc93237-6b9d-49b6-901f-d994c3b3849a
@@ -43,7 +43,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC88B\uC740\u200B \uC0DD\uAC01\uC774\uC57C."
+  dialogue: That's a good idea.
 --- !u!114 &-3175786108737795074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC608"
+  text: Yes
   children:
   - {fileID: 8533716955854240316}
   _uniqueId: 50a34094-1bca-4769-bc0e-fbf3dfbaf29e
@@ -89,8 +89,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
-  dialogue: ".\u200B\u200B.\u200B\u200B.\u200B\u200B \uC911\uC694\uD55C\u200B \uBCFC\uC77C\u200B\u200B  
-    \u200B.\u200B\u200B.\u200B.\u200B \uADF8\uB807\uC9C0"
+  dialogue: ... Important business... Right.
 --- !u!114 &-2600565388567120200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +108,7 @@ MonoBehaviour:
     x: 50218
     y: 50144
     width: 200
-    height: 182
+    height: 178
   nodeTitle: 
   children: []
   conditions: []
@@ -120,10 +119,7 @@ MonoBehaviour:
   - {fileID: -4849941847036107165}
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB108\u200B \uB610\uD55C\u200B\u200B \uB098\uC640\u200B\u200B \uAC19\uC744\u200B
-    \uAC70\uC57C.\u200B\u200B \uC0C1\uC2DD\uC774\u200B\u200B \uD1B5\uD558\uC9C0\u200B
-    \uC54A\uB294\u200B\u200B \uAD6C\uC5ED\uC774\uB77C\uACE0\u200B\u200B \uC0DD\uAC01\uD574.\u200B\u200B
-    \uC774\uACF3\uC5D0\uC11C\u200B \uC548\uC804\uD558\uAC8C\u200B\u200B.\u200B."
+  dialogue: You must be like me. This area defies common sense. Stay safe here...
 --- !u!114 &-1154661257561084768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC608"
+  text: Yes
   children:
   - {fileID: 5094985519079474499}
   _uniqueId: 8ed39a17-c071-45bf-86b9-06d328f8b776
@@ -168,12 +164,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC5BC\uB9C8\u200B \uC804\uBD80\uD130\u200B\u200B \uC9C0\uBC18\uC774\u200B
-    \uC57D\uD574\uC9C0\uB294\u200B\u200B \uB290\uB08C\uC774\u200B \uB4E4\uC5C8\uC5B4.\u200B\u200B
-    \uADF8\uB798\uC11C\u200B\u200B \uB09C\u200B \uC774\uACF3\uC73C\uB85C\u200B\u200B
-    \uB0B4\uB824\uC654\uACE0,\u200B\u200B \uB0B4\uB824\uC624\uC790\uB9C8\uC790\u200B\u200B
-    \uADF8\uC5D0\uAC8C\u200B\u200B \uCAD3\uACA8\u200B \uC5EC\uAE30\uAE4C\uC9C0\u200B\u200B
-    \uB2EC\uC544\uB0AC\uC5B4."
+  dialogue: Recently, I've felt the ground weakening. So, I came down here, and as
+    soon as I arrived, I was chased all the way here by him.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +190,7 @@ MonoBehaviour:
   - {fileID: -3129399268858541033}
   - {fileID: 5980114412888524916}
   root: {fileID: 5464198253673893231}
-  scrollPosition: {x: 50729.633, y: 50244}
+  scrollPosition: {x: 50300.633, y: 50178}
 --- !u!114 &369767218022961454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb407621a43446dac370b409a9ddc29, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
-  text: "\uC544\uB2C8\uC624"
+  text: No
   children:
   - {fileID: 5899267364150278192}
   _uniqueId: 371dd00d-e5c7-45db-9ac5-d043e40c170e
@@ -233,7 +225,7 @@ MonoBehaviour:
     x: 50532
     y: 50312
     width: 200
-    height: 182
+    height: 178
   nodeTitle: 
   children: []
   conditions: []
@@ -244,9 +236,7 @@ MonoBehaviour:
   - {fileID: 369767218022961454}
   actor: {fileID: 11400000, guid: 6ecd5b42a32ca2b4d99f2a889417ab79, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB2E4\uC2DC\u200B \uD55C\uBC88\u200B\u200B \uC0DD\uAC01\uD574\u200B
-    \uBD10.\u200B\u200B \uC0C1\uC2DD\uBC16\uC758\u200B\u200B \uC0DD\uBA85\uCCB4\uAC00\u200B\u200B
-    \uC788\uB2E4\uACE0."
+  dialogue: Think about it again. There are creatures beyond reason.
 --- !u!114 &5094985519079474499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +265,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uAC00\uC9C0\u200B\u200B \uC54A\uC744\uAC8C.\u200B"
+  dialogue: I'm not going.
 --- !u!114 &5464198253673893231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +319,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB09C\u200B\u200B \uC55E\uC73C\uB85C\u200B \uAC08 \uC0DD\uAC01\uC774\uC57C."
+  dialogue: I'm moving forward.
 --- !u!114 &5980114412888524916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,8 +347,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "(\uBCF4\uD504\uB808\uAC00\u200B\u200B \uC544\uB798\uCABD\uC758\u200B\u200B
-    \uBB38\uC744\u200B \uC5F4\uC5B4\uC8FC\uC5C8\uB2E4.)"
+  dialogue: (Boreph opened the door below.)
 --- !u!114 &8533716955854240316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +376,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uADF8\uB798"
+  dialogue: Yeah.
 --- !u!114 &8585873136779898811
 MonoBehaviour:
   m_ObjectHideFlags: 1

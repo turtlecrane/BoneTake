@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Dabik
   m_EditorClassIdentifier: 
-  _displayName: "\uB2E4\uBE45"
+  _displayName: Dabik
   _portrait: {fileID: 1384373350, guid: f27090fa609a032488dd327b2c2f16c2, type: 3}

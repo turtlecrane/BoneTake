@@ -27,8 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uAC00\uB298\uACE0\u200B \uB2E8\uB2E8\uD55C\u200B \uD138\uC740\u200B\u200B
-    \uB300\uBABB\uACFC\u200B \uAC19\uC558\uB2E4."
+  dialogue: The thin, sturdy hair was like a giant nail.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

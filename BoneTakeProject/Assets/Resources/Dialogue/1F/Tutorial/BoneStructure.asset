@@ -27,9 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 7e089ccb80791744db2607b341e39021, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uACAC\uACE0\uD558\uAC8C\u200B\u200B \uACE0\uC815\uB418\uC5B4\u200B\u200B
-    \uC788\uB2E4.\u200B\u200B\u200B\n\uD53C\u200B\u200B \uBE44\uB9B0\uB0B4\uAC00\u200B\u200B
-    \uC9C4\uB3D9\uD55C\uB2E4."
+  dialogue: Securely fastened. The smell of blood is overwhelming.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

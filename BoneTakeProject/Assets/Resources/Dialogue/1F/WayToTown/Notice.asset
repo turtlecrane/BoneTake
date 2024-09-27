@@ -27,8 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC54C\uC544\uBCFC \u200B\u200B\uC218 \u200B\u200B\uC5C6\uB294 \u200B\u200B\uC8FC\uC758\uBB38\uAD6C\uAC00
-    \u200B\u200B\uC801\uD600\uC788\uB2E4."
+  dialogue: An unreadable warning is inscribed.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,8 +61,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uB54C\uB85C\uB294\u200B\u200B \uBE57\uBB3C\uC774\u200B\u200B \uADF8\uB9AC\uC6CC\uC9C8
-    \uB54C\uAC00\u200B\u200B \uC788\uC5B4\uC694."
+  dialogue: Sometimes I miss the rain.
 --- !u!114 &8681552486301134557
 MonoBehaviour:
   m_ObjectHideFlags: 0

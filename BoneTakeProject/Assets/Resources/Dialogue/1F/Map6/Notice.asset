@@ -56,7 +56,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC544\uBB34\uAC83\uB3C4 \uC801\uD600\uC788\uC9C0 \uC54A\uB2E4."
+  dialogue: Nothing is written.
 --- !u!114 &-978500832488166102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 85808e09eaf9b5143abb64ef47ed11a8, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBC29\uBA85\uB85D\u200B\u200B : "
+  dialogue: "Guest Book\u200B\u200B : "
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   - {fileID: -978500832488166102}
   - {fileID: -3442967841823497786}
   root: {fileID: 5464198253673893231}
-  scrollPosition: {x: 50708.633, y: 49942}
+  scrollPosition: {x: 49609.633, y: 50000}
 --- !u!114 &2142261287491615258
 MonoBehaviour:
   m_ObjectHideFlags: 0

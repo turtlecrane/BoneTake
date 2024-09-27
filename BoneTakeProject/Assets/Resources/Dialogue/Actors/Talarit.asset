@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Talarit
   m_EditorClassIdentifier: 
-  _displayName: "\uD0C8\uB77C\uB9BF"
+  _displayName: Talarit
   _portrait: {fileID: -1910167921, guid: 71f1952b07a8ebd468fdbe1d1e92e17f, type: 3}

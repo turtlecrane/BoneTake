@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseM_MainTitleBtn()
     {
         PopupManager popup = GameManager.Instance.GetPopupManager();
-        popup.SetPopup("정말 메인화면으로 이동하시겠습니까? \n 저장하지 않은 데이터는 삭제됩니다.", false, 
+        popup.SetPopup("Are you sure you want to return to the main menu? \n Unsaved data will be lost.", false, 
             () =>
             {
                 //AudioManager.instance.StopAndRemoveEnvironSound("HeartBeat");
@@ -53,7 +53,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseM_QuitBtn()
     {
         PopupManager popup = GameManager.Instance.GetPopupManager();
-        popup.SetPopup("정말 게임을 종료하시겠습니까? \n 저장하지 않은 데이터는 삭제됩니다.", false, 
+        popup.SetPopup("Are you sure you want to quit the game? \n Unsaved data will be lost.", false, 
             () =>
             {
                 popup.gameObject.layer = LayerMask.NameToLayer("Cursor");

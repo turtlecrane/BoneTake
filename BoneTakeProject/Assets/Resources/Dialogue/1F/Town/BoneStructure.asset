@@ -27,9 +27,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 7e089ccb80791744db2607b341e39021, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC798\u200B\u200B \uAD00\uB9AC\uB418\uC5B4\u200B\u200B \uAE54\uB054\uD55C\u200B\u200B
-    \uAD6C\uC870\uBB3C\uC774\uB2E4.\u200B\u200B\u200B \uC545\uCDE8\uAC00\u200B\u200B
-    \uC77C\uB801\uC778\uB2E4."
+  dialogue: A well-maintained and tidy structure. A foul odor lingers.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

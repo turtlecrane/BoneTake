@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 795643348876004176}
   - {fileID: 7946980920205880360}
   root: {fileID: 1813792612888725102}
-  scrollPosition: {x: 49664.5, y: 49944}
+  scrollPosition: {x: 49697.5, y: 49987}
 --- !u!114 &795643348876004176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,8 +97,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: b31ce6f4df128a54ba2354f625165673, type: 2}
   audio: {fileID: 0}
-  dialogue: "{playerName}.\u200B\u200B\u200B {playerName}\uC774\uB77C\uACE0\u200B\u200B
-    \uBD80\uB974\uB3C4\uB85D\u200B\u200B \uD558\uACA0\uC2B5\uB2C8\uB2E4."
+  dialogue: "{playerName}.\u200B\u200B\u200B I'll call you {playerName}"
 --- !u!114 &7946980920205880360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,4 +126,4 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC88B\uC744 \uB300\uB85C."
+  dialogue: Whatever.

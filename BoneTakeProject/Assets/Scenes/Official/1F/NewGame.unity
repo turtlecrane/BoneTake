@@ -520,9 +520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 856184575}
   narrationText:
-  - "\uC808\uB300 ... \uB0B4\uBCF4\uB0B4\uC120 ..."
-  - "...\uC6CC\uB77C \uB098...  ...\uD558\uB77C"
-  - "\uB10C ...\uC758 \uADFC\uC6D0...\uB2E4"
+  - You m... ...ver let it ...
+  - Fig... Adv...ce... ..dge.
+  - You are.. the root of ...
   isEnd: 0
 --- !u!114 &1659556546
 MonoBehaviour:

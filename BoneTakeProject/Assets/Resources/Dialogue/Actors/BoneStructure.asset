@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: BoneStructure
   m_EditorClassIdentifier: 
-  _displayName: "\uBF08 \uC7A5\uC2DD\uBB3C"
+  _displayName: Bone ornament
   _portrait: {fileID: -391929342, guid: 3fd64458fbe79124dbef7d889aaec15b, type: 3}

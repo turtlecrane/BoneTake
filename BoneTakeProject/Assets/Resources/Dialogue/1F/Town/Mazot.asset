@@ -28,8 +28,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: f219073338d62e8458272eb7cc2014af, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC774\u200B \uC11D\uC0C1\uACFC\u200B\u200B \uACF5\uBA85\uD558\uAC8C\u200B
-    \uB418\uBA74\u200B\u200B \uAC74\uAC15\uD574\uC9C4\uB2E4\uB294\u200B\u200B \uBAA8\uC591\uC774\uC57C."
+  dialogue: They say if you resonate with this statue, it makes you healthier.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +50,7 @@ MonoBehaviour:
   - {fileID: 9182801137316383448}
   - {fileID: -3662206406660988787}
   root: {fileID: 4194213720158169369}
-  scrollPosition: {x: 50707.5, y: 49915}
+  scrollPosition: {x: 49970.5, y: 49937}
 --- !u!114 &1394763848709659331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +79,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: 02df3adf48f187f47b02793a9afdd262, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBB34\uC2A8\uC77C\uC774\uC57C?"
+  dialogue: What's going on?
 --- !u!114 &2829698321013915179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,10 +108,8 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: f219073338d62e8458272eb7cc2014af, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC606\uC5D0\u200B\u200B \uBC40\u200B \uBAA8\uC591\uC758\u200B\u200B
-    \uC11D\uC0C1\u200B \uBCF4\uC774\uC9C0?\u200B\u200B \uB208\uC5D0\uC11C\u200B\u200B
-    \uB178\uB780\uBE5B\uC744\u200B\u200B \uBFDC\uACE0\u200B \uC788\uB294\u200B\u200B
-    \uC774\uAC83\u200B \uB9D0\uC774\uC57C."
+  dialogue: You see that snake-shaped statue next to you? The one with the yellow
+    light coming from its eyes.
 --- !u!114 &4194213720158169369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +153,7 @@ MonoBehaviour:
     x: 51301
     y: 50151
     width: 200
-    height: 160
+    height: 162
   nodeTitle: 
   children: []
   conditions: []
@@ -166,9 +163,7 @@ MonoBehaviour:
   - {fileID: 7387765634345406568}
   actor: {fileID: 11400000, guid: f219073338d62e8458272eb7cc2014af, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC774\u200B \uBE4C\uC5B4\uBA39\uC744\u200B\u200B  \uC11D\uC0C1\u200B
-    \uB54C\uBB38\uC5D0\u200B\u200B \uC5B4\uC82F\uBC24\u200B \uB0B4\u200B \uCE5C\uAD6C\uB97C\u200B\u200B
-    \uC8FD\uC774\uC9C0\u200B \uBABB\uD588\uC5B4."
+  dialogue: This damn statue stopped me from killing my friend last night.
 --- !u!114 &7387765634345406568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,8 +208,7 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: f219073338d62e8458272eb7cc2014af, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uC820\uC7A5\u200B ...\u200B\u200B \uC544.\u200B.\u200B\u200B. \u200B\uC820\uC7A5\u200B
-    .\u200B.\u200B.\u200B....."
+  dialogue: Damn... Ah... Damn...
 --- !u!114 &9182801137316383448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +236,4 @@ MonoBehaviour:
   choices: []
   actor: {fileID: 11400000, guid: f219073338d62e8458272eb7cc2014af, type: 2}
   audio: {fileID: 0}
-  dialogue: "\uBB58\u200B\u200B \uC9C4\uC9C0\uD558\uAC8C\u200B \uB4E3\uACE0\u200B
-    \uADF8\uB798?\u200B\u200B\n\uB18D\uB2F4\uC774\uC57C.\u200B \uB18D\uB2F4."
+  dialogue: Why are you taking it so seriously? I'm just kidding. Just kidding.

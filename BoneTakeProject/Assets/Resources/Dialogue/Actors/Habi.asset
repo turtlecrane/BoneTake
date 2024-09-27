@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a6ace6b46473fa9efde504ee00623, type: 3}
   m_Name: Habi
   m_EditorClassIdentifier: 
-  _displayName: "\uD558\uBE44"
+  _displayName: Habi
   _portrait: {fileID: -587150018, guid: e059c6b17166a544ebf10d0cb189c7de, type: 3}
