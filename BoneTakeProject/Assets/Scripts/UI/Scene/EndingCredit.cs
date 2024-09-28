@@ -37,7 +37,7 @@ public class EndingCredit : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Escape))
         {
-            popupManager.SetPopup("엔딩 크레딧을 생략하시겠습니까?",false, () =>
+            popupManager.SetPopup("Are you sure you want to skip the ending credits?",false, () =>
             {
                 popupManager.ClosePopup();
                 AudioManager.instance.BgmFadeOut(1f);

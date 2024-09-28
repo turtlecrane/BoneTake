@@ -29,7 +29,7 @@ public class NextFloorDoor : MonoBehaviour
     public void NpcInteraction()
     {
         PopupManager popupManager = GameManager.Instance.GetPopupManager();
-        popupManager.SetPopup("1층을 떠나 2층으로 향하시겠습니까? \n <size=70%>(참고: 예를 선택하면 게임이 자동 저장됩니다.)</size>",false, () =>
+        popupManager.SetPopup("Do you want to get out of the first floor and go to the second floor? \n <size=70%>(Note: Select Yes to save the game automatically.)</size>",false, () =>
         {
             popupManager.ClosePopup();
             
