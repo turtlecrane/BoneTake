@@ -1,33 +1,38 @@
-# BONETAKE
-<div style="text-align: right">team EEEEEL</div>
+<br/><br/>
 
----
+# BONETAKE
+<div align="right">team EEEEEL</div>
+
+<br/><br/><br/><br/>
+
+<div align="center">
+
+<a href="https://youtu.be/7Wh1wNQR0hw?si=K6lcDihrNCoYmNlM" target="_blank">
+    <img src="http://img.youtube.com/vi/7Wh1wNQR0hw/0.jpg" alt="youtubeVideo" />
+</a>
 
 <br/>
-<div style="text-align: center;">
 
-![Video Label](http://img.youtube.com/vi/7Wh1wNQR0hw/0.jpg)
-<br/><br/>
 ### [BONETAKE | Game Play Trailer (게임 소개 영상)](https://youtu.be/7Wh1wNQR0hw?si=K6lcDihrNCoYmNlM "유튜브로 이동됩니다.")
 <br/>
 
 </div>
 
----
+<br/><br/><br/>
 
 ## 작품 소개
 
 <br/><br/>
 
-<div style="text-align: center;">정체불명의 지옥에서 깨어난 주인공의 처절한 여정</div>
+<div align="center"">정체불명의 지옥에서 깨어난 주인공의 처절한 여정</div>
 
 <br/>
 
-**<div style="text-align: center;"><span style="font-size:180%">「BONETAKE」</span></div>**
+### <div align="center">「BONETAKE」</div>
 
 <br/>
 
-<div style="text-align: center;">
+<div align="center">
 지옥의 심연에서 태어난 흰 부리의 악마, 
 그는 고대 악마의 예언대로 
 7마리의 대악마를 물리치고 지옥을 정복 하기 위해 
@@ -36,14 +41,14 @@
 
 <br/>
 
-<div style="text-align: center;">
+<div align="center">
 게임에서 영구적인 무기는 존재하지 않습니다. 
 쓰러뜨린 적의 시체에서 무기를 발골하여 몸을 지키세요.
 </div>
 
 <br/>
 
-<div style="text-align: center;">
+<div align="center">
 시체에서 얻는 모든 무기는 제각기 다른 힘과 속도,
 그리고 특수 공격을 자랑합니다.
 하지만 이 무기들은 어디까지나 시체에서 적출한 무기.
@@ -53,10 +58,9 @@
 
 <br/>
 
-<div style="text-align: center;">
+<div align="center">
 귀여운 캐릭터와 대비되는 그로테스크한 지옥의 풍경,
-그리고 뼈와 살이 튀는 잔혹한 액션
-<span style="font-size:120%">「BONETAKE」</span> 입니다.
+그리고 뼈와 살이 튀는 잔혹한 액션 「BONETAKE」  입니다.
 </div>
 
 <br/><br/><br/><br/>
@@ -74,8 +78,8 @@
 
 - 총 2명이 진행
 - 2인개발
-    - 개발 1인 (@turtlecrane)
-    - 아트 1인 (@Ss0gari)
+    - 개발 1인 (``@turtlecrane``)
+    - 아트 1인 (``@Ss0gari``)
 
 <br/>
 
@@ -100,9 +104,10 @@
 
 ## 💾 실행파일
 
----
+<a href="https://turtlecrane.itch.io/bonetake/" target="_blank">
+      <img width="550" src="/readmeFiles/itchiobutton.png" alt="itchiobutton" />
+</a>
 
-[![Available on itch.io](/readmeFiles/itchiobutton.png)](https://turtlecrane.itch.io/bonetake)
 ➥ itch.io 작품 페이지 (버튼 클릭)
 
 <details>
@@ -120,7 +125,6 @@
 
 # 📝게임 특징
 
----
 
 ![0.jpg](/readmeFiles/0.jpg)
 
@@ -134,7 +138,7 @@
 
 ![image00010.jpg](/readmeFiles/image00010.jpg)
 
-![1.jpg](/readmeFiles/1.jpg)
+<div align="center"><img width="700" src="/readmeFiles/1.jpg" alt="1.jpg"/></div>
 
 - 또한 귀여운 캐릭터와 달리, 충격적이고 잔인한 전투가 펼쳐져 높은 몰입감을 만들어 냅니다.
 
@@ -156,9 +160,8 @@
 
 # **🎮 게임 플레이 방식**
 
----
 
-<div style="text-align: center;">
+<div align="center">
 
 ![Untitled](/readmeFiles/Untitled.png)
 
@@ -197,7 +200,6 @@
 
 # **📷 게임 이미지**
 
----
 
 ![메인 화면](/readmeFiles/Bonetake_demo_v0.0.1_Screenshot_2024.07.02_-_19.32.28.01.png)
 
@@ -221,7 +223,6 @@
 
 # **🪡 플로우 차트**
 
----
 
 ![flow](/readmeFiles/bonetake_flow.png)
 
@@ -230,12 +231,11 @@
 
 # **📜 BONETAKE 요약기획서**
 
----
 
 [BONETAKE - 제작부문 요약 기획서 (PDF Link)](/readmeFiles/BONETAKE_-_%25EC%25A0%259C%25EC%259E%2591%25EB%25B6%2580%25EB%25AC%25B8_%25EC%259A%2594%25EC%2595%25BD_%25EA%25B8%25B0%25ED%259A%258D%25EC%2584%259C.pdf)
 
 <br/><br/><br/><br/><br/><br/><br/><br/>
 
-**<div style="text-align: center;"><span style="font-size:180%">감사합니다.</span></div>**
+### <div align="center">감사합니다.</div>
 
 <br/><br/><br/><br/><br/><br/><br/><br/>
