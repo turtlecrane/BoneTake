@@ -102,7 +102,7 @@
 
 ---
 
-[![Available on itch.io](\readmeFiles\itchiobutton.png)](https://turtlecrane.itch.io/bonetake)
+[![Available on itch.io](/readmeFiles/itchiobutton.png)](https://turtlecrane.itch.io/bonetake)
 ➥ itch.io 작품 페이지 (버튼 클릭)
 
 <details>
@@ -122,7 +122,7 @@
 
 ---
 
-![0.jpg](\readmeFiles\0.jpg)
+![0.jpg](/readmeFiles/0.jpg)
 
 - Bonetake에서는 기본적으로 무기를 적의 시체에서 적출하여 사용합니다.
 - 무기는 쓰러뜨린 적마다 종류가 다르며 각각의 무기는 서로 다른 공격 속도, 데미지, 그리고 특수공격을 가지고 있습니다.
@@ -132,15 +132,15 @@
 
 <br/><br/><br/>
 
-![image00010.jpg](\readmeFiles\image00010.jpg)
+![image00010.jpg](/readmeFiles/image00010.jpg)
 
-![1.jpg](\readmeFiles\1.jpg)
+![1.jpg](/readmeFiles/1.jpg)
 
 - 또한 귀여운 캐릭터와 달리, 충격적이고 잔인한 전투가 펼쳐져 높은 몰입감을 만들어 냅니다.
 
 <br/><br/><br/>
 
-![image00002.png](\readmeFiles\image00002.png)
+![image00002.png](/readmeFiles/image00002.png)
 
 - Bonetake는 일반적인 이동방법 외에도, 날카로운 손톱을 이용하여 벽타기가 가능합니다.
 - 이 기능을 플레이어는 다방면으로 활용하여 맵의 여기저기를 자유롭게 이동하며
@@ -148,7 +148,7 @@
 
 <br/><br/><br/>
 
-![image00004.png](\readmeFiles\image00004.png)
+![image00004.png](/readmeFiles/image00004.png)
 
 - 맵 곳곳에 존재하는 NPC, 혹은 오브젝트들과 대화를 나누며 주인공의 Bonetake 속 세계와 이야기를 풀어나갑니다.
 
@@ -160,9 +160,9 @@
 
 <div style="text-align: center;">
 
-![Untitled](\readmeFiles\Untitled.png)
+![Untitled](/readmeFiles/Untitled.png)
 
-![Untitled](\readmeFiles\Untitled%201.png)
+![Untitled](/readmeFiles/Untitled%201.png)
 
 •  이동 A, D  |  점프 Space  |  대쉬 Shift  • 
 
@@ -175,20 +175,20 @@
 <br/><br/><br/>
 
 
-![image00003.png](\readmeFiles\image00003.png)
+![image00003.png](/readmeFiles/image00003.png)
 
 - 게임이 시작되면 조작방법과 무기추출 등, BONETAKE의 독특한 게임 시스템을 배웁니다.
 
 <br/><br/><br/>
 
-![Bonetake_v0.0.1 Screenshot 2024.07.21 - 20.53.17.14.png](\readmeFiles\Bonetake_v0.0.1_Screenshot_2024.07.21_-_20.53.17.14.png)
+![Bonetake_v0.0.1 Screenshot 2024.07.21 - 20.53.17.14.png](/readmeFiles/Bonetake_v0.0.1_Screenshot_2024.07.21_-_20.53.17.14.png)
 
 - 7 마리의 악마를 토벌하기 위해 던전을 탐험하며 다양한 NPC들을 조우합니다.
 - NPC들과 대화하고 이야기를 알아가며 주인공의 스토리를 알아가게됩니다.
 
 <br/><br/><br/>
 
-![Bonetake_demo_v0.0.1 Screenshot 2024.07.02 - 19.45.00.07.png](\readmeFiles\Bonetake_demo_v0.0.1_Screenshot_2024.07.02_-_19.45.00.07.png)
+![Bonetake_demo_v0.0.1 Screenshot 2024.07.02 - 19.45.00.07.png](/readmeFiles/Bonetake_demo_v0.0.1_Screenshot_2024.07.02_-_19.45.00.07.png)
 
 - 다양한 구조의 던전을 탐사하며 주인공을 위협하는 적을 쓰러뜨리며 맵 어딘가에 있는 보스와,
   다음 층으로 넘어갈 수 있는 문을 찾아 여행합니다.
@@ -199,21 +199,21 @@
 
 ---
 
-![메인 화면](\readmeFiles\Bonetake_demo_v0.0.1_Screenshot_2024.07.02_-_19.32.28.01.png)
+![메인 화면](/readmeFiles/Bonetake_demo_v0.0.1_Screenshot_2024.07.02_-_19.32.28.01.png)
 
 메인 화면
 
 <br/>
 
-![image00007.jpg](\readmeFiles\26c82b6f-6c31-494f-b416-422b992b3dcf.png)
+![image00007.jpg](/readmeFiles/26c82b6f-6c31-494f-b416-422b992b3dcf.png)
 
-![image00008.png](\readmeFiles\image00008.png)
+![image00008.png](/readmeFiles/image00008.png)
 
-![Bonetake_v0.0.1 Screenshot 2024.07.21 - 21.07.51.36.png](\readmeFiles\5d95344f-902d-4af1-aa53-1023a06883d7.png)
+![Bonetake_v0.0.1 Screenshot 2024.07.21 - 21.07.51.36.png](/readmeFiles/5d95344f-902d-4af1-aa53-1023a06883d7.png)
 
-![Bonetake_v0.0.1 Screenshot 2024.07.21 - 21.08.38.76.png](\readmeFiles\9411f093-d39a-4583-b451-29462d4cc5a0.png)
+![Bonetake_v0.0.1 Screenshot 2024.07.21 - 21.08.38.76.png](/readmeFiles/9411f093-d39a-4583-b451-29462d4cc5a0.png)
 
-![맵](\readmeFiles\image00009.png)
+![맵](/readmeFiles/image00009.png)
 
 맵
 
@@ -223,7 +223,7 @@
 
 ---
 
-![flow](\readmeFiles\bonetake_flow.png)
+![flow](/readmeFiles/bonetake_flow.png)
 
 
 <br/><br/><br/><br/>
@@ -232,7 +232,7 @@
 
 ---
 
-[BONETAKE - 제작부문 요약 기획서 (PDF Link)](\readmeFiles\BONETAKE_-_%25EC%25A0%259C%25EC%259E%2591%25EB%25B6%2580%25EB%25AC%25B8_%25EC%259A%2594%25EC%2595%25BD_%25EA%25B8%25B0%25ED%259A%258D%25EC%2584%259C.pdf)
+[BONETAKE - 제작부문 요약 기획서 (PDF Link)](/readmeFiles/BONETAKE_-_%25EC%25A0%259C%25EC%259E%2591%25EB%25B6%2580%25EB%25AC%25B8_%25EC%259A%2594%25EC%2595%25BD_%25EA%25B8%25B0%25ED%259A%258D%25EC%2584%259C.pdf)
 
 <br/><br/><br/><br/><br/><br/><br/><br/>
 
